@@ -1,16 +1,16 @@
 #!/bin/bash
 # Publish the latest approved draft to the live site.
-# Run via: hermes or directly from terminal.
+# Run via Hermes (reply PUBLISH in Telegram) or directly from terminal.
 # Usage: ./scripts/publish-latest.sh
 
-set -e
+set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Find the most recent draft
-DRAFT=$(ls -t content/drafts/*.md 2>/dev/null | head -1)
+DRAFT=$(ls -t content/drafts/*.md 2>/dev/null | head -1 || true)
 
 if [ -z "$DRAFT" ]; then
-  echo "No drafts found in content/drafts/"
+  echo "ERROR: No drafts found in content/drafts/"
   exit 1
 fi
 
@@ -19,17 +19,34 @@ DEST="src/content/blog/$FILENAME"
 
 echo "Publishing: $FILENAME"
 
-# Remove 'draft: true' line and set to false
-sed 's/^draft: true$/draft: false/' "$DRAFT" > "$DEST"
+# Flip draft flag to false. Tolerant of spacing variations:
+# matches "draft:true", "draft: true", "draft:  true ", any case.
+sed -E 's/^draft:[[:space:]]*true[[:space:]]*$/draft: false/I' "$DRAFT" > "$DEST"
 
-# Move draft to published archive
+# Safety check: confirm the published copy is not still marked draft: true
+if grep -qiE '^draft:[[:space:]]*true' "$DEST"; then
+  echo "ERROR: published copy still has draft: true — aborting before it goes live invisible."
+  rm -f "$DEST"
+  exit 1
+fi
+
+# Archive the original draft
 mkdir -p content/published
 mv "$DRAFT" "content/published/$FILENAME"
+echo "Moved to src/content/blog/ and archived in content/published/"
 
-echo "Moved to src/content/blog/ and content/published/"
+# Verify it builds before pushing — never push a broken site
+echo "Verifying build..."
+if ! npm run build >/tmp/sdub-publish-build.log 2>&1; then
+  echo "ERROR: build failed. Not pushing. See /tmp/sdub-publish-build.log"
+  tail -20 /tmp/sdub-publish-build.log
+  exit 1
+fi
+echo "Build OK."
 
-# Git commit and push — Vercel auto-deploys on push to main
-git add "$DEST" "content/published/$FILENAME" "research/keywords/quick-wins.md" "research/keywords/target-keywords.md"
+# Commit everything Hermes touched (new post, archive, keyword-tracker updates).
+# .gitignore excludes node_modules/dist/.astro/.vercel, so -A is safe here.
+git add -A
 git commit -m "Publish: $FILENAME
 
 Auto-published via Hermes approval workflow.
