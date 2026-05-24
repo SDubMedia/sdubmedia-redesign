@@ -12,7 +12,8 @@ SDub Media is a Nashville video production company. We do recurring video conten
 ## What We Don't Say
 - No "leverage," "utilize," "delve," "game-changing," "unlock," "elevate"
 - No corporate-speak
-- No fluff — every sentence earns its place
+- No fluff. Every sentence earns its place.
+- NO EM-DASHES (—). Use a colon and a space, or a period, or commas. See the style guide.
 
 ## Writing Style
 - Short paragraphs (2-4 sentences max)

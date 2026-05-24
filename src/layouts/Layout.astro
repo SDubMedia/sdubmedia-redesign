@@ -196,15 +196,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .blog-card-content p { font-size: 0.875rem; margin-bottom: 0; }
     .blog-card-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
 
-    /* Blog post */
-    .blog-post { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
-    .blog-post h1 { margin-bottom: 1rem; }
+    /* Blog post — three clear tiers: big main head, distinct subheads, comfortable body */
+    .blog-post { max-width: 740px; margin: 0 auto; padding: 4rem 2rem; }
+    .blog-post h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.06; margin-bottom: 1.25rem; }
     .blog-post-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .blog-post-body h2 { margin: 2.5rem 0 1rem; }
-    .blog-post-body h3 { margin: 2rem 0 0.75rem; }
-    .blog-post-body p { margin-bottom: 1.4rem; }
-    .blog-post-body ul, .blog-post-body ol { margin: 0 0 1.4rem 1.5rem; color: var(--text-dim); }
-    .blog-post-body li { margin-bottom: 0.4rem; }
+
+    /* Body text — larger, easy to read */
+    .blog-post-body { font-size: 1.15rem; line-height: 1.78; }
+    .blog-post-body p { margin-bottom: 1.5rem; }
+
+    /* Subheadings — snappier: bold, tight tracking, clearly below the main head */
+    .blog-post-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.45rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin: 3rem 0 1rem; }
+    .blog-post-body h3 { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.02em; color: var(--brand); margin: 2.25rem 0 0.6rem; }
+
+    .blog-post-body ul, .blog-post-body ol { margin: 0 0 1.5rem 1.5rem; color: var(--text-dim); }
+    .blog-post-body li { margin-bottom: 0.5rem; }
+    .blog-post-body strong { color: var(--text); }
     .blog-post-body img { max-width: 100%; border-radius: 8px; margin: 2rem 0; }
     .blog-post-body blockquote { border-left: 3px solid var(--brand); padding-left: 1.25rem; margin: 2rem 0; color: var(--text-dim); font-style: italic; }
 

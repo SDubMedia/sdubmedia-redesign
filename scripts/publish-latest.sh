@@ -17,6 +17,10 @@ fi
 FILENAME=$(basename "$DRAFT")
 DEST="src/content/blog/$FILENAME"
 
+# Ensure the blog collection dir exists (git doesn't track empty dirs, so it can
+# be missing before the first post is published).
+mkdir -p src/content/blog
+
 echo "Publishing: $FILENAME"
 
 # Flip draft flag to false. Tolerant of spacing variations:
