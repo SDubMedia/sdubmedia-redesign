@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout
+  title="Blog — SDub Media Nashville Video Production"
+  description="Practical guides on video production for Nashville businesses. Corporate video, brand video, events, and more."
+>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">From the field</span>
+      <h1>Nashville Video Production — The Blog</h1>
+      <p style="max-width: 600px; margin-top: 1rem;">Practical guides for Nashville businesses thinking about video. No fluff, no sales pitch — just what we've learned shooting in this market.</p>
+    </div>
+
+    {posts.length === 0 ? (
+      <p style="color: var(--muted);">First posts coming soon. Check back Monday.</p>
+    ) : (
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="blog-card">
+            {post.data.image && (
+              <div class="blog-card-image">
+                <img src={post.data.image} alt={post.data.title} loading="lazy" />
+              </div>
+            )}
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                {new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </div>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+</Layout>

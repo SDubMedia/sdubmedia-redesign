@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout
+  title={`${post.data.title} — SDub Media`}
+  description={post.data.description}
+  image={post.data.image}
+>
+
+<article class="blog-post">
+  <h1>{post.data.title}</h1>
+  <div class="blog-post-meta">
+    {new Date(post.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+    &nbsp;·&nbsp; SDub Media, Nashville
+  </div>
+
+  {post.data.image && (
+    <img src={post.data.image} alt={post.data.title} style="width:100%; border-radius: 12px; margin-bottom: 2.5rem;">
+  )}
+
+  <div class="blog-post-body">
+    <Content />
+  </div>
+
+  <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center;">
+    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Nashville video production for businesses that need to show up every week.</p>
+    <a href="/contact" class="btn btn-primary">Start a conversation</a>
+  </div>
+</article>
+
+</Layout>

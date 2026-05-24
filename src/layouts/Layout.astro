@@ -1,0 +1,262 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+const { title, description = "SDub Media — Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+  <link rel="sitemap" href="/sitemap-index.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:type" content="website">
+  {image && <meta property="og:image" content={image}>}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg: #0c1220;
+      --bg-elevated: #151d2e;
+      --card: #1a2332;
+      --text: #e5ebf2;
+      --text-dim: #a8b3c7;
+      --muted: #7d8ba3;
+      --border: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --brand: #4dc0e8;
+      --brand-hover: #6ecff0;
+      --amber: #d97706;
+      --soft: #111827;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 16px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    h1 { font-size: clamp(2.5rem, 5.5vw, 4.25rem); font-weight: 700; }
+    h2 { font-size: clamp(1.85rem, 3.5vw, 2.6rem); }
+    h3 { font-size: 1.5rem; }
+
+    p { margin-bottom: 1.2rem; color: var(--text-dim); }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { color: var(--brand-hover); }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brand);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* Header */
+    header.site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 18, 32, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo { display: flex; align-items: center; gap: 0.6rem; color: var(--text); }
+    .logo img { height: 28px; }
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; }
+
+    header nav ul { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
+    header nav a { color: var(--text-dim); font-size: 0.875rem; padding: 0.4rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
+    header nav a:hover, header nav a.active { color: var(--text); background: rgba(255,255,255,0.06); }
+
+    /* Layout containers */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 2rem; }
+    .container-narrow { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+    section { padding: 5rem 0; }
+    section.section-alt { background: var(--soft); }
+
+    .section-head { margin-bottom: 3rem; }
+    .text-center { text-align: center; }
+    .text-center .section-head { text-align: center; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      transition: all 0.15s;
+      background: transparent;
+    }
+    .btn:hover { border-color: var(--brand); color: var(--brand); background: rgba(77,192,232,0.05); }
+    .btn-primary { background: var(--brand); color: #0c1220; border-color: var(--brand); }
+    .btn-primary:hover { background: var(--brand-hover); border-color: var(--brand-hover); color: #0c1220; }
+
+    /* Hero */
+    .hero {
+      padding: 7rem 2rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero h1 { margin: 1.5rem 0 1.25rem; }
+    .accent { color: var(--brand); }
+    .hero-subtitle { font-size: 1.15rem; max-width: 580px; margin-bottom: 2.5rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* Logo strip */
+    .logo-strip { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; align-items: center; margin-top: 1.5rem; }
+    .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--muted); letter-spacing: -0.01em; }
+
+    /* Two-door */
+    .two-door { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .door { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; transition: border-color 0.15s; display: block; color: var(--text); }
+    .door:hover { border-color: var(--border-strong); color: var(--text); }
+    .door-photo-placeholder { background: var(--bg-elevated); height: 220px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.8rem; }
+    .door-content { padding: 1.75rem; }
+    .door-content h3 { margin-bottom: 0.75rem; }
+    .door-arrow { color: var(--brand); font-size: 0.875rem; font-weight: 600; margin-top: 1.25rem; display: block; }
+
+    /* Tiles */
+    .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .tile { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+    .tile-image { background: var(--bg-elevated); height: 180px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.8rem; }
+    .tile h3, .tile p { padding: 0 1.5rem; }
+    .tile h3 { padding-top: 1.5rem; padding-bottom: 0.5rem; }
+    .tile p { padding-bottom: 1.5rem; }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer nav ul { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    footer nav a { color: var(--text-dim); font-size: 0.85rem; }
+    footer nav a:hover { color: var(--text); }
+    .copyright { font-size: 0.8rem; color: var(--muted); }
+
+    /* Blog */
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .blog-card { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; transition: border-color 0.15s; display: block; color: var(--text); }
+    .blog-card:hover { border-color: var(--border-strong); color: var(--text); }
+    .blog-card-image { background: var(--bg-elevated); height: 200px; overflow: hidden; }
+    .blog-card-image img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-card-content { padding: 1.5rem; }
+    .blog-card-content h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+    .blog-card-content p { font-size: 0.875rem; margin-bottom: 0; }
+    .blog-card-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
+
+    /* Blog post */
+    .blog-post { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+    .blog-post h1 { margin-bottom: 1rem; }
+    .blog-post-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .blog-post-body h2 { margin: 2.5rem 0 1rem; }
+    .blog-post-body h3 { margin: 2rem 0 0.75rem; }
+    .blog-post-body p { margin-bottom: 1.4rem; }
+    .blog-post-body ul, .blog-post-body ol { margin: 0 0 1.4rem 1.5rem; color: var(--text-dim); }
+    .blog-post-body li { margin-bottom: 0.4rem; }
+    .blog-post-body img { max-width: 100%; border-radius: 8px; margin: 2rem 0; }
+    .blog-post-body blockquote { border-left: 3px solid var(--brand); padding-left: 1.25rem; margin: 2rem 0; color: var(--text-dim); font-style: italic; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .two-door { grid-template-columns: 1fr; }
+      .tiles { grid-template-columns: 1fr; }
+      header nav ul { gap: 0; }
+      header nav a { font-size: 0.8rem; padding: 0.35rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="logo">
+    <img src="/logo.svg" alt="SDub Media">
+    <span class="logo-text">SDub Media</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/business">Business</a></li>
+      <li><a href="/weddings">Weddings &amp; Portraits</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="https://sdubmedia-calendar.vercel.app" target="_blank" style="color: var(--brand);">Slate ↗</a></li>
+    </ul>
+  </nav>
+</header>
+
+<slot />
+
+<footer class="site-footer">
+  <a href="/" class="logo">
+    <img src="/logo.svg" alt="SDub Media">
+    <span class="logo-text">SDub Media</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="/business">Business</a></li>
+      <li><a href="/weddings">Weddings &amp; Portraits</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="copyright">Nashville, TN &nbsp;·&nbsp; © SDub Media</div>
+</footer>
+
+</body>
+</html>
