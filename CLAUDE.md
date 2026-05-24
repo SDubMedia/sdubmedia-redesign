@@ -33,6 +33,8 @@ Build topical authority around "Nashville video production."
 
 ## Writing Rules
 - Read `content/context/brand-voice.md` and `content/context/style-guide.md` first.
+- NO EM-DASHES anywhere — blog posts, page copy, AND template strings (titles, meta). Use a colon+space, period, commas, or parentheses. Title tags use " | " as the brand separator. This is a hard rule across the whole site, not just blog content.
+- All headings/titles in Title Case (small words like a/the/of/to/in lowercase unless first).
 - Blog posts: 1,500+ words minimum.
 - Pillar pages: 2,500+ words minimum.
 - No AI-isms: no "leverage", "utilize", "delve", "game-changing".

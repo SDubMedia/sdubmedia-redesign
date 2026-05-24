@@ -7,7 +7,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 ---
 
 <Layout
-  title="Blog — SDub Media Nashville Video Production"
+  title="Blog | SDub Media Nashville Video Production"
   description="Practical guides on video production for Nashville businesses. Corporate video, brand video, events, and more."
 >
 
@@ -15,8 +15,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">From the field</span>
-      <h1>Nashville Video Production — The Blog</h1>
-      <p style="max-width: 600px; margin-top: 1rem;">Practical guides for Nashville businesses thinking about video. No fluff, no sales pitch — just what we've learned shooting in this market.</p>
+      <h1>The Nashville Video Production Blog</h1>
+      <p style="max-width: 600px; margin-top: 1rem;">Practical guides for Nashville businesses thinking about video. No fluff, no sales pitch. Just what we've learned shooting in this market.</p>
     </div>
 
     {posts.length === 0 ? (

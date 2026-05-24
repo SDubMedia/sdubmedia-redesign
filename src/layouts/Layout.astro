@@ -4,7 +4,7 @@ export interface Props {
   description?: string;
   image?: string;
 }
-const { title, description = "SDub Media — Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image } = Astro.props;
+const { title, description = "SDub Media: Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -196,16 +196,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .blog-card-content p { font-size: 0.875rem; margin-bottom: 0; }
     .blog-card-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
 
-    /* Blog post — three clear tiers: big main head, distinct subheads, comfortable body */
+    /* Blog post: three clear tiers, big main head, distinct subheads, comfortable body */
     .blog-post { max-width: 740px; margin: 0 auto; padding: 4rem 2rem; }
     .blog-post h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); line-height: 1.06; margin-bottom: 1.25rem; }
     .blog-post-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
 
-    /* Body text — larger, easy to read */
+    /* Body text: larger, easy to read */
     .blog-post-body { font-size: 1.15rem; line-height: 1.78; }
     .blog-post-body p { margin-bottom: 1.5rem; }
 
-    /* Subheadings — snappier: bold, tight tracking, clearly below the main head */
+    /* Subheadings: snappier, bold, tight tracking, clearly below the main head */
     .blog-post-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.45rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin: 3rem 0 1rem; }
     .blog-post-body h3 { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.02em; color: var(--brand); margin: 2.25rem 0 0.6rem; }
 
