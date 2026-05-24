@@ -35,8 +35,12 @@ mkdir -p content/published
 mv "$DRAFT" "content/published/$FILENAME"
 echo "Moved to src/content/blog/ and archived in content/published/"
 
-# Verify it builds before pushing — never push a broken site
+# Verify it builds before pushing — never push a broken site.
+# Clear the content-layer data store first (node_modules/.astro) so the local
+# verification build matches Vercel's fresh build. The data store can hold stale
+# entries — especially for deleted posts — and silently diverge from the repo.
 echo "Verifying build..."
+rm -rf node_modules/.astro .astro dist
 if ! npm run build >/tmp/sdub-publish-build.log 2>&1; then
   echo "ERROR: build failed. Not pushing. See /tmp/sdub-publish-build.log"
   tail -20 /tmp/sdub-publish-build.log

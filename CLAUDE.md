@@ -46,8 +46,26 @@ Build topical authority around "Nashville video production."
 4. Mark keyword as "Written: YYYY-MM-DD" after the post is saved to drafts.
 
 ## Tech Stack
-- Static HTML/CSS — no framework (yet)
-- Hosted on Vercel — sdubmedia.com
-- Blog images: DALL-E 3 via OpenAI API
+- Astro v6 (static output) — migrated from plain HTML on 2026-05-24
+- Hosted on Vercel, GitHub repo `SDubMedia/sdubmedia-redesign` → auto-deploys on push to `main`
+- Pages live in `src/pages/*.astro`; shared shell in `src/layouts/Layout.astro` (all CSS inlined there)
+- Blog posts are a content collection: `src/content/blog/*.md`, schema in `src/content.config.ts`
+- Blog images: DALL-E 3 via OpenAI API → `public/images/blog/`
 - SEO keyword data: SEMrush (research/ folder)
 - Autonomous content: Hermes agents (cron jobs, Telegram approval workflow)
+
+## Build / Publish Workflow
+- Hermes writes drafts to `content/drafts/` with `draft: true` frontmatter (Astro ignores them there).
+- On approval (reply PUBLISH in Telegram), `scripts/publish-latest.sh` runs:
+  flips `draft: false`, copies to `src/content/blog/`, archives original to `content/published/`,
+  runs a verification build, then commits + pushes. Vercel deploys on push.
+- Old root-level `*.html` files (index.html, about.html, etc.) are dead leftovers from the
+  pre-Astro site. Astro does not serve them. Safe to delete; kept for reference only.
+
+## GOTCHA: Astro content data store
+- The content-layer cache lives in `node_modules/.astro/data-store.json` — NOT the project-root
+  `.astro/` (that's just generated types). Deleting `.astro/` alone does NOT clear it.
+- Stale entries persist there, especially for DELETED posts — a removed `.md` can keep rebuilding
+  locally even though the source is gone. Clear with `rm -rf node_modules/.astro` then rebuild.
+- This only affects LOCAL builds. Vercel does a fresh `npm install` so production always builds
+  clean from the repo. `publish-latest.sh` clears it before verifying, so local mirrors Vercel.
