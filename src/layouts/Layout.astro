@@ -3,8 +3,9 @@ export interface Props {
   title: string;
   description?: string;
   image?: string;
+  jsonLd?: object;
 }
-const { title, description = "SDub Media: Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image } = Astro.props;
+const { title, description = "SDub Media: Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image, jsonLd } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -23,6 +24,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:type" content="website">
   {image && <meta property="og:image" content={image}>}
+
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

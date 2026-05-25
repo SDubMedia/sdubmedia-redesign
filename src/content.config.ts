@@ -7,6 +7,9 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    // Bump this (never pubDate) when a pillar is refreshed with new cluster links.
+    // Stable pubDate + a newer updatedDate is the "freshened, not new" signal to Google.
+    updatedDate: z.coerce.date().optional(),
     keyword: z.string().optional(),
     image: z.string().optional(),
     draft: z.boolean().default(false),

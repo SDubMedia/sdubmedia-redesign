@@ -64,6 +64,22 @@ Build topical authority around "Nashville video production."
 - Old root-level `*.html` files (index.html, about.html, etc.) are dead leftovers from the
   pre-Astro site. Astro does not serve them. Safe to delete; kept for reference only.
 
+## Pillar / Cluster Interlinking + SEO-Safe Updates
+- Posts are grouped by a `cluster` slug in frontmatter. One post per cluster has `isPillar: true`
+  (the hub); the rest are cluster posts. The blog template auto-generates the links: cluster posts
+  link UP to the pillar, the pillar lists its clusters ("More in This Series"). No hand-written links.
+- Cluster posts ALSO get one contextual in-body link to the pillar (the pillar exists when they're
+  written). The agent writes that sentence.
+- To add contextual in-body links FROM a pillar TO its clusters, the pillar must be UPDATED after
+  the cluster exists. That is fine and good for SEO — see the rule below.
+- **NEVER rename a post file or change its slug/URL once published.** The URL is the filename.
+  Changing it makes Google treat it as a brand-new page and throws away the ranking history.
+- **When refreshing a pillar (or any post): keep `pubDate` and the filename exactly as-is, and set
+  `updatedDate` to today.** Same URL + stable pubDate + newer updatedDate = Google sees a freshened
+  page (a ranking positive), NOT a new post. The page emits BlogPosting JSON-LD with datePublished
+  and dateModified to make this explicit, and shows "Updated <date>" in the byline.
+- Redeploying via Vercel never creates a new post — it serves updated HTML at the same URL. Safe.
+
 ## GOTCHA: Astro content data store
 - The content-layer cache lives in `node_modules/.astro/data-store.json` — NOT the project-root
   `.astro/` (that's just generated types). Deleting `.astro/` alone does NOT clear it.
