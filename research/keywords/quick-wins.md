@@ -20,10 +20,10 @@ so you do NOT hand-write links between them.
 | Keyword | Vol | KD | Cluster / Role | Post idea | Status |
 |---|---|---|---|---|---|
 | nashville corporate video production | 10 | 0 | `cluster: corporate-video` · PILLAR | "Nashville Corporate Video Production: What to Expect and What It Costs" | Written: 2026-05-24 |
-| testimonial video production nashville | 10 | 0 | `cluster: corporate-video` · cluster post | "How to Get Great Testimonial Videos for Your Nashville Business" | Not written |
-| event video production services in nashville | 40 | 0 | `cluster: corporate-video` · cluster post | "Event Video Production in Nashville: What to Book and When" | Not written |
-| nashville video production companies | 110 | 30 | `cluster: video-production` · PILLAR | "Nashville Video Production Companies: An Honest Guide" | Not written |
-| video production services nashville | 40 | 0 | `cluster: video-production` · cluster post | "Video Production Services in Nashville: The Complete Breakdown" | Not written |
+| testimonial video production nashville | 10 | 0 | `cluster: corporate-video` · cluster post | "How to Get Great Testimonial Videos for Your Nashville Business" | Written: 2026-05-24 |
+| event video production services in nashville | 40 | 0 | `cluster: corporate-video` · cluster post | "Event Video Production in Nashville: What to Book and When" | Written: 2026-05-25 |
+| nashville video production companies | 110 | 30 | `cluster: video-production` · PILLAR | "Nashville Video Production Companies: An Honest Guide" | Written: 2026-05-25 |
+| video production services nashville | 40 | 0 | `cluster: video-production` · cluster post | "Video Production Services in Nashville: The Complete Breakdown" | Written: 2026-05-25 |
 | video production companies in nashville | 30 | 33 | `cluster: video-production` · cluster post | "Video Production Companies in Nashville: How to Choose the Right One" | Not written |
 | nashville music video production companies | 50 | 30 | `cluster: video-production` · cluster post | "Nashville Music Video Production: What Companies Actually Deliver" | Not written |
 | real estate video production in nashville | 10 | 0 | `cluster: real-estate` · PILLAR (later, teaching) | "Real Estate Video in Nashville: A Guide for Agents" | Not written |

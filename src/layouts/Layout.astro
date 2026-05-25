@@ -238,6 +238,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .blog-post-body { font-size: 1.15rem; line-height: 1.78; }
     .blog-post-body p { margin-bottom: 1.5rem; }
 
+    /* In-text links: classic royal blue + underline so they're obvious within prose */
+    .blog-post-body a { color: #4f7cff; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    .blog-post-body a:hover { color: #7da2ff; }
+
     /* Subheadings: snappier, bold, tight tracking, clearly below the main head */
     .blog-post-body h2 { font-size: clamp(1.9rem, 3.2vw, 2.45rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin: 3rem 0 1rem; }
     .blog-post-body h3 { font-size: 1.45rem; font-weight: 600; letter-spacing: -0.02em; color: var(--brand); margin: 2.25rem 0 0.6rem; }

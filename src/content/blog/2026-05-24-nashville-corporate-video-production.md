@@ -2,6 +2,7 @@
 title: 'Nashville Corporate Video Production: What to Expect and What It Costs'
 description: 'A straight guide to Nashville corporate video production: what the process looks like, what it costs, and how to get video that actually works for your business.'
 pubDate: 2026-05-24
+updatedDate: 2026-05-25
 keyword: 'nashville corporate video production'
 image: '/images/blog/2026-05-24-nashville-corporate-video-production.png'
 cluster: 'corporate-video'
@@ -56,7 +57,7 @@ This is what most people picture. A crew shows up with cameras, lights, and audi
 
 The size of the crew is one of the biggest cost drivers. A single operator with a camera and a couple of lights is one price. A two- or three-person crew with a dedicated audio tech, multiple cameras, and proper lighting is another. Neither is wrong. A simple testimonial doesn't need a five-person team. A brand film with multiple locations and interviews probably does.
 
-A good crew also makes the day easier on you. We've shot in plenty of Nashville offices where the team was nervous about being on camera. A real estate group in Brentwood comes to mind. Half the job that day was just making people comfortable enough to sound like themselves. That's a skill, and it's part of what you're paying for.
+A good crew also makes the day easier on you. We've shot in plenty of Nashville offices where the team was nervous about being on camera, and half the job is just making people comfortable enough to sound like themselves. That's a skill, and it's part of what you're paying for, and it matters even more when you're filming customers, as our guide to [getting great testimonial videos for your Nashville business](/blog/2026-05-24-testimonial-video-production-nashville/) explains.
 
 ### Post-Production: Where the Video Gets Made
 
@@ -72,7 +73,7 @@ Now the part you came for. These are real ranges for the Nashville market, not n
 
 **Brand film or "about us" piece: $4,000 to $12,000.** Multiple interviews, B-roll around your business, scripting, music, and a polished edit. This is the video that lives on your homepage for two or three years, so the cost spreads out over a long time.
 
-**Event coverage: $1,500 to $6,000 per event.** Depends heavily on length, number of cameras, and whether you want same-day social clips or a full recap edit. Conferences and launches sit at the higher end.
+**Event coverage: $1,500 to $6,000 per event.** Depends heavily on length, number of cameras, and whether you want same-day social clips or a full recap edit. Conferences and launches sit at the higher end. If you have an event on the calendar, our guide to [event video production in Nashville](/blog/2026-05-25-event-video-production-nashville/) breaks down what to book and, just as important, when to book it.
 
 **Recurring content (the model we recommend most): $1,500 to $5,000 per month.** This buys you a set number of videos every month on a predictable schedule. Per video, it's the cheapest way to work, because the planning and relationship are already built. It's also the only approach that compounds: consistency is what makes video pay off, and a monthly cadence is far easier to stay consistent with than a "we'll do another one eventually" one-off.
 
@@ -118,7 +119,7 @@ A video isn't finished when the edit is done. It's finished when it's working so
 
 Your website is the obvious home. A brand film on the homepage gives visitors a reason to stay, and a few seconds of a real person talking does more to build trust than any amount of copy. Service-page videos that explain exactly what you do tend to keep people on the page longer, which is its own quiet SEO benefit.
 
-Then there's the sales process. A short explainer or testimonial dropped into a proposal can close the gap between "interested" and "signed." We've had clients tell us a single case-study video did more in a pitch meeting than a deck ever did, because the prospect heard it from a customer instead of a salesperson.
+Then there's the sales process. A short explainer or testimonial dropped into a proposal can close the gap between "interested" and "signed." A single case-study video can do more in a pitch meeting than a polished deck, because the prospect hears it from a customer instead of a salesperson.
 
 Social and email are where recurring content pulls its weight. Short clips give you something to post every week, something to send in a newsletter, something to pin to the top of a LinkedIn profile. And recruiting is the use case businesses forget: a culture video that shows what it's actually like to work somewhere will pull better candidates than any job listing. If you know all of that before the shoot, you capture the right footage once instead of going back for it later.
 
