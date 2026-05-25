@@ -3,6 +3,7 @@ title: 'Nashville Corporate Video Production: What to Expect and What It Costs'
 description: 'A straight guide to Nashville corporate video production: what the process looks like, what it costs, and how to get video that actually works for your business.'
 pubDate: 2026-05-24
 keyword: 'nashville corporate video production'
+image: '/images/blog/2026-05-24-nashville-corporate-video-production.png'
 cluster: 'corporate-video'
 isPillar: true
 draft: false
