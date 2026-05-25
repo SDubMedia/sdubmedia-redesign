@@ -10,6 +10,10 @@ const blog = defineCollection({
     keyword: z.string().optional(),
     image: z.string().optional(),
     draft: z.boolean().default(false),
+    // Pillar/cluster interlinking. Posts in the same `cluster` auto-link to each other:
+    // the one with isPillar:true is the hub; the rest link up to it, it lists them all.
+    cluster: z.string().optional(),
+    isPillar: z.boolean().default(false),
   }),
 });
 

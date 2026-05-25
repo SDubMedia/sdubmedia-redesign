@@ -12,6 +12,22 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// Pillar/cluster auto-linking — no manual links needed in the markdown.
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const cluster = post.data.cluster;
+
+// If this is a cluster post, find its pillar (to link up to).
+const pillarPost = cluster && !post.data.isPillar
+  ? allPosts.find((p) => p.data.cluster === cluster && p.data.isPillar)
+  : undefined;
+
+// If this is a pillar, find its cluster posts (to link down to).
+const children = cluster && post.data.isPillar
+  ? allPosts
+      .filter((p) => p.data.cluster === cluster && !p.data.isPillar)
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  : [];
 ---
 
 <Layout
@@ -31,12 +47,29 @@ const { Content } = await render(post);
     <img src={post.data.image} alt={post.data.title} style="width:100%; border-radius: 12px; margin-bottom: 2.5rem;">
   )}
 
+  {pillarPost && (
+    <div class="series-link">
+      Part of our guide: <a href={`/blog/${pillarPost.id}`}>{pillarPost.data.title}</a>
+    </div>
+  )}
+
   <div class="blog-post-body">
     <Content />
   </div>
 
-  <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center;">
-    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Nashville video production for businesses that need to show up every week.</p>
+  {children.length > 0 && (
+    <div class="series-children">
+      <h3>More in This Series</h3>
+      <ul>
+        {children.map((c) => (
+          <li><a href={`/blog/${c.id}`}>{c.data.title}</a></li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="blog-post-cta">
+    <p>Nashville video production for businesses that need to show up every week.</p>
     <a href="/contact" class="btn btn-primary">Start a conversation</a>
   </div>
 </article>

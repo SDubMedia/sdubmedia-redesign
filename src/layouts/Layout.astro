@@ -245,6 +245,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .blog-post-body img { max-width: 100%; border-radius: 8px; margin: 2rem 0; }
     .blog-post-body blockquote { border-left: 3px solid var(--brand); padding-left: 1.25rem; margin: 2rem 0; color: var(--text-dim); font-style: italic; }
 
+    /* Pillar/cluster series links */
+    .series-link { font-size: 0.9rem; color: var(--text-dim); background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem 1.1rem; margin-bottom: 2.5rem; text-align: center; }
+    .series-link a { font-weight: 600; }
+    .series-children { margin-top: 3.5rem; padding: 1.75rem 2rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+    .series-children h3 { color: var(--brand); font-size: 1.2rem; margin-bottom: 1rem; }
+    .series-children ul { list-style: none; margin: 0; padding: 0; }
+    .series-children li { margin-bottom: 0.6rem; padding-left: 1.1rem; position: relative; }
+    .series-children li::before { content: '→'; position: absolute; left: 0; color: var(--brand); }
+    .series-children li a { font-weight: 500; color: var(--text); }
+    .series-children li a:hover { color: var(--brand); }
+
+    /* Blog post CTA */
+    .blog-post-cta { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .blog-post-cta p { color: var(--text-dim); margin-bottom: 1.5rem; }
+
     /* Responsive */
     @media (max-width: 768px) {
       .two-door { grid-template-columns: 1fr; }
