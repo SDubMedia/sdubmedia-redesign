@@ -219,7 +219,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .copyright { font-size: 0.8rem; color: var(--muted); }
 
     /* Blog */
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 360px)); gap: 1.5rem; justify-content: center; margin-top: 2rem; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
     .blog-card { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; transition: border-color 0.15s; display: block; color: var(--text); }
     .blog-card:hover { border-color: var(--border-strong); color: var(--text); }
     .blog-card-image { background: var(--bg-elevated); height: 200px; overflow: hidden; }

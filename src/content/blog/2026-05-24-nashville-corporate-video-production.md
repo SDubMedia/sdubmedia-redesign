@@ -89,7 +89,7 @@ We've watched this play out with local clients. A weekly series doesn't go viral
 
 ## How to Choose a Nashville Video Production Company
 
-You've got options in this city, and the quotes will be all over the map. Here's how to read them without getting lost.
+You've got options in this city, and the quotes will be all over the map. We go deeper on this in our honest guide to [Nashville video production companies](/blog/2026-05-25-nashville-video-production-companies/), but here's the short version of how to read a quote without getting lost.
 
 **Ask what's included, line by line.** "A video" can mean a 30-second cut or a fully produced film with three revision rounds. Two quotes that look far apart are often pricing two completely different things. Get the scope in writing.
 
