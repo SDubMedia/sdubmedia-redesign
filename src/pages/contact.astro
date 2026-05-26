@@ -96,11 +96,14 @@ import Layout from '../layouts/Layout.astro';
 
     const fd = new FormData(form);
     const get = (k: string) => (fd.get(k) || '').toString();
+    const planning = get('planning');
     const data = {
+      slug: 'sdub-media', // routes the lead into the SDub Media Slate pipeline
       name: get('name').trim(),
       email: get('email').trim(),
       phone: get('phone').trim(),
-      planning: get('planning'),
+      projectType: planning,
+      planning, // kept for the email-only fallback below
       eventDateTime: get('eventDateTime'),
       message: get('message').trim(),
       company: get('company'), // honeypot
@@ -115,28 +118,44 @@ import Layout from '../layouts/Layout.astro';
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
+    // Primary: drop the lead straight into the Slate pipeline (also emails Geoff).
+    // Fallback: if Slate is unreachable, the owned /api/contact email still fires
+    // so no inquiry is ever lost.
+    const SLATE_ENDPOINT = 'https://slate.sdubmedia.com/api/capture-pipeline-lead';
+    const succeed = () => {
+      form.style.display = 'none';
+      status.textContent = "Thanks! We got it and we'll reply within 24 hours.";
+      status.className = 'form-status ok';
+    };
+    const reset = (msg: string) => {
+      status.textContent = msg;
+      status.className = 'form-status err';
+      btn.disabled = false;
+      btn.textContent = 'Send it over';
+    };
+
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch(SLATE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (res.ok) {
-        form.style.display = 'none';
-        status.textContent = "Thanks! We got it and we'll reply within 24 hours.";
-        status.className = 'form-status ok';
-      } else {
-        const j = await res.json().catch(() => ({}));
-        status.textContent = j.error || 'Something went wrong. Please email geoff@sdubmedia.com.';
-        status.className = 'form-status err';
-        btn.disabled = false;
-        btn.textContent = 'Send it over';
-      }
+      if (res.ok) return succeed();
+      throw new Error('slate non-ok');
     } catch {
-      status.textContent = 'Network error. Please email geoff@sdubmedia.com.';
-      status.className = 'form-status err';
-      btn.disabled = false;
-      btn.textContent = 'Send it over';
+      // Fallback to the email-only function on this site.
+      try {
+        const res2 = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res2.ok) return succeed();
+        const j = await res2.json().catch(() => ({}));
+        reset(j.error || 'Something went wrong. Please email geoff@sdubmedia.com.');
+      } catch {
+        reset('Network error. Please email geoff@sdubmedia.com.');
+      }
     }
   });
 </script>
