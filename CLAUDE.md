@@ -52,9 +52,17 @@ Build topical authority around "Nashville video production."
 - Hosted on Vercel, GitHub repo `SDubMedia/sdubmedia-redesign` → auto-deploys on push to `main`
 - Pages live in `src/pages/*.astro`; shared shell in `src/layouts/Layout.astro` (all CSS inlined there)
 - Blog posts are a content collection: `src/content/blog/*.md`, schema in `src/content.config.ts`
-- Blog images: DALL-E 3 via OpenAI API → `public/images/blog/`
+- Blog images: gpt-image-1 (high quality, 1536x1024) via OpenAI API → `public/images/blog/` (dall-e-3 is NOT available on this key)
 - SEO keyword data: SEMrush (research/ folder)
 - Autonomous content: Hermes agents (cron jobs, Telegram approval workflow)
+
+## Go-Live Status — NOT LIVE YET
+The real sdubmedia.com is still the old Pixieset site. This Astro site lives ONLY on the Vercel
+preview URL (sdubmedia-redesign.vercel.app). Before pointing sdubmedia.com here:
+- [ ] Replace homepage placeholder boxes with REAL media: hero stills (business + weddings), the 3 service tiles (recurring content / podcast / events+headshots), and the 2 door images. Geoff is gathering these (~late May 2026).
+- [ ] Add real portfolio videos (YouTube embeds) — the portfolio page is currently empty ("Videos coming soon").
+- [ ] Add robots.txt.
+- [ ] Point sdubmedia.com DNS at Vercel: Claude adds the domain to the Vercel project + supplies the DNS records; GEOFF makes the DNS change at the registrar (location TBD). This REPLACES the Pixieset site, so confirm before flipping.
 
 ## Build / Publish Workflow
 - Hermes writes drafts to `content/drafts/` with `draft: true` frontmatter (Astro ignores them there).
