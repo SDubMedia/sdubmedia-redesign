@@ -45,8 +45,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        // TODO: change to a verified address (e.g. hello@sdubmedia.com) once the domain is verified in Resend.
-        from: 'SDub Media Site <onboarding@resend.dev>',
+        from: 'SDub Media <noreply@sdubmedia.com>',
         to: ['geoff@sdubmedia.com'],
         reply_to: email,
         subject: `New inquiry from ${name}${planning ? ' — ' + planning : ''}`,
