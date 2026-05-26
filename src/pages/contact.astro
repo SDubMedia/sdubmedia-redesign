@@ -1,13 +1,143 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Contact | SDub Media Nashville Video Production" description="Start a conversation with SDub Media. We reply within 24 hours.">
+<Layout title="Contact | SDub Media Nashville Video Production" description="Start a conversation with SDub Media. Tell us what you're planning and we'll reply within 24 hours.">
 <section>
-  <div class="container-narrow text-center">
-    <span class="eyebrow">Say hi</span>
-    <h1>Let's talk about<br>what you're planning.</h1>
-    <p style="font-size: 1.1rem; max-width: 500px; margin: 1.5rem auto 2.5rem;">Whether it's a weekly series for your brand or a single wedding day, start with a message. We reply within 24 hours.</p>
-    <a href="mailto:geoff@sdubmedia.com" class="btn btn-primary" style="font-size: 1rem;">geoff@sdubmedia.com</a>
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Say hi</span>
+      <h1>Let's talk about<br>what you're planning.</h1>
+      <p style="font-size: 1.1rem; max-width: 520px; margin: 1.5rem auto 2.5rem;">Whether it's a weekly series for your brand, an event, or a single wedding day, tell us a little about it and we'll reply within 24 hours.</p>
+    </div>
+
+    <form id="contact-form" class="contact-form" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required autocomplete="name">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label for="planning">What are you planning?</label>
+        <select id="planning" name="planning">
+          <option value="">Select one</option>
+          <option>Recurring content</option>
+          <option>Event coverage</option>
+          <option>Brand video</option>
+          <option>Wedding</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="eventDateTime">Event date &amp; time <span class="opt">(if applicable)</span></label>
+        <input id="eventDateTime" name="eventDateTime" type="datetime-local">
+      </div>
+      <div class="field">
+        <label for="message">Anything else? <span class="opt">(optional)</span></label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+
+      <!-- Honeypot: hidden from people, bots fill it. -->
+      <div class="hp" aria-hidden="true">
+        <label for="company">Company</label>
+        <input id="company" name="company" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="submit-btn">Send it over</button>
+      <p id="form-status" class="form-status" role="status"></p>
+    </form>
+
+    <p class="fallback">Prefer email? Reach us at <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>.</p>
   </div>
 </section>
+
+<style>
+  .contact-form { max-width: 560px; margin: 0 auto; text-align: left; }
+  .field { margin-bottom: 1.25rem; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .field label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); margin-bottom: 0.4rem; }
+  .field label .opt { font-weight: 400; color: var(--muted); }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 0.7rem 0.9rem; font-size: 1rem; font-family: inherit;
+    color: var(--text); background: var(--card); border: 1px solid var(--border-strong);
+    border-radius: 8px; box-sizing: border-box;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--brand); background: var(--bg-elevated);
+  }
+  .field textarea { resize: vertical; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  #submit-btn { width: 100%; margin-top: 0.5rem; cursor: pointer; font-size: 1rem; }
+  #submit-btn:disabled { opacity: 0.6; cursor: default; }
+  .form-status { margin-top: 1rem; text-align: center; font-size: 0.95rem; min-height: 1.2rem; }
+  .form-status.ok { color: var(--brand); }
+  .form-status.err { color: #ff8a8a; }
+  .fallback { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 2rem; }
+  @media (max-width: 540px) { .field-row { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const status = document.getElementById('form-status') as HTMLParagraphElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = '';
+    status.className = 'form-status';
+
+    const fd = new FormData(form);
+    const get = (k: string) => (fd.get(k) || '').toString();
+    const data = {
+      name: get('name').trim(),
+      email: get('email').trim(),
+      phone: get('phone').trim(),
+      planning: get('planning'),
+      eventDateTime: get('eventDateTime'),
+      message: get('message').trim(),
+      company: get('company'), // honeypot
+    };
+
+    if (!data.name || !data.email) {
+      status.textContent = 'Please add your name and email.';
+      status.className = 'form-status err';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        status.textContent = "Thanks! We got it and we'll reply within 24 hours.";
+        status.className = 'form-status ok';
+      } else {
+        const j = await res.json().catch(() => ({}));
+        status.textContent = j.error || 'Something went wrong. Please email geoff@sdubmedia.com.';
+        status.className = 'form-status err';
+        btn.disabled = false;
+        btn.textContent = 'Send it over';
+      }
+    } catch {
+      status.textContent = 'Network error. Please email geoff@sdubmedia.com.';
+      status.className = 'form-status err';
+      btn.disabled = false;
+      btn.textContent = 'Send it over';
+    }
+  });
+</script>
 </Layout>
