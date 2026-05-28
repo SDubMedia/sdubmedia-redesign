@@ -36,9 +36,15 @@ import Layout from '../layouts/Layout.astro';
           <option>Other</option>
         </select>
       </div>
-      <div class="field">
-        <label for="eventDateTime">Event date &amp; time <span class="opt">(if applicable)</span></label>
-        <input id="eventDateTime" name="eventDateTime" type="datetime-local" step="3600">
+      <div class="field-row">
+        <div class="field">
+          <label for="eventDate">Event date <span class="opt">(if applicable)</span></label>
+          <input id="eventDate" name="eventDate" type="date">
+        </div>
+        <div class="field">
+          <label for="eventTime">Event time <span class="opt">(if applicable)</span></label>
+          <input id="eventTime" name="eventTime" type="time" step="3600">
+        </div>
       </div>
       <div class="field">
         <label for="message">Anything else? <span class="opt">(optional)</span></label>
@@ -88,14 +94,15 @@ import Layout from '../layouts/Layout.astro';
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const btn = document.getElementById('submit-btn') as HTMLButtonElement;
   const status = document.getElementById('form-status') as HTMLParagraphElement;
-  const dateTime = document.getElementById('eventDateTime') as HTMLInputElement;
+  const eventDate = document.getElementById('eventDate') as HTMLInputElement;
+  const eventTime = document.getElementById('eventTime') as HTMLInputElement;
 
   // Keep the optional event time on the hour: snap whatever the visitor picks to
-  // the top of the hour. The field stays empty until they engage it, so leads
-  // without an event don't carry a stray timestamp.
-  dateTime.addEventListener('change', () => {
-    if (!dateTime.value) return;
-    dateTime.value = dateTime.value.replace(/T(\d{2}):\d{2}/, 'T$1:00');
+  // the top of the hour. Fields stay empty until engaged, so leads without an
+  // event don't carry a stray date or time.
+  eventTime.addEventListener('change', () => {
+    if (!eventTime.value) return;
+    eventTime.value = eventTime.value.replace(/^(\d{2}):\d{2}/, '$1:00');
   });
 
   form.addEventListener('submit', async (e) => {
@@ -106,6 +113,11 @@ import Layout from '../layouts/Layout.astro';
     const fd = new FormData(form);
     const get = (k: string) => (fd.get(k) || '').toString();
     const planning = get('planning');
+    // Recombine the separate date/time boxes into the single value the pipeline
+    // expects. Time alone (no date) is meaningless, so it's dropped.
+    const d = get('eventDate');
+    const t = get('eventTime');
+    const eventDateTime = d ? (t ? `${d}T${t}` : d) : '';
     const data = {
       slug: 'sdub-media', // routes the lead into the SDub Media Slate pipeline
       name: get('name').trim(),
@@ -113,7 +125,7 @@ import Layout from '../layouts/Layout.astro';
       phone: get('phone').trim(),
       projectType: planning,
       planning, // kept for the email-only fallback below
-      eventDateTime: get('eventDateTime'),
+      eventDateTime,
       message: get('message').trim(),
       company: get('company'), // honeypot
     };
