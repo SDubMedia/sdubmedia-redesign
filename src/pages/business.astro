@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+
+const videos = [
+  { title: 'Featured Reel', category: 'Recurring content', vimeo: '1192295930' },
+  { title: 'Coming soon', category: 'Corporate', vimeo: '' },
+  { title: 'Coming soon', category: 'Podcast', vimeo: '' },
+];
 ---
 <Layout title="Business Video Production Nashville | SDub Media" description="Recurring video content, corporate video, podcast production, events and headshots for Nashville businesses. Retainer-friendly packages.">
 <section>
@@ -10,6 +17,16 @@ import Layout from '../layouts/Layout.astro';
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Start a conversation</a>
     </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">See it in action</span>
+      <h2>What recurring content looks like.</h2>
+    </div>
+    <VideoGrid items={videos} />
   </div>
 </section>
 </Layout>

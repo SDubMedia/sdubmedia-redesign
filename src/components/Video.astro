@@ -1,0 +1,59 @@
+---
+// Reusable Vimeo player. Pass a Vimeo video id (the number in the URL) or a
+// full Vimeo link — both work. Clean, responsive 16:9, branding stripped,
+// lazy-loaded so it never slows the page for visitors.
+//
+// Usage: <Video id="123456789" title="Coldwell Banker brand film" />
+const { id, title = "Video" } = Astro.props;
+
+// Accept a raw id, a full link, or a private/unlisted link with a hash
+// (vimeo.com/123456789/abcdef123). Pull out the id and the optional hash.
+const raw = String(id ?? "").trim();
+const m = raw.match(/(\d+)(?:\/([0-9a-zA-Z]+))?/);
+const vimeoId = m?.[1] ?? "";
+const hash = m?.[2] ? `&h=${m[2]}` : "";
+const src = vimeoId
+  ? `https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0&dnt=1${hash}`
+  : "";
+---
+
+{vimeoId ? (
+  <div class="video-embed">
+    <iframe
+      src={src}
+      title={title}
+      loading="lazy"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+      allowfullscreen
+    ></iframe>
+  </div>
+) : (
+  <div class="video-embed video-embed--empty">No video set</div>
+)}
+
+<style>
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-elevated, #151d2e);
+    border: 1px solid var(--border, #2a3547);
+  }
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .video-embed--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted, #7d8ba3);
+    font-size: 0.85rem;
+  }
+</style>

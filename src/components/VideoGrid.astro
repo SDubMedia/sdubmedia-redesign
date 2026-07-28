@@ -1,0 +1,148 @@
+---
+// A lightweight, click-to-play grid of Vimeo videos. Used on Portfolio (6-up),
+// Business (3-up), and Weddings (3-up). Nothing loads from Vimeo until a
+// visitor clicks a card, so the page stays fast. Real thumbnails are pulled at
+// build time from Vimeo's public oEmbed (no API key); a "Coming soon" tile
+// shows for any item with an empty `vimeo`.
+//
+// (Step 3 makes these lists editable from the site login.)
+export interface VideoItem {
+  title?: string;
+  client?: string;   // real client name, or omit
+  category?: string; // e.g. 'Corporate', 'Wedding', 'Podcast'
+  vimeo: string;     // Vimeo id, or 'id/hash' for private, or '' for a placeholder
+}
+interface Props { items?: VideoItem[]; }
+const { items = [] } = Astro.props;
+
+async function vimeoThumb(spec: string): Promise<string> {
+  const m = spec.match(/(\d+)(?:\/([0-9a-zA-Z]+))?/);
+  if (!m) return '';
+  const link = m[2] ? `https://vimeo.com/${m[1]}/${m[2]}` : `https://vimeo.com/${m[1]}`;
+  try {
+    const res = await fetch(`https://vimeo.com/api/oembed.json?width=1280&url=${encodeURIComponent(link)}`);
+    if (!res.ok) return '';
+    const data = await res.json();
+    return typeof data.thumbnail_url === 'string' ? data.thumbnail_url : '';
+  } catch { return ''; }
+}
+
+const cards = await Promise.all(items.map(async (item) => {
+  const m = String(item.vimeo ?? '').match(/(\d+)(?:\/([0-9a-zA-Z]+))?/);
+  return {
+    title: item.title ?? '',
+    client: item.client ?? '',
+    category: item.category ?? '',
+    id: m?.[1] ?? '',
+    hash: m?.[2] ?? '',
+    thumb: item.vimeo ? await vimeoThumb(item.vimeo) : '',
+  };
+}));
+---
+<div class="pf-grid">
+  {cards.map(card => (
+    card.id ? (
+      <button class="pf-card" data-vimeo={card.id} data-hash={card.hash} aria-label={`Play ${card.title}`}>
+        <span
+          class:list={["pf-thumb", !card.thumb && "pf-thumb-empty"]}
+          style={card.thumb ? `background-image: url(${card.thumb})` : ''}
+        >
+          <span class="pf-play" aria-hidden="true">▶</span>
+        </span>
+        <span class="pf-meta">
+          {card.category && <span class="pf-cat">{card.category}</span>}
+          {card.title && <span class="pf-title">{card.title}</span>}
+          {card.client && <span class="pf-client">{card.client}</span>}
+        </span>
+      </button>
+    ) : (
+      <div class="pf-card pf-empty">
+        <span class="pf-thumb pf-thumb-empty"><span class="pf-soon">Coming soon</span></span>
+        <span class="pf-meta">
+          {card.category && <span class="pf-cat">{card.category}</span>}
+        </span>
+      </div>
+    )
+  ))}
+</div>
+
+<style>
+  .pf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .pf-card {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    text-align: left;
+    padding: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .pf-card:hover { border-color: var(--brand); }
+  .pf-empty { cursor: default; }
+
+  .pf-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-elevated);
+  }
+  .pf-thumb-empty { display: flex; align-items: center; justify-content: center; }
+  .pf-soon { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  .pf-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px; height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(12, 18, 32, 0.7);
+    border: 1px solid var(--brand);
+    border-radius: 50%;
+    color: var(--brand);
+    font-size: 1.1rem;
+    padding-left: 4px;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .pf-card:hover .pf-play { background: var(--brand); color: #0c1220; transform: translate(-50%, -50%) scale(1.06); }
+
+  .pf-meta { display: block; padding: 1rem 1.25rem 1.25rem; }
+  .pf-cat { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); margin-bottom: 0.35rem; }
+  .pf-title { display: block; font-weight: 600; letter-spacing: -0.01em; }
+  .pf-client { display: block; font-size: 0.85rem; color: var(--muted); margin-top: 0.15rem; }
+
+  .pf-frame { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
+</style>
+
+<script>
+  // Click-to-play facade: swap the thumbnail for an autoplaying Vimeo iframe
+  // only when clicked, so nothing loads from Vimeo until asked.
+  document.querySelectorAll('.pf-card[data-vimeo]').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-vimeo');
+      if (!id) return;
+      const hash = card.getAttribute('data-hash');
+      const thumb = card.querySelector('.pf-thumb');
+      if (!thumb) return;
+      const iframe = document.createElement('iframe');
+      iframe.className = 'pf-frame';
+      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? `&h=${hash}` : ''}`;
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write';
+      iframe.setAttribute('allowfullscreen', '');
+      thumb.replaceWith(iframe);
+    }, { once: true });
+  });
+</script>
