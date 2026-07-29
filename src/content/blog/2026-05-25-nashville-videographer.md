@@ -2,6 +2,7 @@
 title: 'Nashville Videographer: How to Find and Hire the Right One'
 description: 'How to find and hire the right Nashville videographer: what they do, the types of work, what it costs, freelancer vs studio, and the questions to ask before you book.'
 pubDate: 2026-05-25
+updatedDate: 2026-07-13
 keyword: 'videographer nashville'
 image: '/images/blog/2026-05-25-nashville-videographer.png'
 cluster: 'videographer'
@@ -16,7 +17,7 @@ Searching for a Nashville videographer turns up a long list, from solo operators
 "Videographer" covers a lot of ground. In Nashville specifically, the work tends to fall into a handful of buckets:
 
 - **Corporate and brand video:** the "who we are" film, recurring content, explainers, and recruiting videos. This is steady, ongoing work for businesses. (We go deep on it in our guide to [Nashville corporate video production](/blog/2026-05-24-nashville-corporate-video-production/).)
-- **Event coverage:** conferences, galas, launches, and performances, captured live and edited into a recap. See [event video production in Nashville](/blog/2026-05-25-event-video-production-nashville/) for what to book and when.
+- **Event coverage:** conferences, galas, launches, and performances, captured live and edited into a recap. See [event video production in Nashville](/blog/2026-05-25-event-video-production-nashville/) for what to book and when, and our deeper piece on hiring a [Nashville event videographer](/blog/2026-07-13-nashville-event-videographer/) for how to plan the day itself.
 - **Testimonials and case studies:** real customers on camera, which is some of the most persuasive video a business can own.
 - **Music video:** no surprise in this city, a big slice of Nashville videography is music-driven.
 - **Real estate and property video:** walkthroughs and listing films for agents.
@@ -45,7 +46,7 @@ The number that matters isn't the day rate, it's the cost per usable, finished v
 
 ## Questions to Ask Before You Book
 
-A few questions separate the right hire from a gamble:
+A few questions separate the right hire from a gamble (we go deeper on side-by-side comparisons in our guide to [comparing Nashville videographers](/blog/2026-06-29-nashville-videographers/)):
 
 - **Can I see work like mine?** Reels are curated. Ask for examples that match your exact kind of project.
 - **Who actually shoots and edits it?** On a small project, the person you talk to should be close to the person behind the camera. The more layers, the more gets lost.

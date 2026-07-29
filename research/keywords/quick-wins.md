@@ -24,18 +24,18 @@ so you do NOT hand-write links between them.
 | event video production services in nashville | 40 | 0 | `cluster: corporate-video` · cluster post | "Event Video Production in Nashville: What to Book and When" | Written: 2026-05-25 |
 | nashville video production companies | 110 | 30 | `cluster: video-production` · PILLAR | "Nashville Video Production Companies: An Honest Guide" | Written: 2026-05-25 |
 | video production services nashville | 40 | 0 | `cluster: video-production` · cluster post | "Video Production Services in Nashville: The Complete Breakdown" | Written: 2026-05-25 |
-| video production companies in nashville | 30 | 33 | `cluster: video-production` · cluster post | "Video Production Companies in Nashville: How to Choose the Right One" | Not written |
-| nashville music video production companies | 50 | 30 | `cluster: video-production` · cluster post | "Nashville Music Video Production: What Companies Actually Deliver" | Not written |
-| real estate video production in nashville | 10 | 0 | `cluster: real-estate` · PILLAR (later, teaching) | "Real Estate Video in Nashville: A Guide for Agents" | Not written |
+| video production companies in nashville | 30 | 33 | `cluster: video-production` · cluster post | "Video Production Companies in Nashville: How to Choose the Right One" | Written: 2026-06-01 |
+| nashville music video production companies | 50 | 30 | `cluster: video-production` · cluster post | "Nashville Music Video Production: What Companies Actually Deliver" | Written: 2026-06-15 |
+| real estate video production in nashville | 10 | 0 | `cluster: real-estate` · PILLAR (later, teaching) | "Real Estate Video in Nashville: A Guide for Agents" | Written: 2026-06-22 |
 
 ## Videographer Quick Wins (from 2026-05-24 screenshots)
 
 | Keyword | Vol | KD | Why it wins | Post idea | Status |
 |---|---|---|---|---|---|
-| videographer nashville | 170 | 23 | Lowest KD of any meaningful-volume term so far | "Nashville Videographer: How to Find the Right One for Your Business" | Not written |
-| nashville videographers | 40 | 26 | Low KD, clean cluster post | Support piece for the pillar above | Not written |
-| nashville corporate videographer | 20 | n/a | No content ranking, perfect buyer intent | "Nashville Corporate Videographer: What to Look For and What to Pay" | Not written |
-| nashville event videographer | 0 | n/a | Zero competition, aligns with recurring event work | "Nashville Event Videographer: What to Book and Why It Matters" | Not written |
+| videographer nashville | 170 | 23 | Lowest KD of any meaningful-volume term so far | "Nashville Videographer: How to Find the Right One for Your Business" | Written: 2026-05-25 |
+| nashville videographers | 40 | 26 | Low KD, clean cluster post | Support piece for the pillar above | Written: 2026-06-29 |
+| nashville corporate videographer | 20 | n/a | No content ranking, perfect buyer intent | "Nashville Corporate Videographer: What to Look For and What to Pay" | Written: 2026-07-06 |
+| nashville event videographer | 0 | n/a | Zero competition, aligns with recurring event work | "Nashville Event Videographer: What to Book and Why It Matters" | Written: 2026-07-13 |
 
 ## Key Insight
 

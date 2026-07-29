@@ -2,7 +2,7 @@
 title: 'Nashville Corporate Video Production: What to Expect and What It Costs'
 description: 'A straight guide to Nashville corporate video production: what the process looks like, what it costs, and how to get video that actually works for your business.'
 pubDate: 2026-05-24
-updatedDate: 2026-05-25
+updatedDate: 2026-07-06
 keyword: 'nashville corporate video production'
 image: '/images/blog/2026-05-24-nashville-corporate-video-production.png'
 cluster: 'corporate-video'
@@ -97,7 +97,7 @@ You've got options in this city, and the quotes will be all over the map. We go 
 
 **Ask about turnaround.** Some shops take six weeks to deliver. If you need video on a regular schedule, that timeline will sink you. Recurring work depends on a partner who can keep pace.
 
-**Ask who you'll actually be working with.** On a small project, the person who quotes you should be close to the person who shoots and edits it. The more layers between you and the work, the more gets lost in translation.
+**Ask who you'll actually be working with.** On a small project, the person who quotes you should be close to the person who shoots and edits it. The more layers between you and the work, the more gets lost in translation. If you want a deeper checklist for vetting the person behind the camera, our guide to hiring a [Nashville corporate videographer](/blog/2026-07-06-nashville-corporate-videographer/) walks through the specific questions to ask before you sign.
 
 And one more thing, because it matters more than people realize: pick someone who knows Nashville. A crew that already understands the rhythms of the city (where to shoot, how long permits take downtown, how traffic on I-65 affects a morning call time) saves you headaches you didn't know to plan for. Local knowledge isn't a luxury. It's the difference between a smooth shoot day and a stressful one.
 

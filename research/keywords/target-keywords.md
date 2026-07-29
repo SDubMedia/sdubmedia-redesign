@@ -10,9 +10,9 @@ then Secondary. Mark as "Written: YYYY-MM-DD" once a post is live.
 
 | # | Keyword | Monthly Vol | KD | CPC | Intent | SERP Features | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | nashville video production companies | 110 | 30 | $2.37 | Commercial | Local Pack, Video, Image | Not written |
-| 2 | nashville video production | 210 | 43 | $4.90 | Commercial | Local Pack, Video, Image | Not written |
-| 3 | video production nashville tn | 110 | 41 | $4.90 | Commercial | Local Pack, Video, Image | Not written |
+| 1 | nashville video production companies | 110 | 30 | $2.37 | Commercial | Local Pack, Video, Image | Written: 2026-05-25 |
+| 2 | nashville video production | 210 | 43 | $4.90 | Commercial | Local Pack, Video, Image | Written: 2026-07-20 |
+| 3 | video production nashville tn | 110 | 41 | $4.90 | Commercial | Local Pack, Video, Image | Written: 2026-07-27 |
 | 4 | nashville tn video production companies | 170 | 48 | $4.90 | Commercial | Local Pack, Video | Not written |
 | 5 | nashville video production company | 170 | 50 | $4.35 | Informational | Local Pack, Video, AI Overview | Not written |
 | 6 | video production nashville | 210 | 50 | $4.90 | Commercial | Local Pack, Video, Image | Not written |
