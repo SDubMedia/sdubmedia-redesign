@@ -18,12 +18,14 @@ Rank for Nashville corporate video keywords. Compete with tonefilms.com.
 Build topical authority around "Nashville video production."
 
 ## Site Structure
-- `index.html` — Homepage
-- `business.html` — Corporate/brand video services
-- `weddings.html` — Wedding + portrait
-- `portfolio.html` — Work showcase
-- `about.html` — About page
-- `contact.html` — Contact
+Pages are Astro, in `src/pages/` (the root-level `*.html` files are dead pre-Astro leftovers):
+- `index.astro` — Homepage
+- `business.astro` — Corporate/brand video services
+- `weddings.astro` — Wedding + portrait
+- `portfolio.astro` — Work showcase
+- `about.astro` — About page
+- `contact.astro` — Contact (posts to `api/contact.js`, a Vercel function using Resend)
+- `blog/index.astro` + `blog/[slug].astro` — Blog index and post template
 
 ## Content Engine
 - `content/context/` — Read this before writing ANYTHING. Brand voice, style guide, examples.
@@ -47,6 +49,21 @@ Build topical authority around "Nashville video production."
 3. Check `research/topical-map/supporting-posts.md` for the right cluster.
 4. Mark keyword as "Written: YYYY-MM-DD" after the post is saved to drafts.
 
+### GOTCHA: the two keyword files overlap, and "Not written" lies
+`quick-wins.md` and `target-keywords.md` list many of the SAME keywords. Marking one file does not
+mark the other, so `target-keywords.md` still shows "Not written" for 14 keywords that already have
+a published post. **Before writing anything, check the keyword against the actual posts:**
+`grep -h '^keyword:' src/content/blog/*.md` is the source of truth, not the tracker.
+
+### Do NOT write a post per keyword permutation
+Most of what remains in `target-keywords.md` is word-order variants of one query ("video production
+nashville" / "nashville video production" / "video production in nashville" / "video production
+nashville tennessee"). Google reads these as the same intent. A separate post for each is keyword
+cannibalization: the pages compete with each other, split internal link equity, and look like
+doorway pages. One post per INTENT, with the variants used naturally in the body. Only write a new
+post when the searcher actually wants something different (e.g. "video production studios" is a
+distinct intent: they want a physical studio space).
+
 ## Tech Stack
 - Astro v6 (static output) — migrated from plain HTML on 2026-05-24
 - Hosted on Vercel, GitHub repo `SDubMedia/sdubmedia-redesign` → auto-deploys on push to `main`
@@ -56,13 +73,31 @@ Build topical authority around "Nashville video production."
 - SEO keyword data: SEMrush (research/ folder)
 - Autonomous content: Hermes agents (cron jobs, Telegram approval workflow)
 
-## Go-Live Status — NOT LIVE YET
-The real sdubmedia.com is still the old Pixieset site. This Astro site lives ONLY on the Vercel
-preview URL (sdubmedia-redesign.vercel.app). Before pointing sdubmedia.com here:
-- [ ] Replace homepage placeholder boxes with REAL media: hero stills (business + weddings), the 3 service tiles (recurring content / podcast / events+headshots), and the 2 door images. Geoff is gathering these (~late May 2026).
-- [ ] Add real portfolio videos (YouTube embeds) — the portfolio page is currently empty ("Videos coming soon").
-- [ ] Add robots.txt.
-- [ ] Point sdubmedia.com DNS at Vercel: Claude adds the domain to the Vercel project + supplies the DNS records; GEOFF makes the DNS change at the registrar (location TBD). This REPLACES the Pixieset site, so confirm before flipping.
+## Go-Live Status — LIVE
+This Astro site IS the live sdubmedia.com (verified 2026-07-28: served by Vercel, `x-vercel-cache`
+present, homepage + /blog/ both 200). The old Pixieset site has been replaced. Treat every push to
+`main` as a production deploy to a public site.
+
+Done:
+- [x] Homepage real media (hero stills, service tiles, door images).
+- [x] robots.txt pointing at the sitemap.
+- [x] DNS pointed at Vercel; Pixieset retired.
+
+Still open:
+- [ ] Portfolio is mostly placeholders: 1 real Vimeo video, the rest render "Coming soon" tiles.
+      Same on business.astro (2 of 3 empty) and weddings.astro (2 of 3 empty).
+- [ ] 6 of 20 blog posts have no `image:` (they degrade fine, but no header art and no og:image).
+      Generate with gpt-image-1 into `public/images/blog/<slug>.png`, then add the `image:` field.
+
+## Editing Portfolio Videos and Client Logos
+- Video lists are hardcoded arrays at the top of `portfolio.astro`, `business.astro`, `weddings.astro`.
+- Homepage client strip reads `src/data/clients.json` (`{name, logo}`); an empty `logo` falls back to
+  the client's name as text. Logo image files do not exist yet.
+- There is deliberately NO admin login. Decided 2026-07-28: for the real cadence (a handful of videos
+  a year) Geoff sends the Vimeo link or logo file and Claude edits + pushes. Revisit only if the
+  cadence rises; the upgrade path is `videos.json` + a Kevin/Telegram commit hook, not a CMS.
+- `VideoGrid.astro` fetches Vimeo thumbnails at BUILD time via public oEmbed (no API key). Any move
+  to runtime data must preserve or cache those thumbnails.
 
 ## Build / Publish Workflow
 - Hermes writes drafts to `content/drafts/` with `draft: true` frontmatter (Astro ignores them there).
