@@ -185,9 +185,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
 
     /* Logo strip */
-    .logo-strip { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; align-items: center; margin-top: 1.5rem; }
+    .logo-strip { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; align-items: center; justify-content: center; margin-top: 1.5rem; }
     .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--muted); letter-spacing: -0.01em; }
-    .brand-logo-img { height: 34px; width: auto; max-width: 170px; object-fit: contain; opacity: 0.9; }
+    /* Client logos are supplied as WHITE artwork on transparent (dark theme).
+       Every logo is the SAME height so the row reads as one system; width just
+       follows each logo's aspect (the widest, CBSR, comes to 231px at 62px). */
+    .brand-logo-img { height: 62px; width: auto; max-width: 240px; object-fit: contain; opacity: 0.9; }
 
     /* Two-door */
     .two-door { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }

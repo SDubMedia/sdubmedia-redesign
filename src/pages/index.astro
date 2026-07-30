@@ -19,7 +19,11 @@ import clients from '../data/clients.json';
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Trusted by</span>
-      <h2>Clients who show up every month</h2>
+      {/* Was "Clients who show up every month". Untrue, since some of these
+          were one-off projects rather than recurring work. This wording claims
+          nothing about frequency and still describes the actual mix. The
+          recurring-work pitch lives on /business, where it is accurate. */}
+      <h2>Nashville businesses, schools, and arts organizations</h2>
     </div>
     <div class="logo-strip">
       {clients.map(c => (

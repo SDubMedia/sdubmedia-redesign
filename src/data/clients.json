@@ -1,9 +1,30 @@
 [
-  { "name": "Coldwell Banker Southern Realty", "logo": "" },
-  { "name": "Webb School", "logo": "" },
-  { "name": "Elite Dance", "logo": "" },
-  { "name": "Nolensville Dance Company", "logo": "" },
-  { "name": "Tutoring Rocks", "logo": "" },
-  { "name": "Middle of the Story Podcast", "logo": "" },
-  { "name": "Ballet Ball Nashville", "logo": "" }
+  {
+    "name": "Coldwell Banker Southern Realty",
+    "logo": "/images/logos/coldwell-banker-southern-realty.png"
+  },
+  {
+    "name": "Coldwell Banker Global Luxury",
+    "logo": "/images/logos/coldwell-banker-global-luxury.png"
+  },
+  {
+    "name": "Webb School",
+    "logo": "/images/logos/webb-school.png"
+  },
+  {
+    "name": "Elite Dance",
+    "logo": "/images/logos/elite-dance.png"
+  },
+  {
+    "name": "Nolensville Dance Company",
+    "logo": "/images/logos/nolensville-dance-company.png"
+  },
+  {
+    "name": "Tutoring Rocks",
+    "logo": "/images/logos/tutoring-rocks.png"
+  },
+  {
+    "name": "Ballet Ball Nashville",
+    "logo": "/images/logos/ballet-ball-nashville.png"
+  }
 ]
