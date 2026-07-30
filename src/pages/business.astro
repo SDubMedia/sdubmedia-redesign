@@ -2,10 +2,37 @@
 import Layout from '../layouts/Layout.astro';
 import VideoGrid from '../components/VideoGrid.astro';
 
+// ── HOW TO ADD A VIDEO ──────────────────────────────────────────────
+// `vimeo` is the id from the URL, or 'id/hash' for a private link, or ''
+// for a "Coming soon" tile. Only REAL clients. No invented names.
+//
+// Note: this page used to lead with Vimeo 1192295930 as a generic "Featured
+// Reel" for recurring content. That is the Nolensville Dance Company intro,
+// which now lives on /dance where it belongs, so it was removed rather than
+// stand in for business work.
+//
+// STILL COMING (deliberately NOT placeholder tiles: three real videos read
+// better than five tiles where two say "Coming soon"):
+//   - CBSR owner weekly edit  (the flagship recurring-series proof)
+//   - A podcast example. Podcast production is a headline service on the
+//     homepage and nothing on this page demonstrates it yet.
+// ────────────────────────────────────────────────────────────────────
 const videos = [
-  { title: 'Featured Reel', category: 'Recurring content', vimeo: '1192295930' },
-  { title: 'Coming soon', category: 'Corporate', vimeo: '' },
-  { title: 'Coming soon', category: 'Podcast', vimeo: '' },
+  // Credits the brokerage rather than the individual agent (Vimeo titles this
+  // "Skylar Cuarisma"): CBSR is the client, and it reads stronger than one
+  // person's name.
+  { title: 'Coldwell Banker Southern Realty', category: 'Agent on camera', vimeo: '1214149996' },
+  { title: 'Webb School Summer Camp', category: 'Education', vimeo: '1214150712' },
+  // Vimeo titles this "Church at Nolensville Crud War" (a youth event).
+  { title: 'Church at Nolensville', category: 'Community event', vimeo: '1214151209' },
+  // Vimeo titles this "Oncology Welcome Video". Deliberately NOT naming the
+  // practice: they are not on the approved client list, and healthcare clients
+  // usually need explicit sign-off before being used as marketing.
+  // TODO(geoff): confirm who this is and whether we may credit them.
+  { title: 'Patient welcome video', category: 'Healthcare', vimeo: '926434787' },
+  // Vimeo titles this "Tutoring Rocks.m4v". Approved client; the blog describes
+  // it as a brand video shot on site at their Nolensville location.
+  { title: 'Tutoring Rocks', category: 'Brand video', vimeo: '707958942' },
 ];
 ---
 <Layout title="Business Video Production Nashville | SDub Media" description="Recurring video content, corporate video, podcast production, events and headshots for Nashville businesses. Retainer-friendly packages.">
@@ -26,7 +53,9 @@ const videos = [
       <span class="eyebrow">See it in action</span>
       <h2>What recurring content looks like.</h2>
     </div>
-    <VideoGrid items={videos} />
+    {/* center: 5 videos means the last row is a partial one, and centering it
+        looks deliberate instead of left-aligned against empty columns */}
+    <VideoGrid items={videos} center />
   </div>
 </section>
 </Layout>
