@@ -14,7 +14,7 @@ import Video from '../components/Video.astro';
 // for a "Coming soon" tile. Only REAL clients. No invented names.
 // ────────────────────────────────────────────────────────────────────
 const videos = [
-  { title: 'Nolensville Dance Company', category: 'Studio intro', vimeo: '1192295930' },
+  { title: 'Nolensville Dance Company', category: 'Studio promo', vimeo: '1192295930' },
   // Vimeo titles this one just "Elite Dance". TODO(geoff): say what separates
   // it from the Elite Dance piece embedded under Studio Promos below.
   { title: 'Elite Dance', category: 'Studio promo', vimeo: '869957340' },
@@ -25,7 +25,7 @@ const videos = [
   <div class="container-narrow text-center">
     <span class="eyebrow">For dance companies</span>
     <h1>The recital is the deadline.<br>The rest of the year is the opportunity.</h1>
-    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Every studio needs the recital filmed properly. Fewer realize the same night's footage, plus a few hours across the season, is what fills next year's classes. We do both, and we already do it for dance studios in the Nashville area.</p>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Every studio needs the recital filmed properly. We do that, and we do the part that fills next year's classes: a few scheduled shoot days across the season, cut into content you can post all year. Both, for dance studios in the Nashville area.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Talk about your season</a>
     </div>
@@ -36,7 +36,7 @@ const videos = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">See it in action</span>
-      <h2>Work for Nashville-Area Dance Studios.</h2>
+      <h2>Work for dance studios around Nashville.</h2>
     </div>
     {/* center: only 2 reels right now, so don't leave an empty third column */}
     <VideoGrid items={videos} center />
@@ -47,7 +47,7 @@ const videos = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What we shoot</span>
-      <h2>Three Things a Studio Actually Needs.</h2>
+      <h2>Three things a studio needs.</h2>
     </div>
     <div class="tiles">
       <div class="tile">
@@ -85,13 +85,13 @@ const videos = [
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">Who we work with</span>
-      <h2>We Already Do This Here.</h2>
+      <h2>Elite Dance, Nolensville Dance Company, Ballet Ball Nashville.</h2>
     </div>
-    <p>Dance is not a side category for us. We produce content for Elite Dance and Nolensville Dance Company, and we covered Ballet Ball Nashville with full backstage access, filming the dancers from multiple angles and capturing the feel of the whole night: the entrance, the detail shots, the guests dancing.</p>
+    <p>We produce content for Elite Dance and Nolensville Dance Company, and we covered Ballet Ball Nashville with full backstage access, filming the dancers from multiple angles and capturing the feel of the whole night: the entrance, the detail shots, the guests dancing.</p>
     <p style="margin-top: 1.25rem;">That last one is the difference between a recording and a film. A single locked-off camera at the back of the auditorium documents that a recital happened. It does not show anyone why your studio is worth driving across town for.</p>
-    <p style="margin-top: 1.25rem;">Most studios come to us for the recital first, because that is the date on the calendar. The ones who stay find the ongoing content is what actually moves enrollment.</p>
+    <p style="margin-top: 1.25rem;">Most studios come to us for the recital first, because that is the date on the calendar. The ones who stay find the ongoing content is what moves enrollment.</p>
     <div class="text-center" style="margin-top: 2.5rem;">
-      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+      <a href="/contact" class="btn btn-primary">Talk about your season</a>
     </div>
   </div>
 </section>
