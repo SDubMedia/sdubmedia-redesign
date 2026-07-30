@@ -326,6 +326,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .nav-toggle { display: flex; }
       .slate-mobile { display: inline-block; margin-left: auto; margin-right: 0.85rem; }
       .nav-slate { display: none; }   /* shown beside the button instead */
+
+      /* Footer is a space-between row on desktop, which crushes the logo, eight
+         links and the copyright together on a phone. Stack and centre instead,
+         and give the links real vertical padding so they are tappable. */
+      footer.site-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.75rem;
+        padding: 2.5rem 1.5rem;
+      }
+      footer nav ul { justify-content: center; gap: 0.5rem 1.25rem; }
+      footer nav a { display: inline-block; padding: 0.3rem 0; }
       /* The nav becomes a panel under the sticky header. Ten items wrapped onto
          three rows before this, which pushed the page content down the screen. */
       header nav {
