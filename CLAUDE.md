@@ -36,7 +36,9 @@ Pages are Astro, in `src/pages/` (the root-level `*.html` files are dead pre-Ast
 ## Writing Rules
 - Read `content/context/brand-voice.md` and `content/context/style-guide.md` first.
 - NO EM-DASHES anywhere — blog posts, page copy, AND template strings (titles, meta). Use a colon+space, period, commas, or parentheses. Title tags use " | " as the brand separator. This is a hard rule across the whole site, not just blog content.
-- All headings/titles in Title Case (small words like a/the/of/to/in lowercase unless first).
+- **Page headings (h1/h2) are SENTENCE case.** Changed 2026-07-29: the rule used to say Title Case, but four of seven pages had always been sentence case, including the homepage and both main service pages, so the rule was losing. Everything is now normalised to sentence case, which also reads warmer. Capitalise only the first word plus proper nouns.
+- **Exception: tile/card h3 labels stay Title Case** ("Recurring Content", "Podcast Production", "Recital and Performance Films"). They act as short labels, not sentences.
+- **Blog post titles keep Title Case** (they are titles, not page headings).
 - Blog posts: 1,500+ words minimum.
 - Pillar pages: 2,500+ words minimum.
 - No AI-isms: no "leverage", "utilize", "delve", "game-changing".
