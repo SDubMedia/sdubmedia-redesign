@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import VideoGrid from '../components/VideoGrid.astro';
+import Video from '../components/Video.astro';
 
 // ── HOW TO ADD A VIDEO ──────────────────────────────────────────────
 // `vimeo` is the id from the URL, or 'id/hash' for a private link, or ''
@@ -18,10 +19,9 @@ import VideoGrid from '../components/VideoGrid.astro';
 //     homepage and nothing on this page demonstrates it yet.
 // ────────────────────────────────────────────────────────────────────
 const videos = [
-  // Credits the brokerage rather than the individual agent (Vimeo titles this
-  // "Skylar Cuarisma"): CBSR is the client, and it reads stronger than one
-  // person's name.
-  { title: 'Coldwell Banker Southern Realty', category: 'Agent on camera', vimeo: '1214149996' },
+  // NOTE: the Coldwell Banker agent interview (1214149996) is deliberately NOT
+  // here. It is embedded in the "How it works" section above as the proof for
+  // the interview engine. Never the same video twice on one page.
   { title: 'Webb School Summer Camp', category: 'Education', vimeo: '1214150712' },
   // Vimeo titles this "Church at Nolensville Crud War" (a youth event).
   { title: 'Church at Nolensville', category: 'Community event', vimeo: '1214151209' },
@@ -35,26 +35,48 @@ const videos = [
   { title: 'Tutoring Rocks', category: 'Brand video', vimeo: '707958942' },
 ];
 ---
-<Layout title="Business Video Production Nashville | SDub Media" description="Recurring video content, corporate video, podcast production, events and headshots for Nashville businesses. Retainer-friendly packages.">
+<Layout title="Business Video Production Nashville | SDub Media" description="Interview-led video content for Nashville businesses: one sit-down becomes a quarter of content. Weekly series, on-camera reels, headshots, events and brand films. Retainer-friendly.">
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">For businesses</span>
     <h1>Video that runs on a schedule,<br>not a one-time hope.</h1>
-    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Weekly content series, corporate podcasts, agent-on-camera reels, headshot days, and branded events. We build the production system so your team doesn't have to manage it.</p>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Interview-led content series, on-camera reels, headshot days, events, and brand films. We build the production system so your team doesn't have to manage it.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Start a conversation</a>
     </div>
   </div>
 </section>
 
+{/* The interview engine. This is the mechanism behind the retainer pitch and
+    it was missing from the site entirely: one sit-down becomes months of
+    content, which is what makes "every week" possible without eating the
+    client's calendar. The 19 and 16 figures are delivered work, confirmed
+    publishable by Geoff 2026-07-29. The recruitment series is deliberately
+    NOT shown or described in detail: that footage cannot be published. */}
 <section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>You sit down once. You show up every week.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">The reason most businesses give up on video is not budget. It is the calendar. Nobody has time to be filmed every week, so the content stops after a month.</p>
+    <p style="margin-top: 1.25rem;">So we do it the other way round. We block out two or three hours, film a run of interviews, usually with the owner or whoever knows the business best, and cut them into a quarter's worth of short pieces. One broker sat down with his top agents. That session became nineteen pieces of content. We did sixteen for another.</p>
+    <p style="margin-top: 1.25rem;">Two or three hours is your part: the filming. The editing is ours, and that is the part that turns one session into a quarter of content, which is why we keep editors on the team instead of a waiting list. You are on camera for an afternoon and visible for the next two months.</p>
+    <div style="margin-top: 2rem;">
+      <Video id="1214149996" title="Agent on camera, Coldwell Banker Southern Realty" />
+      <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">One cut from an agent interview day. Coldwell Banker Southern Realty.</p>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">See it in action</span>
-      <h2>What recurring content looks like.</h2>
+      <h2>What the work looks like.</h2>
     </div>
-    {/* center: 5 videos means the last row is a partial one, and centering it
-        looks deliberate instead of left-aligned against empty columns */}
+    {/* center: 4 videos leaves a partial last row, and centering it looks
+        deliberate instead of left-aligned against an empty column */}
     <VideoGrid items={videos} center />
   </div>
 </section>
