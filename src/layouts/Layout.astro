@@ -286,11 +286,56 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .blog-post-cta p { color: var(--text-dim); margin-bottom: 1.5rem; }
 
     /* Responsive */
+    /* Hamburger. Hidden on desktop; the media query below turns it on. */
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0;
+    }
+    .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.18s, opacity 0.18s;
+    }
+    .nav-toggle-bars::before, .nav-toggle-bars::after { content: ''; position: absolute; }
+    .nav-toggle-bars::before { transform: translateY(-6px); }
+    .nav-toggle-bars::after { transform: translateY(6px); }
+    /* Bars morph into an X when the panel is open. */
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before { transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after { transform: rotate(-45deg); }
+
     @media (max-width: 768px) {
       .two-door { grid-template-columns: 1fr; }
       .tiles { grid-template-columns: 1fr; }
-      header nav ul { gap: 0; }
-      header nav a { font-size: 0.8rem; padding: 0.35rem 0.5rem; }
+      .nav-toggle { display: flex; }
+      /* The nav becomes a panel under the sticky header. Ten items wrapped onto
+         three rows before this, which pushed the page content down the screen. */
+      header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(12, 18, 32, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        max-height: calc(100vh - 100%);
+        overflow-y: auto;
+      }
+      header nav[data-open="true"] { display: block; }
+      header nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 0.5rem 0; }
+      header nav a { display: block; font-size: 0.95rem; padding: 0.75rem 2rem; border-radius: 0; }
     }
   </style>
 </head>
@@ -301,7 +346,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <img src="/brand-logo.png" alt="SDub Media">
     <span class="logo-text">SDub Media</span>
   </a>
-  <nav>
+  <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+    <span class="nav-toggle-bars" aria-hidden="true"></span>
+  </button>
+  <nav id="site-nav">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/business">Business</a></li>
@@ -316,6 +364,40 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </ul>
   </nav>
 </header>
+
+<script>
+  // Mobile nav. Ten items wrapped onto three rows on a phone, so below 768px
+  // the nav collapses behind a hamburger. Desktop behaviour is untouched: the
+  // panel is only ever hidden by the media query, so if JS fails the nav still
+  // renders as a normal row on desktop.
+  (() => {
+    const btn = document.querySelector<HTMLButtonElement>('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+
+    const set = (open: boolean) => {
+      nav.dataset.open = String(open);
+      btn.setAttribute('aria-expanded', String(open));
+    };
+
+    btn.addEventListener('click', () => set(nav.dataset.open !== 'true'));
+
+    // Close after navigating, so returning via the back button is not stuck open.
+    nav.addEventListener('click', e => {
+      if ((e.target as HTMLElement).closest('a')) set(false);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.dataset.open === 'true') { set(false); btn.focus(); }
+    });
+
+    // Resizing past the breakpoint with the panel open would otherwise leave
+    // stale state behind when it collapses back down.
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) set(false);
+    });
+  })();
+</script>
 
 <slot />
 
