@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+
+// ── HOW TO ADD A VIDEO ──────────────────────────────────────────────
+// Same rules as portfolio.astro: `vimeo` is the id from the URL, or
+// 'id/hash' for a private link, or '' for a "Coming soon" tile.
+// Only use REAL clients from the approved list. No invented names.
+// ────────────────────────────────────────────────────────────────────
+// Three highlight reels. Slot 1 is the Nolensville studio piece; slots 2 and 3
+// are waiting on Vimeo links (they render as "Coming soon" until filled).
+const videos = [
+  { title: 'Nolensville Dance Company', category: 'Studio promo', vimeo: '1192295930' },
+  // Titles below match Geoff's own Vimeo titles exactly. Both are Elite Dance
+  // pieces (Jun 2023 and Oct 2023); distinguish them if he confirms what differs.
+  //
+  // PLANNED (waiting on Vimeo uploads): replace these with one example per
+  // service, matching the three tiles below:
+  //   1. Recital and Performance  2. Studio Promo / Audition Reel  3. Season-Long Social
+  { title: 'Elite Dance Highlights', category: 'Studio promo', vimeo: '839344212' },
+  { title: 'Elite Dance', category: 'Studio promo', vimeo: '869957340' },
+];
+---
+<Layout title="Dance Recital Videography Nashville | SDub Media" description="Recital films, studio promos, and audition reels for Nashville dance companies. We already work with Elite Dance, Nolensville Dance Company, and Ballet Ball Nashville.">
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">For dance companies</span>
+    <h1>The recital is the deadline.<br>The rest of the year is the opportunity.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Every studio needs the recital filmed properly. Fewer realize the same night's footage, plus a few hours across the season, is what fills next year's classes. We do both, and we already do it for dance companies here in Nashville.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Talk about your season</a>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">See it in action</span>
+      <h2>Recent Work for Nashville Studios.</h2>
+    </div>
+    <VideoGrid items={videos} />
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What we shoot</span>
+      <h2>Three Things a Studio Actually Needs.</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Recital and Performance Films</h3>
+        <p>Multi-camera coverage of the show, cut so parents can find their dancer and the studio gets a piece worth putting on the website. Full runtime for families, plus a short highlight version you can actually post.</p>
+      </div>
+      <div class="tile">
+        <h3>Studio Promos and Audition Reels</h3>
+        <p>The video that runs when a parent is deciding between you and the studio across town. Shot in your space, with your teachers and your dancers, so it looks like your studio instead of stock footage of somebody else's.</p>
+      </div>
+      <div class="tile">
+        <h3>Season-Long Social Content</h3>
+        <p>Class clips, competition trips, rehearsal moments, senior spotlights. A few scheduled shoot days across the year turn into months of posts, which is the part most studios never get around to filming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">Who we work with</span>
+      <h2>We Already Do This Here.</h2>
+    </div>
+    <p>Dance is not a side category for us. We produce content for Elite Dance and Nolensville Dance Company, and we covered Ballet Ball Nashville with full backstage access, filming the dancers from multiple angles and capturing the feel of the whole night: the entrance, the detail shots, the guests dancing.</p>
+    <p style="margin-top: 1.25rem;">That last one is the difference between a recording and a film. A single locked-off camera at the back of the auditorium documents that a recital happened. It does not show anyone why your studio is worth driving across town for.</p>
+    <p style="margin-top: 1.25rem;">Most studios come to us for the recital first, because that is the date on the calendar. The ones who stay find the ongoing content is what actually moves enrollment.</p>
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+    </div>
+  </div>
+</section>
+</Layout>

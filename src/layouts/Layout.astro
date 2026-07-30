@@ -109,7 +109,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .logo img { height: 28px; }
     .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; }
 
-    header nav ul { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
+    /* flex-wrap is required: the nav is wider than a phone viewport, and without
+       it the whole page gains a horizontal scrollbar. */
+    header nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem; list-style: none; align-items: center; justify-content: flex-end; }
     header nav a { color: var(--text-dim); font-size: 0.875rem; padding: 0.4rem 0.75rem; border-radius: 6px; transition: color 0.15s, background 0.15s; }
     header nav a:hover, header nav a.active { color: var(--text); background: rgba(255,255,255,0.06); }
 
@@ -185,6 +187,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Logo strip */
     .logo-strip { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; align-items: center; margin-top: 1.5rem; }
     .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--muted); letter-spacing: -0.01em; }
+    .brand-logo-img { height: 34px; width: auto; max-width: 170px; object-fit: contain; opacity: 0.9; }
 
     /* Two-door */
     .two-door { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -288,6 +291,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/business">Business</a></li>
+      <li><a href="/dance">Dance</a></li>
       <li><a href="/weddings">Weddings &amp; Portraits</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
@@ -308,6 +312,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <nav>
     <ul>
       <li><a href="/business">Business</a></li>
+      <li><a href="/dance">Dance</a></li>
       <li><a href="/weddings">Weddings &amp; Portraits</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
