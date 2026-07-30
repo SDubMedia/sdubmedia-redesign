@@ -2,6 +2,7 @@
 title: 'Nashville Event Videographer: What to Book and Why It Matters'
 description: 'What a Nashville event videographer actually does, what to book for galas, conferences and launches, what it costs, and how to get footage you can use long after the event.'
 pubDate: 2026-07-13
+updatedDate: 2026-07-30
 keyword: 'nashville event videographer'
 cluster: 'videographer'
 isPillar: false
@@ -45,11 +46,11 @@ Not every event needs video, and it's fair to be honest about that. The events w
 
 **Annual conferences and summits.** The company spent months planning it and hundreds of people showed up. A recap reel turns that one day into a year of promotion for the next one. The keynote recordings become internal training content. The interviews with attendees become testimonials. One event, five uses.
 
-**Galas and fundraisers.** Nonprofits live and die on their annual event, and the video from it is what fuels donor communications and next year's ticket sales. We covered [Ballet Ball Nashville](/blog/2026-05-25-event-video-production-nashville/) with full backstage access, shooting the ballet dancers performing from multiple angles and capturing the whole feel of the night, from the entrance to the cocktails to the guests dancing. The recap has to do two things at once: honor the performance and sell the party.
+**Galas and fundraisers.** Nonprofits live and die on their annual event, and the video from it is what fuels donor communications and next year's ticket sales. If the event is a performance, our [dance and performance work](/dance) is the closest example of how we cover a stage. We covered [Ballet Ball Nashville](/blog/2026-05-25-event-video-production-nashville/) with full backstage access, shooting the ballet dancers performing from multiple angles and capturing the whole feel of the night, from the entrance to the cocktails to the guests dancing. The recap has to do two things at once: honor the performance and sell the party.
 
 **Product launches, openings, and milestone events.** Anything you'd want to point to later and say "this is when it happened." The footage becomes the anchor of the story you tell about the moment for a long time after.
 
-**Speaker series and executive events.** Companies bringing in outside speakers to talk to their teams often want that content afterward for the offices that couldn't be in the room. Coldwell Banker Southern Realty runs events like that for their eight offices across Tennessee. When we cover them we bring in photographers and shoot the video ourselves so the offices that weren't in the room get the full experience later.
+**Speaker series and executive events.** Companies bringing in outside speakers to talk to their teams often want that content afterward for the offices that couldn't be in the room. Coldwell Banker Southern Realty runs events like that for their eight offices across Tennessee. When we cover them we bring in photographers and shoot the video ourselves so the offices that weren't in the room get the full experience later. That work has its own shape, which we break down on our [corporate event video](/corporate-events) page: every main-stage talk archived with board audio and the speaker's own slides, plus one highlight reel.
 
 The pattern in all of those: the event happens once, but the video keeps working for months.
 
