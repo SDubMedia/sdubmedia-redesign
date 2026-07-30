@@ -1,32 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import VideoGrid from '../components/VideoGrid.astro';
+import Video from '../components/Video.astro';
 
 // ── HOW TO ADD A VIDEO ──────────────────────────────────────────────
-// Same rules as portfolio.astro: `vimeo` is the id from the URL, or
-// 'id/hash' for a private link, or '' for a "Coming soon" tile.
-// Only use REAL clients from the approved list. No invented names.
+// This page shows video in TWO places, and they must not overlap:
+//   1. This reel grid: a click-to-play showcase near the top.
+//   2. One embed under each "What we shoot" tile, so every service claim
+//      is backed by an example (see the Video components further down).
+// A video listed here must NOT also be embedded below, or the same reel
+// plays twice on one page.
+// `vimeo` is the id from the URL, or 'id/hash' for a private link, or ''
+// for a "Coming soon" tile. Only REAL clients. No invented names.
 // ────────────────────────────────────────────────────────────────────
-// Three highlight reels. Slot 1 is the Nolensville studio piece; slots 2 and 3
-// are waiting on Vimeo links (they render as "Coming soon" until filled).
 const videos = [
-  { title: 'Nolensville Dance Company', category: 'Studio promo', vimeo: '1192295930' },
-  // Titles below match Geoff's own Vimeo titles exactly. Both are Elite Dance
-  // pieces (Jun 2023 and Oct 2023); distinguish them if he confirms what differs.
-  //
-  // PLANNED (waiting on Vimeo uploads): replace these with one example per
-  // service, matching the three tiles below:
-  //   1. Recital and Performance  2. Studio Promo / Audition Reel  3. Season-Long Social
-  { title: 'Elite Dance Highlights', category: 'Studio promo', vimeo: '839344212' },
+  { title: 'Nolensville Dance Company', category: 'Studio intro', vimeo: '1192295930' },
+  // Vimeo titles this one just "Elite Dance". TODO(geoff): say what separates
+  // it from the Elite Dance piece embedded under Studio Promos below.
   { title: 'Elite Dance', category: 'Studio promo', vimeo: '869957340' },
 ];
 ---
-<Layout title="Dance Recital Videography Nashville | SDub Media" description="Recital films, studio promos, and audition reels for Nashville dance companies. We already work with Elite Dance, Nolensville Dance Company, and Ballet Ball Nashville.">
+<Layout title="Dance Recital Videography Nashville | SDub Media" description="Recital films, studio promos, and audition reels for Nashville-area dance companies. Real work for Elite Dance, Nolensville Dance Company, and Ballet Ball Nashville.">
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">For dance companies</span>
     <h1>The recital is the deadline.<br>The rest of the year is the opportunity.</h1>
-    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Every studio needs the recital filmed properly. Fewer realize the same night's footage, plus a few hours across the season, is what fills next year's classes. We do both, and we already do it for dance companies here in Nashville.</p>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Every studio needs the recital filmed properly. Fewer realize the same night's footage, plus a few hours across the season, is what fills next year's classes. We do both, and we already do it for dance studios in the Nashville area.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Talk about your season</a>
     </div>
@@ -37,9 +36,10 @@ const videos = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">See it in action</span>
-      <h2>Recent Work for Nashville Studios.</h2>
+      <h2>Work for Nashville-Area Dance Studios.</h2>
     </div>
-    <VideoGrid items={videos} />
+    {/* center: only 2 reels right now, so don't leave an empty third column */}
+    <VideoGrid items={videos} center />
   </div>
 </section>
 
@@ -53,14 +53,29 @@ const videos = [
       <div class="tile">
         <h3>Recital and Performance Films</h3>
         <p>Multi-camera coverage of the show, cut so parents can find their dancer and the studio gets a piece worth putting on the website. Full runtime for families, plus a short highlight version you can actually post.</p>
+        <div style="padding: 0 1.5rem 1.5rem;">
+          {/* The full 59-minute show as families receive it. Labeled with its
+              runtime so nobody expects a highlight reel. TODO(geoff): name the
+              studio, and swap in a 60-90s cut when one exists. */}
+          <Video id="979509588" title="Full dance recital film, 59 minutes" />
+          <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">Full show, 59 minutes. This is the film families receive.</p>
+        </div>
       </div>
       <div class="tile">
         <h3>Studio Promos and Audition Reels</h3>
         <p>The video that runs when a parent is deciding between you and the studio across town. Shot in your space, with your teachers and your dancers, so it looks like your studio instead of stock footage of somebody else's.</p>
+        <div style="padding: 0 1.5rem 1.5rem;">
+          <Video id="839344212" title="Elite Dance studio highlights" />
+          <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">Elite Dance</p>
+        </div>
       </div>
       <div class="tile">
         <h3>Season-Long Social Content</h3>
         <p>Class clips, competition trips, rehearsal moments, senior spotlights. A few scheduled shoot days across the year turn into months of posts, which is the part most studios never get around to filming.</p>
+        <div style="padding: 0 1.5rem 1.5rem;">
+          <Video id="1214148467" title="Nolensville Dance Company season content" />
+          <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">Nolensville Dance Company</p>
+        </div>
       </div>
     </div>
   </div>
