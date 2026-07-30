@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// ── PROOF SLOT (currently empty on purpose) ─────────────────────────
+// This page has no video yet. The Chuck Whitehead event highlight reel is
+// the intended proof; Geoff is sending the Vimeo link.
+//
+// When it arrives:
+//   1. import Video from '../components/Video.astro';
+//   2. Drop the commented "Proof" section below back in with the id.
+//   3. Credit the ORGANISER who commissioned it, not the speaker, and only
+//      if Geoff has confirmed they can be named.
+//
+// Do NOT ship a "Coming soon" tile here. An empty tile on an event page reads
+// worse than a page that simply makes a precise promise. And the archival
+// footage of the talks stays off the site permanently: that is the client's
+// asset and the speaker's material, not a portfolio piece.
+//
+// SCOPE HONESTY: single-room coverage only. Do not claim concurrent tracks or
+// breakout rooms. The offer is the main stage done properly.
+// ────────────────────────────────────────────────────────────────────
+---
+<Layout
+  title="Corporate Event Video Nashville | SDub Media"
+  description="Main-stage conference and corporate event video in Nashville: every talk archived with board audio and your own slides, plus a highlight reel delivered while the event is still fresh."
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">For corporate events</span>
+    <h1>Every talk archived.<br>One reel you can actually use.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">We cover your main stage: each session recorded end to end for your library, plus a short highlight cut of the day. Audio comes off your board, and your slides go in at full resolution.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Talk about your event</a>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What you get</span>
+      <h2>Two deliverables, not one.</h2>
+    </div>
+    <div class="tiles tiles--two">
+      <div class="tile">
+        <h3>The Full Archive</h3>
+        <p>Every main-stage session recorded start to finish, with the slides cut in. This is the version you put behind a login, send to the people who could not make it, or hand to the speaker. Most organisers find the archive earns its cost the following year, when the content is still working.</p>
+      </div>
+      <div class="tile">
+        <h3>The Highlight Reel</h3>
+        <p>One short cut of the whole event: the room filling, the speakers, the moments that landed. This is the piece that sells next year's tickets, and it needs to exist while people still remember being there, not six weeks later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How we shoot it</span>
+      <h2>The details that decide whether it is usable.</h2>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <h3>Audio Off the Board</h3>
+        <p>We take a line feed from your AV desk. A keynote captured on a camera microphone in a large hall picks up the room instead of the speaker, and no amount of editing rescues it. If your team has ever been handed conference footage nobody could listen to, this is why.</p>
+      </div>
+      <div class="tile">
+        <h3>Your Slides, Not a Filmed Screen</h3>
+        <p>Send us the deck and we cut the slides in at full resolution, matched to the moment each one appeared. Pointing a camera at a projection screen is the usual approach and it looks exactly as rough as it sounds.</p>
+      </div>
+      <div class="tile">
+        <h3>One Room, Done Right</h3>
+        <p>We cover a single room, and we would rather say so than promise four. That means the main stage gets a proper multi-angle setup instead of a scramble between breakouts. If your general sessions are what matter most, this is the trade you want.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* PROOF: restore this once the Chuck Whitehead highlight reel link is in, and
+    only with the organiser's name confirmed.
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">See it in action</span>
+      <h2>A recent event reel.</h2>
+    </div>
+    <Video id="REPLACE_ME" title="Corporate event highlight reel" />
+    <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">ORGANISER NAME</p>
+  </div>
+</section>
+*/}
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">Why it turns around fast</span>
+      <h2>The editing is the part most crews outsource.</h2>
+    </div>
+    <p>A highlight reel that arrives six weeks after an event has missed its job. Ours do not, because the editing happens on our team rather than in someone else's queue. That is the same reason we can run weekly content for businesses: the edit is never the bottleneck.</p>
+    <p style="margin-top: 1.25rem;">We have run this two-output model for years on performance work, where a full-length film goes to the families and a short cut goes on the website. A conference is the same shape in a different room: one long record that has to be complete, one short cut that has to be good.</p>
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Talk about your event</a>
+    </div>
+  </div>
+</section>
+</Layout>
