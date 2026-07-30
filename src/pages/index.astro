@@ -7,8 +7,8 @@ import clients from '../data/clients.json';
 
 <section class="hero">
   <span class="eyebrow">SDub Media &nbsp;·&nbsp; Nashville, TN</span>
-  <h1><span class="accent">Recurring video</span> for businesses.<br>A few weddings a year.</h1>
-  <p class="hero-subtitle">One team, obsessively consistent. We help businesses show up every week with content that actually gets made. And we still pick up a camera for eight weddings a year because we love it.</p>
+  <h1><span class="accent">Recurring video</span> for Nashville businesses.</h1>
+  <p class="hero-subtitle">A team of five, obsessively consistent. You sit down with us for a couple of hours and we turn it into a quarter of content. We also archive conferences, film dance recitals, and take a few weddings a year.</p>
   <div class="hero-ctas">
     <a href="/business" class="btn btn-primary">For Businesses</a>
     <a href="/weddings" class="btn">For Weddings</a>
@@ -35,57 +35,40 @@ import clients from '../data/clients.json';
   </div>
 </section>
 
+{/* This replaced two separate sections that both used the eyebrow "What we do":
+    a two-door Business/Weddings split and a two-tile services row. Neither
+    mentioned /dance or /corporate-events, so half the site was invisible from
+    the homepage. One section now covers all four, ordered by where the business
+    is going: commercial work first, weddings last and deliberately smaller.
+
+    Images were removed rather than replaced. The four here were AI-generated,
+    which is the worst possible tell for a video company, and there were none
+    for dance or events anyway. Geoff is sending real frames; add them back as
+    `tile-image` at the top of each tile when they land. */}
 <section style="background: var(--soft);">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What we do</span>
-      <h2>Pick the door that fits.</h2>
+      <h2>Four kinds of work, one way of working.</h2>
     </div>
-    <div class="two-door">
-      <a href="/business" class="door">
-        <img class="door-photo" src="/images/home/business.png" alt="A video crew filming a business owner on camera in a Nashville office" loading="lazy" width="1536" height="1024" />
-        <div class="door-content">
-          <h3>Business</h3>
-          <p>Weekly content series, corporate podcasts, agent-on-camera reels, headshot days, branded events. Retainer-friendly.</p>
-          <span class="door-arrow">See what we do for businesses →</span>
-        </div>
+    <div class="tiles">
+      <a href="/business" class="tile" style="color: inherit;">
+        <h3>Business</h3>
+        <p>Interview-led content series, on-camera reels, headshot days, and brand films. You sit down for a couple of hours; we cut it into a quarter's worth of content. One broker's session with his top agents became nineteen pieces.</p>
+        <span class="door-arrow">What we do for businesses →</span>
       </a>
-      <a href="/weddings" class="door">
-        <img class="door-photo" src="/images/home/weddings.png" alt="A videographer filming a couple at golden hour at a Tennessee wedding venue" loading="lazy" width="1536" height="1024" />
-        <div class="door-content">
-          <h3>Weddings &amp; Portraits</h3>
-          <p>Cinematic wedding films, family sessions, and senior portraits. Limited bookings each year. Nashville, destination, or wherever you're celebrating.</p>
-          <span class="door-arrow">Check availability →</span>
-        </div>
+      <a href="/corporate-events" class="tile" style="color: inherit;">
+        <h3>Corporate Events</h3>
+        <p>Conference and speaker coverage. Every main-stage talk archived with board audio and your own slides, plus one highlight reel you can put to work while the event is still fresh.</p>
+        <span class="door-arrow">How event coverage works →</span>
+      </a>
+      <a href="/dance" class="tile" style="color: inherit;">
+        <h3>Dance</h3>
+        <p>Recital films, studio promos, and season-long social content for studios around Nashville. The full show for families, the short cut for your website. We already do this for Elite Dance and Nolensville Dance Company.</p>
+        <span class="door-arrow">See the dance work →</span>
       </a>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">What we do</span>
-      <h2>Built for the week ahead. And the one after that.</h2>
-    </div>
-    {/* Podcast Production was the middle tile. Pulled 2026-07-29: it was one of
-        three headline services with no example anywhere on the site, and the
-        existing footage is not work Geoff wants shown. Podcast capability is
-        still claimed in the service lists on this page and /business, which is
-        honest (he has a podcast client), just not headlined without proof.
-        Restore it here the moment there is a reel worth linking. */}
-    <div class="tiles tiles--two">
-      <div class="tile">
-        <img class="tile-image" src="/images/home/recurring.png" alt="A crew filming a weekly branded content shoot in a studio" loading="lazy" width="1536" height="1024" />
-        <h3>Recurring Content</h3>
-        <p>Your brand needs to show up. Not once. Every single week. We build production rhythms around your calendar (batch shoots, fast edits, consistent style) so your content pipeline never stalls.</p>
-      </div>
-      <div class="tile">
-        <img class="tile-image" src="/images/home/events.png" alt="Studio lighting and a camera set up for headshots at a company event" loading="lazy" width="1536" height="1024" />
-        <h3>Events &amp; Headshots</h3>
-        <p>The annual gala. The quarterly headshot refresh. The training day nobody planned for. We bring the crew, the gear, and the turnaround, so the moment actually gets used.</p>
-      </div>
-    </div>
+    <p style="text-align: center; margin-top: 2.5rem; color: var(--muted);">We also take a few weddings a year, with published pricing and no hour packages. <a href="/weddings">Weddings and portraits →</a></p>
   </div>
 </section>
 
