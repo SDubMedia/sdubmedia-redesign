@@ -286,6 +286,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .blog-post-cta p { color: var(--text-dim); margin-bottom: 1.5rem; }
 
     /* Responsive */
+    /* Mobile-only Slate link, sits left of the hamburger. margin-left:auto
+       pushes it and the button together to the right edge. */
+    .slate-mobile { display: none; color: var(--brand); font-size: 0.875rem; font-weight: 600; white-space: nowrap; }
+    .slate-mobile:hover { color: var(--brand-hover); }
+
     /* Hamburger. Hidden on desktop; the media query below turns it on. */
     .nav-toggle {
       display: none;
@@ -319,6 +324,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .two-door { grid-template-columns: 1fr; }
       .tiles { grid-template-columns: 1fr; }
       .nav-toggle { display: flex; }
+      .slate-mobile { display: inline-block; margin-left: auto; margin-right: 0.85rem; }
+      .nav-slate { display: none; }   /* shown beside the button instead */
       /* The nav becomes a panel under the sticky header. Ten items wrapped onto
          three rows before this, which pushed the page content down the screen. */
       header nav {
@@ -346,6 +353,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <img src="/brand-logo.png" alt="SDub Media">
     <span class="logo-text">SDub Media</span>
   </a>
+  {/* Mobile-only twin of the Slate link in the nav below. Slate is the one
+      destination that should stay one tap away rather than hiding behind the
+      hamburger, so on phones it sits beside the button and the copy inside the
+      panel is hidden. Keep the two hrefs in sync. */}
+  <a href="https://sdubmedia-calendar.vercel.app" target="_blank" rel="noopener" class="slate-mobile">Slate ↗</a>
   <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
     <span class="nav-toggle-bars" aria-hidden="true"></span>
   </button>
@@ -360,7 +372,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/blog">Blog</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li><a href="https://sdubmedia-calendar.vercel.app" target="_blank" style="color: var(--brand);">Slate ↗</a></li>
+      <li class="nav-slate"><a href="https://sdubmedia-calendar.vercel.app" target="_blank" rel="noopener" style="color: var(--brand);">Slate ↗</a></li>
     </ul>
   </nav>
 </header>
