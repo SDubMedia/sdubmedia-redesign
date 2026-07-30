@@ -14,6 +14,10 @@ import Video from '../components/Video.astro';
 // for a "Coming soon" tile. Only REAL clients. No invented names.
 // ────────────────────────────────────────────────────────────────────
 const videos = [
+  // The Ballet Ball recap the "Who we work with" section below describes in
+  // detail (backstage access, dancers from multiple angles, the feel of the
+  // night). The copy made that claim for weeks with no video behind it.
+  { title: 'Ballet Ball Nashville', category: 'Gala recap · 2 min', vimeo: '920104582' },
   { title: 'Nolensville Dance Company', category: 'Studio promo', vimeo: '1192295930' },
   // Vimeo titles this one just "Elite Dance". TODO(geoff): say what separates
   // it from the Elite Dance piece embedded under Studio Promos below.
@@ -36,10 +40,11 @@ const videos = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">See it in action</span>
-      <h2>Work for dance studios around Nashville.</h2>
+      <h2>Work for dance studios and companies around Nashville.</h2>
     </div>
-    {/* center: only 2 reels right now, so don't leave an empty third column */}
-    <VideoGrid items={videos} center />
+    {/* Three reels now fills the row, so `center` is no longer needed. Add it
+        back if this ever drops below three. */}
+    <VideoGrid items={videos} />
   </div>
 </section>
 
