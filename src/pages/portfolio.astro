@@ -8,15 +8,38 @@ import VideoGrid from '../components/VideoGrid.astro';
 //   https://vimeo.com/1192295930/ab12cd34   →   vimeo: '1192295930/ab12cd34'  (private/unlisted)
 // Leave `vimeo` as '' to show a styled "Coming soon" placeholder tile.
 // Only use REAL clients from the approved list. No invented names.
-// (Step 3 makes this list editable from the site login.)
+//
+// THIS PAGE IS A BEST-OF, AND ITS JOB IS RANGE.
+// One short piece per category, no client twice. The category pages
+// (/business, /dance, /weddings) go deep; this page proves breadth.
+// Rules that keep it working:
+//   - Keep everything under ~90s. Nobody browses into a long film from a grid.
+//     The 59-min recital and the 10-min Hawaii film stay on their own pages,
+//     where their runtime is labelled and expected.
+//   - Reusing a video that also appears on a category page is fine. What is
+//     not fine is the same video twice on ONE page.
+//   - Never ship a "Coming soon" tile here. An empty tile on a video
+//     company's portfolio reads worse than a smaller grid.
+//
+// Held back on purpose: the second Elite Dance piece and the Nolensville
+// season clip (dance is already represented), and the oncology patient
+// welcome video (adds healthcare range but is the one piece we cannot
+// currently attribute). Swap that in for the church tile if healthcare
+// matters more than community work.
+//
+// GAP: there is no podcast video anywhere on the site, yet podcast production
+// is one of three headline services on the homepage. The old "Coming soon"
+// podcast tile was removed rather than advertise the hole.
 // ────────────────────────────────────────────────────────────────────
 const items = [
-  { title: 'Featured Reel', category: 'Recurring content', vimeo: '1192295930' },
-  { title: 'Coming soon', category: 'Corporate', vimeo: '' },
-  { title: 'Coming soon', category: 'Event', vimeo: '' },
-  { title: 'Coming soon', category: 'Podcast', vimeo: '' },
+  // Leads deliberately: a recurring on-camera series for a named brokerage is
+  // the core offering. Credits CBSR, not the individual agent.
+  { title: 'Coldwell Banker Southern Realty', category: 'Agent on camera', vimeo: '1214149996' },
+  { title: 'Tutoring Rocks', category: 'Brand video', vimeo: '707958942' },
+  { title: 'Webb School Summer Camp', category: 'Education', vimeo: '1214150712' },
+  { title: 'Nolensville Dance Company', category: 'Performance', vimeo: '1192295930' },
   { title: 'Parker Wedding Sizzle Reel', category: 'Wedding', vimeo: '1150766730' },
-  { title: 'Coming soon', category: 'Brand', vimeo: '' },
+  { title: 'Church at Nolensville', category: 'Community event', vimeo: '1214151209' },
 ];
 ---
 <Layout title="Portfolio | SDub Media Nashville" description="Work from SDub Media: corporate video, recurring content, weddings, and events in Nashville.">
@@ -25,7 +48,7 @@ const items = [
     <div class="section-head">
       <span class="eyebrow">Our work</span>
       <h1>Portfolio</h1>
-      <p style="max-width: 560px; margin: 1rem auto 0;">A selection of work from our Nashville clients. Full portfolio available on request.</p>
+      <p style="max-width: 560px; margin: 1rem auto 0;">One piece from each kind of work we do, for real clients around the Nashville area. More available on request, including full-length recital and wedding films.</p>
     </div>
 
     <div style="margin-top: 2rem;">
