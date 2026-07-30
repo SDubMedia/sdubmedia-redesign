@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import clients from '../data/clients.json';
 ---
 
 <Layout title="SDub Media | Nashville Video Production">
@@ -21,15 +22,11 @@ import Layout from '../layouts/Layout.astro';
       <h2>Clients who show up every month</h2>
     </div>
     <div class="logo-strip">
-      <span class="brand">Coldwell Banker Southern Realty</span>
-      <span class="brand">Webb School</span>
-      <span class="brand">Elite Dance</span>
-      <span class="brand">Nolensville Dance Company</span>
-      <span class="brand">Tutoring Rocks</span>
-      <span class="brand">Middle of the Story Podcast</span>
-      <span class="brand">Ballet Ball Nashville</span>
-      <span class="brand" style="opacity: 0.6;">Tone Films</span>
-      <span class="brand" style="opacity: 0.6;">Lighthouse Media</span>
+      {clients.map(c => (
+        c.logo
+          ? <img class="brand-logo-img" src={c.logo} alt={c.name} loading="lazy" />
+          : <span class="brand">{c.name}</span>
+      ))}
     </div>
   </div>
 </section>
