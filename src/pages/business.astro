@@ -25,13 +25,15 @@ const videos = [
   { title: 'Webb School Summer Camp', category: 'Education', vimeo: '1214150712' },
   // Vimeo titles this "Church at Nolensville Crud War" (a youth event).
   { title: 'Church at Nolensville', category: 'Community event', vimeo: '1214151209' },
-  // Vimeo titles this "Oncology Welcome Video". Deliberately NOT naming the
-  // practice: they are not on the approved client list, and healthcare clients
-  // usually need explicit sign-off before being used as marketing.
-  // TODO(geoff): confirm who this is and whether we may credit them.
-  { title: 'Patient welcome video', category: 'Healthcare', vimeo: '926434787' },
+  // Made for Mobile IV Stat, which was Geoff's own company and has since closed,
+  // with Geoff himself on camera. Kept because the work is good, but labelled by
+  // what it IS rather than who it was for: naming a company he owned would be a
+  // false client credit, and naming a closed one invites a prospect to look up a
+  // business that no longer exists. The section heading is "What the work looks
+  // like", not "clients", so a work-type label is honest here.
   // Vimeo titles this "Tutoring Rocks.m4v". Approved client; the blog describes
   // it as a brand video shot on site at their Nolensville location.
+  { title: 'Patient welcome video', category: 'Healthcare', vimeo: '926434787' },
   { title: 'Tutoring Rocks', category: 'Brand video', vimeo: '707958942' },
 ];
 ---
@@ -75,7 +77,7 @@ const videos = [
       <span class="eyebrow">See it in action</span>
       <h2>What the work looks like.</h2>
     </div>
-    {/* center: 4 videos leaves a partial last row, and centering it looks
+    {/* center: 4 videos leaves a partial last row; centering it looks
         deliberate instead of left-aligned against an empty column */}
     <VideoGrid items={videos} center />
   </div>
