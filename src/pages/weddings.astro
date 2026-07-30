@@ -3,8 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import VideoGrid from '../components/VideoGrid.astro';
 
 const videos = [
-  { title: 'Parker Wedding Sizzle Reel', category: 'Wedding', vimeo: '1150766730' },
-  { title: 'Coming soon', category: 'Wedding', vimeo: '' },
+  { title: 'Parker Wedding Sizzle Reel', category: 'Wedding · 38 sec', vimeo: '1150766730' },
+  // Runtime in the category so nobody clicks a 10-minute film expecting a
+  // sizzle reel. Destination work is in scope: the hero copy says "Nashville,
+  // destination, or wherever you're celebrating."
+  { title: 'William and Shannon, Hawaii', category: 'Wedding · full film, 10 min', vimeo: '1067969852' },
   { title: 'Coming soon', category: 'Portrait', vimeo: '' },
 ];
 ---
