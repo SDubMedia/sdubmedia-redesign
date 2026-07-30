@@ -204,6 +204,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     /* Tiles */
     .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    /* Two-up variant, so a pair of tiles fills the row instead of sitting
+       left-aligned against an empty third column. Declared before the 768px
+       block below so the single-column mobile rule still wins. */
+    .tiles--two { grid-template-columns: repeat(2, 1fr); }
     .tile { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
     .tile-image { display: block; width: 100%; height: 180px; object-fit: cover; background: var(--bg-elevated); }
     .tile h3, .tile p { padding: 0 1.5rem; }
