@@ -383,7 +383,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       destination that should stay one tap away rather than hiding behind the
       hamburger, so on phones it sits beside the button and the copy inside the
       panel is hidden. Keep the two hrefs in sync. */}
-  <a href="https://sdubmedia-calendar.vercel.app" target="_blank" rel="noopener" class="slate-mobile">Slate ↗</a>
+  <a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" class="slate-mobile" data-slate-link>Slate ↗</a>
   <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
     <span class="nav-toggle-bars" aria-hidden="true"></span>
   </button>
@@ -398,7 +398,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/blog">Blog</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li class="nav-slate"><a href="https://sdubmedia-calendar.vercel.app" target="_blank" rel="noopener" style="color: var(--brand);">Slate ↗</a></li>
+      <li class="nav-slate"><a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" style="color: var(--brand);" data-slate-link>Slate ↗</a></li>
     </ul>
   </nav>
 </header>
@@ -435,6 +435,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       if (window.innerWidth > 768) set(false);
     });
   })();
+
+  // Slate click tracking. GA4's automatic outbound-click detection is not
+  // dependable for a link to a subdomain of the current site, so fire an
+  // explicit event. Mark `slate_click` as a key event in GA to treat it as a
+  // conversion. Both the desktop nav link and the mobile one carry the hook.
+  document.querySelectorAll('[data-slate-link]').forEach(el => {
+    el.addEventListener('click', () => {
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      if (typeof w.gtag === 'function') {
+        w.gtag('event', 'slate_click', {
+          link_url: 'https://slate.sdubmedia.com',
+          link_location: el.classList.contains('slate-mobile') ? 'header_mobile' : 'header_nav',
+        });
+      }
+    });
+  });
 </script>
 
 <slot />
