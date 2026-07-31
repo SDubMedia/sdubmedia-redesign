@@ -60,4 +60,32 @@ const items = [
     </p>
   </div>
 </section>
+
+{/* PHOTOGRAPHY. The video grid above is click-to-play, so stills must not sit
+    inside it: a photo in that grid reads as a broken video. Separate section,
+    and the same range rule applies as the videos above, one per category.
+    Reusing frames that appear on a service page is fine here (this page is a
+    best-of); what is not fine is the same image twice on this page. */}
+<section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Photography</span>
+      <h2>We shoot stills as well.</h2>
+    </div>
+    <div class="wedding-strip">
+      <img src="/images/real-estate/aerial-house.jpg" alt="Aerial view of a stone home with a circular paver driveway" loading="lazy" width="1600" height="1069" />
+      <img src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" />
+      <img src="/images/events/gala-room.jpg" alt="A gala ballroom set for dinner, seen from the balcony" loading="lazy" width="1600" height="1069" />
+      <img src="/images/corporate/office-group.jpg" alt="A brokerage team photographed together inside their office" loading="lazy" width="1600" height="1067" />
+    </div>
+    {/* Separate row: these are 2:3 full-body portraits and the wide strip above
+        would crop them at the chest. */}
+    <div class="photo-strip-tall" style="margin-top: 1.5rem;">
+      <img src="/images/corporate/business-portrait.jpg" alt="Two colleagues photographed back to back on a tree lined path" loading="lazy" width="1600" height="2400" />
+      <img src="/images/corporate/portrait-trio.jpg" alt="Three colleagues photographed together outdoors" loading="lazy" width="1100" height="1650" />
+      <img src="/images/corporate/portrait-solo.jpg" alt="An individual business portrait, walking toward camera" loading="lazy" width="1100" height="1650" />
+    </div>
+    <p style="text-align: center; margin-top: 2rem; color: var(--muted);">Listings, corporate portraits and events. <a href="/real-estate-photography">Real estate photography</a> is priced per listing.</p>
+  </div>
+</section>
 </Layout>

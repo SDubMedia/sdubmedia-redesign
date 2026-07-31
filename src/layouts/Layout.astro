@@ -208,6 +208,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Weddings page imagery. Frames pulled from real films, so they are always
        16:9 and are shown at their natural ratio rather than cropped. */
     .wedding-hero-img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); }
+    /* Portrait-orientation strip. Flex rather than grid, and sized by HEIGHT so
+       width follows each image's own proportions: nothing is cropped and full
+       body portraits stay full body. A grid with 1fr columns blew these up to
+       ~545px tall, dwarfing the landscape row above. */
+    .photo-strip-tall { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+    .photo-strip-tall img { display: block; height: 340px; width: auto; max-width: 100%; border-radius: 12px; border: 1px solid var(--border); }
+
     /* auto-fit so the strip works with 3 or 4 images without leaving an orphan */
     .wedding-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
     .wedding-strip img { display: block; width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
@@ -344,6 +351,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .two-door { grid-template-columns: 1fr; }
       .tiles { grid-template-columns: 1fr; }
       .wedding-strip { grid-template-columns: 1fr; }
+      .photo-strip-tall img { height: 260px; }
       .nav-toggle { display: flex; }
       .slate-mobile { display: inline-block; margin-left: auto; margin-right: 0.85rem; }
       .nav-slate { display: none; }   /* shown beside the button instead */
