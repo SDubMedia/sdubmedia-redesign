@@ -3,7 +3,7 @@ title: 'Twilight Real Estate Photography: How to Shoot the Glowing-Windows Hero 
 description: 'How to shoot twilight real estate photography: the timing, the setup, and the exposure blend that produces the glowing-windows dusk shot that gets the most clicks.'
 pubDate: 2026-05-25
 keyword: 'twilight real estate photography'
-image: '/images/blog/2026-05-25-twilight-real-estate-photography.png'
+image: '/images/blog/2026-05-25-twilight-real-estate-photography.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

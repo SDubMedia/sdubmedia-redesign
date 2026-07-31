@@ -3,7 +3,7 @@ title: 'Nashville Corporate Videographer: What to Look For and What to Pay'
 description: 'A straight guide to hiring a Nashville corporate videographer: what to look for in a portfolio, what fair pricing looks like, and how to avoid the common traps.'
 pubDate: 2026-07-06
 keyword: 'nashville corporate videographer'
-image: '/images/blog/2026-07-06-nashville-corporate-videographer.png'
+image: '/images/blog/2026-07-06-nashville-corporate-videographer.jpg'
 cluster: 'corporate-video'
 isPillar: false
 draft: false

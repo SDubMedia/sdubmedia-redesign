@@ -3,6 +3,7 @@ title: 'Nashville Video Production: What It Is, What It Costs, and How to Get Re
 description: "A plain-English guide to Nashville video production: what it actually includes, what it costs, and how to pick the right kind of work for your business goals."
 pubDate: 2026-07-20
 keyword: 'nashville video production'
+image: '/images/blog/2026-07-20-nashville-video-production.jpg'
 cluster: 'video-production'
 isPillar: false
 draft: false

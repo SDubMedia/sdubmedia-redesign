@@ -3,7 +3,7 @@ title: 'iPhone Real Estate Photography: How to Shoot Listings With Your Phone'
 description: 'A practical guide to iPhone real estate photography: clean the lens, lock exposure, keep walls straight, the right apps, and when it is time to step up to a camera.'
 pubDate: 2026-05-25
 keyword: 'iphone real estate photography'
-image: '/images/blog/2026-05-25-iphone-real-estate-photography.png'
+image: '/images/blog/2026-05-25-iphone-real-estate-photography.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

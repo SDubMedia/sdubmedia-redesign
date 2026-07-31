@@ -3,7 +3,7 @@ title: 'Real Estate Photography Tips: How Agents Can Shoot Better Listing Photos
 description: 'Practical real estate photography tips for agents: clean your lens, light the room, shoot straight, prep the space, plus the gear, phone, twilight, and editing guides that go deeper.'
 pubDate: 2026-05-25
 keyword: 'real estate photography tips'
-image: '/images/blog/2026-05-25-real-estate-photography-tips.png'
+image: '/images/blog/2026-05-25-real-estate-photography-tips.jpg'
 cluster: 'real-estate-photo'
 isPillar: true
 draft: false

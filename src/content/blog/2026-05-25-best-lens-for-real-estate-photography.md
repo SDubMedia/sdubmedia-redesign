@@ -3,7 +3,7 @@ title: 'The Best Lens for Real Estate Photography (and What to Skip)'
 description: 'A plain guide to the best lens for real estate photography: why wide-angle wins, the focal lengths that work, what to look for, and the tripod that should come with it.'
 pubDate: 2026-05-25
 keyword: 'best lens for real estate photography'
-image: '/images/blog/2026-05-25-best-lens-for-real-estate-photography.png'
+image: '/images/blog/2026-05-25-best-lens-for-real-estate-photography.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

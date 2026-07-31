@@ -3,6 +3,7 @@ title: 'Real Estate Video Production in Nashville: A Guide for Agents'
 description: 'A practical guide to real estate video production in Nashville: what to shoot, what it costs, what wins listings, and the difference between a property tour and an agent brand video.'
 pubDate: 2026-06-22
 keyword: 'real estate video production in nashville'
+image: '/images/blog/2026-06-22-real-estate-video-production-nashville.jpg'
 cluster: 'real-estate'
 isPillar: true
 draft: false

@@ -3,7 +3,7 @@ title: 'Real Estate Photo Editing: Quick Fixes and How Far Is Too Far'
 description: 'A practical real estate photo editing guide: straighten, brighten, fix color, blend exposures, the apps to use, and the honesty line you cannot cross on the MLS.'
 pubDate: 2026-05-25
 keyword: 'real estate photography editing'
-image: '/images/blog/2026-05-25-real-estate-photo-editing.png'
+image: '/images/blog/2026-05-25-real-estate-photo-editing.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

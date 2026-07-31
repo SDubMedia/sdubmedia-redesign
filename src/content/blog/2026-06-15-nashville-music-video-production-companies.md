@@ -3,6 +3,7 @@ title: 'Nashville Music Video Production Companies: What They Actually Deliver'
 description: 'An honest look at Nashville music video production companies: what they do, what a video costs, how to pick the right one, and how to tell who fits your song.'
 pubDate: 2026-06-15
 keyword: 'nashville music video production companies'
+image: '/images/blog/2026-06-15-nashville-music-video-production-companies.jpg'
 cluster: 'video-production'
 isPillar: false
 draft: false

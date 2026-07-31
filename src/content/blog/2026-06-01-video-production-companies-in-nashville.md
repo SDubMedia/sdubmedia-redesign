@@ -3,6 +3,7 @@ title: 'Video Production Companies in Nashville: How to Choose the Right One'
 description: 'A practical guide to choosing among video production companies in Nashville: what to ask, what to compare, and how to avoid the most expensive mistakes.'
 pubDate: 2026-06-01
 keyword: 'video production companies in nashville'
+image: '/images/blog/2026-06-01-video-production-companies-in-nashville.jpg'
 cluster: 'video-production'
 isPillar: false
 draft: false

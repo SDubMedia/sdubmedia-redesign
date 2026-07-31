@@ -3,7 +3,7 @@ title: 'The Best Camera for Real Estate Photography on Any Budget'
 description: 'How to choose the best camera for real estate photography: what actually matters for listings, what does not, and solid picks from entry-level to pro.'
 pubDate: 2026-05-25
 keyword: 'best camera for real estate photography'
-image: '/images/blog/2026-05-25-best-camera-for-real-estate-photography.png'
+image: '/images/blog/2026-05-25-best-camera-for-real-estate-photography.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false
