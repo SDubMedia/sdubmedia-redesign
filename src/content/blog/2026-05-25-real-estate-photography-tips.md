@@ -2,6 +2,7 @@
 title: 'Real Estate Photography Tips: How Agents Can Shoot Better Listing Photos'
 description: 'Practical real estate photography tips for agents: clean your lens, light the room, shoot straight, prep the space, plus the gear, phone, twilight, and editing guides that go deeper.'
 pubDate: 2026-05-25
+updatedDate: 2026-07-31
 keyword: 'real estate photography tips'
 image: '/images/blog/2026-05-25-real-estate-photography-tips.jpg'
 cluster: 'real-estate-photo'
@@ -81,3 +82,5 @@ Once the fundamentals are habit, these guides take each piece further:
 These tips will make your own photos dramatically better, and for a lot of listings that's all you need. But the homes where presentation really moves the price, the luxury listing, the one you want to win the seller for, are worth professional photos and a short walkthrough video. Video especially is what makes an agent memorable.
 
 If you're a Nashville agent who'd rather hand the camera off for the listings that matter, **[get in touch](/contact)** and we'll handle the photos and the video so you can focus on selling.
+
+Every one of these is learnable. If you would rather spend the time selling houses, [we shoot listings](/real-estate-photography).

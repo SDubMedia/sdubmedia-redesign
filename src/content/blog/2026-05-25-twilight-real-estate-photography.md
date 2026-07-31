@@ -2,6 +2,7 @@
 title: 'Twilight Real Estate Photography: How to Shoot the Glowing-Windows Hero Shot'
 description: 'How to shoot twilight real estate photography: the timing, the setup, and the exposure blend that produces the glowing-windows dusk shot that gets the most clicks.'
 pubDate: 2026-05-25
+updatedDate: 2026-07-31
 keyword: 'twilight real estate photography'
 image: '/images/blog/2026-05-25-twilight-real-estate-photography.jpg'
 cluster: 'real-estate-photo'
@@ -49,3 +50,5 @@ A modern phone's night mode can produce a surprisingly good twilight shot if you
 The twilight shot is the one exterior where the gap between DIY and professional is most visible, because the exposure blend and the precise timing take practice. For a flagship or luxury listing, it's often the photo worth paying a pro to nail.
 
 If you want the glowing hero shot done right for a Nashville listing, **[get in touch](/contact)** and we'll catch the blue hour for you.
+
+Twilight is the shot most listings never get, because it means being on site for a specific twenty minutes. [We schedule around it](/real-estate-photography).

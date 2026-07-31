@@ -2,6 +2,7 @@
 title: 'Real Estate Photo Editing: Quick Fixes and How Far Is Too Far'
 description: 'A practical real estate photo editing guide: straighten, brighten, fix color, blend exposures, the apps to use, and the honesty line you cannot cross on the MLS.'
 pubDate: 2026-05-25
+updatedDate: 2026-07-31
 keyword: 'real estate photography editing'
 image: '/images/blog/2026-05-25-real-estate-photo-editing.jpg'
 cluster: 'real-estate-photo'
@@ -51,3 +52,5 @@ The less editing a photo needs, the better it looks, so the real shortcut is get
 Editing a full shoot consistently, shoot after shoot, is where a lot of agents lose hours they don't have. If the editing is the part that drains you, that's exactly the piece worth handing off.
 
 If you'd rather shoot it and have it come back polished, or skip the camera entirely for your big listings, **[get in touch](/contact)** and we'll take it from capture to final.
+
+Editing is the part that eats a Sunday. We have an editor on staff, which is why our [listing galleries](/real-estate-photography) come back fast.

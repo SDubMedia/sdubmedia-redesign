@@ -2,6 +2,7 @@
 title: 'The Best Camera for Real Estate Photography on Any Budget'
 description: 'How to choose the best camera for real estate photography: what actually matters for listings, what does not, and solid picks from entry-level to pro.'
 pubDate: 2026-05-25
+updatedDate: 2026-07-31
 keyword: 'best camera for real estate photography'
 image: '/images/blog/2026-05-25-best-camera-for-real-estate-photography.jpg'
 cluster: 'real-estate-photo'
@@ -49,3 +50,5 @@ If buying a camera feels like a big leap, you don't have to make it yet. A moder
 Clear the basic bar (good dynamic range, interchangeable lenses, manual controls), spend the savings on glass and a tripod, and skip the spec race. The camera is the least important variable in a great listing photo.
 
 For the listings worth getting perfect, **[get in touch](/contact)** and we'll bring the full kit and the eye that goes with it.
+
+If you would rather not own the camera at all, that is what we do: see [real estate photography](/real-estate-photography).

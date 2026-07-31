@@ -208,7 +208,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Weddings page imagery. Frames pulled from real films, so they are always
        16:9 and are shown at their natural ratio rather than cropped. */
     .wedding-hero-img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); }
-    .wedding-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    /* auto-fit so the strip works with 3 or 4 images without leaving an orphan */
+    .wedding-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
     .wedding-strip img { display: block; width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
 
     /* Two-door */
@@ -400,6 +401,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/business">Business</a></li>
       <li><a href="/dance">Dance</a></li>
       <li><a href="/corporate-events">Events</a></li>
+      <li><a href="/real-estate-photography">Real Estate</a></li>
       <li><a href="/weddings">Weddings &amp; Portraits</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
@@ -472,6 +474,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/business">Business</a></li>
       <li><a href="/dance">Dance</a></li>
       <li><a href="/corporate-events">Events</a></li>
+      <li><a href="/real-estate-photography">Real Estate</a></li>
       <li><a href="/weddings">Weddings &amp; Portraits</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
