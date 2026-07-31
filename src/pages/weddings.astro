@@ -5,8 +5,15 @@ import VideoGrid from '../components/VideoGrid.astro';
 // Runtime in each category so nobody clicks a 10-minute film expecting a
 // sizzle reel. Destination work is in scope per the hero copy.
 // No "Coming soon" tiles: two real films beat three tiles where one is empty.
+// Ordered so the two Parker and Andrew pieces sit together: the same wedding as
+// a 38-second sizzle and as the full 8-minute film. That pairing IS the offer,
+// and it is the through-line the whole site runs on: the complete record plus
+// the short piece you can actually use.
 const videos = [
-  { title: 'Parker Wedding Sizzle Reel', category: 'Wedding · 38 sec', vimeo: '1150766730' },
+  { title: 'Parker and Andrew, sizzle reel', category: 'Wedding · 38 sec', vimeo: '1150766730' },
+  { title: 'Parker and Andrew, full film', category: 'Wedding · 8 min', vimeo: '1214642067' },
+  // Vimeo calls this "Shelby Reel 2.1", a working title.
+  { title: 'Shelby, sizzle reel', category: 'Wedding · 37 sec', vimeo: '1214638739' },
   { title: 'William and Shannon, Hawaii', category: 'Wedding · full film, 10 min', vimeo: '1067969852' },
 ];
 
@@ -127,7 +134,7 @@ const videos = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Watch a film</span>
-      <h2>Two recent weddings.</h2>
+      <h2>What you actually receive.</h2>
     </div>
     <VideoGrid items={videos} center />
     <p style="text-align: center; margin-top: 2.5rem; color: var(--muted);">Nashville, destination, or wherever you are celebrating. <a href="/contact">Check availability</a> and we will tell you straight away whether the date is open.</p>

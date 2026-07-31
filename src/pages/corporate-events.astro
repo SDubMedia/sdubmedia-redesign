@@ -1,20 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Video from '../components/Video.astro';
 
-// ── PROOF SLOT (currently empty on purpose) ─────────────────────────
-// This page has no video yet. The Chuck Whitehead event highlight reel is
-// the intended proof; Geoff is sending the Vimeo link.
+// ── PROOF ───────────────────────────────────────────────────────────
+// The reel below is Vimeo 1214627867, delivered as
+// "1.15.26_ChuckWhitehead_Social_Horizontal_Delivered" (47s social cut).
 //
-// When it arrives:
-//   1. import Video from '../components/Video.astro';
-//   2. Drop the commented "Proof" section below back in with the id.
-//   3. Credit the ORGANISER who commissioned it, not the speaker, and only
-//      if Geoff has confirmed they can be named.
+// TODO(geoff): confirm two things and I will update the caption:
+//   1. Who commissioned it. The credit belongs to the organiser who hired us,
+//      not the speaker, and it is unnamed until confirmed.
+//   2. Whether Chuck Whitehead can be named here.
 //
-// Do NOT ship a "Coming soon" tile here. An empty tile on an event page reads
-// worse than a page that simply makes a precise promise. And the archival
-// footage of the talks stays off the site permanently: that is the client's
-// asset and the speaker's material, not a portfolio piece.
+// The archival footage of the talks themselves stays off this site
+// permanently: that is the client's asset and the speaker's material, not a
+// portfolio piece. Only the reel we produced is ours to show.
 //
 // SCOPE HONESTY: single-room coverage only. Do not claim concurrent tracks or
 // breakout rooms. The offer is the main stage done properly.
@@ -77,22 +76,18 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-{/* PROOF: restore this once the Chuck Whitehead highlight reel link is in, and
-    only with the organiser's name confirmed.
-
 <section style="background: var(--soft);">
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">See it in action</span>
-      <h2>A recent event reel.</h2>
+      <h2>The reel from a recent speaker event.</h2>
     </div>
-    <Video id="REPLACE_ME" title="Corporate event highlight reel" />
-    <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">ORGANISER NAME</p>
+    <Video id="1214627867" title="Highlight reel from a corporate speaker event" />
+    <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem;">Forty-seven seconds, cut for social. The full session was archived separately for the organiser's own library.</p>
   </div>
 </section>
-*/}
 
-<section style="background: var(--soft);">
+<section>
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">Why it turns around fast</span>
