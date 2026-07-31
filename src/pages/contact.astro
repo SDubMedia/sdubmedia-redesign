@@ -139,20 +139,37 @@ import Layout from '../layouts/Layout.astro';
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
+    // Analytics. Submitting this form is the single conversion the whole site
+    // exists for, and it was invisible to GA: the form posts in the background,
+    // so there is no page navigation for automatic tracking to notice.
+    const track = (name: string, params: Record<string, unknown> = {}) => {
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      if (typeof w.gtag === 'function') w.gtag('event', name, params);
+    };
+    // Bots that fill the honeypot still get a 200 back (both endpoints silently
+    // accept and drop them), so without this check every bot would count as a
+    // conversion and quietly wreck the numbers.
+    const isBot = !!data.company;
+
     // Primary: drop the lead straight into the Slate pipeline (also emails Geoff).
     // Fallback: if Slate is unreachable, the owned /api/contact email still fires
     // so no inquiry is ever lost.
     const SLATE_ENDPOINT = 'https://slate.sdubmedia.com/api/capture-pipeline-lead';
-    const succeed = () => {
+    const succeed = (route: 'slate' | 'email_fallback') => {
       form.style.display = 'none';
       status.textContent = "Thanks! We got it and we'll reply within 24 hours.";
       status.className = 'form-status ok';
+      if (isBot) return;
+      // Mark generate_lead as a key event in GA to treat it as a conversion.
+      track('generate_lead', { project_type: data.projectType || 'not specified', route });
     };
     const reset = (msg: string) => {
       status.textContent = msg;
       status.className = 'form-status err';
       btn.disabled = false;
       btn.textContent = 'Send it over';
+      // A real person tried to reach us and could not. Worth knowing about.
+      if (!isBot) track('lead_submit_failed', { reason: msg.slice(0, 100) });
     };
 
     try {
@@ -161,17 +178,20 @@ import Layout from '../layouts/Layout.astro';
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-      if (res.ok) return succeed();
+      if (res.ok) return succeed('slate');
       throw new Error('slate non-ok');
     } catch {
-      // Fallback to the email-only function on this site.
+      // Fallback to the email-only function on this site. Reaching here means
+      // Slate's capture endpoint is failing, which is invisible to the visitor
+      // and would otherwise be invisible to us too.
+      if (!isBot) track('lead_fallback_used');
       try {
         const res2 = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
-        if (res2.ok) return succeed();
+        if (res2.ok) return succeed('email_fallback');
         const j = await res2.json().catch(() => ({}));
         reset(j.error || 'Something went wrong. Please email geoff@sdubmedia.com.');
       } catch {
