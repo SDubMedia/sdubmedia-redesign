@@ -25,9 +25,11 @@ import Layout from '../layouts/Layout.astro';
 // events, two are videographers including Geoff, and Geoff shoots every service
 // the business offers.
 //
-// TURNAROUND is 48 hours for photos and video, confirmed by Geoff 2026-07-31.
-// An earlier "next-day delivery" line was invented and removed; do not state
-// any figure other than the confirmed one.
+// TURNAROUND is 48 hours for LISTING photos and video specifically, confirmed
+// by Geoff 2026-07-31. It is NOT a site-wide promise: event turnaround depends
+// on crew size, camera count and edit scope, so no figure belongs on /about,
+// /corporate-events or /business. An earlier invented "next-day delivery" line
+// was removed; do not state any figure other than the confirmed listings one.
 // ────────────────────────────────────────────────────────────────────
 ---
 <Layout
@@ -38,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="container-narrow text-center">
     <span class="eyebrow">For real estate agents</span>
     <h1>Listing photos that go up<br>while the listing is still news.</h1>
-    <p style="font-size: 1.1rem; margin-top: 1.5rem;">One photographer on our team shoots real estate and nothing else. The editing happens in house, so your gallery is back in 48 hours. Priced per listing, so you know the number before you book.</p>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">A photographer who shoots homes and nothing else. Your gallery back in 48 hours. $200 a listing, so you know the number before you book.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Book a listing</a>
     </div>
@@ -60,17 +62,17 @@ import Layout from '../layouts/Layout.astro';
       <div class="tile">
         <img class="tile-image" src="/images/real-estate/living-room.jpg" alt="A living room with the windows correctly exposed rather than blown out" loading="lazy" width="1600" height="1069" />
         <h3>Every Room, Properly Lit</h3>
-        <p>Interiors shot and blended so the windows are not blown out and the rooms are not orange. That sounds basic. Look at any listing feed and count how many get it right.</p>
+        <p>Windows not blown out. Rooms not orange. Sounds basic, until you scroll a listing feed and count how many get it right.</p>
       </div>
       <div class="tile">
         <img class="tile-image" src="/images/real-estate/aerial-neighborhood.jpg" alt="Aerial view over a golf course neighbourhood of large homes" loading="lazy" width="1600" height="1069" />
         <h3>Aerials That Show the Lot</h3>
-        <p>Ground level cannot tell a buyer the yard backs onto a fairway, or how much land comes with the house. An aerial answers in one frame what three paragraphs of listing copy tries to. It is also the shot an agent with a phone cannot take.</p>
+        <p>One frame tells a buyer the yard backs onto a fairway. Three paragraphs of listing copy cannot. It is also the shot a phone cannot take.</p>
       </div>
       <div class="tile">
         <img class="tile-image" src="/images/real-estate/kitchen.jpg" alt="A kitchen with a copper hood and brick backsplash, colour corrected" loading="lazy" width="1600" height="1069" />
         <h3>Back in 48 Hours</h3>
-        <p>Photos and video come back in 48 hours. We can hold that because the editing happens on our team rather than in a queue at an offshore service, so three listings landing in the same week does not push everyone back a day.</p>
+        <p>Every time, because the editing is on our team and not in a queue at an offshore service. Three listings in one week does not push anyone back a day.</p>
       </div>
     </div>
   </div>
@@ -102,7 +104,7 @@ import Layout from '../layouts/Layout.astro';
       <span class="eyebrow">What it costs</span>
       <h2>Per listing, not per hour.</h2>
     </div>
-    <p>No packages to decode and no quote to wait for. Photos and video are priced the same, so shooting both is a straightforward decision rather than a negotiation.</p>
+    <p>No packages to decode. No quote to wait for.</p>
     <div style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
       <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.03);">
         <span><strong>Photos</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Full gallery, per listing</span></span>
@@ -120,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
         <span>Drone on its own</span><span style="white-space: nowrap;">$200</span>
       </div>
     </div>
-    <p style="margin-top: 1.25rem;">Aerials are $50 when we are already at the house, which is the cheapest upgrade on this page and the reason most listings we shoot end up with one. Booking a lot of listings? Tell us how many a month and we will quote it properly.</p>
+    <p style="margin-top: 1.25rem;">Aerials are $50 when we are already there, which is why most listings we shoot end up with one. Booking a lot? Tell us how many a month and we will quote it properly.</p>
   </div>
 </section>
 
@@ -130,8 +132,12 @@ import Layout from '../layouts/Layout.astro';
       <span class="eyebrow">Why agents switch</span>
       <h2>The photos are usually not the problem. The wait is.</h2>
     </div>
-    <p>Most agents do not leave their photographer over quality. They leave because the gallery took four days, the listing went up with three phone pictures, and the first weekend was wasted. A house gets one launch. Ours come back in 48 hours.</p>
-    <p style="margin-top: 1.25rem;">We work with agents across Coldwell Banker Southern Realty's offices already, which means we are used to a brokerage's pace rather than a hobbyist's calendar. One photographer here shoots listings and nothing else, so your Tuesday is not competing with somebody's wedding on Saturday.</p>
+    <p>Agents rarely leave a photographer over quality. They leave because the gallery took four days, the listing went up with three phone pictures, and the first weekend was wasted. A house gets one launch.</p>
+    <ul class="facts">
+      <li><strong>48 hours</strong>, every time</li>
+      <li><strong>One photographer on listings only</strong>, so your Tuesday is not competing with a wedding on Saturday</li>
+      <li><strong>Already inside a brokerage</strong>, working across Coldwell Banker Southern Realty's offices</li>
+    </ul>
     <div class="text-center" style="margin-top: 2.5rem;">
       <a href="#agent-signup" class="btn btn-primary">Set up your account</a>
     </div>

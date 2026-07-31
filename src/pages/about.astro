@@ -1,13 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// REWRITTEN 2026-07-31 for scannability, not length. The page already said all
+// of this, in twelve paragraphs averaging 55 words, nine of which ran over 40.
+// Over 40 words is roughly where a reader skips the block entirely. Nothing
+// true was cut: prose became lists, figures became figures, and the Coldwell
+// Banker example became a list of what we actually produce rather than a
+// paragraph describing it.
 ---
-<Layout title="About | SDub Media Nashville Video Production" description="SDub Media is a Nashville video production company built around recurring content. We help businesses show up on video every week, and shoot a few weddings a year.">
+<Layout
+  title="About | SDub Media Nashville Video Production"
+  description="A five-person video and photo team in Nolensville, working across Nashville. Recurring content for businesses, corporate events, dance, listings and a few weddings a year."
+>
 <section>
   <div class="container-narrow">
     <div class="text-center">
       <span class="eyebrow">About</span>
       <h1>One team, one system,<br>same quality every week</h1>
-      <p style="font-size: 1.15rem; margin-top: 1.5rem;">SDub Media is a Nashville video production company built around one idea: businesses need to show up on video consistently, not just once. We build the production system so your content actually gets made, week after week, without the chaos.</p>
+      <p style="font-size: 1.15rem; margin-top: 1.5rem;">Businesses need to show up on video consistently, not once. We build the system that makes that happen.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">People, covering video, photography and editing</span></div>
+      <div class="stat"><span class="stat-num">19</span><span class="stat-label">Pieces of content from a single interview day</span></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Coldwell Banker offices we shoot across</span></div>
     </div>
   </div>
 </section>
@@ -16,9 +31,14 @@ import Layout from '../layouts/Layout.astro';
   <div class="container-narrow">
     <span class="eyebrow">Why recurring</span>
     <h2>One video won't move your business. Fifty will.</h2>
-    <p>Most companies treat video as an event. They save up, book a big shoot, post it once, and then go quiet for six months. It feels productive. It rarely works.</p>
-    <p>Showing up on camera is a habit, not a moment. The brands that win attention are the ones in front of their audience every week with content that looks and sounds like them. The hard part was never the camera. It was the consistency: the planning, the scheduling, the editing, the follow-through.</p>
-    <p>That is the part we own. We design a production rhythm around your calendar, batch the work so it is efficient, and keep the style consistent so every piece feels like one brand. You get a pipeline that does not stall the moment things get busy.</p>
+    <p>Most companies treat video as an event. They save up, book a big shoot, post it once, then go quiet for six months.</p>
+    <p>Showing up is a habit, not a moment. The hard part was never the camera. It was the consistency.</p>
+    <ul class="facts">
+      <li><strong>Planning</strong> built around your calendar, not ours</li>
+      <li><strong>Batched shoots</strong>, so the work stays efficient</li>
+      <li><strong>One consistent style</strong>, so every piece looks like one brand</li>
+      <li><strong>Editing in house</strong>, so the pipeline does not stall when things get busy</li>
+    </ul>
   </div>
 </section>
 
@@ -26,9 +46,15 @@ import Layout from '../layouts/Layout.astro';
   <div class="container-narrow">
     <span class="eyebrow">The model in action</span>
     <h2>What that looks like in practice</h2>
-    <p>Coldwell Banker Southern Realty is the clearest example. They have eight offices across Tennessee, and we work across them. We have shot at six locations so far, and the relationship runs in several formats at once.</p>
-    <p>There is a weekly series filmed with the owner at the main office in Nashville. There are monthly headshot days, rotating through the offices one at a time so agents can come in for an updated headshot. We produce recurring content in their in-house podcast room, and we cover their major live events, where they bring in speakers to address all the offices. We also work with their luxury division.</p>
-    <p>That is the whole point: not a one-off shoot, but a steady stream of content across formats, produced on a schedule. We work directly with their director of marketing, so the video runs as part of their plan instead of arriving as a series of separate bookings. We are not handed a shot list, and they are not left running a production department.</p>
+    <p>Coldwell Banker Southern Realty has eight offices across Tennessee. We have shot at six of them, and the relationship runs in several formats at once.</p>
+    <ul class="facts">
+      <li>A <strong>weekly series</strong> filmed with the owner at the main Nashville office</li>
+      <li><strong>Monthly headshot days</strong>, rotating through the offices one at a time</li>
+      <li>Recurring content produced in their <strong>in-house podcast room</strong></li>
+      <li><strong>Live events</strong>, where they bring in speakers to address every office</li>
+      <li>Work for their luxury division, <strong>Coldwell Banker Global Luxury</strong></li>
+    </ul>
+    <p style="margin-top: 1.5rem;">We work directly with their director of marketing, so the video runs as part of their plan rather than arriving as separate bookings. We are not handed a shot list, and they are not left running a production department.</p>
   </div>
 </section>
 
@@ -36,9 +62,15 @@ import Layout from '../layouts/Layout.astro';
   <div class="container-narrow">
     <span class="eyebrow">Range</span>
     <h2>The work we take on</h2>
-    <p>Recurring content is the core, but the work spans more than a weekly series. We produced a brand video for Tutoring Rocks at their Nolensville location, filming kids and tutors on site and capturing the local feel of the town. We handled live event coverage for Ballet Ball Nashville with full backstage access, blending the performance on stage with the energy of the night.</p>
-    <p>Schools, dance studios, professional services, podcasts: the common thread is a Nashville-area business that needs to look good on camera. Coldwell Banker Southern Realty and their luxury arm, Coldwell Banker Global Luxury, are the ongoing relationship, week in and week out, and we produce the Middle of the Story Podcast on a weekly cadence as well. Webb School and Nolensville Dance Company come back every year or twice a year, which is its own kind of trust.</p>
-    <p>Four kinds of work have grown out of that, and they all have the same shape: we hand you the complete record and the short piece you can actually use. <a href="/business">Businesses</a> get one sitting cut into a quarter of content. <a href="/corporate-events">Conferences</a> get every main-stage talk archived plus a highlight reel. <a href="/dance">Dance studios</a> get the full recital for families and a short cut for the website. And a few <a href="/weddings">weddings</a> a year get a full film and a sizzle reel.</p>
+    <p>Five kinds of work, all the same shape. You get the complete record, and the short piece you can actually use.</p>
+    <ul class="facts">
+      <li><a href="/business"><strong>Businesses</strong></a>: one sitting, cut into a quarter of content</li>
+      <li><a href="/corporate-events"><strong>Conferences</strong></a>: every main-stage talk archived, plus a highlight reel</li>
+      <li><a href="/dance"><strong>Dance studios</strong></a>: the full recital for families, a short cut for the website</li>
+      <li><a href="/real-estate-photography"><strong>Listings</strong></a>: a full gallery back in 48 hours, priced per listing</li>
+      <li><a href="/weddings"><strong>Weddings</strong></a>: a full film and a sizzle reel</li>
+    </ul>
+    <p style="margin-top: 1.5rem;">Coldwell Banker Southern Realty, Global Luxury and the Middle of the Story Podcast are weekly. Webb School and Nolensville Dance Company come back once or twice a year, which is its own kind of trust.</p>
   </div>
 </section>
 
@@ -46,15 +78,15 @@ import Layout from '../layouts/Layout.astro';
   <div class="container-narrow">
     <span class="eyebrow">Weddings</span>
     <h2>And a few weddings a year</h2>
-    <p>We still take a few weddings a year, because we love the work and we are good at it. The number is smaller than it used to be, by choice: most of our week now goes to business clients, which is exactly why the weddings we do book are unhurried. Nobody's film gets edited between three other jobs.</p>
+    <p>Fewer than we used to take, by choice. Most of the week goes to business clients now, which is exactly why the weddings we book are unhurried. Nobody's film gets edited between three other jobs.</p>
   </div>
 </section>
 
 <section style="background: var(--soft);">
   <div class="container-narrow text-center">
     <span class="eyebrow">Where we are</span>
-    <h2>Rooted in Nashville</h2>
-    <p style="font-size: 1.1rem;">Based in Nolensville, twenty minutes south of downtown, serving Nashville and the rest of Middle Tennessee. Most of the work is in the city; some of our favourite clients are right here at home. If you have something coming up, or you are tired of video being a once-a-year scramble, let's talk.</p>
+    <h2>Rooted in Nolensville, working across Nashville</h2>
+    <p style="font-size: 1.1rem;">Twenty minutes south of downtown. Most of the work is in the city, and some of our favourite clients are right here at home.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Start a conversation</a>
     </div>

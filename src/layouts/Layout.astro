@@ -135,6 +135,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     section { padding: 5rem 0; }
     section.section-alt { background: var(--soft); }
 
+    /* Scannable lists. The site had ZERO list items in any page body: every
+       claim was prose, and most paragraphs ran over 40 words, which is the
+       point readers skip a block entirely. */
+    .facts { list-style: none; margin: 1.5rem 0 0; display: grid; gap: 0.85rem; }
+    .facts li { position: relative; padding-left: 1.6rem; color: var(--text-dim); }
+    .facts li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+    .facts li strong { color: var(--text); font-weight: 600; }
+    /* A number and a label, for the figures worth seeing before the sentence. */
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin: 2rem 0 0; }
+    .stat { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .stat-num { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 700; color: var(--brand); line-height: 1.1; letter-spacing: -0.02em; }
+    .stat-label { display: block; font-size: 0.9rem; color: var(--text-dim); margin-top: 0.4rem; }
+
     .section-head { text-align: center; margin-bottom: 3.5rem; }
     .text-center { text-align: center; }
 
