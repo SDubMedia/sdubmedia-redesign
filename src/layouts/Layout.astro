@@ -296,6 +296,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       gap: 1rem;
     }
     footer nav ul { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-id { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.85rem; }
+    .footer-contact a { color: var(--text-dim); }
+    .footer-contact a:hover { color: var(--text); }
+    .footer-contact span { color: var(--muted); }
     footer nav a { color: var(--text-dim); font-size: 0.85rem; }
     footer nav a:hover { color: var(--text); }
     .copyright { font-size: 0.8rem; color: var(--muted); }
@@ -405,6 +410,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         gap: 1.75rem;
         padding: 2.5rem 1.5rem;
       }
+      .footer-id { align-items: center;
+      }
       footer nav ul { justify-content: center; gap: 0.5rem 1.25rem; }
       footer nav a { display: inline-block; padding: 0.3rem 0; }
       /* The nav becomes a panel under the sticky header. Ten items wrapped onto
@@ -512,10 +519,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <slot />
 
 <footer class="site-footer">
-  <a href="/" class="logo">
-    <img src="/brand-logo.png" alt="SDub Media">
-    <span class="logo-text">SDub Media</span>
-  </a>
+  <div class="footer-id">
+    <a href="/" class="logo">
+      <img src="/brand-logo.png" alt="SDub Media">
+      <span class="logo-text">SDub Media</span>
+    </a>
+    <div class="footer-contact">
+      <a href="tel:+16157079143">615-707-9143</a>
+      <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>
+      <span>Nolensville, TN · serving Nashville</span>
+    </div>
+  </div>
   <nav>
     <ul>
       <li><a href="/business">Business</a></li>
@@ -529,7 +543,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
-  <div class="copyright">Nashville, TN &nbsp;·&nbsp; © SDub Media</div>
+  <div class="copyright">© SDub Media</div>
 </footer>
 
 </body>
