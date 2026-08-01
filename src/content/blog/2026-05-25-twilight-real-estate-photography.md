@@ -4,7 +4,7 @@ description: 'How to shoot twilight real estate photography: the timing, the set
 pubDate: 2026-05-25
 updatedDate: 2026-07-31
 keyword: 'twilight real estate photography'
-image: '/images/blog/2026-05-25-twilight-real-estate-photography.jpg'
+image: '/images/weddings/reception-dusk.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

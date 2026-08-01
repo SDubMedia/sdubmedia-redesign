@@ -4,7 +4,7 @@ description: 'A plain guide to the best lens for real estate photography: why wi
 pubDate: 2026-05-25
 updatedDate: 2026-07-31
 keyword: 'best lens for real estate photography'
-image: '/images/blog/2026-05-25-best-lens-for-real-estate-photography.jpg'
+image: '/images/real-estate/entry-staircase.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

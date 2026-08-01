@@ -3,7 +3,7 @@ title: 'Nashville Videographers: How to Compare Them Without Getting Burned'
 description: 'A practical guide to comparing Nashville videographers: who does what, real price ranges, what reels hide, the questions that filter out the wrong fit, and how to pick the right one.'
 pubDate: 2026-06-29
 keyword: 'nashville videographers'
-image: '/images/blog/2026-06-29-nashville-videographers.jpg'
+image: '/images/weddings/barn-pond.jpg'
 cluster: 'videographer'
 isPillar: false
 draft: false

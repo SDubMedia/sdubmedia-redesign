@@ -4,7 +4,7 @@ description: 'How to choose the best camera for real estate photography: what ac
 pubDate: 2026-05-25
 updatedDate: 2026-07-31
 keyword: 'best camera for real estate photography'
-image: '/images/blog/2026-05-25-best-camera-for-real-estate-photography.jpg'
+image: '/images/real-estate/exterior-front.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

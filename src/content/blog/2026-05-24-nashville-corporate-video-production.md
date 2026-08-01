@@ -4,7 +4,7 @@ description: 'A straight guide to Nashville corporate video production: what the
 pubDate: 2026-05-24
 updatedDate: 2026-07-06
 keyword: 'nashville corporate video production'
-image: '/images/blog/2026-05-24-nashville-corporate-video-production.jpg'
+image: '/images/corporate/bts-bar-shoot.jpg'
 cluster: 'corporate-video'
 isPillar: true
 draft: false

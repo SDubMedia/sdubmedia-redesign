@@ -4,7 +4,7 @@ description: 'A practical real estate photo editing guide: straighten, brighten,
 pubDate: 2026-05-25
 updatedDate: 2026-07-31
 keyword: 'real estate photography editing'
-image: '/images/blog/2026-05-25-real-estate-photo-editing.jpg'
+image: '/images/real-estate/great-room.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

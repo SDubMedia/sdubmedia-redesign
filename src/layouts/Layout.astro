@@ -36,7 +36,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:type" content="website">
-  {image && <meta property="og:image" content={image}>}
+  {/* Must be absolute: Facebook/iMessage/Slack scrapers ignore relative
+      og:image URLs, so every share preview was silently imageless. */}
+  {image && <meta property="og:image" content={new URL(image, Astro.site).href}>}
 
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 

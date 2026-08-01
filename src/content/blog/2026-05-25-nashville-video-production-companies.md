@@ -4,7 +4,7 @@ description: 'An honest guide to Nashville video production companies: the types
 pubDate: 2026-05-25
 updatedDate: 2026-07-27
 keyword: 'nashville video production companies'
-image: '/images/blog/2026-05-25-nashville-video-production-companies.jpg'
+image: '/images/corporate-events/session-room.jpg'
 cluster: 'video-production'
 isPillar: true
 draft: false

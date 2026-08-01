@@ -4,7 +4,7 @@ description: 'Practical real estate photography tips for agents: clean your lens
 pubDate: 2026-05-25
 updatedDate: 2026-07-31
 keyword: 'real estate photography tips'
-image: '/images/blog/2026-05-25-real-estate-photography-tips.jpg'
+image: '/images/real-estate/kitchen.jpg'
 cluster: 'real-estate-photo'
 isPillar: true
 draft: false

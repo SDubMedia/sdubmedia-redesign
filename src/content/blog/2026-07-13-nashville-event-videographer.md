@@ -4,7 +4,7 @@ description: 'What a Nashville event videographer actually does, what to book fo
 pubDate: 2026-07-13
 updatedDate: 2026-07-30
 keyword: 'nashville event videographer'
-image: '/images/blog/2026-07-13-nashville-event-videographer.jpg'
+image: '/images/weddings/wedding-party.jpg'
 cluster: 'videographer'
 isPillar: false
 draft: false

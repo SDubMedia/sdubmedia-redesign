@@ -3,7 +3,7 @@ title: 'Video Production in Nashville, TN: What Out-of-Market Buyers Should Know
 description: 'A practical guide to video production in Nashville, TN: who searches for it, what the city offers, and how to hire well when you are not based here.'
 pubDate: 2026-07-27
 keyword: 'video production nashville tn'
-image: '/images/blog/2026-07-27-video-production-nashville-tn.jpg'
+image: '/images/real-estate/aerial-neighborhood.jpg'
 cluster: 'video-production'
 isPillar: false
 draft: false

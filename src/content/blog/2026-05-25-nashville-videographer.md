@@ -4,7 +4,7 @@ description: 'How to find and hire the right Nashville videographer: what they d
 pubDate: 2026-05-25
 updatedDate: 2026-07-13
 keyword: 'videographer nashville'
-image: '/images/blog/2026-05-25-nashville-videographer.jpg'
+image: '/images/weddings/sunset-carry.jpg'
 cluster: 'videographer'
 isPillar: true
 draft: false

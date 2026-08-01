@@ -4,7 +4,7 @@ description: 'A practical guide to iPhone real estate photography: clean the len
 pubDate: 2026-05-25
 updatedDate: 2026-07-31
 keyword: 'iphone real estate photography'
-image: '/images/blog/2026-05-25-iphone-real-estate-photography.jpg'
+image: '/images/real-estate/living-room.jpg'
 cluster: 'real-estate-photo'
 isPillar: false
 draft: false

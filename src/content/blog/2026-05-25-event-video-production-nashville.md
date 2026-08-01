@@ -3,7 +3,7 @@ title: 'Event Video Production in Nashville: What to Book and When'
 description: 'A practical guide to event video production services in Nashville: what to book, when to book it, what it costs, and how to get footage that works after the event.'
 pubDate: 2026-05-25
 keyword: 'event video production services in nashville'
-image: '/images/blog/2026-05-25-event-video-production-nashville.jpg'
+image: '/images/events/gala-tables.jpg'
 cluster: 'corporate-video'
 isPillar: false
 draft: false

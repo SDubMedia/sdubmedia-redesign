@@ -3,7 +3,7 @@ title: 'How to Get Great Testimonial Videos for Your Nashville Business'
 description: 'A practical guide to testimonial video production in Nashville: who to film, what to ask, what it costs, and how to get customers to say something real.'
 pubDate: 2026-05-24
 keyword: 'testimonial video production nashville'
-image: '/images/blog/2026-05-24-testimonial-video-production-nashville.jpg'
+image: '/images/corporate-events/attendees.jpg'
 cluster: 'corporate-video'
 isPillar: false
 draft: false
