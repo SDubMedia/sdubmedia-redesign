@@ -88,8 +88,11 @@ Done:
 Still open:
 - [ ] Portfolio is mostly placeholders: 1 real Vimeo video, the rest render "Coming soon" tiles.
       Same on business.astro (2 of 3 empty) and weddings.astro (2 of 3 empty).
-- [ ] 6 of 20 blog posts have no `image:` (they degrade fine, but no header art and no og:image).
-      Generate with gpt-image-1 into `public/images/blog/<slug>.png`, then add the `image:` field.
+- [x] Blog headers: all 20 posts now use REAL photographs from public/images/ (2026-08-01),
+      matched by subject and all distinct (the index shows every card on one page). Do NOT
+      generate new gpt-image-1 art for posts; AI headers next to real work read as fake and
+      were removed for that reason. New posts should reuse a real image or ship with none.
+      The old AI files remain in public/images/blog/ only so cached social previews resolve.
 
 ## Editing Portfolio Videos and Client Logos
 - Video lists are hardcoded arrays at the top of `portfolio.astro`, `business.astro`, `weddings.astro`.
