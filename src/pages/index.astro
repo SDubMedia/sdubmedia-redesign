@@ -41,10 +41,10 @@ import clients from '../data/clients.json';
     the homepage. One section now covers all four, ordered by where the business
     is going: commercial work first, weddings last and deliberately smaller.
 
-    Images were removed rather than replaced. The four here were AI-generated,
-    which is the worst possible tell for a video company, and there were none
-    for dance or events anyway. Geoff is sending real frames; add them back as
-    `tile-image` at the top of each tile when they land. */}
+    The AI-generated images that were here originally were removed (generated
+    stock is the worst possible tell for a video company). All three cards now
+    carry a real frame: a brand shoot mid-setup, a camera working a conference
+    room, and a recital group. */}
 <section style="background: var(--soft);">
   <div class="container">
     <div class="section-head">
@@ -53,16 +53,19 @@ import clients from '../data/clients.json';
     </div>
     <div class="tiles">
       <a href="/business" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/corporate/bts-bar-shoot.jpg" alt="A brand shoot in progress with two softboxes and two cameras set up around a bar" loading="lazy" width="1600" height="1200" />
         <h3>Business</h3>
         <p>Interview-led content series, on-camera reels, headshot days, and brand films. You sit down for a couple of hours; we cut it into a quarter's worth of content. One broker's session with his top agents became nineteen pieces.</p>
         <span class="door-arrow">What we do for businesses →</span>
       </a>
       <a href="/corporate-events" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/corporate-events/camera-in-room.jpg" alt="A cinema camera at the back of a full conference room, speaker on stage beyond" loading="lazy" width="1600" height="1200" />
         <h3>Corporate Events</h3>
         <p>Conference and speaker coverage. Every main-stage talk archived with board audio and your own slides, plus one highlight reel you can put to work while the event is still fresh.</p>
         <span class="door-arrow">How event coverage works →</span>
       </a>
       <a href="/dance" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/dance/jazz-group.jpg" alt="A jazz group posed on stage in green fringe costumes" loading="lazy" width="1600" height="1069" />
         <h3>Dance</h3>
         <p>Recital films, studio promos, and season-long social content for studios around Nashville. The full show for families, the short cut for your website. We have done this for Elite Dance and Nolensville Dance Company.</p>
         <span class="door-arrow">See the dance work →</span>
