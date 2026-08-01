@@ -67,9 +67,12 @@ const videos = [
       <li><strong>Two or three hours</strong> of filming. That is your entire part</li>
       <li>A run of <strong>interviews</strong>, usually the owner or whoever knows the business best</li>
       <li>Cut into <strong>a quarter's worth</strong> of short pieces</li>
-      <li>One broker sat down with his top agents. That session became <strong>nineteen pieces</strong>. We did sixteen for another</li>
     </ul>
-    <p style="margin-top: 1.5rem;">The editing is ours, which is why we keep editors on the team rather than a waiting list. You are on camera for an afternoon and visible for two months.</p>
+    <p style="margin-top: 1.5rem;">The editing is ours, which is why we keep editors on the team rather than a waiting list. You are on camera for an afternoon and visible for a quarter.</p>
+    <!-- This was buried inside the list above as a bullet, which broke the
+         list's rhythm and clipped the second half to "We did sixteen for
+         another." It is the page's strongest proof; it gets to stand alone. -->
+    <p style="margin-top: 1.25rem; font-size: 1.1rem;">One broker sat down with his top agents for a single day. That session became <strong>nineteen pieces of content</strong>. A second broker's day produced sixteen.</p>
     <div style="margin-top: 2rem;">
       <Video id="1214149996" title="Agent on camera, Coldwell Banker Southern Realty" />
       <p style="font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem;">One cut from an agent interview day. Coldwell Banker Southern Realty.</p>
@@ -111,6 +114,20 @@ const videos = [
     {/* center: 4 videos leaves a partial last row; centering it looks
         deliberate instead of left-aligned against an empty column */}
     <VideoGrid items={videos} center />
+  </div>
+</section>
+
+{/* This page had exactly one CTA and it was at the very top. Anyone who read
+    all the way down here is the warmest visitor the site gets, and the page
+    handed them the footer. Every other service page already closed with one. */}
+<section style="background: var(--soft);">
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Start</span>
+    <h2>Book the first sitting.</h2>
+    <p style="font-size: 1.1rem; max-width: 520px; margin: 1.5rem auto 0;">Two or three hours of your time, once. We will tell you what we would make from it before you commit to anything.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+    </div>
   </div>
 </section>
 </Layout>

@@ -6,3 +6,6 @@ dist/
 !.env.example
 .vercel
 *.p8
+
+# macOS Finder metadata
+.DS_Store
