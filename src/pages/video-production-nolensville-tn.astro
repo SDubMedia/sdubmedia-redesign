@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// CITY PAGE. One of four (Nolensville, Brentwood, Franklin, Murfreesboro)
+// built 2026-08-02 to compete in per-town searches, which are won by having
+// a genuine page about the town, not by proximity. RULES FOR ALL FOUR:
+// every claim must trace to a confirmed shoot or client; no invented venues,
+// no copy-pasted town pages with the name swapped (Google penalises doorway
+// pages, and it is also just lying). Confirmed Nolensville work: Nolensville
+// Dance Company (recitals), Church at Nolensville (event video), and the
+// company is based here. "Hannah Grace" appears in Geoff's locations list but
+// is NOT on the approved client-name list; do not name it.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Video production and photography',
+  provider: { '@id': 'https://sdubmedia.com/#business' },
+  areaServed: { '@type': 'City', name: 'Nolensville', containedInPlace: { '@type': 'State', name: 'Tennessee' } },
+};
+---
+<Layout
+  title="Nolensville TN Video Production & Photography | SDub Media"
+  description="SDub Media is based in Nolensville, TN. Recital films for Nolensville Dance Company, event video for Church at Nolensville, family portraits, and video for local businesses."
+  jsonLd={jsonLd}
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Nolensville, TN</span>
+    <h1>The video company that lives here.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Most Nolensville businesses hire video crews out of Nashville. We are the other direction: based in Nolensville, working everywhere else, and home by dinner.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <span class="eyebrow">Work shot in Nolensville</span>
+    <h2>Not "we serve the area." We work here.</h2>
+    <ul class="facts">
+      <li><strong>Nolensville Dance Company</strong>: recital films, year after year. The full show for families, the short cut for the studio</li>
+      <li><strong>Church at Nolensville</strong>: event video, including the kind of youth event footage that actually gets watched</li>
+      <li><strong>Family and senior portraits</strong>, shot on location around town rather than in a studio</li>
+    </ul>
+    <p style="margin-top: 1.5rem;">And when a recurring client needs us elsewhere, we go: our standing client work has us filming at real estate offices in eight Tennessee cities every month.</p>
+  </div>
+  <div class="container" style="margin-top: 3rem;">
+    <div class="wedding-strip">
+      <img src="/images/dance/ballet-group.jpg" alt="A character ballet number in pirate costume around a treasure chest" loading="lazy" width="1600" height="1069" />
+      <img src="/images/dance/hiphop-group.jpg" alt="A hip hop group posed on stage in magenta jackets" loading="lazy" width="1600" height="1069" />
+      <img src="/images/dance/acro-group.jpg" alt="An acro group holding balance poses on stage" loading="lazy" width="1600" height="1069" />
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">Recital work for Nolensville Dance Company.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <span class="eyebrow">What we do</span>
+    <h2>Everything we sell, five minutes from your door.</h2>
+    <ul class="facts">
+      <li><a href="/business"><strong>Recurring video for businesses</strong></a>: weekly series, interviews, brand films</li>
+      <li><a href="/dance"><strong>Dance recitals and studio content</strong></a>: we film your program, not just the finale</li>
+      <li><a href="/real-estate-photography"><strong>Listing photography</strong></a>: $200 a listing, back in 48 hours</li>
+      <li><a href="/corporate-events"><strong>Corporate and speaker events</strong></a>: the archive and the reel</li>
+      <li><a href="/weddings"><strong>Weddings</strong></a>: a handful a year, pricing published</li>
+    </ul>
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Talk to a neighbor</a>
+    </div>
+  </div>
+</section>
+</Layout>

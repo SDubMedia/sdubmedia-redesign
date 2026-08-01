@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// CITY PAGE, see video-production-nolensville-tn.astro for the shared rules.
+// Confirmed Brentwood work: CBSR's Brentwood office (1600 Westgate Cir) is a
+// STANDING location in Geoff's scheduling system, part of the monthly
+// headshot-day rotation through CBSR's offices; Civitan Field on Concord Road
+// is also a standing location. Do not describe jobs beyond what is confirmed.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Video production and photography',
+  provider: { '@id': 'https://sdubmedia.com/#business' },
+  areaServed: { '@type': 'City', name: 'Brentwood', containedInPlace: { '@type': 'State', name: 'Tennessee' } },
+};
+---
+<Layout
+  title="Brentwood TN Video Production & Photography | SDub Media"
+  description="Corporate video, headshot days and photography in Brentwood, TN. SDub Media shoots at Coldwell Banker Southern Realty's Brentwood office on a standing schedule, 20 minutes from base."
+  jsonLd={jsonLd}
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Brentwood, TN</span>
+    <h1>Already in Brentwood every month.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Coldwell Banker Southern Realty's Brentwood office is a standing location on our calendar. Adding your business to a route we already drive is the easy version of hiring a video company.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <span class="eyebrow">The recurring model</span>
+    <h2>Built for companies that need video monthly, not once.</h2>
+    <p>Brentwood offices tend to have the same problem as everyone else: plenty to say, nobody with time to be filmed. Our whole model exists for that.</p>
+    <ul class="facts">
+      <li><strong>Headshot days</strong>: we run them monthly for a brokerage, rotating through their offices, Brentwood included. One day, the whole team updated</li>
+      <li><strong>Interview-led series</strong>: you sit down for a couple of hours, we cut a quarter of content</li>
+      <li><strong>Event coverage</strong>: your speaker events archived properly, with a reel you can use</li>
+    </ul>
+    <p style="margin-top: 1.5rem;">Civitan Field is on our standing location list too. We know the town, not just the exit ramp.</p>
+  </div>
+  <div class="container" style="margin-top: 3rem;">
+    <div class="wedding-strip">
+      <img src="/images/corporate/office-group.jpg" alt="A large team gathered for a group photo at a brokerage office" loading="lazy" width="1600" height="1067" />
+      <img src="/images/corporate-events/attendees.jpg" alt="Attendees engaged in a corporate training session" loading="lazy" width="1600" height="1067" />
+      <img src="/images/corporate/bts-bar-shoot.jpg" alt="A two-camera brand shoot in progress with softbox lighting" loading="lazy" width="1600" height="1200" />
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">Office teams, sessions and brand shoots for Coldwell Banker Southern Realty.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <span class="eyebrow">Also on the truck</span>
+    <h2>The rest of what we carry into Williamson County.</h2>
+    <ul class="facts">
+      <li><a href="/real-estate-photography"><strong>Listing photography</strong></a>: $200 per listing, 48-hour turnaround, drone available</li>
+      <li><a href="/corporate-events"><strong>Corporate events</strong></a>: three cameras, audio off your board</li>
+      <li><a href="/business"><strong>Brand video and podcasts</strong></a>: shot where you are</li>
+      <li><a href="/weddings"><strong>Weddings and portraits</strong></a>: published pricing, no packages theater</li>
+    </ul>
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Get on the route</a>
+    </div>
+  </div>
+</section>
+</Layout>

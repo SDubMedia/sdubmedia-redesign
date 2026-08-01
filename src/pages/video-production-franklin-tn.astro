@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// CITY PAGE, see video-production-nolensville-tn.astro for the shared rules.
+// HONESTY NOTE: as of 2026-08-02 there is NO confirmed past shoot in Franklin
+// itself, so this page claims none. It argues proximity (Williamson County,
+// minutes away), the standing Williamson County work (CBSR Brentwood), and
+// the recurring model. If Geoff confirms Franklin shoots (his one-time
+// locations list may hold some), add them here and sharpen the page. Do NOT
+// add a fake "work in Franklin" section before then.
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Video production and photography',
+  provider: { '@id': 'https://sdubmedia.com/#business' },
+  areaServed: { '@type': 'City', name: 'Franklin', containedInPlace: { '@type': 'State', name: 'Tennessee' } },
+};
+---
+<Layout
+  title="Franklin TN Video Production & Photography | SDub Media"
+  description="Video production for Franklin, TN businesses: recurring content, corporate events, listing photography and weddings, from a crew based 15 minutes away in Nolensville."
+  jsonLd={jsonLd}
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Franklin, TN</span>
+    <h1>Your video crew lives 15 minutes away.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Most crews serving Franklin drive in from Nashville, or fly in from further. We are in Nolensville, on the same county roads, invoicing zero travel and available on short notice.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <span class="eyebrow">Why it matters where we live</span>
+    <h2>Williamson County is our home turf, not a service area.</h2>
+    <ul class="facts">
+      <li><strong>Standing monthly work in Williamson County</strong> already: a brokerage office in Brentwood is on our regular rotation</li>
+      <li><strong>Short notice is realistic.</strong> A listing that needs photos tomorrow, or a speaker event that lost its videographer, is a 15-minute decision, not a logistics problem</li>
+      <li><strong>Recurring means recurring.</strong> Weekly and monthly clients get a crew that shows up like a habit, because the drive is nothing</li>
+    </ul>
+  </div>
+  <div class="container" style="margin-top: 3rem;">
+    <div class="wedding-strip">
+      <img src="/images/corporate/bts-bar-shoot.jpg" alt="A brand shoot mid-setup with two softboxes and two cameras" loading="lazy" width="1600" height="1200" />
+      <img src="/images/corporate-events/camera-in-room.jpg" alt="A cinema camera working a full conference room" loading="lazy" width="1600" height="1200" />
+      <img src="/images/events/gala-tables.jpg" alt="A candlelit banquet table running toward a lit stage" loading="lazy" width="1600" height="1069" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <span class="eyebrow">What Franklin businesses hire us for</span>
+    <h2>The same five things, closer.</h2>
+    <ul class="facts">
+      <li><a href="/business"><strong>Recurring content</strong></a>: interview series, podcasts, headshot days. One sitting becomes a quarter of content</li>
+      <li><a href="/corporate-events"><strong>Corporate and speaker events</strong></a>: three cameras, board audio, archive plus reel, around $6,000 for a full day</li>
+      <li><a href="/real-estate-photography"><strong>Listing photography</strong></a>: $200 a listing, 48 hours back</li>
+      <li><a href="/dance"><strong>Dance studios</strong></a>: recital films and season content</li>
+      <li><a href="/weddings"><strong>Weddings</strong></a>: $3,500 all day, pricing on the page</li>
+    </ul>
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Talk about your project</a>
+    </div>
+  </div>
+</section>
+</Layout>

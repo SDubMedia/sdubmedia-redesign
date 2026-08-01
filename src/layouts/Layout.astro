@@ -304,6 +304,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     footer nav a { color: var(--text-dim); font-size: 0.85rem; }
     footer nav a:hover { color: var(--text); }
     .copyright { font-size: 0.8rem; color: var(--muted); }
+    .footer-areas { width: 100%; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.8rem; }
+    .footer-areas span { color: var(--muted); }
+    .footer-areas a { color: var(--text-dim); }
+    .footer-areas a:hover { color: var(--text); }
 
     /* Blog */
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -543,6 +547,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
+  {/* City pages get sitewide internal links here rather than nav slots.
+      Keep in sync with the LocalBusiness areaServed list on the homepage. */}
+  <div class="footer-areas">
+    <span>Serving:</span>
+    <a href="/video-production-nolensville-tn">Nolensville</a>
+    <a href="/video-production-brentwood-tn">Brentwood</a>
+    <a href="/video-production-franklin-tn">Franklin</a>
+    <a href="/video-production-murfreesboro-tn">Murfreesboro</a>
+    <a href="/">Nashville</a>
+  </div>
   <div class="copyright">© SDub Media</div>
 </footer>
 
