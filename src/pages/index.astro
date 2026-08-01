@@ -2,9 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import clients from '../data/clients.json';
 import { imageDims } from '../lib/image-size.mjs';
+
+// Local-business entity for Google. Every value here must stay in sync with
+// the Google Business Profile and the contact page; a mismatched phone or
+// name makes Google trust both listings less. City-level address only: this
+// is a service-area business, and no street address is published anywhere.
+const businessLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://sdubmedia.com/#business',
+  name: 'SDub Media',
+  description: 'Video production and photography for Nashville businesses: recurring content, corporate events, dance recitals, real estate listings, and a few weddings a year.',
+  url: 'https://sdubmedia.com',
+  telephone: '+1-615-707-9143',
+  email: 'geoff@sdubmedia.com',
+  image: 'https://sdubmedia.com/brand-logo.png',
+  logo: 'https://sdubmedia.com/brand-logo.png',
+  address: { '@type': 'PostalAddress', addressLocality: 'Nolensville', addressRegion: 'TN', addressCountry: 'US' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+  ],
+};
 ---
 
-<Layout title="SDub Media | Nashville Video Production">
+<Layout title="SDub Media | Nashville Video Production" jsonLd={businessLd}>
 
 <section class="hero">
   <span class="eyebrow">SDub Media &nbsp;·&nbsp; Nashville, TN</span>
