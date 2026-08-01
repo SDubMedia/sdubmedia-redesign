@@ -1,13 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// EVERY call to action on the site lands here, so this form has to recognise
+// every service the site sells. It did not: a fresh review (2026-07-31) found
+// the dropdown offered no option for listing shoots or dance work, which meant
+// two of the five service pages funnelled their traffic into "Other". The
+// options below must stay in sync with `KNOWN_PROJECT_TYPES` in Slate's
+// api/capture-pipeline-lead.ts. An unrecognised value is silently coerced to
+// "Other" there, so adding an option here WITHOUT adding it there looks like it
+// works and quietly throws away the categorisation.
+//
+// The `value` is the canonical type Slate stores; the label is what visitors
+// read. Keep them decoupled so wording can change without a Slate deploy.
 ---
 <Layout title="Contact | SDub Media Nashville Video Production" description="Start a conversation with SDub Media. Tell us what you're planning and we'll reply within 24 hours.">
 <section>
   <div class="container-narrow">
     <div class="text-center">
-      <span class="eyebrow">Say hi</span>
-      <h1>Let's talk about<br>what you're planning.</h1>
-      <p style="font-size: 1.1rem; max-width: 520px; margin: 1.5rem auto 2.5rem;">Whether it's a weekly series for your brand, an event, or a single wedding day, tell us a little about it and we'll reply within 24 hours.</p>
+      <span class="eyebrow">Start a project</span>
+      <h1>Tell us what you're planning.</h1>
+      <p style="font-size: 1.1rem; max-width: 520px; margin: 1.5rem auto 2.5rem;">A weekly series, a conference, a listing, a recital, or a wedding day. Tell us a little about it and we'll reply within 24 hours.</p>
     </div>
 
     <form id="contact-form" class="contact-form" novalidate>
@@ -29,20 +41,24 @@ import Layout from '../layouts/Layout.astro';
         <label for="planning">What are you planning?</label>
         <select id="planning" name="planning">
           <option value="">Select one</option>
-          <option>Recurring content</option>
-          <option>Event coverage</option>
-          <option>Brand video</option>
-          <option>Wedding</option>
-          <option>Other</option>
+          <option value="Recurring content">Recurring content for my business</option>
+          <option value="Event coverage">Corporate or speaker event</option>
+          <option value="Listing shoot">Real estate listing</option>
+          <option value="Dance or recital">Dance studio or recital</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Brand video">One-off brand video</option>
+          <option value="Other">Something else</option>
         </select>
       </div>
-      <div class="field-row">
+      <!-- Shown only for the types that actually have a date. Hiding it by
+           default is what takes the form from seven fields to five. -->
+      <div class="field-row" id="date-fields" hidden>
         <div class="field">
-          <label for="eventDate">Event date <span class="opt">(if applicable)</span></label>
+          <label for="eventDate">Date <span class="opt">(if you have one)</span></label>
           <input id="eventDate" name="eventDate" type="date">
         </div>
         <div class="field">
-          <label for="eventTime">Event time <span class="opt">(if applicable)</span></label>
+          <label for="eventTime">Start time <span class="opt">(if you have one)</span></label>
           <input id="eventTime" name="eventTime" type="time" step="3600">
         </div>
       </div>
@@ -61,7 +77,13 @@ import Layout from '../layouts/Layout.astro';
       <p id="form-status" class="form-status" role="status"></p>
     </form>
 
-    <p class="fallback">Prefer email? Reach us at <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>.</p>
+    <p class="fallback">Prefer to talk? Call <a href="tel:+16157079143">615-707-9143</a>, or email <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>.</p>
+
+    <!-- The real estate page promises agents an account they can book listings
+         from without texting anybody. That promise died here before: this page
+         never mentioned it, so the thread just dropped at the moment of
+         conversion. -->
+    <p class="fallback" style="margin-top: 0.75rem;">Booking listings regularly? Agents get an account to book from directly. Ask for it on the <a href="/real-estate-photography">real estate page</a>.</p>
   </div>
 </section>
 
@@ -96,6 +118,22 @@ import Layout from '../layouts/Layout.astro';
   const status = document.getElementById('form-status') as HTMLParagraphElement;
   const eventDate = document.getElementById('eventDate') as HTMLInputElement;
   const eventTime = document.getElementById('eventTime') as HTMLInputElement;
+  const planningSel = document.getElementById('planning') as HTMLSelectElement;
+  const dateFields = document.getElementById('date-fields') as HTMLDivElement;
+
+  // Only these have a date worth asking for. Recurring content and listing
+  // shoots are scheduled in the follow-up conversation, so asking up front adds
+  // two empty boxes to the form and nothing to the lead.
+  const DATED_TYPES = new Set(['Event coverage', 'Dance or recital', 'Wedding']);
+  const syncDateFields = () => {
+    const show = DATED_TYPES.has(planningSel.value);
+    dateFields.hidden = !show;
+    // Clear on hide, or a visitor who picks a wedding date and then switches to
+    // recurring content silently sends a date for a project that has none.
+    if (!show) { eventDate.value = ''; eventTime.value = ''; }
+  };
+  planningSel.addEventListener('change', syncDateFields);
+  syncDateFields();
 
   // Keep the optional event time on the hour: snap whatever the visitor picks to
   // the top of the hour. Fields stay empty until engaged, so leads without an
