@@ -8,7 +8,7 @@ import clients from '../data/clients.json';
 <section class="hero">
   <span class="eyebrow">SDub Media &nbsp;·&nbsp; Nashville, TN</span>
   <h1><span class="accent">Recurring video</span> for Nashville businesses.</h1>
-  <p class="hero-subtitle">A team of five, obsessively consistent. You sit down with us for a couple of hours and we turn it into a quarter of content. We also archive conferences, film dance recitals, and take a few weddings a year.</p>
+  <p class="hero-subtitle">A team of five. You sit down with us for a couple of hours and we turn it into a quarter of content. We also archive conferences, film dance recitals, and take a few weddings a year.</p>
   <div class="hero-ctas">
     <a href="/business" class="btn btn-primary">For Businesses</a>
     <a href="/weddings" class="btn">For Weddings</a>
@@ -42,16 +42,21 @@ import clients from '../data/clients.json';
     is going: commercial work first, weddings last and deliberately smaller.
 
     The AI-generated images that were here originally were removed (generated
-    stock is the worst possible tell for a video company). All three cards now
-    carry a real frame: a brand shoot mid-setup, a camera working a conference
-    room, and a recital group. */}
+    stock is the worst possible tell for a video company). Every card carries a
+    real frame. */}
 <section style="background: var(--soft);">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What we do</span>
-      <h2>Four kinds of work, one way of working.</h2>
+      {/* Said "Four kinds of work" over three cards, and neither of the two
+          missing services had a door here at all. Real estate in particular is
+          the sharpest offer on the site (a published price and a 48-hour
+          turnaround) and the homepage was hiding it behind the nav. Five cards
+          now, one per service page. Keep this count honest if a service is
+          ever added or dropped. */}
+      <h2>Five kinds of work, one way of working.</h2>
     </div>
-    <div class="tiles">
+    <div class="tiles tiles--five">
       <a href="/business" class="tile" style="color: inherit;">
         <img class="tile-image" src="/images/corporate/bts-bar-shoot.jpg" alt="A brand shoot in progress with two softboxes and two cameras set up around a bar" loading="lazy" width="1600" height="1200" />
         <h3>Business</h3>
@@ -70,8 +75,19 @@ import clients from '../data/clients.json';
         <p>Recital films, studio promos, and season-long social content for studios around Nashville. The full show for families, the short cut for your website. We have done this for Elite Dance and Nolensville Dance Company.</p>
         <span class="door-arrow">See the dance work →</span>
       </a>
+      <a href="/real-estate-photography" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/real-estate/living-room.jpg" alt="A bright living room photographed for a property listing" loading="lazy" width="1600" height="1067" />
+        <h3>Real Estate</h3>
+        <p>Listing photos, video and drone work, priced per listing rather than per hour. Your gallery comes back in 48 hours, because a listing that goes live on Thursday cannot wait until the following week.</p>
+        <span class="door-arrow">See listing pricing →</span>
+      </a>
+      <a href="/weddings" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/weddings/reception-dusk.jpg" alt="A beachside wedding reception under string lights after sunset" loading="lazy" width="1600" height="900" />
+        <h3>Weddings</h3>
+        <p>A handful a year, all day, with pricing published on the page so you can rule us in or out before you email. A full film and a sizzle reel, plus family and senior portraits.</p>
+        <span class="door-arrow">See wedding pricing →</span>
+      </a>
     </div>
-    <p style="text-align: center; margin-top: 2.5rem; color: var(--muted);">We also take a few weddings a year, with published pricing and no hour packages. <a href="/weddings">Weddings and portraits →</a></p>
   </div>
 </section>
 
@@ -88,9 +104,9 @@ import clients from '../data/clients.json';
 
 <section>
   <div class="container-narrow text-center">
-    <span class="eyebrow">Say hi</span>
+    <span class="eyebrow">Start a project</span>
     <h2>Let's talk about what you're planning.</h2>
-    <p style="color: var(--text-dim); max-width: 520px; margin: 1.5rem auto 2rem;">Whether it's a weekly series for your brand or a single wedding day, start with a message and we'll reply within 24 hours.</p>
+    <p style="color: var(--text-dim); max-width: 520px; margin: 1.5rem auto 2rem;">A weekly series, a conference, a listing, a recital, or a wedding day. Start with a message and we'll reply within 24 hours.</p>
     <a href="/contact" class="btn btn-primary">Start a conversation</a>
   </div>
 </section>

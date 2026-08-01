@@ -264,6 +264,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
        left-aligned against an empty third column. Declared before the 768px
        block below so the single-column mobile rule still wins. */
     .tiles--two { grid-template-columns: repeat(2, 1fr); }
+    /* Five-up: three columns leave a trailing pair stranded against an empty
+       third column. Flex with a centred wrap puts that pair in the middle.
+       The basis matches what a 3-column grid would compute (a third of the
+       row, less its share of the 1.5rem gap) so both rows are the same width
+       and it still reads as a grid. */
+    .tiles--five { display: flex; flex-wrap: wrap; justify-content: center; }
+    .tiles--five > .tile { flex: 0 1 calc(33.333% - 16px); min-width: 0; }
     .tile { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
     .tile-image { display: block; width: 100%; height: 180px; object-fit: cover; background: var(--bg-elevated); }
     .tile h3, .tile p { padding: 0 1.5rem; }
@@ -372,6 +379,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     @media (max-width: 768px) {
       .two-door { grid-template-columns: 1fr; }
       .tiles { grid-template-columns: 1fr; }
+      /* .tiles--five is flex, so the grid rule above does not reach it. */
+      .tiles--five > .tile { flex-basis: 100%; }
       .wedding-strip { grid-template-columns: 1fr; }
       .photo-strip-tall img { height: 260px; }
       .nav-toggle { display: flex; }
@@ -421,7 +430,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       destination that should stay one tap away rather than hiding behind the
       hamburger, so on phones it sits beside the button and the copy inside the
       panel is hidden. Keep the two hrefs in sync. */}
-  <a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" class="slate-mobile" data-slate-link>Slate ↗</a>
+  <a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" class="slate-mobile" data-slate-link>Log in ↗</a>
   <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
     <span class="nav-toggle-bars" aria-hidden="true"></span>
   </button>
@@ -432,12 +441,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/dance">Dance</a></li>
       <li><a href="/corporate-events">Events</a></li>
       <li><a href="/real-estate-photography">Real Estate</a></li>
-      <li><a href="/weddings">Weddings &amp; Portraits</a></li>
+      <li><a href="/weddings">Weddings</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li class="nav-slate"><a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" style="color: var(--brand);" data-slate-link>Slate ↗</a></li>
+      <li class="nav-slate"><a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" style="color: var(--brand);" data-slate-link>Client Login ↗</a></li>
     </ul>
   </nav>
 </header>
@@ -505,7 +514,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <li><a href="/dance">Dance</a></li>
       <li><a href="/corporate-events">Events</a></li>
       <li><a href="/real-estate-photography">Real Estate</a></li>
-      <li><a href="/weddings">Weddings &amp; Portraits</a></li>
+      <li><a href="/weddings">Weddings</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/about">About</a></li>
