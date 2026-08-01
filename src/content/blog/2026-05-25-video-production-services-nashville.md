@@ -19,7 +19,7 @@ We do this work, so we'll be specific. But the goal here is to make you a smarte
 
 Almost everything a Nashville production company offers is some combination of a handful of core services. Once you can name them, every quote starts making sense.
 
-Think of it less as a menu and more as a set of building blocks. A "brand campaign" is really a brand film plus social cutdowns plus maybe a few testimonials. An "event package" is event coverage plus a highlight edit. Knowing the pieces lets you ask for exactly what you want instead of buying a bundle that's 30 percent stuff you'll never use.
+Think of it less as a menu and more as a set of building blocks. A "brand campaign" is really a [brand film](/business) plus social cutdowns plus maybe a few testimonials. An "event package" is event coverage plus a highlight edit. Knowing the pieces lets you ask for exactly what you want instead of buying a bundle that's 30 percent stuff you'll never use.
 
 Let's go through the pieces one at a time.
 

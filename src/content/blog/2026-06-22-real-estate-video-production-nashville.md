@@ -11,7 +11,7 @@ draft: false
 
 A Nashville agent told us last month that she had stopped putting video on her listings. Not because it did not work. Because the videos she was getting back, drone pass over the roof, slow push through the foyer, a few seconds of the kitchen, looked exactly like every other video on her feed. Buyers were scrolling past them as fast as they scrolled past the photos.
 
-That is the real problem with real estate video in 2026. The bar moved. A polished property walkthrough used to be a differentiator. Now it is table stakes, and a bad one actively hurts the listing because it tells buyers the agent does the bare minimum.
+That is the real problem with [real estate video](/real-estate-photography) in 2026. The bar moved. A polished property walkthrough used to be a differentiator. Now it is table stakes, and a bad one actively hurts the listing because it tells buyers the agent does the bare minimum.
 
 This is a guide for Nashville agents who want video to actually do something: win listings, build a personal brand, and shorten days on market. We will cover what to shoot, what it costs, who you should hire, and the parts of the process most agents do not see until they are mid-shoot wishing they had asked better questions.
 

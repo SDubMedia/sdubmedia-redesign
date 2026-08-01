@@ -47,7 +47,7 @@ A simple, single-video project (one location, half a day of filming, one round o
 
 A brand film (the "who we are" video that anchors a homepage or a proposal) usually runs from about $4,000 to $12,000. The jump is almost entirely people and time: a second camera operator, a dedicated audio tech, controlled lighting, a longer edit, more revision rounds. If you want that video to still feel current in two years, most of the value is here.
 
-Event coverage varies a lot. A short recap of a single-day event might run $2,000 to $6,000. A multi-day conference with speaker capture, breakout coverage, and daily highlight edits can be several times that. The cost driver is coverage hours and how many angles you need at once.
+Event coverage varies a lot. A short recap of a single-day event might run $2,000 to $6,000. A [multi-day conference](/corporate-events) with speaker capture, breakout coverage, and daily highlight edits can be several times that. The cost driver is coverage hours and how many angles you need at once.
 
 Broadcast commercials and full campaigns start around $15,000 and climb quickly from there. At that level you're paying for a producer, a director, a full crew, talent, insurance, and often a strategy layer above the production itself.
 

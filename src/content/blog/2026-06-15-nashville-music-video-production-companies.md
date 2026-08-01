@@ -66,7 +66,7 @@ Anyone with an editor can put together an impressive ninety-second sizzle. The h
 
 ## Where SDub Media Sits in This
 
-Honestly, we sit outside the music video lane. We're a Nashville video production company, and our focus is recurring brand and corporate work: weekly series, podcast production, headshot days, and event coverage. Our flagship client, Coldwell Banker Southern Realty, runs a weekly edit out of their main office and rotates monthly headshot days across eight Tennessee locations. That's the kind of work we're built for, and it's the kind of work we say yes to.
+Honestly, we sit outside the music video lane. We're a Nashville video production company, and our focus is [recurring brand and corporate work](/business): weekly series, podcast production, headshot days, and event coverage. Our flagship client, Coldwell Banker Southern Realty, runs a weekly edit out of their main office and rotates monthly headshot days across eight Tennessee locations. That's the kind of work we're built for, and it's the kind of work we say yes to.
 
 If you call us about a music video, we'll almost always tell you to call someone else, and we'll usually have a name or two we like. That's not false modesty. Music video is its own craft, and the directors who do it well in this city are not the people doing what we do. Our [breakdown of video production services in Nashville](/blog/2026-05-25-video-production-services-nashville/) lays out where the different service lines live, and music video is one we deliberately don't claim.
 

@@ -29,7 +29,7 @@ A reel is a curated highlight tape. Two minutes of someone's best two shots from
 - What the audio sounds like when somebody is talking on camera in a real room
 - Whether the videographer can repeat that quality every week, not just once
 
-Most reels are heavy on weddings, music, and travel because those projects naturally produce cinematic frames. If you need corporate, testimonial, or recurring content, you have to dig past the reel.
+Most reels are heavy on weddings, music, and travel because those projects naturally produce cinematic frames. If you need [corporate, testimonial, or recurring content](/business), you have to dig past the reel.
 
 Ask for a full-length finished video, start to end, not a cut. Watch it the way a normal viewer would. Is the audio clean? Does the pacing hold? When somebody is talking, do they actually sound like a real person, or do they sound like someone reading off a teleprompter while a microphone fights the air conditioner?
 

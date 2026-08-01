@@ -28,7 +28,7 @@ Here's how the market actually breaks down in Nashville.
 
 **The wedding and event filmmakers.** A large group of Nashville videographers specialize in weddings, and many are excellent at it. Wedding work is its own craft: long days, one shot at every moment, a very particular emotional tone. Some of them take corporate work on the side, but their core muscle is the event, not the brand strategy.
 
-**The recurring content studios.** This is a smaller, growing category, and it's the one we live in. Instead of one big shoot a year, these companies produce video on a regular cadence: weekly series, monthly headshot days, podcast episodes, ongoing social content. The relationship is a retainer, not a project. We'll come back to why that model fits a lot of businesses better than they expect.
+**The [recurring content studios](/business).** This is a smaller, growing category, and it's the one we live in. Instead of one big shoot a year, these companies produce video on a regular cadence: weekly series, monthly headshot days, podcast episodes, ongoing social content. The relationship is a retainer, not a project. We'll come back to why that model fits a lot of businesses better than they expect.
 
 **The solo videographers and freelancers.** Not a "company" in the strict sense, but they're who you're comparing against. A good solo operator is affordable and personal. The tradeoff is capacity: one person can only be in one place, and if they get sick or booked, your project waits.
 

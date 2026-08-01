@@ -14,7 +14,7 @@ A business owner called us last spring with a simple question: "I keep getting q
 
 Fair question. And it's the reason most Nashville businesses put off video for years longer than they should. The pricing feels random, the process is a black box, and nobody wants to spend real money on something they can't picture.
 
-So let's clear it up. This is a straight guide to **Nashville corporate video production**: what the work actually involves, what separates a $1,500 project from a $15,000 one, and how to figure out which one your business needs. No pitch dressed up as advice. Just the answers we'd give you if you were sitting across the table from us.
+So let's clear it up. This is a straight guide to **[Nashville corporate video production](/business)**: what the work actually involves, what separates a $1,500 project from a $15,000 one, and how to figure out which one your business needs. No pitch dressed up as advice. Just the answers we'd give you if you were sitting across the table from us.
 
 ## What "Corporate Video" Actually Means
 

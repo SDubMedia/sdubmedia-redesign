@@ -40,7 +40,7 @@ Real ranges for the Nashville market, not coastal pricing:
 - **A simple single shoot (testimonial, short clip):** $1,000 to $3,000
 - **A polished brand film:** $4,000 to $12,000
 - **Event coverage:** $1,500 to $6,000 per event, depending on cameras and turnaround
-- **Recurring content on retainer:** $1,500 to $5,000 per month, which is the cheapest way to work per video because the planning and relationship are already built
+- **[Recurring content on retainer](/business):** $1,500 to $5,000 per month, which is the cheapest way to work per video because the planning and relationship are already built
 
 The number that matters isn't the day rate, it's the cost per usable, finished video. A cheap quote that skips real audio, color, and editing often costs more in the end, because you pay once for the cheap version and again for the one that actually works.
 

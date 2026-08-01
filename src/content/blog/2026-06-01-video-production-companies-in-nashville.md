@@ -35,7 +35,7 @@ Most video production companies in Nashville fall into one of two camps, and kno
 
 **Project shops** are built for big, infrequent productions. A brand film. A campaign. A commercial that runs for a quarter. They quote per project, the budgets are larger, the crews are bigger, and the turnaround is measured in weeks. If you need one polished anchor video that your team will use everywhere for the next two years, this is the right kind of partner.
 
-**Recurring content studios** are built for businesses that need to show up on video every week or every month. Weekly series, podcasts, headshot days, event recaps, ongoing social cuts. Same crew. Same workflow. Lower cost per asset because the setup is repeatable. Most marketing problems are not solved by one perfect video. They are solved by a steady stream of decent ones, and these studios are built for that math.
+**[Recurring content studios](/business)** are built for businesses that need to show up on video every week or every month. Weekly series, podcasts, headshot days, event recaps, ongoing social cuts. Same crew. Same workflow. Lower cost per asset because the setup is repeatable. Most marketing problems are not solved by one perfect video. They are solved by a steady stream of decent ones, and these studios are built for that math.
 
 There is some overlap. A few companies do both well. But when a project shop tries to run a weekly retainer, it tends to feel expensive and slow. When a recurring studio tries to run a single high-end brand film, it sometimes lacks the production value a one-off deserves. Ask early which camp the company actually lives in, and ask for examples of work that match your situation, not just their best reel.
 

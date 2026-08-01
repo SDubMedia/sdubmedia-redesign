@@ -76,7 +76,7 @@ Here are real ranges for the Nashville market, not coastal pricing.
 
 **Multiple testimonials filmed in one session: roughly $2,500 to $6,000 for three to five.** Filming several customers in a single morning brings the per-video cost down hard, because the crew, the lighting, and the setup are already paid for. If you can wrangle the scheduling, this is the best value in testimonial work.
 
-**A polished case-study video: $4,000 and up.** This is a testimonial with a story arc: customer interview, B-roll of their business, maybe footage of your team in action, graphics, and music. It's the version that goes in a sales deck or anchors a service page.
+**A polished case-study video: $4,000 and up.** This is a testimonial with a story arc: [customer interview](/business), B-roll of their business, maybe footage of your team in action, graphics, and music. It's the version that goes in a sales deck or anchors a service page.
 
 The cheap quotes usually skip the interview skill, the real audio gear, or the editing that trims a rambling 20-minute conversation into a tight 90 seconds. That editing is most of the value. Raw footage of a happy customer isn't a testimonial video. The edit is.
 

@@ -13,7 +13,7 @@ A company spent six months and a real budget planning its annual conference. Spe
 
 That's the most common way event video goes wrong in this city. Not a bad camera or a bad editor. Just booking it last, as an afterthought, when the event itself got all the planning.
 
-So here's a straight guide to **event video production services in Nashville**: what to actually book, when to book it, what it costs, and how to make sure the footage keeps working long after the room clears out. If you're planning anything from a conference to a product launch to a company milestone, this is the part most people get wrong, and it's the easiest to get right.
+So here's a straight guide to **[event video production services in Nashville](/corporate-events)**: what to actually book, when to book it, what it costs, and how to make sure the footage keeps working long after the room clears out. If you're planning anything from a conference to a product launch to a company milestone, this is the part most people get wrong, and it's the easiest to get right.
 
 ## What "Event Video" Really Covers
 
