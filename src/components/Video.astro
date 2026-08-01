@@ -15,7 +15,14 @@ const hash = m?.[2] ? `&h=${m[2]}` : "";
 const src = vimeoId
   ? `https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0&dnt=1${hash}`
   : "";
+
+// VideoObject structured data so the work can surface as a video result.
+// Built at build time from the same public oEmbed VideoGrid uses; null (no
+// block emitted) whenever Vimeo doesn't answer.
+import { vimeoVideoLd } from '../lib/vimeo-ld.mjs';
+const videoLd = vimeoId ? await vimeoVideoLd(raw, title) : null;
 ---
+{videoLd && <script type="application/ld+json" set:html={JSON.stringify(videoLd)} />}
 
 {vimeoId ? (
   <div class="video-embed">

@@ -19,6 +19,7 @@ interface Props {
   center?: boolean;
 }
 const { items = [], center = false } = Astro.props;
+import { vimeoVideoLd } from '../lib/vimeo-ld.mjs';
 
 async function vimeoThumb(spec: string): Promise<string> {
   const m = spec.match(/(\d+)(?:\/([0-9a-zA-Z]+))?/);
@@ -41,9 +42,13 @@ const cards = await Promise.all(items.map(async (item) => {
     id: m?.[1] ?? '',
     hash: m?.[2] ?? '',
     thumb: item.vimeo ? await vimeoThumb(item.vimeo) : '',
+    // Structured data per real video; placeholders get none.
+    ld: item.vimeo ? await vimeoVideoLd(item.vimeo, item.title ?? '') : null,
   };
 }));
+const gridLd = cards.map(c => c.ld).filter(Boolean);
 ---
+{gridLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(gridLd)} />}
 <div class:list={["pf-grid", center && "pf-grid--center"]}>
   {cards.map(card => (
     card.id ? (
