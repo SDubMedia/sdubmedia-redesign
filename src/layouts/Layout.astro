@@ -26,6 +26,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gtag('config', 'G-90E82TVKTC');
   </script>
 
+  {/* Favicons generated from public/brand-logo.png (512x512). The apple icon
+      is composited on the site background because iOS renders alpha as black. */}
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalURL}>
