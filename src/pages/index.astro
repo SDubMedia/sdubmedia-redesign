@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import clients from '../data/clients.json';
+import { imageDims } from '../lib/image-size.mjs';
 ---
 
 <Layout title="SDub Media | Nashville Video Production">
@@ -28,7 +29,7 @@ import clients from '../data/clients.json';
     <div class="logo-strip">
       {clients.map(c => (
         c.logo
-          ? <img class="brand-logo-img" src={c.logo} alt={c.name} loading="lazy" />
+          ? <img class="brand-logo-img" src={c.logo} alt={c.name} {...(imageDims(c.logo) || {})} loading="lazy" />
           : <span class="brand">{c.name}</span>
       ))}
     </div>

@@ -1,6 +1,16 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { imageDims, thumbPath } from '../../lib/image-size.mjs';
+
+// Cards render ~200px tall; the full photos cost 5.7MB on this one page.
+// thumbPath swaps in the 560px variants from scripts/gen-blog-thumbs.py
+// (falling back to the full image if a thumb is missing), and real dims stop
+// the grid from shifting as they load.
+const card = (img) => {
+  const src = thumbPath(img);
+  return { src, ...(imageDims(src) || {}) };
+};
 
 // This page has been through two passes. Keep both reasons in mind before
 // changing it again.
@@ -91,7 +101,7 @@ const rest = posts
                 <a href={`/blog/${post.id}`} class="blog-card">
                   {post.data.image && (
                     <div class="blog-card-image">
-                      <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                      <img {...card(post.data.image)} alt={post.data.title} loading="lazy" />
                     </div>
                   )}
                   <div class="blog-card-content">
@@ -113,7 +123,7 @@ const rest = posts
                 <a href={`/blog/${post.id}`} class="blog-card">
                   {post.data.image && (
                     <div class="blog-card-image">
-                      <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                      <img {...card(post.data.image)} alt={post.data.title} loading="lazy" />
                     </div>
                   )}
                   <div class="blog-card-content">
