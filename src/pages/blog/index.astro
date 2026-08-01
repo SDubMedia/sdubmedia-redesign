@@ -2,29 +2,39 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-// REBUILT 2026-07-31. This page was a flat reverse-chronological grid of every
-// post, each card led by its publish date. Because ten posts share a pubDate,
-// the index rendered as a column of near-identical keyword titles all stamped
-// the same day, which is the most recognisable signature of bulk AI SEO
-// content. It was the last page on the site still reading that way.
+// This page has been through two passes. Keep both reasons in mind before
+// changing it again.
 //
-// The fix is presentational only. NOTHING about the posts changed:
-//   - no pubDate was touched (rewriting dates on published posts throws away
-//     ranking history, the same way changing a slug does)
-//   - no slug, filename or title was touched
-//   - dates still ship in each post's byline and in its BlogPosting JSON-LD,
-//     so Google sees exactly what it saw before
-// The index simply stops leading with the date, and groups by topic instead,
-// which is also how a human browses: by what they want to know.
+// PASS 1 (2026-07-31) fixed a credibility problem: it was a flat
+// reverse-chronological grid of all 20 posts with the publish date leading
+// every card, and because ten posts share a pubDate it read as a column of
+// near-identical keyword titles all stamped the same day. That is the
+// signature of bulk generated SEO content, on a site whose whole point is that
+// it is not that.
 //
-// Grouping reuses the existing `cluster` frontmatter that already drives the
-// pillar/cluster interlinking, so there is no second taxonomy to maintain.
+// PASS 2 (2026-08-01) undid the collateral damage. Pass 1 replaced the card
+// grid with one wide "lead" card per topic plus plain text lists, which meant
+// 15 of 20 posts lost their image and the page lost the tidy columns-and-rows
+// look Geoff liked. He flagged it immediately and he was right: the date
+// problem never required giving up the cards.
+//
+// Current design keeps BOTH: the original .blog-grid / .blog-card markup and
+// styling (shared, in Layout.astro) inside per-topic sections. So it still
+// reads as topics rather than one undifferentiated keyword stream, and it
+// still leads with no dates, but it looks like the card grid it always was.
+//
+// Constraints that must survive any future edit:
+//   - No pubDate, slug, filename or title may change. Rewriting dates on
+//     published posts discards ranking history the same way changing a URL
+//     does. Dates still ship in each post's byline and BlogPosting JSON-LD,
+//     so Google sees exactly what it always saw. Only the INDEX omits them.
+//   - Every post must remain reachable from this page. The `rest` group below
+//     exists so an unmapped cluster can never silently drop posts.
 
 const posts = await getCollection('blog', ({ data }) => !data.draft);
 
-// Display labels and running order. A cluster missing from this map still
-// renders (see `rest` below) rather than vanishing, so adding a new cluster can
-// never silently drop posts off the index.
+// Display labels and running order, keyed on the `cluster` frontmatter that
+// already drives the pillar/cluster interlinking. No second taxonomy.
 const TOPICS = [
   { cluster: 'video-production',  label: 'Hiring a production company', blurb: 'What the work costs, what to ask for, and how to compare quotes that are not really comparable.' },
   { cluster: 'corporate-video',   label: 'Corporate and brand video',   blurb: 'Testimonials, event coverage, and what a corporate shoot actually involves.' },
@@ -76,46 +86,43 @@ const rest = posts
               <h2>{g.label}</h2>
               <p>{g.blurb}</p>
             </div>
-            <a href={`/blog/${g.items[0].id}`} class="lead-post">
-              {g.items[0].data.image && (
-                <div class="lead-post-image">
-                  <img src={g.items[0].data.image} alt={g.items[0].data.title} loading="lazy" />
-                </div>
-              )}
-              <div class="lead-post-body">
-                <span class="lead-tag">Start here</span>
-                <h3>{g.items[0].data.title}</h3>
-                <p>{g.items[0].data.description}</p>
-              </div>
-            </a>
-            {g.items.length > 1 && (
-              <ul class="more-posts">
-                {g.items.slice(1).map(post => (
-                  <li>
-                    <a href={`/blog/${post.id}`}>
-                      <span class="more-title">{post.data.title}</span>
-                      <span class="more-desc">{post.data.description}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <div class="blog-grid">
+              {g.items.map(post => (
+                <a href={`/blog/${post.id}`} class="blog-card">
+                  {post.data.image && (
+                    <div class="blog-card-image">
+                      <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                    </div>
+                  )}
+                  <div class="blog-card-content">
+                    {post.data.isPillar && <div class="blog-card-meta start-here">Start here</div>}
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         ))}
 
         {rest.length > 0 && (
           <div class="topic">
             <div class="topic-head"><h2>More</h2></div>
-            <ul class="more-posts">
+            <div class="blog-grid">
               {rest.map(post => (
-                <li>
-                  <a href={`/blog/${post.id}`}>
-                    <span class="more-title">{post.data.title}</span>
-                    <span class="more-desc">{post.data.description}</span>
-                  </a>
-                </li>
+                <a href={`/blog/${post.id}`} class="blog-card">
+                  {post.data.image && (
+                    <div class="blog-card-image">
+                      <img src={post.data.image} alt={post.data.title} loading="lazy" />
+                    </div>
+                  )}
+                  <div class="blog-card-content">
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                  </div>
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         )}
       </div>
@@ -124,47 +131,18 @@ const rest = posts
 </section>
 
 <style>
-  .topics { display: grid; gap: 4rem; margin-top: 1rem; }
+  /* Only the topic scaffolding lives here. The cards themselves deliberately
+     reuse .blog-grid / .blog-card from Layout.astro so this page cannot drift
+     away from how post cards look everywhere else. */
+  .topics { display: grid; gap: 3.5rem; }
   .topic { min-width: 0; }
-  .topic-head { margin-bottom: 1.5rem; }
-  .topic-head h2 { margin: 0 0 0.4rem; font-size: 1.5rem; }
-  .topic-head p { margin: 0; color: var(--muted); max-width: 620px; }
-
-  .lead-post {
-    display: grid; grid-template-columns: 300px 1fr; gap: 1.75rem;
-    align-items: center; text-decoration: none; color: inherit;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; overflow: hidden; transition: border-color 0.2s;
-  }
-  .lead-post:hover { border-color: var(--brand); }
-  .lead-post-image { height: 100%; min-height: 190px; }
-  .lead-post-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .lead-post-body { padding: 1.5rem 1.75rem 1.5rem 0; min-width: 0; }
-  .lead-tag {
-    display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--brand); margin-bottom: 0.6rem;
-  }
-  .lead-post-body h3 { margin: 0 0 0.5rem; font-size: 1.2rem; line-height: 1.35; }
-  .lead-post-body p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-  .more-posts { list-style: none; padding: 0; margin: 1.25rem 0 0; }
-  .more-posts li { border-top: 1px solid var(--border); }
-  .more-posts a {
-    display: block; padding: 1rem 0.25rem; text-decoration: none;
-    color: inherit; transition: padding-left 0.15s, color 0.15s;
-  }
-  .more-posts a:hover { padding-left: 0.75rem; color: var(--brand); }
-  .more-title { display: block; font-weight: 600; margin-bottom: 0.2rem; }
-  .more-desc { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
-
-  /* Single column well before the grid actually crushes, so the lead card's
-     image never squeezes to a sliver on tablets. */
-  @media (max-width: 720px) {
-    .lead-post { grid-template-columns: 1fr; }
-    .lead-post-image { min-height: 180px; max-height: 220px; }
-    .lead-post-body { padding: 1.25rem 1.25rem 1.5rem; }
-    .topics { gap: 3rem; }
-  }
+  .topic-head { margin-bottom: 0.5rem; }
+  .topic-head h2 { margin: 0 0 0.4rem; font-size: 1.4rem; }
+  .topic-head p { margin: 0; color: var(--muted); max-width: 620px; font-size: 0.95rem; }
+  /* .blog-card-meta is where the publish date used to sit. Same slot, same
+     styling, now carrying the one label that helps a reader choose. */
+  .start-here { color: var(--brand); letter-spacing: 0.06em; text-transform: uppercase; }
+  @media (max-width: 768px) { .topics { gap: 2.5rem; } }
 </style>
 
 </Layout>
