@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Before this page existed, a dead link served Vercel's bare-text default
+// ("NOT_FOUND iad1::..."), which reads as a broken site rather than a wrong
+// URL. Vercel serves dist/404.html automatically for any unmatched path on a
+// static deploy; no config needed.
+---
+<Layout
+  title="Page Not Found | SDub Media"
+  description="That page does not exist. Everything we do is one click away."
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">404</span>
+    <h1>That page isn't here.</h1>
+    <p style="font-size: 1.1rem; max-width: 480px; margin: 1.5rem auto 0;">The link is old or the address has a typo. Everything we actually do is below.</p>
+    <ul class="facts" style="max-width: 320px; margin: 2.5rem auto 0; text-align: left;">
+      <li><a href="/business"><strong>Business video</strong></a></li>
+      <li><a href="/corporate-events"><strong>Corporate events</strong></a></li>
+      <li><a href="/dance"><strong>Dance studios</strong></a></li>
+      <li><a href="/real-estate-photography"><strong>Real estate photography</strong></a></li>
+      <li><a href="/weddings"><strong>Weddings and portraits</strong></a></li>
+    </ul>
+    <div style="margin-top: 2.5rem;">
+      <a href="/" class="btn btn-primary">Back to the homepage</a>
+    </div>
+  </div>
+</section>
+</Layout>
