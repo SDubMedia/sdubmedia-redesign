@@ -293,10 +293,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     .footer-grid {
       max-width: 1140px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 2.5rem; flex-wrap: wrap;
     }
-    .footer-brand { display: flex; flex-direction: column; gap: 0.9rem; align-items: flex-start; }
-    .footer-tag { font-size: 0.85rem; color: var(--muted); max-width: 230px; margin: 0; line-height: 1.55; }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-start; max-width: 260px; }
+    .footer-tag { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.55; }
+    /* Content-width columns, even rhythm between them. padding-top drops the
+       headers to the logo's text baseline so the four tops read as one line. */
+    .footer-cols { display: flex; gap: clamp(2.5rem, 6vw, 5.5rem); flex-wrap: wrap; }
+    .footer-col { padding-top: 0.4rem; }
     .footer-social { display: flex; gap: 0.9rem; margin-top: 0.2rem; }
     .footer-social a { color: var(--muted); display: inline-flex; padding: 0.2rem; }
     .footer-social a:hover { color: var(--text); }
@@ -416,10 +421,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       /* Footer: brand goes full width, the two link columns share a row.
          Everything stays left-aligned; centred stacks read as filler. */
       footer.site-footer { padding: 2.75rem 1.5rem 1.75rem; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
-      .footer-brand { grid-column: 1 / -1; }
-      /* Three link columns on a 2-col phone grid: the third wraps below,
-         left-aligned under the first. Deliberate; centred would look worse. */
+      .footer-grid { gap: 2rem; }
+      .footer-brand { max-width: none; }
+      .footer-cols { width: 100%; gap: 2rem 3rem; }
+      .footer-col { padding-top: 0; }
       .footer-col a { padding: 0.4rem 0; }
       /* The nav becomes a panel under the sticky header. Ten items wrapped onto
          three rows before this, which pushed the page content down the screen. */
@@ -554,6 +559,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </a>
       </div>
     </div>
+    <div class="footer-cols">
     <nav class="footer-col" aria-label="Services">
       <div class="footer-h">What we do</div>
       <a href="/business">Business video</a>
@@ -578,6 +584,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <a href="/video-production-murfreesboro-tn">Murfreesboro</a>
       <a href="/">Nashville</a>
     </nav>
+    </div>
   </div>
   <div class="footer-bottom">
     <div class="copyright">© 2026 SDub Media LLC</div>
