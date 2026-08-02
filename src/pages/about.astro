@@ -19,10 +19,15 @@ import Layout from '../layouts/Layout.astro';
       <h1>One team, one system,<br>same quality every week</h1>
       <p style="font-size: 1.15rem; margin-top: 1.5rem;">Businesses need to show up on video consistently, not once. We build the system that makes that happen.</p>
     </div>
+    {/* The 62 comes from Geoff's production system (YTD projects, read
+        2026-08-02) and replaces the six-offices stat at his request. It is a
+        LIVING number: bump it every month or two from Slate's Reports page,
+        and update the label's year in January. A stale-but-growing count is
+        fine; a wrong one is not. */}
     <div class="stat-row">
+      <div class="stat"><span class="stat-num">62</span><span class="stat-label">Projects delivered so far in 2026</span></div>
       <div class="stat"><span class="stat-num">5</span><span class="stat-label">People, covering video, photography and editing</span></div>
       <div class="stat"><span class="stat-num">19</span><span class="stat-label">Pieces of content from a single interview day</span></div>
-      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Coldwell Banker offices we shoot across</span></div>
     </div>
   </div>
 </section>
