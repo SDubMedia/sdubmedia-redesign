@@ -288,26 +288,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Footer */
     footer.site-footer {
       border-top: 1px solid var(--border);
-      padding: 2.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      padding: 3.5rem 2rem 2rem;
+      background: var(--soft);
     }
-    footer nav ul { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
-    .footer-id { display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-contact { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.85rem; }
+    .footer-grid {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 2.5rem;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.9rem; align-items: flex-start; }
+    .footer-tag { font-size: 0.85rem; color: var(--muted); max-width: 260px; margin: 0; line-height: 1.55; }
+    .footer-contact { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.9rem; }
     .footer-contact a { color: var(--text-dim); }
     .footer-contact a:hover { color: var(--text); }
-    .footer-contact span { color: var(--muted); }
-    footer nav a { color: var(--text-dim); font-size: 0.85rem; }
-    footer nav a:hover { color: var(--text); }
-    .copyright { font-size: 0.8rem; color: var(--muted); }
-    .footer-areas { width: 100%; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.8rem; }
+    .footer-h {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600; margin-bottom: 1rem;
+    }
+    .footer-col { display: flex; flex-direction: column; align-items: flex-start; }
+    .footer-col a { color: var(--text-dim); font-size: 0.9rem; padding: 0.28rem 0; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      max-width: 1140px; margin: 2.75rem auto 0; padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.75rem 1.5rem;
+    }
+    .footer-areas { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; font-size: 0.8rem; }
     .footer-areas span { color: var(--muted); }
     .footer-areas a { color: var(--text-dim); }
     .footer-areas a:hover { color: var(--text); }
+    .copyright { font-size: 0.8rem; color: var(--muted); }
 
     /* Blog */
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -404,20 +414,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .slate-mobile { display: inline-block; margin-left: auto; margin-right: 0.85rem; }
       .nav-slate { display: none; }   /* shown beside the button instead */
 
-      /* Footer is a space-between row on desktop, which crushes the logo, eight
-         links and the copyright together on a phone. Stack and centre instead,
-         and give the links real vertical padding so they are tappable. */
-      footer.site-footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1.75rem;
-        padding: 2.5rem 1.5rem;
-      }
-      .footer-id { align-items: center;
-      }
-      footer nav ul { justify-content: center; gap: 0.5rem 1.25rem; }
-      footer nav a { display: inline-block; padding: 0.3rem 0; }
+      /* Footer: brand goes full width, the two link columns share a row.
+         Everything stays left-aligned; centred stacks read as filler. */
+      footer.site-footer { padding: 2.75rem 1.5rem 1.75rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-col a { padding: 0.4rem 0; }
       /* The nav becomes a panel under the sticky header. Ten items wrapped onto
          three rows before this, which pushed the page content down the screen. */
       header nav {
@@ -522,42 +524,51 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <slot />
 
+{/* Redesigned 2026-08-02 (Geoff disliked the flat link row). Same links,
+    organised: brand + contact left, then two labelled columns, then the town
+    row and copyright in a bottom bar. Keep the Serving list in sync with the
+    LocalBusiness areaServed on the homepage. */}
 <footer class="site-footer">
-  <div class="footer-id">
-    <a href="/" class="logo">
-      <img src="/brand-logo.png" alt="SDub Media">
-      <span class="logo-text">SDub Media</span>
-    </a>
-    <div class="footer-contact">
-      <a href="tel:+16157079143">615-707-9143</a>
-      <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>
-      <span>Nolensville, TN · serving Nashville</span>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="/brand-logo.png" alt="SDub Media">
+        <span class="logo-text">SDub Media</span>
+      </a>
+      <p class="footer-tag">Recurring video and photography for Nashville businesses, from Nolensville, TN.</p>
+      <div class="footer-contact">
+        <a href="tel:+16157079143">615-707-9143</a>
+        <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>
+      </div>
     </div>
+    <nav class="footer-col" aria-label="Services">
+      <div class="footer-h">What we do</div>
+      <a href="/business">Business video</a>
+      <a href="/corporate-events">Corporate events</a>
+      <a href="/dance">Dance studios</a>
+      <a href="/real-estate-photography">Real estate</a>
+      <a href="/weddings">Weddings</a>
+    </nav>
+    <nav class="footer-col" aria-label="Company">
+      <div class="footer-h">Company</div>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/about">About</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact">Contact</a>
+      <a href="https://slate.sdubmedia.com" target="_blank" rel="noopener" data-slate-link>Slate login ↗</a>
+    </nav>
   </div>
-  <nav>
-    <ul>
-      <li><a href="/business">Business</a></li>
-      <li><a href="/dance">Dance</a></li>
-      <li><a href="/corporate-events">Events</a></li>
-      <li><a href="/real-estate-photography">Real Estate</a></li>
-      <li><a href="/weddings">Weddings</a></li>
-      <li><a href="/portfolio">Portfolio</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
-  {/* City pages get sitewide internal links here rather than nav slots.
-      Keep in sync with the LocalBusiness areaServed list on the homepage. */}
-  <div class="footer-areas">
-    <span>Serving:</span>
-    <a href="/video-production-nolensville-tn">Nolensville</a>
-    <a href="/video-production-brentwood-tn">Brentwood</a>
-    <a href="/video-production-franklin-tn">Franklin</a>
-    <a href="/video-production-murfreesboro-tn">Murfreesboro</a>
-    <a href="/">Nashville</a>
+  <div class="footer-bottom">
+    <div class="footer-areas">
+      <span>Serving</span>
+      <a href="/video-production-nolensville-tn">Nolensville</a>
+      <a href="/video-production-brentwood-tn">Brentwood</a>
+      <a href="/video-production-franklin-tn">Franklin</a>
+      <a href="/video-production-murfreesboro-tn">Murfreesboro</a>
+      <a href="/">Nashville</a>
+    </div>
+    <div class="copyright">© SDub Media</div>
   </div>
-  <div class="copyright">© SDub Media</div>
 </footer>
 
 </body>
