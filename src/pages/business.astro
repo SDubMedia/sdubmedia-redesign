@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Reviews from '../components/Reviews.astro';
 import VideoGrid from '../components/VideoGrid.astro';
 import Video from '../components/Video.astro';
 
@@ -53,6 +54,14 @@ const jsonLd = {
     { '@type': 'City', name: 'Murfreesboro' },
   ],
 };
+
+const reviews = [
+  {
+    "name": "John W",
+    "when": "May 2025",
+    "text": "SDub Media is amazing. They did video work for my company and it was so far beyond what we were expecting in terms of quality, coverage, and just the impact it made on our customers. Our team's planning is now going in way more exciting directions because of what we can do now that we have access to the quality of work SDub Media provides."
+  }
+];
 ---
 <Layout title="Business Video Production Nashville | SDub Media" description="Interview-led video content for Nashville businesses: one sit-down becomes a quarter of content. Weekly series, on-camera reels, headshots, events and brand films. Retainer-friendly."
   jsonLd={jsonLd}
@@ -183,6 +192,8 @@ const jsonLd = {
     </div>
   </div>
 </section>
+
+<Reviews reviews={reviews} eyebrow="What clients say" heading="The work outruns what people expect." />
 
 {/* This page had exactly one CTA and it was at the very top. Anyone who read
     all the way down here is the warmest visitor the site gets, and the page

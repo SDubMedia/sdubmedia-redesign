@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Reviews from '../components/Reviews.astro';
 
 // PHOTOGRAPHY HUB
 //
@@ -52,6 +53,19 @@ const jsonLd = {
     ],
   },
 };
+
+const reviews = [
+  {
+    "name": "Jay",
+    "when": "September 2024",
+    "text": "Very professional photographer, he gave great instructions to the bridal party and the results were outstanding."
+  },
+  {
+    "name": "Erin Avery",
+    "when": "March 2024",
+    "text": "Geoff was an absolute blessing to my husband and I at our wedding. He was never in the way, yet got all the beautiful shots."
+  }
+];
 ---
 <Layout
   title="Nashville Photography | SDub Media"
@@ -178,6 +192,8 @@ const jsonLd = {
     </ul>
   </div>
 </section>
+
+<Reviews reviews={reviews} eyebrow="What clients say" heading="Reviewed 5.0 on Google." />
 
 <section style="background: var(--soft);">
   <div class="container-narrow">

@@ -1,0 +1,105 @@
+---
+// GOOGLE REVIEWS
+//
+// Real reviews from SDub Media's Google Business Profile (5.0 from 11 reviews),
+// added 2026-08-07. Pulled from the profile Geoff manages and reproduced
+// verbatim with the reviewer's own name, exactly as Google shows them.
+//
+// RULES, and they are not negotiable:
+//   - Never invent a review, a name, or a rating. If a quote is not on the
+//     Google profile, it does not go here.
+//   - Quotes may be TRIMMED but never reworded. Where a review is cut short,
+//     it is cut at a sentence end, not edited to say something it does not.
+//   - Every placement links to the public profile so anyone can check.
+//
+// NO aggregateRating / Review SCHEMA, on purpose. Google switched off review
+// rich results for LocalBusiness and Organization in 2019 (they call it
+// "self-serving reviews"), so marking these up produces no stars and risks a
+// structured-data penalty. The stars already show on the Business Profile
+// itself, which is where they belong. Do not "fix" this by adding schema.
+//
+// The reviews are ~10:1 weddings, because that is what the business used to be.
+// As corporate reviews come in, put them on /business first: that page carries
+// the positioning and currently has exactly one review to lean on.
+
+export interface Review {
+  name: string;
+  text: string;
+  when: string;
+}
+
+interface Props {
+  reviews: Review[];
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+}
+
+const { reviews, eyebrow = 'What clients say', heading = 'Reviewed 5.0 on Google.', intro } = Astro.props as Props;
+const PROFILE = 'https://www.google.com/maps?cid=14729793543238105251';
+---
+<section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{heading}</h2>
+    </div>
+    {intro && <p style="font-size: 1.1rem; max-width: 70ch; margin: 0 auto 1rem; text-align: center;">{intro}</p>}
+
+    <div class="reviews-grid">
+      {reviews.map((r) => (
+        <figure class="review">
+          <div class="review-stars" aria-label="Five out of five stars">★★★★★</div>
+          <blockquote>{r.text}</blockquote>
+          <figcaption>
+            <strong>{r.name}</strong>
+            <span>Google review &middot; {r.when}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <p style="text-align: center; margin-top: 2.5rem;">
+      <a href={PROFILE} target="_blank" rel="noopener">Read all 11 reviews on Google &rarr;</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .review {
+    margin: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .review-stars {
+    color: #f5b301;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+  .review blockquote {
+    margin: 0 0 1.5rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .review figcaption {
+    margin-top: auto;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+  .review figcaption strong { display: block; }
+  .review figcaption span { color: var(--muted); font-size: 0.8rem; }
+</style>

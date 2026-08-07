@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Reviews from '../components/Reviews.astro';
 import VideoGrid from '../components/VideoGrid.astro';
 
 // Runtime in each category so nobody clicks a 10-minute film expecting a
@@ -65,6 +66,24 @@ const jsonLd = {
     ],
   },
 };
+
+const reviews = [
+  {
+    "name": "Parker Ferguson",
+    "when": "October 2024",
+    "text": "He captured all the special moments but wasn't just our videographer, he was also our personal hype man through the day. You can tell you aren't just another client to Geoff. He puts in an effort to build a relationship with you and does everything he can to help make the day stress free."
+  },
+  {
+    "name": "Zachary & Lindsey",
+    "when": "September 2024",
+    "text": "He explained everything on our first call and was up front with the timeline when we would hear from him closer to the wedding. We had guests complimenting how kind and helpful he was. He took every shot twice to ensure he had options and took videos when our photographer was taking photos of us. He delivered our video so quickly."
+  },
+  {
+    "name": "Shannon Brown",
+    "when": "October 2024",
+    "text": "He flew out to Maui for our destination wedding, he was so helpful and captured everything and more that we had wanted. The drone footage is incredible and everyone has loved our video. I wouldn't have changed a thing."
+  }
+];
 ---
 <Layout
   title="Nashville Wedding Videographer | SDub Media"
@@ -204,6 +223,8 @@ const jsonLd = {
     <p style="margin-top: 1.5rem;">More on <a href="/about">who shows up</a>.</p>
   </div>
 </section>
+
+<Reviews reviews={reviews} eyebrow="What couples say" heading="Reviewed 5.0 on Google." />
 
 <section style="background: var(--soft);">
   <div class="container">
