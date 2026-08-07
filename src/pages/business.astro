@@ -151,7 +151,17 @@ const videos = [
       <li><strong>Whether photography rides along</strong> on the same day, which is cheaper than booking it separately</li>
       <li><strong>Whether it is a retainer or a one-off.</strong> Retainers get first call on the calendar</li>
     </ul>
-    <p style="margin-top: 1.5rem;">Tell us what you are trying to keep published and how often, and you will get a real number rather than a range.</p>
+    {/* DELIBERATE: this is the only service on the site without a published
+        price (Geoff, 2026-08-07). Every other page carries one, and /weddings
+        openly mocks companies that make you email to find out. So the omission
+        is called out and given a reason rather than left to look like a gap,
+        which is the only version of this that does not undercut the rest of the
+        site. If a starting figure is ever agreed, publish it here. */}
+    <p style="margin-top: 1.5rem;">Every other service on this site has its price on the page, and we would rather it were true here too. It is not, for one reason: a retainer is built around what you are trying to keep published, and quoting before we know that would be a number pulled out of the air.</p>
+    <p style="margin-top: 1.25rem;">So tell us what you want to stay visible for and how often, and you will get a real figure in the first conversation. Not a range, and not a brochure.</p>
+    <div class="text-center" style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Get a number</a>
+    </div>
   </div>
 </section>
 
