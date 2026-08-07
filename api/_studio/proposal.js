@@ -149,6 +149,20 @@ export function proposalHtml() {
   .phase h3 { margin: 0.7rem 0 0.6rem; }
   .phase p { font-size: 0.93rem; color: var(--muted); margin: 0; }
 
+  /* ---- Comparison table ---- */
+  .compare-wrap { overflow-x: auto; margin-top: 1.8rem; border: 1px solid var(--line-2); border-radius: 14px; }
+  table.compare { width: 100%; border-collapse: collapse; min-width: 460px; }
+  table.compare th, table.compare td { padding: 1.05rem 1.2rem; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--line); }
+  table.compare th:first-child, table.compare td:first-child { text-align: left; }
+  table.compare thead th {
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+    font-weight: 600; background: rgba(255,255,255,0.03);
+  }
+  table.compare tbody td { font-variant-numeric: tabular-nums; }
+  table.compare tbody tr:last-child td { border-bottom: 0; }
+  table.compare .win { color: var(--accent); font-weight: 600; }
+  table.compare .even { color: var(--muted); }
+
   /* ---- Summary ---- */
   .summary { border: 1px solid var(--line-2); border-radius: 14px; overflow: hidden; margin-top: 2.4rem; }
   .summary > div { display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 1.6rem; border-bottom: 1px solid var(--line); }
@@ -454,20 +468,23 @@ export function proposalHtml() {
       <p>There is no equipment purchase and no separate support contract, and installation is waived on the twelve month term. Everything that has to work is covered by the monthly figure, and the work CBSR asks for on top of it is quoted before it starts.</p>
       <h3 style="font-size:1.25rem;margin:3rem 0 1rem">Compared with building it yourselves</h3>
       <p>The comparison worth making is not against doing nothing. It is against buying the technology outright, owning it through every failure and format change, and still paying standard rate for the production. Owning cameras does not edit anything.</p>
-      <p class="muted" style="font-size:0.93rem">Both columns below assume the same seven hours of production and editing a month. The owned column carries equipment and installation up front and bills those hours at the $200 standard rate.</p>
-      <div class="summary" style="margin-top:1.8rem">
-        <div>
-          <div class="who"><b>After 12 months</b><span>Owned $28,200 &nbsp;&middot;&nbsp; Program $21,000</span></div>
-          <div class="amt">Save $7,200</div>
-        </div>
-        <div>
-          <div class="who"><b>After 24 months</b><span>Owned $45,000 &nbsp;&middot;&nbsp; Program $42,000</span></div>
-          <div class="amt">Save $3,000</div>
-        </div>
-        <div>
-          <div class="who"><b>After 36 months</b><span>Owned $61,800 &nbsp;&middot;&nbsp; Program $63,000</span></div>
-          <div class="amt muted">Within $1,200</div>
-        </div>
+      <p class="muted" style="font-size:0.93rem">Both columns assume the same seven hours of production and editing a month. Buying it yourselves carries the equipment and installation up front, and bills those hours at the $200 standard rate.</p>
+      <div class="compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th scope="col">Total spent by</th>
+              <th scope="col">Buying it yourselves</th>
+              <th scope="col">This program</th>
+              <th scope="col">Difference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>12 months</td><td>$28,200</td><td>$21,000</td><td class="win">CBSR saves $7,200</td></tr>
+            <tr><td>24 months</td><td>$45,000</td><td>$42,000</td><td class="win">CBSR saves $3,000</td></tr>
+            <tr><td>36 months</td><td>$61,800</td><td>$63,000</td><td class="even">Within $1,200</td></tr>
+          </tbody>
+        </table>
       </div>
       <p style="margin-top:1.5rem">By year three the two are close enough to call even, and that is the honest answer. What separates them at that point is what happens next: owned equipment is due for replacement around then, and under this program that is our cost and our problem, not a line on a CBSR budget.</p>
       <p style="margin-top:1.5rem">There is a simpler way to look at it. Seven hours of production at the standard rate is $1,400. The recommended tier is $1,750. Every camera, the install, the maintenance, the replacements and the support cost CBSR <strong>$350 a month</strong> on top of work you would be buying anyway.</p>
