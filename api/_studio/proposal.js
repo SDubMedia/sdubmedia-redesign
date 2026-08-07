@@ -373,6 +373,19 @@ export function proposalHtml() {
         </div>
       </div>
       <p style="margin-top:1.5rem">Hours are quoted before the work starts and invoiced after it is delivered. Nothing is ever charged for time nobody asked for.</p>
+
+      <h3 style="font-size:1.25rem;margin:2.8rem 0 1rem">Installation</h3>
+      <p>Building the studio is a day of work: mounting and framing three cameras, running cable, setting up the switcher and the audio chain, calibrating the lighting, labelling the controls, and walking through it with whoever will use the room most.</p>
+      <div class="summary" style="margin-top:1.8rem">
+        <div>
+          <div class="who"><b>Installation and calibration</b><span>One time, before the first session</span></div>
+          <div class="amt">$1,500</div>
+        </div>
+        <div>
+          <div class="who"><b>On a twelve month term</b><span>Either tier</span></div>
+          <div class="amt">Waived</div>
+        </div>
+      </div>
       <p class="muted" style="font-size:0.93rem;margin-top:1.6rem">Twelve month term, month to month after that. Equipment remains the property of SDub Media throughout, which is what keeps CBSR out of the upgrade cycle. The program can move up a tier at any point in the term without a new agreement.</p>
     </div>
   </div>
@@ -425,6 +438,10 @@ export function proposalHtml() {
         <div class="amt">Included</div>
       </div>
       <div>
+        <div class="who"><b>SDub Media &middot; one time</b><span>Installation and calibration, waived on the twelve month term</span></div>
+        <div class="amt">Waived</div>
+      </div>
+      <div>
         <div class="who"><b>CBSR &middot; monthly</b><span>Studio &plus; Production, the recommended tier, including seven hours a month</span></div>
         <div class="amt">$1,750 / month</div>
       </div>
@@ -434,8 +451,26 @@ export function proposalHtml() {
       </div>
     </div>
     <div class="narrow" style="padding:2.4rem 0 0">
-      <p>There is no equipment purchase, no install fee and no separate support contract. Everything that has to work is covered by the monthly figure, and the work CBSR asks for on top of it is quoted before it starts.</p>
-      <p>The comparison worth making is not against doing nothing. It is against buying nine thousand dollars of technology, owning it through every failure and format change for the next five years, and still paying full rate for the production.</p>
+      <p>There is no equipment purchase and no separate support contract, and installation is waived on the twelve month term. Everything that has to work is covered by the monthly figure, and the work CBSR asks for on top of it is quoted before it starts.</p>
+      <h3 style="font-size:1.25rem;margin:3rem 0 1rem">Compared with building it yourselves</h3>
+      <p>The comparison worth making is not against doing nothing. It is against buying the technology outright, owning it through every failure and format change, and still paying standard rate for the production. Owning cameras does not edit anything.</p>
+      <p class="muted" style="font-size:0.93rem">Both columns below assume the same seven hours of production and editing a month. The owned column carries equipment and installation up front and bills those hours at the $200 standard rate.</p>
+      <div class="summary" style="margin-top:1.8rem">
+        <div>
+          <div class="who"><b>After 12 months</b><span>Owned $28,200 &nbsp;&middot;&nbsp; Program $21,000</span></div>
+          <div class="amt">Save $7,200</div>
+        </div>
+        <div>
+          <div class="who"><b>After 24 months</b><span>Owned $45,000 &nbsp;&middot;&nbsp; Program $42,000</span></div>
+          <div class="amt">Save $3,000</div>
+        </div>
+        <div>
+          <div class="who"><b>After 36 months</b><span>Owned $61,800 &nbsp;&middot;&nbsp; Program $63,000</span></div>
+          <div class="amt muted">Within $1,200</div>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem">By year three the two are close enough to call even, and that is the honest answer. What separates them at that point is what happens next: owned equipment is due for replacement around then, and under this program that is our cost and our problem, not a line on a CBSR budget.</p>
+      <p style="margin-top:1.5rem">There is a simpler way to look at it. Seven hours of production at the standard rate is $1,400. The recommended tier is $1,750. Every camera, the install, the maintenance, the replacements and the support cost CBSR <strong>$350 a month</strong> on top of work you would be buying anyway.</p>
     </div>
   </div>
 </section>
