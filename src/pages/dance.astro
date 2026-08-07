@@ -23,8 +23,34 @@ const videos = [
   // it from the Elite Dance piece embedded under Studio Promos below.
   { title: 'Elite Dance', category: 'Studio promo', vimeo: '869957340' },
 ];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Dance Recital Videography',
+  description: 'Recital films, studio promos and season content for dance companies.',
+  url: 'https://sdubmedia.com/dance',
+  serviceType: 'Dance Recital Videography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Dance Recital Videography',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Recital coverage', price: '2500', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
 ---
-<Layout title="Dance Recital Videography Nashville | SDub Media" description="Recital films from $2,500, plus studio promos and season content for Nashville-area dance companies. Real work for Elite Dance, Nolensville Dance Company, and Ballet Ball Nashville.">
+<Layout title="Dance Recital Videography Nashville | SDub Media" description="Recital films from $2,500, plus studio promos and season content for Nashville-area dance companies. Real work for Elite Dance, Nolensville Dance Company, and Ballet Ball Nashville."
+  jsonLd={jsonLd}
+>
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">For dance companies</span>

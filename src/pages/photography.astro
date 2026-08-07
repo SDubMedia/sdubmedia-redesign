@@ -26,10 +26,38 @@ import Layout from '../layouts/Layout.astro';
 // (Geoff's call, Aug 2026). Do NOT add a headshot gallery using the corporate
 // portraits as a stand-in: they are a different thing and it would read as
 // padding. Add one when there are cleared headshots.
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Photography',
+  description: 'Real estate listings, senior portraits, family sessions, headshots and corporate photography around Nashville.',
+  url: 'https://sdubmedia.com/photography',
+  serviceType: 'Photography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Photography',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Immediate family session', price: '600', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Extended family session', price: '850', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Senior session', price: '750', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
 ---
 <Layout
   title="Nashville Photography | SDub Media"
   description="Photography around Nashville: family sessions from $600, senior portraits $750, real estate listings, headshots and corporate work. Full-resolution galleries, no proof-print upsell."
+
+  jsonLd={jsonLd}
 >
 <section>
   <div class="container-narrow text-center">

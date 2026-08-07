@@ -18,10 +18,30 @@ import Video from '../components/Video.astro';
 // SCOPE HONESTY: single-room coverage only. Do not claim concurrent tracks or
 // breakout rooms. The offer is the main stage done properly.
 // ────────────────────────────────────────────────────────────────────
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Corporate Event Videography',
+  description: 'Multi-camera coverage of conferences and corporate events: every session archived plus a highlight reel.',
+  url: 'https://sdubmedia.com/corporate-events',
+  serviceType: 'Corporate Event Videography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+  priceRange: '$$$',
+};
 ---
 <Layout
   title="Corporate Event Video Nashville | SDub Media"
   description="Main-stage conference and corporate event video in Nashville: every talk archived with board audio and your own slides, plus a highlight reel delivered while the event is still fresh."
+
+  jsonLd={jsonLd}
 >
 <section>
   <div class="container-narrow text-center">

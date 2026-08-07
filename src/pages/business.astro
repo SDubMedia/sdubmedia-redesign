@@ -36,8 +36,27 @@ const videos = [
   { title: 'Patient welcome video', category: 'Healthcare', vimeo: '926434787' },
   { title: 'Tutoring Rocks', category: 'Brand video', vimeo: '707958942' },
 ];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Business Video Production',
+  description: 'Interview-led recurring video content for businesses: series, on-camera reels, headshot days and brand films.',
+  url: 'https://sdubmedia.com/business',
+  serviceType: 'Business Video Production',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+};
 ---
-<Layout title="Business Video Production Nashville | SDub Media" description="Interview-led video content for Nashville businesses: one sit-down becomes a quarter of content. Weekly series, on-camera reels, headshots, events and brand films. Retainer-friendly.">
+<Layout title="Business Video Production Nashville | SDub Media" description="Interview-led video content for Nashville businesses: one sit-down becomes a quarter of content. Weekly series, on-camera reels, headshots, events and brand films. Retainer-friendly."
+  jsonLd={jsonLd}
+>
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">For businesses</span>

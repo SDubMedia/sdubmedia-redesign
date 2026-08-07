@@ -31,10 +31,37 @@ import Layout from '../layouts/Layout.astro';
 // /corporate-events or /business. An earlier invented "next-day delivery" line
 // was removed; do not state any figure other than the confirmed listings one.
 // ────────────────────────────────────────────────────────────────────
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Real Estate Photography',
+  description: 'Listing photography and video for agents, delivered in 48 hours.',
+  url: 'https://sdubmedia.com/real-estate-photography',
+  serviceType: 'Real Estate Photography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Real Estate Photography',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Listing', price: '200', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Aerials added to a booked listing', price: '50', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
 ---
 <Layout
   title="Real Estate Photography Nashville | SDub Media"
   description="Listing photography for Nashville-area agents. Photos and video in 48 hours, a photographer who shoots homes and nothing else, aerials for $50. $200 per listing."
+
+  jsonLd={jsonLd}
 >
 <section>
   <div class="container-narrow text-center">

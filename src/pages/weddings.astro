@@ -40,10 +40,37 @@ const videos = [
 // 8 to 12, and is deliberately shifting focus toward corporate work. So this
 // page no longer states a count, and it no longer pretends scarcity is the
 // selling point. Selectivity is real; the specific number was not.
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Wedding Videography',
+  description: 'Cinematic wedding films with all-day coverage, including a full-length highlight film.',
+  url: 'https://sdubmedia.com/weddings',
+  serviceType: 'Wedding Videography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Wedding Videography',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Elopement', price: '2000', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'All-day coverage', price: '3500', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
 ---
 <Layout
   title="Nashville Wedding Videographer | SDub Media"
   description="Cinematic wedding films in Nashville and beyond. Elopements $2,000, all-day coverage $3,500 including a full-length highlight film. Clear pricing, 6 to 8 week delivery."
+
+  jsonLd={jsonLd}
 >
 <section>
   <div class="container-narrow text-center">

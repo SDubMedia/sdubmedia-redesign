@@ -24,10 +24,36 @@ import Layout from '../layouts/Layout.astro';
 // stale price is worse than no price, and an invented one is worse than both.
 // Everything in the "How a session works" list is covered by that number, so do
 // not add an inclusion to the list without checking whether it actually is.
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Senior Portrait Photography',
+  description: 'Senior portrait sessions shot on location. Outfit changes, cap and gown, family frames and a full-resolution gallery.',
+  url: 'https://sdubmedia.com/senior-portraits',
+  serviceType: 'Senior Portrait Photography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Senior Portrait Photography',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Senior session', price: '750', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+    ],
+  },
+};
 ---
 <Layout
   title="Senior Portraits Nashville | SDub Media"
   description="Senior portrait sessions in the Nashville area, $750 flat. Shot on location, not in a studio. Outfit changes, cap and gown, family frames, and the full-resolution gallery included."
+
+  jsonLd={jsonLd}
 >
 <section>
   <div class="container-narrow text-center">
