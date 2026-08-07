@@ -29,8 +29,8 @@ import Layout from '../layouts/Layout.astro';
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">Photography</span>
-    <h1>The same eye that shoots the video<br />shoots the stills.</h1>
-    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Listings, seniors, families, headshots. Booked as its own job or added to a shoot day you already have on the calendar, which is usually the cheapest way to get both.</p>
+    <h1>A photographer for the shoot,<br />not whoever is free that day.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Listings, seniors, families, headshots. Our photographers each shoot one thing constantly, which is why a listing comes back in 48 hours and nobody is learning your kind of shoot on your afternoon.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Book a session</a>
     </div>
@@ -46,7 +46,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">What we shoot</span>
-      <h2>Four kinds of work, one photographer.</h2>
+      <h2>Four kinds of work, and someone who shoots each one constantly.</h2>
     </div>
     {/* Site tile pattern, two-up so four cards fill both rows. Two of these
         have their own page and carry an arrow; family and headshots do not
@@ -72,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
       <a href="/business" class="tile" style="color: inherit;">
         <img class="tile-image" src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" />
         <h3>Headshots and Corporate</h3>
-        <p>On site at your office, so nobody loses half a day to it. We run headshot days for a brokerage, rotating through their offices one at a time, and it usually rides along with video.</p>
+        <p>On site at your office, so nobody loses half a day to it. We run headshot days for a brokerage, rotating through their offices one at a time, and they usually ride along with a video crew that is already there.</p>
         <span class="door-arrow">Business photography &rarr;</span>
       </a>
     </div>
@@ -114,6 +114,26 @@ import Layout from '../layouts/Layout.astro';
 <section style="background: var(--soft);">
   <div class="container-narrow">
     <div class="section-head">
+      <span class="eyebrow">Who shoots it</span>
+      <h2>Specialists, not one person with a camera.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">Most small production companies are one generalist who books help when the calendar gets tight. We are built the other way.</p>
+    {/* Roles only, never names or faces: the team is not willing to appear on
+        the marketing site and that is their call. Same rule as /about, where
+        these roles are confirmed. Do not pad this list. */}
+    <ul class="facts" style="margin-top: 2rem;">
+      <li>A photographer who shoots <strong>homes only</strong>, which is why listings come back in 48 hours</li>
+      <li>A photographer who covers <strong>live events</strong>, where you get one attempt at every moment</li>
+      <li>The <strong>owner</strong>, who shoots portraits, families and seniors, and has done every job the company sells</li>
+      <li><strong>Editing in house</strong>, so your gallery never sits in someone else's queue</li>
+    </ul>
+    <p style="margin-top: 1.5rem;">More on <a href="/about">who shows up</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <div class="section-head">
       <span class="eyebrow">What you get</span>
       <h2>The files, at full resolution, without an upsell.</h2>
     </div>
@@ -126,7 +146,7 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<section>
+<section style="background: var(--soft);">
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">What it costs</span>
