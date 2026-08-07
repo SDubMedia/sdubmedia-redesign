@@ -16,6 +16,11 @@ import Layout from '../layouts/Layout.astro';
 // Family session frames moved here from the Portraits block on /weddings, which
 // is now weddings only.
 //
+// PRICING confirmed by Geoff 2026-08-07: immediate family $600, extended $850.
+// Carried over from the retired Pixieset site and re-confirmed. Senior and real
+// estate numbers live on their own pages; this table mirrors them, so if one
+// changes, change both.
+//
 // HEADSHOTS: mentioned in copy, deliberately no gallery. The only real headshot
 // frames are from CBSR's July 16 day and have not been cleared for publication
 // (Geoff's call, Aug 2026). Do NOT add a headshot gallery using the corporate
@@ -24,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="Nashville Photography | SDub Media"
-  description="Photography around Nashville: real estate listings, senior portraits, family sessions, headshots and corporate work. Full-resolution galleries, no proof-print upsell."
+  description="Photography around Nashville: family sessions from $600, senior portraits $750, real estate listings, headshots and corporate work. Full-resolution galleries, no proof-print upsell."
 >
 <section>
   <div class="container-narrow text-center">
@@ -67,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="tile">
         <img class="tile-image" src="/images/portraits/family-desert-seated.jpg" alt="A family of four seated together at golden hour among Joshua trees" loading="lazy" width="1600" height="1069" />
         <h3>Family Sessions</h3>
-        <p>Including the extended-family version, for the one week a year everybody is finally in the same state. Shot outdoors, on location, priced per session.</p>
+        <p>Including the extended-family version, for the one week a year everybody is finally in the same state. Shot outdoors, on location. $600, or $850 with the extended family.</p>
       </div>
       <a href="/business" class="tile" style="color: inherit;">
         <img class="tile-image" src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" />
@@ -163,8 +168,12 @@ import Layout from '../layouts/Layout.astro';
         <span style="white-space: nowrap;"><a href="/real-estate-photography">See pricing</a></span>
       </div>
       <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border);">
-        <span><strong>Family sessions</strong><br><span style="font-size: 0.85rem; color: var(--muted);">A family of four and a family of fourteen are not the same job</span></span>
-        <span style="white-space: nowrap;">Per session</span>
+        <span><strong>Immediate family</strong><br><span style="font-size: 0.85rem; color: var(--muted);">A guided session and a curated set of edited files in your gallery</span></span>
+        <span style="white-space: nowrap;"><strong>$600</strong></span>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border);">
+        <span><strong>Extended family</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Group portraits plus the natural ones, for when everybody is finally together</span></span>
+        <span style="white-space: nowrap;"><strong>$850</strong></span>
       </div>
       <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem;">
         <span><strong>Headshots and corporate</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Per person on a headshot day, or per shoot</span></span>

@@ -20,8 +20,11 @@ const videos = [
   { title: 'Full wedding film', category: 'Destination · Hawaii, 10 min', vimeo: '1067969852' },
 ];
 
-// PRICING is real and confirmed by Geoff 2026-07-29. Keep it accurate or remove
-// it; a stale price is worse than no price.
+// PRICING is real and confirmed by Geoff 2026-07-29, with elopement and
+// destination added 2026-08-07 from the retired Pixieset site and re-confirmed
+// by him. Keep it accurate or remove it; a stale price is worse than no price.
+//   Elopement ........................... $2,000  (shorter day, shorter edit)
+//   Destination ......................... $3,500  plus flights and hotel at cost
 //   All-day coverage, one shooter ....... $3,500
 //   Second shooter ...................... +$500
 //   Included: full-length wedding highlight film
@@ -40,7 +43,7 @@ const videos = [
 ---
 <Layout
   title="Nashville Wedding Videographer | SDub Media"
-  description="Cinematic wedding films in Nashville and beyond. All-day coverage from $3,500, including a full-length highlight film. Clear pricing, 6 to 8 week delivery."
+  description="Cinematic wedding films in Nashville and beyond. Elopements $2,000, all-day coverage $3,500 including a full-length highlight film. Clear pricing, 6 to 8 week delivery."
 >
 <section>
   <div class="container-narrow text-center">
@@ -69,9 +72,17 @@ const videos = [
     </div>
     <p style="font-size: 1.1rem;">Almost every wedding videographer makes you email to find out if they are even in your range. We would rather just tell you.</p>
     <div style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);">
+        <span><strong>Elopement</strong><br><span style="font-size: 0.85rem; color: var(--muted);">A shorter day and a shorter edit, for an intimate celebration</span></span>
+        <span style="white-space: nowrap;"><strong>$2,000</strong></span>
+      </div>
       <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.03);">
         <span><strong>All-day coverage</strong><br><span style="font-size: 0.85rem; color: var(--muted);">One shooter, including your full-length highlight film</span></span>
         <span style="white-space: nowrap;"><strong>$3,500</strong></span>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);">
+        <span><strong>Destination</strong><br><span style="font-size: 0.85rem; color: var(--muted);">The same all-day coverage, plus flights and hotel at cost</span></span>
+        <span style="white-space: nowrap;"><strong>$3,500</strong> plus travel</span>
       </div>
       <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);">
         <span>Second shooter</span><span style="white-space: nowrap;">$500</span>
