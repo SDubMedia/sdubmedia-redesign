@@ -129,6 +129,25 @@ import Layout from '../layouts/Layout.astro';
 <section>
   <div class="container-narrow">
     <div class="section-head">
+      <span class="eyebrow">Who shoots it</span>
+      <h2>Specialists, not one person with a camera.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">The reason a listing comes back in 48 hours is not that we hurry. It is that the person shooting it does nothing else.</p>
+    {/* Roles only, never names or faces: the team is not willing to appear on
+        the marketing site and that stays their call. These are the confirmed
+        roles (see /about). Do not add one to fill a page. */}
+    <ul class="facts" style="margin-top: 2rem;">
+      <li>A photographer who shoots <strong>homes only</strong>, which is why the turnaround holds even in a busy week</li>
+      <li><strong>Editing in house</strong>, so your gallery never sits in someone else's queue</li>
+      <li><strong>Two videographers</strong>, including the owner, when a listing wants video as well</li>
+    </ul>
+    <p style="margin-top: 1.5rem;">More on <a href="/about">who shows up</a>.</p>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
       <span class="eyebrow">Why agents switch</span>
       <h2>The photos are usually not the problem. The wait is.</h2>
     </div>
@@ -156,7 +175,7 @@ import Layout from '../layouts/Layout.astro';
     would silently collapse to "Other"). Access is granted by invite from
     Slate afterwards. There is deliberately no self-serve account creation:
     that is public signup into a multi-tenant app holding client data. */}
-<section id="agent-signup" style="background: var(--soft);">
+<section>
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">For agents we shoot for</span>
