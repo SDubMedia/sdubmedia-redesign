@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// PHOTOGRAPHY HUB
+//
+// Added Aug 2026. Photography was scattered across five pages: portraits buried
+// on /weddings, real estate on its own page, headshots mentioned on /business,
+// corporate portraits in /portfolio, and seniors standing alone. Somebody
+// looking for a photographer had nowhere to land.
+//
+// This is a PARENT page, not a replacement. /real-estate-photography and
+// /senior-portraits keep their own URLs and their own ranking history (never
+// rename a published slug) and are linked from here. The nav swapped those two
+// entries for this one, so the section grew while the nav got shorter.
+//
+// Family session frames moved here from the Portraits block on /weddings, which
+// is now weddings only.
+//
+// HEADSHOTS: mentioned in copy, deliberately no gallery. The only real headshot
+// frames are from CBSR's July 16 day and have not been cleared for publication
+// (Geoff's call, Aug 2026). Do NOT add a headshot gallery using the corporate
+// portraits as a stand-in: they are a different thing and it would read as
+// padding. Add one when there are cleared headshots.
+---
+<Layout
+  title="Nashville Photography | SDub Media"
+  description="Photography around Nashville: real estate listings, senior portraits, family sessions, headshots and corporate work. Full-resolution galleries, no proof-print upsell."
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Photography</span>
+    <h1>The same eye that shoots the video<br />shoots the stills.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Listings, seniors, families, headshots. Booked as its own job or added to a shoot day you already have on the calendar, which is usually the cheapest way to get both.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Book a session</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 3.5rem;">
+    <img class="wedding-hero-img" src="/images/portraits/family-desert-path.jpg"
+         alt="A family of four on a desert path at golden hour, the parents dancing while their two children lean against fence posts"
+         width="1600" height="1069" />
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What we shoot</span>
+      <h2>Four kinds of work, one photographer.</h2>
+    </div>
+    {/* Site tile pattern, two-up so four cards fill both rows. Two of these
+        have their own page and carry an arrow; family and headshots do not
+        have one yet, so they are plain tiles rather than links to nowhere. */}
+    <div class="tiles tiles--two">
+      <a href="/real-estate-photography" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/real-estate/kitchen-island.jpg" alt="A bright kitchen with a large island, photographed for a listing" loading="lazy" width="1600" height="1069" />
+        <h3>Real Estate</h3>
+        <p>Listings, interiors and aerials, priced per listing and turned around fast enough to matter. It has its own page because agents book it differently to everything else.</p>
+        <span class="door-arrow">Real estate photography &rarr;</span>
+      </a>
+      <a href="/senior-portraits" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/seniors/cap-toss-path.jpg" alt="A graduate in a gold gown throwing her cap on a hedge lined path" loading="lazy" width="1600" height="1069" />
+        <h3>Senior Portraits</h3>
+        <p>Cap and gown plus whatever they actually want to be seen in, shot on location rather than against a studio wall. $750 for the session.</p>
+        <span class="door-arrow">Senior portraits &rarr;</span>
+      </a>
+      <div class="tile">
+        <img class="tile-image" src="/images/portraits/family-desert-seated.jpg" alt="A family of four seated together at golden hour among Joshua trees" loading="lazy" width="1600" height="1069" />
+        <h3>Family Sessions</h3>
+        <p>Including the extended-family version, for the one week a year everybody is finally in the same state. Shot outdoors, on location, priced per session.</p>
+      </div>
+      <a href="/business" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" />
+        <h3>Headshots and Corporate</h3>
+        <p>On site at your office, so nobody loses half a day to it. We run headshot days for a brokerage, rotating through their offices one at a time, and it usually rides along with video.</p>
+        <span class="door-arrow">Business photography &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recent work</span>
+      <h2>Real sessions, real clients.</h2>
+    </div>
+    {/* Filenames here were renamed Aug 2026 to match what the files actually
+        contain. Three of them described photos that were not in them at all
+        ("portrait-with-dogs" is a family of four in the desert, "family-baby-kiss"
+        is a couple), and the wrong alt text had been live on /weddings for
+        months. If an image is ever swapped, rename the file and rewrite the alt
+        in the same commit.
+
+        Deliberately mixed rather than grouped: the point of this page is range,
+        and the child pages already show depth in one subject. Client frames are
+        published anonymously, filenames describe the frame and never the
+        client, and EXIF is stripped on save. */}
+    <div class="photo-strip-tall">
+      <img src="/images/seniors/portrait-smiling.jpg" alt="A high school senior in a white dress leaning against a column" loading="lazy" width="1069" height="1600" />
+      <img src="/images/portraits/grandparents-grandkids.jpg" alt="Grandparents surrounded by six grandchildren in a winter field" loading="lazy" width="1069" height="1600" />
+      <img src="/images/corporate/portrait-trio.jpg" alt="Three colleagues photographed together outdoors" loading="lazy" width="1100" height="1650" />
+      <img src="/images/seniors/cap-raised.jpg" alt="A graduate holding her cap overhead, backlit by late sun" loading="lazy" width="1069" height="1600" />
+    </div>
+    <div class="wedding-strip" style="margin-top: 1.5rem;">
+      <img src="/images/portraits/couple-autumn-lane.jpg" alt="A couple photographed together on a lane in full autumn colour" loading="lazy" width="1600" height="1069" />
+      <img src="/images/real-estate/great-room.jpg" alt="A bright great room photographed for a listing" loading="lazy" width="1600" height="1069" />
+      <img src="/images/portraits/family-desert-seated.jpg" alt="A family of four seated together at golden hour among Joshua trees" loading="lazy" width="1600" height="1069" />
+      <img src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" />
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">What you get</span>
+      <h2>The files, at full resolution, without an upsell.</h2>
+    </div>
+    <ul class="facts">
+      <li><strong>A private online gallery</strong>, shared by link. Download the whole set or pick individual frames</li>
+      <li><strong>Full-resolution files</strong>. No proof prints, no per-file charges, no watermarks on work you paid for</li>
+      <li><strong>Portrait sessions keep the untouched originals</strong>, EXIF and colour profile intact, for the shoots where the file itself is the product</li>
+      <li><strong>Sized for where it is going</strong>, so a listing photo and a social crop are not the same download</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">What it costs</span>
+      <h2>Published where we can, quoted where it depends.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">Some of this prices cleanly and some genuinely depends on the job. Where it prices cleanly, the number is on the page.</p>
+    <div style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.03);">
+        <span><strong>Senior session</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Outfit changes, cap and gown, family frames, full gallery</span></span>
+        <span style="white-space: nowrap;"><strong>$750</strong></span>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border);">
+        <span><strong>Real estate</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Priced per listing, by size</span></span>
+        <span style="white-space: nowrap;"><a href="/real-estate-photography">See pricing</a></span>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border);">
+        <span><strong>Family sessions</strong><br><span style="font-size: 0.85rem; color: var(--muted);">A family of four and a family of fourteen are not the same job</span></span>
+        <span style="white-space: nowrap;">Per session</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem;">
+        <span><strong>Headshots and corporate</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Per person on a headshot day, or per shoot</span></span>
+        <span style="white-space: nowrap;">Per day</span>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem;">Ask and we will send numbers the same day. If you already have a video shoot booked, say so: adding stills to a day we are already on site for costs less than booking it separately.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Get a quote</a>
+    </div>
+  </div>
+</section>
+</Layout>
