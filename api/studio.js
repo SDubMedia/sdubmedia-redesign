@@ -9,8 +9,9 @@
 // api/_studio/, which Vercel does not route (leading underscore), and the only
 // way to get it is through this handler.
 //
-// The cookie is an HMAC of the deck slug, so it cannot be forged without the
-// secret and cannot be replayed against a different deck. Comparison is
+// The cookie is an HMAC of the deck slug and its current password, so it cannot
+// be forged without the secret, cannot be replayed against a different deck,
+// and stops working the moment the password is rotated. Comparison is
 // timing-safe: === on a secret leaks its prefix one byte at a time.
 //
 // ENV (Vercel project settings):
@@ -36,9 +37,13 @@ const DECKS = {
 
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days: the client should not have to re-enter it every visit.
 
-function tokenFor(slug) {
+// The password is folded into the token, so rotating a deck's password also
+// invalidates every session already unlocked with the old one. Keying on the
+// slug alone meant "I changed the password" quietly did nothing to anyone who
+// was already in.
+function tokenFor(slug, password) {
   const secret = process.env.STUDIO_COOKIE_SECRET || '';
-  return createHmac('sha256', secret).update(`deck:${slug}`).digest('hex');
+  return createHmac('sha256', secret).update(`deck:${slug}:${password}`).digest('hex');
 }
 
 function safeEqual(a, b) {
@@ -135,7 +140,7 @@ export default async function handler(req, res) {
   const cookieName = `studio_${slug}`;
 
   // Already unlocked on this device.
-  if (safeEqual(readCookie(req, cookieName), tokenFor(slug))) {
+  if (safeEqual(readCookie(req, cookieName), tokenFor(slug, expected))) {
     return res.status(200).send(deck.render());
   }
 
@@ -145,7 +150,7 @@ export default async function handler(req, res) {
     const supplied = typeof body === 'string' ? new URLSearchParams(body).get('password') : body.password;
     if (supplied && safeEqual(supplied, expected)) {
       res.setHeader('Set-Cookie',
-        `${cookieName}=${tokenFor(slug)}; Path=/studio; Max-Age=${COOKIE_MAX_AGE}; HttpOnly; Secure; SameSite=Lax`);
+        `${cookieName}=${tokenFor(slug, expected)}; Path=/studio; Max-Age=${COOKIE_MAX_AGE}; HttpOnly; Secure; SameSite=Lax`);
       return res.status(200).send(deck.render());
     }
     return res.status(401).send(gateHtml(deck, slug, { error: 'That password did not work. Check the invitation, or email geoff@sdubmedia.com.' }));
