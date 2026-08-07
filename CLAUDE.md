@@ -32,6 +32,30 @@ Pages are Astro, in `src/pages/` (the root-level `*.html` files are dead pre-Ast
 - `contact.astro` — Contact (posts to `api/contact.js`, a Vercel function using Resend)
 - `blog/index.astro` + `blog/[slug].astro` — Blog index and post template
 
+## Password-gated client proposals (`/studio/:deck`)
+
+Private decks Geoff sends a client with a password. Added Aug 2026 for CBSR.
+
+**They are NOT Astro pages, and must not become them.** This site builds to static
+HTML, so anything under `src/pages/` is a real file Vercel serves to whoever guesses the
+URL. A gate on top of a static file is theatre. Instead:
+
+- `api/studio.js` is the only way in. It checks the password, sets a signed cookie, and
+  returns the document. `noindex` + `no-store` on every response.
+- The document lives in `api/_studio/<name>.js`. Vercel does not route files in `api/`
+  that start with an underscore, so it has no URL of its own.
+- The cookie is an HMAC of the deck slug **and its current password**, so rotating a
+  password actually locks people out. Comparisons use `timingSafeEqual`.
+- Images are inlined as data URIs. Anything in `public/` would be fetchable with no gate.
+- `/studio` is not an Astro page, so it cannot reach the sitemap. Keep it that way.
+
+**Adding a deck:** write `api/_studio/<name>.js` exporting an html function, add it to
+`DECKS` in `api/studio.js` with its own password env var, add the rewrite in `vercel.json`,
+then set the env var in Vercel. Never reuse one password across clients.
+
+**Env:** `<NAME>_STUDIO_PASSWORD` per deck, plus one shared `STUDIO_COOKIE_SECRET`.
+Production is set; the CLI errors on `preview`, so preview deploys show "not configured yet".
+
 ## Content Engine
 - `content/context/` — Read this before writing ANYTHING. Brand voice, style guide, examples.
 - `content/drafts/` — Write posts here. Do not publish directly.
