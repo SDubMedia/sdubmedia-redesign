@@ -375,18 +375,22 @@ export function proposalHtml() {
 
     <div class="narrow" style="padding:3.2rem 0 0">
       <h3 style="font-size:1.25rem;margin-bottom:1rem">Production is billed by the hour, at a member rate.</h3>
-      <p>Beyond what a tier includes, filming and editing are billed as used. CBSR pays a member rate for as long as the studio program is active.</p>
+      <p>Beyond what a tier includes, filming and editing are billed as used. The Murfreesboro office pays a member rate for as long as its studio program is active.</p>
       <div class="summary" style="margin-top:1.8rem">
         <div>
           <div class="who"><b>Standard rate</b><span>What any client pays for filming and editing</span></div>
           <div class="amt muted" style="text-decoration:line-through">$200 / hour</div>
         </div>
         <div>
-          <div class="who"><b>CBSR member rate</b><span>While the studio program is active</span></div>
+          <div class="who"><b>Murfreesboro member rate</b><span>While the studio program is active at that office</span></div>
           <div class="amt">$160 / hour</div>
         </div>
       </div>
       <p style="margin-top:1.5rem">Hours are quoted before the work starts and invoiced after it is delivered. Nothing is ever charged for time nobody asked for.</p>
+
+      <h3 style="font-size:1.25rem;margin:2.8rem 0 1rem">Other CBSR offices</h3>
+      <p>The member rate belongs to the office running the studio. Work for the other CBSR offices is billed at the standard rate, because the rate is funded by the program rather than by the brand on the door.</p>
+      <p>It widens as the studios do. A second office on its own studio program puts <strong>both</strong> offices on the member rate. A third puts all three on it, and so on across the brokerage. Each room is priced the same, since the technology in it costs the same, and installation is waived on the term exactly as it is here.</p>
 
       <h3 style="font-size:1.25rem;margin:2.8rem 0 1rem">Installation</h3>
       <p>Building the studio is a day of work: mounting and framing three cameras, running cable, setting up the switcher and the audio chain, calibrating the lighting, labelling the controls, and walking through it with whoever will use the room most.</p>
