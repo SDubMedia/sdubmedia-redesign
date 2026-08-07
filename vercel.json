@@ -2,9 +2,31 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.sdubmedia.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.sdubmedia.com"
+        }
+      ],
       "destination": "https://sdubmedia.com/:path*",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/studio/:deck",
+      "destination": "/api/studio?deck=:deck"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/studio/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ]
 }
