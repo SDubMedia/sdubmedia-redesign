@@ -18,16 +18,16 @@ import Layout from '../layouts/Layout.astro';
 // which is true, checks out against the photos, and does not fake a local
 // backdrop the way naming a Nashville park would.
 //
-// PRICING: deliberately not published. Weddings publish real numbers because
-// they are one repeatable package. A senior session varies by outfit changes,
-// locations and whether family joins, so this uses the same honest line the
-// Portraits section on /weddings already uses. Do NOT invent a number here.
-// If Geoff sets a real starting price, publish it: a stale price is worse than
-// no price, and an invented one is worse than both.
+// PRICING is real and confirmed by Geoff 2026-08-07: $750 per session, flat.
+// Published for the same reason the wedding prices are: a parent should be able
+// to rule us in or out without emailing first. Keep it accurate or remove it. A
+// stale price is worse than no price, and an invented one is worse than both.
+// Everything in the "How a session works" list is covered by that number, so do
+// not add an inclusion to the list without checking whether it actually is.
 ---
 <Layout
   title="Senior Portraits Nashville | SDub Media"
-  description="Senior portrait sessions shot on location, not in a studio. Cap and gown, outfit changes, and family frames if you want them. Full-resolution gallery, no proof-print upsell."
+  description="Senior portrait sessions in the Nashville area, $750 flat. Shot on location, not in a studio. Outfit changes, cap and gown, family frames, and the full-resolution gallery included."
 >
 <section>
   <div class="container-narrow text-center">
@@ -58,7 +58,6 @@ import Layout from '../layouts/Layout.astro';
       <li><strong>Family frames if you want them</strong>. Parents and siblings are usually there anyway, and it is the easiest group photo you will get all year</li>
       <li><strong>Full-resolution downloads</strong>, in a private online gallery. No proof prints, no per-file charges, no watermarks on what you paid for</li>
     </ul>
-    <p style="margin-top: 1.5rem;">Priced per session rather than per package, because a single senior and a session with the whole family are not the same job. Ask and we will send numbers the same day.</p>
   </div>
 </section>
 
@@ -88,6 +87,26 @@ import Layout from '../layouts/Layout.astro';
 </section>
 
 <section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">What it costs</span>
+      <h2>One number, and everything is in it.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">Most photographers make you email to find out whether they are even in your range. We would rather just tell you.</p>
+    <div style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.25rem; background: rgba(255,255,255,0.03);">
+        <span><strong>Senior session</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Outfit changes, cap and gown, family frames, and the full-resolution gallery</span></span>
+        <span style="white-space: nowrap;"><strong>$750</strong></span>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem;">No package tiers, no per-file charges, no print minimum. Senior season fills up in a hurry, so the good dates go early.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Book a session</a>
+    </div>
+  </div>
+</section>
+
+<section>
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">Why us</span>
