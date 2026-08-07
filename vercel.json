@@ -10,6 +10,11 @@
       ],
       "destination": "https://sdubmedia.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/real-estate-drone-photography-video",
+      "destination": "/real-estate-photography",
+      "permanent": true
     }
   ],
   "rewrites": [

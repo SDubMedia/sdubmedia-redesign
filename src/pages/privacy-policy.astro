@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// PRIVACY POLICY
+//
+// Added 2026-08-07. Google had /privacy-policy/ on file as a 404 from the
+// retired Pixieset site, and the site runs Google Analytics and collects form
+// data with nothing telling visitors so.
+//
+// EVERY CLAIM HERE MUST STAY TRUE. It is written from what the site actually
+// does, not from a template:
+//   - GA4 G-90E82TVKTC, loaded in Layout.astro on every page
+//   - contact form fields: name, email, phone, planning, eventDate, eventTime,
+//     message (plus a "company" honeypot that is discarded)
+//   - agent signup fields: name, email, phone, brokerage, listings, status
+//   - both POST to Slate (slate.sdubmedia.com) and fall back to /api/contact,
+//     which emails via Resend
+// If a form field or a third party changes, change this page in the same commit.
+//
+// NOT claimed, because it is not true today: no cookie consent banner, no
+// GDPR/CCPA request workflow beyond emailing Geoff, no data processing
+// agreements. Do not add boilerplate promising mechanisms that do not exist.
+---
+<Layout
+  title="Privacy Policy | SDub Media"
+  description="What SDub Media collects when you use this website, why, and how to have it removed."
+>
+<section>
+  <div class="container-narrow">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy policy</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Short version: we collect what you type into a form so we can reply to you, and we use Google Analytics to see which pages people read. We do not sell anything to anybody.</p>
+    <p class="muted" style="font-size: 0.9rem; margin-top: 1rem;">Last updated 7 August 2026.</p>
+
+    <div class="rule" style="height:1px;background:var(--border);margin:2.6rem 0"></div>
+
+    <h2 style="font-size:1.35rem;margin-bottom:1rem">What we collect</h2>
+    <p>Two things, and nothing else.</p>
+    <ul class="facts" style="margin-top:1.5rem">
+      <li><strong>What you send us in a form.</strong> The contact form asks for your name, email, phone number, what you are planning, a date and time if you have one, and your message. The agent signup on the real estate page asks for your name, email, phone, brokerage and roughly how many listings you do a month. All of it is optional except a name and an email, because without those we cannot reply.</li>
+      <li><strong>Anonymous usage data, through Google Analytics.</strong> Which pages get read, roughly where in the world the visitor is, what kind of device, and how they arrived. It uses cookies. It does not tell us who you are.</li>
+    </ul>
+
+    <h2 style="font-size:1.35rem;margin:2.8rem 0 1rem">Where it goes</h2>
+    <p>Form submissions go into our own booking system at slate.sdubmedia.com and are emailed to us through Resend, an email delivery service. Analytics data goes to Google. That is the entire list of companies that touch it.</p>
+    <p style="margin-top:1.25rem">We do not sell your information, rent it, or hand it to advertisers. Nobody outside SDub Media reads your enquiry.</p>
+
+    <h2 style="font-size:1.35rem;margin:2.8rem 0 1rem">How long we keep it</h2>
+    <p>Enquiries stay in our booking system so we have a record of who we have talked to and what was quoted. If you would rather we did not, say so and we will delete it.</p>
+
+    <h2 style="font-size:1.35rem;margin:2.8rem 0 1rem">Cookies</h2>
+    <p>Google Analytics sets cookies to tell repeat visits apart from new ones. If you would rather it did not, most browsers let you block cookies for a site, and you can install Google's own <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Analytics opt-out add-on</a>. Nothing on this site stops working if you do.</p>
+
+    <h2 style="font-size:1.35rem;margin:2.8rem 0 1rem">Photographs of clients</h2>
+    <p>Work shown on this site is published with the client's permission. Files are named so they do not identify anyone, location data is stripped from every image before it goes up, and no client is named without being asked first. If you are in a photograph here and would like it taken down, email us and it comes down. You do not have to give a reason.</p>
+
+    <h2 style="font-size:1.35rem;margin:2.8rem 0 1rem">Asking us to remove your data</h2>
+    <p>Email <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a> and ask. We will tell you what we hold and delete it if you want it deleted. There is no form to fill in and no process to go through.</p>
+
+    <h2 style="font-size:1.35rem;margin:2.8rem 0 1rem">Who we are</h2>
+    <p>SDub Media LLC, Nolensville, Tennessee. <a href="mailto:geoff@sdubmedia.com">geoff@sdubmedia.com</a>, 615-707-9143.</p>
+
+    <p class="muted" style="margin-top:2.8rem;font-size:0.93rem">If this page changes we will change the date at the top. We are a five-person company, not a data broker, and this policy is meant to be read rather than clicked past.</p>
+  </div>
+</section>
+</Layout>
