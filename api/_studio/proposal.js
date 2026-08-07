@@ -327,53 +327,53 @@ export function proposalHtml() {
       <h2>A managed studio, not an equipment lease.</h2>
       <div class="rule"></div>
       <p class="lede">CBSR invests in the room. SDub Media owns, maintains and refreshes everything in it.</p>
-      <p>The alternative is buying eight to ten thousand dollars of technology outright, and then owning it through every firmware change, every failure and every format shift for the next five years. This structure puts that on us. The studio stays production ready because keeping it production ready is what CBSR is paying for.</p>
+      <p>The alternative is buying roughly nine thousand dollars of technology outright, and then owning it through every firmware change, every failure and every format shift for the next five years. This structure puts that on us. The studio stays production ready because keeping it production ready is what CBSR is paying for.</p>
     </div>
 
     <div class="tiers">
       <div class="tier">
         <span class="flag">&nbsp;</span>
-        <h3>Studio Access</h3>
-        <div class="price">$450</div>
-        <div class="per">per month</div>
+        <h3>Studio Program</h3>
+        <div class="price">$795</div>
+        <div class="per">per month &middot; 12 month term</div>
         <ul>
-          <li>All studio technology provided and installed</li>
+          <li>All studio technology provided, installed and calibrated</li>
           <li>Maintenance, firmware and replacements covered</li>
-          <li>Technical support when something is not right</li>
-          <li>Quarterly on-site check and re-calibration</li>
-          <li>Unlimited use of the room by CBSR</li>
+          <li>Technical support and a quarterly on-site check</li>
+          <li>Unlimited self-serve use of the room by CBSR</li>
+          <li>Production and editing at the member rate below</li>
         </ul>
       </div>
       <div class="tier featured">
         <span class="flag">Recommended</span>
-        <h3>Studio Managed</h3>
-        <div class="price">$850</div>
-        <div class="per">per month</div>
-        <ul>
-          <li>Everything in Studio Access</li>
-          <li>Four finished pieces edited every month</li>
-          <li>Short vertical cuts pulled from each piece</li>
-          <li>Quarterly studio optimisation</li>
-          <li>Priority support and scheduling</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <span class="flag">&nbsp;</span>
-        <h3>Content Partner</h3>
+        <h3>Studio &plus; Production</h3>
         <div class="price">$1,750</div>
-        <div class="per">per month</div>
+        <div class="per">per month &middot; 12 month term</div>
         <ul>
-          <li>Everything in Studio Managed</li>
-          <li>A monthly production day with an SDub operator</li>
-          <li>Expanded monthly editing allocation</li>
+          <li>Everything in the Studio Program</li>
+          <li>A production day every month, filmed with you</li>
+          <li>Seven hours of production and editing included</li>
           <li>Quarterly content planning session</li>
-          <li>First call on calendar for CBSR shoots</li>
+          <li>First call on the calendar for CBSR shoots</li>
         </ul>
       </div>
     </div>
 
-    <div class="narrow" style="padding:2.6rem 0 0">
-      <p class="muted" style="font-size:0.93rem">Twelve month term, month to month after that. Equipment remains the property of SDub Media throughout, which is what keeps CBSR out of the upgrade cycle. Any tier can move up at any point in the term without a new agreement.</p>
+    <div class="narrow" style="padding:3.2rem 0 0">
+      <h3 style="font-size:1.25rem;margin-bottom:1rem">Production is billed by the hour, at a member rate.</h3>
+      <p>Beyond what a tier includes, filming and editing are billed as used. CBSR pays a member rate for as long as the studio program is active.</p>
+      <div class="summary" style="margin-top:1.8rem">
+        <div>
+          <div class="who"><b>Standard rate</b><span>What any client pays for filming and editing</span></div>
+          <div class="amt muted" style="text-decoration:line-through">$200 / hour</div>
+        </div>
+        <div>
+          <div class="who"><b>CBSR member rate</b><span>While the studio program is active</span></div>
+          <div class="amt">$160 / hour</div>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem">Hours are quoted before the work starts and invoiced after it is delivered. Nothing is ever charged for time nobody asked for.</p>
+      <p class="muted" style="font-size:0.93rem;margin-top:1.6rem">Twelve month term, month to month after that. Equipment remains the property of SDub Media throughout, which is what keeps CBSR out of the upgrade cycle. The program can move up a tier at any point in the term without a new agreement.</p>
     </div>
   </div>
 </section>
@@ -425,12 +425,17 @@ export function proposalHtml() {
         <div class="amt">Included</div>
       </div>
       <div>
-        <div class="who"><b>CBSR &middot; monthly</b><span>Studio Managed, the recommended tier</span></div>
-        <div class="amt">$850 / month</div>
+        <div class="who"><b>CBSR &middot; monthly</b><span>Studio &plus; Production, the recommended tier, including seven hours a month</span></div>
+        <div class="amt">$1,750 / month</div>
+      </div>
+      <div>
+        <div class="who"><b>CBSR &middot; as used</b><span>Filming and editing beyond the included hours, at the member rate</span></div>
+        <div class="amt">$160 / hour</div>
       </div>
     </div>
     <div class="narrow" style="padding:2.4rem 0 0">
-      <p>There is no equipment purchase, no install fee and no separate support contract. The monthly figure is the whole cost of the technology side, and it stops if the room ever stops being worth it.</p>
+      <p>There is no equipment purchase, no install fee and no separate support contract. Everything that has to work is covered by the monthly figure, and the work CBSR asks for on top of it is quoted before it starts.</p>
+      <p>The comparison worth making is not against doing nothing. It is against buying nine thousand dollars of technology, owning it through every failure and format change for the next five years, and still paying full rate for the production.</p>
     </div>
   </div>
 </section>
@@ -443,7 +448,7 @@ export function proposalHtml() {
     <div class="rule"></div>
     <div class="flow">
       <div><span class="step">01</span><div><h3>Confirm the room</h3><p>Which office, which room, and a walkthrough to measure the real wall positions and power.</p></div></div>
-      <div><span class="step">02</span><div><h3>Pick a tier</h3><p>Studio Managed is the recommendation. Studio Access is the smallest sensible starting point.</p></div></div>
+      <div><span class="step">02</span><div><h3>Pick a tier</h3><p>Studio &plus; Production is the recommendation. The Studio Program alone is the smallest sensible starting point.</p></div></div>
       <div><span class="step">03</span><div><h3>Set the install date</h3><p>Dressing first, technology second, and a short session with whoever will use the room most.</p></div></div>
     </div>
   </div>
