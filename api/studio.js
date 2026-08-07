@@ -29,7 +29,7 @@ import { proposalHtml } from './_studio/proposal.js';
 const DECKS = {
   cbsr: {
     title: 'CBSR Content Studio',
-    client: 'Coldwell Banker Southern Realty',
+    client: 'Coldwell Banker Southern Realty, Murfreesboro',
     passwordEnv: 'CBSR_STUDIO_PASSWORD',
     render: proposalHtml,
   },

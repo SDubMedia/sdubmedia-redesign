@@ -206,14 +206,15 @@ export function proposalHtml() {
   <div class="cover-img"><img src="${ROOM_RENDER}" alt="Concept render of the CBSR content studio: two chairs, podcast microphones, acoustic wall and a branded screen" /></div>
   <div class="cover-top">
     <span>SDub Media</span>
-    <span><span class="long">Confidential &middot; Prepared for Coldwell Banker Southern Realty</span><span class="short" style="display:none">Confidential</span></span>
+    <span><span class="long">Confidential &middot; Prepared for CBSR Murfreesboro</span><span class="short" style="display:none">Confidential</span></span>
   </div>
   <div class="cover-inner">
-    <span class="label">Studio Proposal &middot; Version 1.0</span>
+    <span class="label">Studio Proposal &middot; Murfreesboro Office &middot; Version 1.0</span>
     <h1>The CBSR<br />Content Studio</h1>
     <p class="cover-sub">A permanent room where any agent, broker or leader can walk in, press one button, and produce content that looks like it came from the brand.</p>
     <div class="cover-meta">
       <div>Prepared for<strong>Coldwell Banker Southern Realty</strong></div>
+      <div>Office<strong>Murfreesboro</strong></div>
       <div>Prepared by<strong>SDub Media</strong></div>
       <div>Room<strong>9&#8202;&times;&#8202;12 interior</strong></div>
     </div>
@@ -234,6 +235,7 @@ export function proposalHtml() {
       <a href="#summary"><span class="n">07</span> Investment summary</a>
       <a href="#next"><span class="n">08</span> Next steps</a>
     </div>
+    <p class="muted" style="font-size:0.93rem;margin-top:2.2rem;max-width:70ch">This proposal covers one studio at the Murfreesboro office. The pricing, the included hours and the member rate all apply to that room and that office. Other CBSR offices are covered on page 05.</p>
   </div>
 </section>
 
@@ -354,7 +356,7 @@ export function proposalHtml() {
           <li>All studio technology provided, installed and calibrated</li>
           <li>Maintenance, firmware and replacements covered</li>
           <li>Technical support and a quarterly on-site check</li>
-          <li>Unlimited self-serve use of the room by CBSR</li>
+          <li>Unlimited self-serve use of the room by the Murfreesboro office</li>
           <li>Production and editing at the member rate below</li>
         </ul>
       </div>
@@ -368,7 +370,7 @@ export function proposalHtml() {
           <li>A production day every month, filmed with you</li>
           <li>Seven hours of production and editing included</li>
           <li>Quarterly content planning session</li>
-          <li>First call on the calendar for CBSR shoots</li>
+          <li>First call on the calendar for Murfreesboro shoots</li>
         </ul>
       </div>
     </div>
@@ -422,7 +424,7 @@ export function proposalHtml() {
       <div class="phase">
         <span class="n">Phase 01</span>
         <h3>The self-serve room</h3>
-        <p>Dressing, install, three fixed angles, audio and lighting. From this point CBSR can record any conversation, any day, without booking anybody. This is the phase that has to prove itself, and it is designed to.</p>
+        <p>Dressing, install, three fixed angles, audio and lighting. From this point the Murfreesboro office can record any conversation, any day, without booking anybody. This is the phase that has to prove itself, and it is designed to.</p>
       </div>
       <div class="phase">
         <span class="n">Phase 02</span>
@@ -448,7 +450,7 @@ export function proposalHtml() {
     </div>
     <div class="summary" style="max-width:760px;margin-left:auto;margin-right:auto">
       <div>
-        <div class="who"><b>CBSR &middot; one time</b><span>Room dressing: paint, slat wall, acoustic panels, chairs, table, screen, lamps</span></div>
+        <div class="who"><b>Murfreesboro &middot; one time</b><span>Room dressing: paint, slat wall, acoustic panels, chairs, table, screen, lamps</span></div>
         <div class="amt">CBSR budget</div>
       </div>
       <div>
@@ -460,11 +462,11 @@ export function proposalHtml() {
         <div class="amt">Waived</div>
       </div>
       <div>
-        <div class="who"><b>CBSR &middot; monthly</b><span>Studio &plus; Production, the recommended tier, including seven hours a month</span></div>
+        <div class="who"><b>Murfreesboro &middot; monthly</b><span>Studio &plus; Production, the recommended tier, including seven hours a month</span></div>
         <div class="amt">$1,750 / month</div>
       </div>
       <div>
-        <div class="who"><b>CBSR &middot; as used</b><span>Filming and editing beyond the included hours, at the member rate</span></div>
+        <div class="who"><b>Murfreesboro &middot; as used</b><span>Filming and editing beyond the included hours, at the member rate</span></div>
         <div class="amt">$160 / hour</div>
       </div>
     </div>
@@ -484,8 +486,8 @@ export function proposalHtml() {
             </tr>
           </thead>
           <tbody>
-            <tr><td>12 months</td><td>$28,200</td><td>$21,000</td><td class="win">CBSR saves $7,200</td></tr>
-            <tr><td>24 months</td><td>$45,000</td><td>$42,000</td><td class="win">CBSR saves $3,000</td></tr>
+            <tr><td>12 months</td><td>$28,200</td><td>$21,000</td><td class="win">Murfreesboro saves $7,200</td></tr>
+            <tr><td>24 months</td><td>$45,000</td><td>$42,000</td><td class="win">Murfreesboro saves $3,000</td></tr>
             <tr><td>36 months</td><td>$61,800</td><td>$63,000</td><td class="even">Within $1,200</td></tr>
           </tbody>
         </table>
