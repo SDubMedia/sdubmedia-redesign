@@ -22,6 +22,11 @@ Pages are Astro, in `src/pages/` (the root-level `*.html` files are dead pre-Ast
 - `index.astro` — Homepage
 - `business.astro` — Corporate/brand video services
 - `weddings.astro` — Wedding + portrait
+- `senior-portraits.astro` — Senior sessions (split out of the weddings Portraits block, Aug 2026).
+  Images are one real session published anonymously: filenames describe the frame, never the client,
+  EXIF stripped on save, no name in copy or alt text. The frames were NOT shot in Nashville and the
+  page never implies they were. No price is published here on purpose (a session varies too much);
+  do not invent one
 - `portfolio.astro` — Work showcase
 - `about.astro` — About page
 - `contact.astro` — Contact (posts to `api/contact.js`, a Vercel function using Resend)

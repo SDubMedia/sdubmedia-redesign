@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// SENIOR PORTRAITS
+//
+// Split out from the Portraits block on /weddings on 2026-08-07. Seniors had
+// one line in a three-item list and a single frame in a shared strip, which is
+// not enough for a service Geoff is actively growing. This page is the one
+// place a parent searching for senior photos can land and see the whole thing.
+//
+// IMAGES: one real session, published anonymously. Filenames describe the
+// frame, never the client, because a public URL is forever. EXIF is stripped on
+// save (a portrait's GPS can point at somebody's home). No name appears in the
+// copy or in any alt text.
+//
+// LOCATION: these frames were NOT shot in Nashville. Nothing on this page says
+// or implies they were. Sessions are shot on location wherever the family is,
+// which is true, checks out against the photos, and does not fake a local
+// backdrop the way naming a Nashville park would.
+//
+// PRICING: deliberately not published. Weddings publish real numbers because
+// they are one repeatable package. A senior session varies by outfit changes,
+// locations and whether family joins, so this uses the same honest line the
+// Portraits section on /weddings already uses. Do NOT invent a number here.
+// If Geoff sets a real starting price, publish it: a stale price is worse than
+// no price, and an invented one is worse than both.
+---
+<Layout
+  title="Senior Portraits Nashville | SDub Media"
+  description="Senior portrait sessions shot on location, not in a studio. Cap and gown, outfit changes, and family frames if you want them. Full-resolution gallery, no proof-print upsell."
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Senior Portraits</span>
+    <h1>Senior year only happens once.<br>Photograph it like it counts.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">A senior session should look like the person in it, not like the backdrop at school picture day. We shoot on location, we take our time, and you get the full-resolution files.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Book a session</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 3.5rem;">
+    <img class="wedding-hero-img" src="/images/seniors/cap-toss-path.jpg"
+         alt="A graduate in a gold gown throwing her cap in the air on a hedge lined garden path"
+         width="1600" height="1069" />
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">How a session works</span>
+      <h2>Two hours, two looks, and nobody rushing you.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">Most senior sessions run the same shape. We start with whatever they actually want to be seen in, then put the cap and gown on for the frames the grandparents will ask for.</p>
+    <ul class="facts" style="margin-top: 2rem;">
+      <li><strong>Outfit changes are expected</strong>, not billed as an extra. Cap and gown plus at least one look of their own</li>
+      <li><strong>Shot on location</strong>, somewhere that means something to them, rather than against a studio wall</li>
+      <li><strong>Family frames if you want them</strong>. Parents and siblings are usually there anyway, and it is the easiest group photo you will get all year</li>
+      <li><strong>Full-resolution downloads</strong>, in a private online gallery. No proof prints, no per-file charges, no watermarks on what you paid for</li>
+    </ul>
+    <p style="margin-top: 1.5rem;">Priced per session rather than per package, because a single senior and a session with the whole family are not the same job. Ask and we will send numbers the same day.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">A recent session</span>
+      <h2>One senior, one afternoon.</h2>
+    </div>
+    <div class="photo-strip-tall">
+      <img src="/images/seniors/portrait-smiling.jpg" alt="A high school senior in a white dress leaning against a column, smiling at camera" loading="lazy" width="1069" height="1600" />
+      <img src="/images/seniors/portrait-looking-away.jpg" alt="A senior portrait in soft shade, the subject looking off camera" loading="lazy" width="1069" height="1600" />
+      <img src="/images/seniors/portrait-arm-raised.jpg" alt="A senior in a white dress with one arm raised against a shaded colonnade" loading="lazy" width="1069" height="1600" />
+    </div>
+    <div class="photo-strip-tall" style="margin-top: 1.5rem;">
+      <img src="/images/seniors/cap-raised.jpg" alt="A graduate holding her cap overhead in a gold gown, backlit by late sun" loading="lazy" width="1069" height="1600" />
+      <img src="/images/seniors/cap-and-gown-path.jpg" alt="A graduate walking away down a hedge lined path in cap and gown" loading="lazy" width="1069" height="1600" />
+      <img src="/images/seniors/cap-held-up.jpg" alt="A graduate photographed from behind holding her cap above her head" loading="lazy" width="1069" height="1600" />
+    </div>
+    <div class="photo-strip-tall" style="margin-top: 1.5rem;">
+      <img src="/images/seniors/white-dress-path.jpg" alt="A senior walking toward camera on a garden path in a white dress" loading="lazy" width="1068" height="1600" />
+      <img src="/images/seniors/cap-toss-pedestal.jpg" alt="A graduate tossing her cap while standing on a garden pedestal" loading="lazy" width="1069" height="1600" />
+      <img src="/images/seniors/tassel-2027.jpg" alt="A class of 2027 tassel held toward camera, the graduate soft behind it" loading="lazy" width="1069" height="1600" />
+    </div>
+    <p style="text-align: center; margin-top: 2rem; color: var(--muted);">Sessions are shot wherever the family is, not in a studio.</p>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">Why us</span>
+      <h2>The same person shoots it and edits it.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">Most of our work is video for businesses. That is exactly why the portrait side stays small: a handful of sessions, none of them squeezed between three other jobs, and the person behind the camera is the person who owns the company.</p>
+    <p style="margin-top: 1.25rem;">If you want the whole family photographed while everyone is together, we can do that in the same session. If you are a school looking to photograph a whole senior class, that is a different conversation and we would like to have it.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Check availability</a>
+    </div>
+  </div>
+</section>
+</Layout>
