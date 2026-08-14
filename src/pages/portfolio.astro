@@ -41,10 +41,11 @@ const items = [
   { title: 'Wedding sizzle reel', category: 'Wedding · 38 sec', vimeo: '1150766730' },
   { title: 'Church at Nolensville', category: 'Community event', vimeo: '1214151209' },
   // Moved here from the dance page (Geoff, 2026-08-14): portfolio only.
-  // Still unlisted on Vimeo, so it won't play or get a thumbnail until its
-  // privacy changes (public, or embed restricted to sdubmedia.com like the
-  // Aug wedding film) — then rebuild to pull the thumbnail.
-  { title: 'Color War', category: 'Event recap · 90 sec', vimeo: '1218335236' },
+  // Local thumb is the film's first frame (Geoff supplied it; the video is
+  // unlisted on Vimeo so its thumbnail can't be fetched). Playback still
+  // needs the privacy change (public, or embed restricted to sdubmedia.com
+  // like the Aug wedding film).
+  { title: 'Color War', category: 'Event recap · 90 sec', vimeo: '1218335236', thumb: '/images/events/color-war.jpg' },
 ];
 ---
 <Layout title="Portfolio | SDub Media Nashville" description="Work from SDub Media: corporate video, recurring content, weddings, and events in Nashville.">

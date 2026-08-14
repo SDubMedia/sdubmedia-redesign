@@ -11,6 +11,7 @@ export interface VideoItem {
   client?: string;   // real client name, or omit
   category?: string; // e.g. 'Corporate', 'Wedding', 'Podcast'
   vimeo: string;     // Vimeo id, or 'id/hash' for private, or '' for a placeholder
+  thumb?: string;    // local /images/... path; overrides the Vimeo-fetched thumbnail
 }
 interface Props {
   items?: VideoItem[];
@@ -44,7 +45,7 @@ const cards = await Promise.all(items.map(async (item) => {
     category: item.category ?? '',
     id: m?.[1] ?? '',
     hash: m?.[2] ?? '',
-    thumb: item.vimeo ? await vimeoThumb(item.vimeo) : '',
+    thumb: item.thumb ?? (item.vimeo ? await vimeoThumb(item.vimeo) : ''),
     // Structured data per real video; placeholders get none.
     ld: item.vimeo ? await vimeoVideoLd(item.vimeo, item.title ?? '') : null,
   };
