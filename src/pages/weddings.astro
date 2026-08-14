@@ -94,7 +94,9 @@ const reviews = [
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">Weddings</span>
-    <h1>A few weddings a year.<br>Every one deliberate.</h1>
+    {/* No forced <br>: at some desktop widths the first sentence wrapped mid-phrase,
+        stranding "year." on its own line. Balance keeps the lines even instead. */}
+    <h1 style="text-wrap: balance;">A few weddings a year. Every one deliberate.</h1>
     <p style="font-size: 1.1rem; margin-top: 1.5rem;">Most of our work is for businesses, which is why the weddings we take are unhurried. A small number, all day, and never edited between three other jobs.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Check availability</a>
@@ -194,7 +196,8 @@ const reviews = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">A few of the days</span>
-      <h2>Three weddings, three completely different days.</h2>
+      {/* Keep this count matching the number of images in the strip below. */}
+      <h2>Four weddings, four completely different days.</h2>
     </div>
     <div class="wedding-strip">
       <img src="/images/weddings/wedding-party.jpg" alt="A wedding party posed together on a lakeside deck beneath a floral arch" loading="lazy" width="1600" height="900" />

@@ -110,7 +110,9 @@ const businessLd = {
       <a href="/weddings" class="tile" style="color: inherit;">
         <img class="tile-image" src="/images/weddings/reception-dusk.jpg" alt="A beachside wedding reception under string lights after sunset" loading="lazy" width="1600" height="900" />
         <h3>Weddings</h3>
-        <p>A handful a year, all day, with pricing published on the page so you can rule us in or out before you email. A full film and a sizzle reel. Portraits live on the <a href="/photography">photography page</a>.</p>
+        {/* No nested link here: this whole tile is an <a>, and an <a> inside an <a>
+            makes the browser split the tile apart, dropping the text out of the card. */}
+        <p>A handful a year, all day, with pricing published on the page so you can rule us in or out before you email. A full film and a sizzle reel. Portraits live on the photography page.</p>
         <span class="door-arrow">See wedding pricing →</span>
       </a>
     </div>

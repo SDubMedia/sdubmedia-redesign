@@ -76,7 +76,7 @@ const reviews = [
 <section>
   <div class="container-narrow text-center">
     <span class="eyebrow">Photography</span>
-    <h1>A photographer for the shoot,<br />not whoever is free that day.</h1>
+    <h1 style="text-wrap: balance;">A photographer for the shoot, not whoever is free that day.</h1>
     <p style="font-size: 1.1rem; margin-top: 1.5rem;">Listings, seniors, families, headshots. Our photographers each shoot one thing constantly, which is why a listing comes back in 48 hours and nobody is learning your kind of shoot on your afternoon.</p>
     <div style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Book a session</a>
@@ -95,9 +95,10 @@ const reviews = [
       <span class="eyebrow">What we shoot</span>
       <h2>Four kinds of work, and someone who shoots each one constantly.</h2>
     </div>
-    {/* Site tile pattern, two-up so four cards fill both rows. Two of these
-        have their own page and carry an arrow; family and headshots do not
-        have one yet, so they are plain tiles rather than links to nowhere. */}
+    {/* Site tile pattern, two-up so four cards fill both rows. Family has no
+        page of its own, so its card anchors to the pricing table below.
+        People photos carry object-position so 220px cover-crops keep faces
+        in frame; the source images are 3:2 and the crop is much wider. */}
     <div class="tiles tiles--two">
       <a href="/real-estate-photography" class="tile" style="color: inherit;">
         <img class="tile-image" src="/images/real-estate/kitchen-island.jpg" alt="A bright kitchen with a large island, photographed for a listing" loading="lazy" width="1600" height="1069" />
@@ -106,18 +107,19 @@ const reviews = [
         <span class="door-arrow">Real estate photography &rarr;</span>
       </a>
       <a href="/senior-portraits" class="tile" style="color: inherit;">
-        <img class="tile-image" src="/images/seniors/cap-toss-path.jpg" alt="A graduate in a gold gown throwing her cap on a hedge lined path" loading="lazy" width="1600" height="1069" />
+        <img class="tile-image" src="/images/seniors/cap-toss-path.jpg" alt="A graduate in a gold gown throwing her cap on a hedge lined path" loading="lazy" width="1600" height="1069" style="object-position: center 25%;" />
         <h3>Senior Portraits</h3>
         <p>Cap and gown plus whatever they actually want to be seen in, shot on location rather than against a studio wall. $750 for the session.</p>
         <span class="door-arrow">Senior portraits &rarr;</span>
       </a>
-      <div class="tile">
-        <img class="tile-image" src="/images/portraits/family-desert-seated.jpg" alt="A family of four seated together at golden hour among Joshua trees" loading="lazy" width="1600" height="1069" />
+      <a href="#pricing" class="tile" style="color: inherit;">
+        <img class="tile-image" src="/images/portraits/family-desert-seated.jpg" alt="A family of four seated together at golden hour among Joshua trees" loading="lazy" width="1600" height="1069" style="object-position: center 30%;" />
         <h3>Family Sessions</h3>
         <p>Including the extended-family version, for the one week a year everybody is finally in the same state. Shot outdoors, on location. $600, or $850 with the extended family.</p>
-      </div>
+        <span class="door-arrow">See family pricing &rarr;</span>
+      </a>
       <a href="/business" class="tile" style="color: inherit;">
-        <img class="tile-image" src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" />
+        <img class="tile-image" src="/images/corporate/team-portrait.jpg" alt="A full brokerage team photographed together on steps outdoors" loading="lazy" width="1600" height="1067" style="object-position: center 25%;" />
         <h3>Headshots and Corporate</h3>
         <p>On site at your office, so nobody loses half a day to it. We run headshot days for a brokerage, rotating through their offices one at a time, and they usually ride along with a video crew that is already there.</p>
         <span class="door-arrow">Business photography &rarr;</span>
@@ -195,7 +197,7 @@ const reviews = [
 
 <Reviews reviews={reviews} eyebrow="What clients say" heading="Reviewed 5.0 on Google." />
 
-<section style="background: var(--soft);">
+<section id="pricing" style="background: var(--soft);">
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">What it costs</span>

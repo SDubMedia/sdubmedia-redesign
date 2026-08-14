@@ -17,7 +17,7 @@ then Secondary. Mark as "Written: YYYY-MM-DD" once a post is live.
 | 5 | nashville video production company | 170 | 50 | $4.35 | Informational | Local Pack, Video, AI Overview | Not written |
 | 6 | video production nashville | 210 | 50 | $4.90 | Commercial | Local Pack, Video, Image | Not written |
 | 7 | corporate video production nashville | 50 | 47 | $4.35 | Commercial | Local Pack, Video, Image | Not written |
-| 8 | nashville video production studios | 70 | 47 | $5.10 | Commercial | Local Pack, Video, Image | Not written |
+| 8 | nashville video production studios | 70 | 47 | $5.10 | Commercial | Local Pack, Video, Image | Written: 2026-08-03 |
 | 9 | video production company nashville | 140 | 52 | $2.79 | Commercial | Local Pack, Video | Not written |
 | 10 | video production in nashville | 90 | 47 | $4.90 | Commercial | Local Pack, Video, Image | Not written |
 
