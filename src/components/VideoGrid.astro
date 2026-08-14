@@ -141,9 +141,52 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
   .pf-title { display: block; font-weight: 600; letter-spacing: -0.01em; }
   .pf-client { display: block; font-size: 0.85rem; color: var(--muted); margin-top: 0.15rem; }
 
-  /* Lightbox. Video used to play inside the card, but a card is only ~300-380px
-     wide and Vimeo's controls do not scale down, so the chrome swallowed the
-     frame. Playing it here instead gives real controls at a sane size. */
+</style>
+
+{/* Everything below is created by the click handler at runtime, so it CANNOT
+    use the scoped block above: Astro scopes styles to build-time elements, and
+    JS-created nodes never match them. That exact mismatch once shipped as a
+    bug where the lightbox rendered unstyled at the bottom-left of the page.
+    Runtime-created classes (.pf-lb*, .pf-card--playing, .pf-inline, .pf-expand)
+    stay in this is:global block. */}
+<style is:global>
+  /* Inline playback: the card's thumbnail is swapped for the player in place. */
+  .pf-card--playing {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    text-align: left;
+    background: var(--card);
+    border: 1px solid var(--brand);
+    border-radius: 12px;
+    overflow: hidden;
+    color: var(--text);
+  }
+  .pf-inline { position: relative; aspect-ratio: 16 / 9; background: #000; }
+  .pf-inline iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .pf-expand {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--text);
+    background: rgba(8, 12, 20, 0.65);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .pf-expand:hover { background: rgba(8, 12, 20, 0.9); border-color: var(--brand); }
+
+  /* Expanded player: a centered, size-capped overlay. Deliberately NOT full
+     screen on desktop; Vimeo's own fullscreen button covers that case. */
   .pf-lb {
     position: fixed;
     inset: 0;
@@ -158,7 +201,7 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
   .pf-lb[hidden] { display: none; }
   .pf-lb-frame {
     position: relative;
-    width: min(820px, 100%);
+    width: min(960px, 92vw);
     /* Cap the width so the derived 16:9 height never exceeds the viewport. */
     max-width: calc((100vh - 8rem) * 16 / 9);
     aspect-ratio: 16 / 9;
@@ -193,14 +236,65 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
 </style>
 
 <script>
-  // Click-to-play facade: nothing loads from Vimeo until a card is clicked,
-  // and then it opens in a size-capped lightbox rather than inside the card.
+  // Click-to-play facade: nothing loads from Vimeo until a card is clicked.
+  // A click swaps the card's thumbnail for the player IN PLACE; the ⤢ button
+  // on the playing card opens the same video in a centered, size-capped
+  // overlay (not full screen; Vimeo's own fullscreen control covers that).
+  // Only one card plays at a time. Runtime-created nodes must use classes
+  // from the is:global style block, never the scoped one.
   (() => {
     let overlay: HTMLDivElement | null = null;
     let frame: HTMLDivElement | null = null;
     let lastFocused: HTMLElement | null = null;
+    let active: { original: HTMLElement; playing: HTMLElement } | null = null;
 
-    function close() {
+    function makeIframe(id: string, hash: string | null, label: string) {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? `&h=${hash}` : ''}`;
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.title = label || 'Video';
+      return iframe;
+    }
+
+    // Put the original thumbnail card back (also stops inline playback).
+    function restoreCard() {
+      if (!active) return;
+      active.playing.replaceWith(active.original);
+      active = null;
+    }
+
+    function playInline(card: HTMLElement, id: string, hash: string | null, label: string) {
+      restoreCard();
+      const playing = document.createElement('div');
+      playing.className = 'pf-card--playing';
+
+      const box = document.createElement('div');
+      box.className = 'pf-inline';
+      box.appendChild(makeIframe(id, hash, label));
+
+      const expand = document.createElement('button');
+      expand.className = 'pf-expand';
+      expand.type = 'button';
+      expand.setAttribute('aria-label', `Open ${label || 'video'} in a larger player`);
+      expand.textContent = '⤢';
+      expand.addEventListener('click', () => {
+        restoreCard();
+        openOverlay(id, hash, label);
+      });
+      box.appendChild(expand);
+      playing.appendChild(box);
+
+      // The meta block keeps its build-time scoping attributes when cloned,
+      // so the scoped styles still apply to it.
+      const meta = card.querySelector('.pf-meta');
+      if (meta) playing.appendChild(meta.cloneNode(true));
+
+      card.replaceWith(playing);
+      active = { original: card, playing };
+    }
+
+    function closeOverlay() {
       if (!overlay) return;
       overlay.hidden = true;
       if (frame) frame.querySelector('iframe')?.remove(); // stops playback
@@ -208,7 +302,7 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
       lastFocused?.focus();
     }
 
-    function build() {
+    function buildOverlay() {
       overlay = document.createElement('div');
       overlay.className = 'pf-lb';
       overlay.hidden = true;
@@ -224,40 +318,38 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
       btn.type = 'button';
       btn.setAttribute('aria-label', 'Close video');
       btn.innerHTML = '&times;';
-      btn.addEventListener('click', close);
+      btn.addEventListener('click', closeOverlay);
 
       frame.appendChild(btn);
       overlay.appendChild(frame);
       // Click the backdrop (not the video) to close.
-      overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+      overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
       document.body.appendChild(overlay);
     }
 
-    function open(id: string, hash: string | null, label: string) {
-      if (!overlay) build();
+    function openOverlay(id: string, hash: string | null, label: string) {
+      if (!overlay) buildOverlay();
       if (!overlay || !frame) return;
       lastFocused = document.activeElement as HTMLElement;
       frame.querySelector('iframe')?.remove();
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? `&h=${hash}` : ''}`;
-      iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write';
-      iframe.setAttribute('allowfullscreen', '');
-      iframe.title = label || 'Video';
-      frame.appendChild(iframe);
+      frame.appendChild(makeIframe(id, hash, label));
       overlay.hidden = false;
       document.body.style.overflow = 'hidden';
       frame.querySelector<HTMLButtonElement>('.pf-lb-close')?.focus();
     }
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && overlay && !overlay.hidden) close();
+      if (e.key === 'Escape') {
+        if (overlay && !overlay.hidden) closeOverlay();
+        else restoreCard();
+      }
     });
 
     document.querySelectorAll<HTMLElement>('.pf-card[data-vimeo]').forEach(card => {
       card.addEventListener('click', () => {
         const id = card.getAttribute('data-vimeo');
         if (!id) return;
-        open(id, card.getAttribute('data-hash'), card.getAttribute('aria-label') || '');
+        playInline(card, id, card.getAttribute('data-hash'), card.getAttribute('aria-label') || '');
       });
     });
   })();
