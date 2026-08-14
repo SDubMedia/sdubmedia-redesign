@@ -3,7 +3,7 @@ title: 'Nashville Video Production Studios: Do You Actually Need One?'
 description: 'A straight guide to Nashville video production studios: when you need a rental stage, when on-location wins, what studios cost, and how to pick the right space.'
 pubDate: 2026-08-03
 keyword: 'nashville video production studios'
-image: '/images/blog/2026-08-03-nashville-video-production-studios.png'
+image: '/images/corporate-events/speaker-podium.jpg'
 cluster: 'video-production'
 isPillar: false
 draft: true
