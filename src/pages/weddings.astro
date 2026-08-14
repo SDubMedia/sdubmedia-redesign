@@ -112,7 +112,19 @@ const reviews = [
   </div>
 </section>
 
+{/* Films first, per Geoff (Aug 2026): the films ARE the product, so they sit
+    directly under the hero with the pricing right after. Do not bury them. */}
 <section style="background: var(--soft);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Watch a film</span>
+      <h2>What you actually receive.</h2>
+    </div>
+    <VideoGrid items={videos} center />
+  </div>
+</section>
+
+<section>
   <div class="container-narrow">
     <div class="section-head">
       <span class="eyebrow">What it costs</span>
@@ -152,19 +164,9 @@ const reviews = [
   </div>
 </section>
 
-{/* Portraits moved to /photography (Aug 2026). They were half this page while
-    the nav said "Weddings", and a couple comparing wedding films does not want
-    to scroll past family sessions to reach the pricing. What is left is a
-    pointer, so the work is still reachable from here. */}
-<section>
-  <div class="container-narrow">
-    <div class="section-head">
-      <span class="eyebrow">Also</span>
-      <h2>We photograph as well as film.</h2>
-    </div>
-    <p style="font-size: 1.1rem;">Family sessions, senior portraits, headshots and listings all live on the <a href="/photography">photography page</a>, with pricing and recent work.</p>
-  </div>
-</section>
+{/* The "We photograph as well as film" pointer section was removed at Geoff's
+    request (Aug 2026): it was small, off-topic for a couple comparing films,
+    and the footer already links to /photography. Do not re-add it. */}
 
 <section>
   <div class="container">
@@ -252,13 +254,8 @@ const reviews = [
 <Reviews reviews={reviews} eyebrow="What couples say" heading="Reviewed 5.0 on Google." />
 
 <section style="background: var(--soft);">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Watch a film</span>
-      <h2>What you actually receive.</h2>
-    </div>
-    <VideoGrid items={videos} center />
-    <p style="text-align: center; margin-top: 2.5rem; color: var(--muted);">Nashville, destination, or wherever you are celebrating. <a href="/contact">Check availability</a> and we will tell you straight away whether the date is open.</p>
+  <div class="container-narrow text-center">
+    <p style="font-size: 1.1rem;">Nashville, destination, or wherever you are celebrating. <a href="/contact">Check availability</a> and we will tell you straight away whether the date is open.</p>
   </div>
 </section>
 </Layout>
