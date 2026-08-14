@@ -56,6 +56,18 @@ then set the env var in Vercel. Never reuse one password across clients.
 **Env:** `<NAME>_STUDIO_PASSWORD` per deck, plus one shared `STUDIO_COOKIE_SECRET`.
 Production is set; the CLI errors on `preview`, so preview deploys show "not configured yet".
 
+## Content Engine — state as of 2026-08-13
+- The Hermes "Weekly Blog Writer" cron job (Mondays 9:00, Telegram delivery) is ENABLED.
+  The "Blog Image Generator" job is PERMANENTLY paused: AI headers are retired.
+- Headers: a post uses a REAL photo from public/images/ that no other post uses, or ships
+  with none. If nothing fits, the writer asks Geoff for a photo via Telegram and the post
+  waits for it. Never reuse another post's header (the index shows all cards at once).
+- Keyword state: quick-wins.md is fully written out. target-keywords.md is mostly word-order
+  duplicates plus stale statuses; the writer verifies against `grep -h '^keyword:'
+  src/content/blog/*.md` and skips duplicate intents rather than trusting the tracker.
+- The paperclipai cron jobs that used to run at 6am were an abandoned trial, removed
+  2026-08-13 (data still at ~/.paperclip). Not related to Hermes.
+
 ## Content Engine
 - `content/context/` — Read this before writing ANYTHING. Brand voice, style guide, examples.
 - `content/drafts/` — Write posts here. Do not publish directly.
