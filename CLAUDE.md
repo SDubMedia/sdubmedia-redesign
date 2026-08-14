@@ -164,3 +164,18 @@ Still open:
   locally even though the source is gone. Clear with `rm -rf node_modules/.astro` then rebuild.
 - This only affects LOCAL builds. Vercel does a fresh `npm install` so production always builds
   clean from the repo. `publish-latest.sh` clears it before verifying, so local mirrors Vercel.
+
+## Layout Rules Learned the Hard Way (Aug 2026)
+- **Never nest an `<a>` inside a `.tile` or `.door` link.** The whole card is an anchor;
+  browsers auto-close the outer anchor at the inner one and the card's text falls out of
+  the tile (this shipped broken on the homepage weddings card). Mention other pages as
+  plain text inside cards, or put the link outside the card.
+- **Page h1s: no forced `<br>`.** They wrap mid-phrase at in-between widths. Use
+  `style="text-wrap: balance;"` and let the browser break lines (applied site-wide).
+- **/weddings photo strip: the section heading states the number of weddings.** If you
+  add or remove an image, update the count in the h2 in the same commit.
+- **Tile images:** `.tile-image` is a fixed 180px crop for three-up tiles; `.tiles--two`
+  overrides it to `aspect-ratio: 16/10` because double-wide cards letterbox people shots.
+  People photos in cards carry `object-position` (top / center 25%) so faces survive
+  whatever crop remains. Check faces at both mobile and full desktop width when adding
+  card images.
