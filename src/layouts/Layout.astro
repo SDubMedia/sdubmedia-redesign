@@ -248,6 +248,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* auto-fit so the strip works with 3 or 4 images without leaving an orphan */
     .wedding-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
     .wedding-strip img { display: block; width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); }
+    /* Five images total 1000px at 200px minimum, but the container only offers
+       996px of content, so auto-fit wraps them 4+1. Force five even columns on
+       desktop instead; below that, stack. Never leave an orphan on its own row. */
+    .wedding-strip--five { grid-template-columns: repeat(5, 1fr); }
+    .wedding-strip--five img { height: 190px; }
+    @media (max-width: 1023px) {
+      .wedding-strip--five { grid-template-columns: 1fr; }
+      .wedding-strip--five img { height: 220px; }
+    }
 
     /* Two-door */
     .two-door { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
