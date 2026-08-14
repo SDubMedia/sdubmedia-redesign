@@ -12,7 +12,9 @@ export async function vimeoVideoLd(spec, fallbackTitle = '') {
   if (!m) return null;
   const link = m[2] ? `https://vimeo.com/${m[1]}/${m[2]}` : `https://vimeo.com/${m[1]}`;
   try {
-    const res = await fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(link)}`);
+    // referrer= keeps this working for videos whose embed privacy is
+    // restricted to sdubmedia.com (oEmbed 404s for them without it).
+    const res = await fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(link)}&referrer=${encodeURIComponent('https://sdubmedia.com')}`);
     if (!res.ok) return null;
     const d = await res.json();
     if (!d.thumbnail_url || !d.upload_date) return null;
