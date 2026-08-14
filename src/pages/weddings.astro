@@ -196,14 +196,36 @@ const reviews = [
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">A few of the days</span>
-      {/* Keep this count matching the number of images in the strip below. */}
-      <h2>Four weddings, four completely different days.</h2>
+      {/* Keep this count matching the number of images in the strip below,
+          and only add an image here if it is from a DIFFERENT wedding than
+          the others. Same-day frames belong in the one-wedding section below. */}
+      <h2>Five weddings, five completely different days.</h2>
     </div>
     <div class="wedding-strip">
       <img src="/images/weddings/wedding-party.jpg" alt="A wedding party posed together on a lakeside deck beneath a floral arch" loading="lazy" width="1600" height="900" />
       <img src="/images/weddings/autumn-field.jpg" alt="A couple holding hands in a tall autumn field under a clear sky" loading="lazy" width="1600" height="900" />
       <img src="/images/weddings/bride-bridge.jpg" alt="A bride walking across a wooden bridge holding a bouquet of daisies" loading="lazy" width="1600" height="900" />
       <img src="/images/weddings/barn-pond.jpg" alt="A couple kissing beside a pond, their reflection in the water and a timber barn venue behind" loading="lazy" width="1600" height="900" />
+      <img src="/images/weddings/sparkler-exit.jpg" alt="Sparklers crossing during a reception send-off, guests glowing out of focus behind" loading="lazy" width="1600" height="900" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Start to finish</span>
+      <h2>One wedding, all the way through.</h2>
+      <p>Three frames from one film: the venue from the air, vows in a downpour, and the portrait the rain made better. The weather does not decide whether you get a film.</p>
+    </div>
+    {/* All three frames are from the SAME wedding (the quarry). That is the
+        point of this section: depth on one day, while the strip above shows
+        breadth across days. Do not mix frames from other weddings into this
+        row, and do not count this wedding in the strip headline above. */}
+    <div class="wedding-strip">
+      <img src="/images/weddings/quarry-aerial.jpg" alt="An aerial view of a quarry lake wedding venue, ceremony chairs set on the lawn beside the water" loading="lazy" width="1600" height="900" />
+      <img src="/images/weddings/rain-ceremony.jpg" alt="A couple exchanging vows in pouring rain beside a quarry lake and waterfall, guests standing under umbrellas" loading="lazy" width="1600" height="900" />
+      <img src="/images/weddings/rain-umbrella.jpg" alt="A bride and groom touching foreheads under a clear umbrella in the rain, a waterfall behind them" loading="lazy" width="1600" height="900" />
     </div>
   </div>
 </section>
