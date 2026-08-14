@@ -43,7 +43,8 @@ const jsonLd = {
     '@type': 'OfferCatalog',
     name: 'Dance Recital Videography',
     itemListElement: [
-      { '@type': 'Offer', name: 'Recital coverage', price: '2500', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Full recital coverage', price: '2500', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'In-studio promo video', price: '500', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
     ],
   },
 };
@@ -172,17 +173,24 @@ const jsonLd = {
       <span class="eyebrow">What it costs</span>
       <h2>The recital and the season price differently.</h2>
     </div>
-    {/* $2,500 flat for full recital coverage, confirmed by Geoff 2026-08-13.
-        Published deliberately, same policy as the weddings page. Keep it
-        accurate or remove it, never soften it back into an estimate. */}
-    <p style="font-size: 1.15rem;">Full recital coverage is <strong>$2,500</strong>. The whole program, start to finish, and the price is on the page so you can plan your season around it.</p>
-    <p style="margin-top: 1.25rem;">Ongoing content across a season is a separate arrangement, and it is the one that costs less per piece. What shapes that number:</p>
-    <ul class="facts">
-      <li><strong>How many shoot days</strong> across the year, and what each one covers</li>
-      <li><strong>What you want back.</strong> The full archive, per-number cuts for families, a highlight reel, or all three</li>
-      <li><strong>A few shoot days across the year cost less per piece</strong> than any single date on its own</li>
-    </ul>
-    <p style="margin-top: 1.5rem;">Send us your recital date and your program, or tell us what the season looks like, and you will get a real number, not a range.</p>
+    {/* Prices confirmed by Geoff 2026-08-13: $2,500 flat full recital coverage
+        (full edited recital that OPENS with a highlight reel; per-number cuts
+        for families are offered, price not published, so say "available" and
+        never imply included or invent a number), $500 in-studio promo video.
+        Published deliberately, same policy as the weddings page. Keep these
+        accurate or remove them, never soften them back into estimates. */}
+    <p style="font-size: 1.15rem;">The recital prices flat, and it is on the page so you can plan your season around it.</p>
+    <div style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.03);">
+        <span><strong>Full recital coverage</strong><br><span style="font-size: 0.85rem; color: var(--muted);">The whole program, start to finish. Your full edited recital opens with a highlight reel, and per-number cuts for families are available</span></span>
+        <span style="white-space: nowrap;"><strong>$2,500</strong></span>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.25rem;">
+        <span><strong>In-studio promo video</strong><br><span style="font-size: 0.85rem; color: var(--muted);">A short promo filmed at your studio, for filling classes the rest of the year</span></span>
+        <span style="white-space: nowrap;"><strong>$500</strong></span>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem;">Ongoing content across a season is its own arrangement. Tell us what the year looks like and you will get a real number, not a range.</p>
     <div class="text-center" style="margin-top: 2.5rem;">
       <a href="/contact" class="btn btn-primary">Get a quote for your recital</a>
     </div>
