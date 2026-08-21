@@ -1,40 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Standalone headshots page (Geoff, 2026-08-20): built as its own landing
-// page rather than an anchor on /business, so it can be handed to a prospect
-// as one clean link and rank for corporate headshot searches on its own.
+// HIDDEN pitch page (Geoff, 2026-08-20): send-the-link only. Not linked
+// from nav, footer, or any page; noindex + excluded from the sitemap +
+// X-Robots-Tag in vercel.json. Do NOT add links to it or remove noindex.
 //
 // Photo reuse across PAGES is fine (the videos-twice rule is per page). The
 // portrait-day set also appears on /business; the sculpture-park frame is
 // unique to this page. Only REAL clients get named: CBSR's monthly headshot
 // days are an approved public claim (already stated on /business).
 //
-// NO PRICE on purpose for now: team headshot days are priced per headcount
-// like the /business retainer, and the copy says so plainly rather than
-// leaving a gap. If Geoff settles a per-person figure, publish it here.
+// NO PRICE on purpose: quotes happen in conversation.
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Corporate and Team Headshots',
-  description: 'On-location lifestyle headshots for teams in Nashville: consistent light and color across every person, shot in one day or on a recurring schedule.',
-  url: 'https://sdubmedia.com/headshots',
-  serviceType: 'Corporate Headshot Photography',
-  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
-  areaServed: [
-    { '@type': 'City', name: 'Nashville' },
-    { '@type': 'City', name: 'Nolensville' },
-    { '@type': 'City', name: 'Franklin' },
-    { '@type': 'City', name: 'Brentwood' },
-    { '@type': 'City', name: 'Murfreesboro' },
-  ],
-};
 ---
 <Layout
   title="Corporate Headshots Nashville | SDub Media"
   description="Lifestyle headshots for teams in Nashville: one photo day, consistent light and color across every person, retouched files sized for web and print. Recurring headshot days available."
-  jsonLd={jsonLd}
+  noindex
 >
 <section>
   <div class="container-narrow text-center">

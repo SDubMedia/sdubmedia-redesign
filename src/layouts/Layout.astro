@@ -4,8 +4,12 @@ export interface Props {
   description?: string;
   image?: string;
   jsonLd?: object;
+  // Hidden pages (send-the-link only): emits meta robots noindex. Pair with
+  // the sitemap exclusion in astro.config.mjs and, ideally, an X-Robots-Tag
+  // header in vercel.json.
+  noindex?: boolean;
 }
-const { title, description = "SDub Media: Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image, jsonLd } = Astro.props;
+const { title, description = "SDub Media: Nashville video production for businesses. Recurring content, corporate video, events, headshots.", image, jsonLd, noindex = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
@@ -35,6 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <title>{title}</title>
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalURL}>
+  {noindex && <meta name="robots" content="noindex, nofollow, noarchive">}
   <link rel="sitemap" href="/sitemap-index.xml">
 
   <!-- Open Graph -->
@@ -577,7 +582,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <a href="/business">Business video</a>
       <a href="/corporate-events">Corporate events</a>
       <a href="/dance">Dance studios</a>
-      <a href="/headshots">Headshots</a>
       <a href="/photography">Photography</a>
       <a href="/real-estate-photography">Real estate photos</a>
       <a href="/senior-portraits">Senior portraits</a>
