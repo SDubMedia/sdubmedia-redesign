@@ -191,3 +191,27 @@ Still open:
   People photos in cards carry `object-position` (top / center 25%) so faces survive
   whatever crop remains. Check faces at both mobile and full desktop width when adding
   card images.
+
+## Self-Hosted Video (R2) — Aug 2026
+
+Migrating off Vimeo. Videos live in the Cloudflare R2 bucket `sdubmedia-videos`,
+served from the r2.dev public URL in `src/lib/video-manifest.mjs` (creds in
+`.env.local`, gitignored — this repo is PUBLIC, never commit them).
+
+- `src/data/videos.json` maps a key to its R2 files. Key = the video's Vimeo id
+  (pages keep their ids; presence in the manifest flips that card/player from the
+  Vimeo embed to the native <video>), or a plain slug for videos that never had a
+  Vimeo id (`VideoGrid` items use `video: 'slug'` instead of `vimeo`).
+- Add a video: `node scripts/encode-upload.mjs <source> <key> <slug> "<title>"`
+  (compress + poster + upload + manifest entry), then commit videos.json.
+- **Camera .mov files carry a timecode/data track; Chrome silently refuses the
+  whole mp4 if it's copied through** (readyState stays 0, no error). The script
+  maps only `0:v:0` + `0:a:0?` — keep it that way.
+- **R2 objects are served with `Cache-Control: immutable` (1 year).** Re-uploading
+  the same key can serve the OLD bytes from Cloudflare's edge or a visitor's
+  browser cache indefinitely. If a video's content changes, use a NEW slug, don't
+  overwrite.
+- The Claude-in-Chrome automation browser cannot play ANY <video> media (even
+  MDN's reference mp4 stalls at readyState 0). Do not burn time "debugging"
+  playback there: verify files with `ffmpeg -i <url> -f null -` and have Geoff
+  tap the card in a real browser.
