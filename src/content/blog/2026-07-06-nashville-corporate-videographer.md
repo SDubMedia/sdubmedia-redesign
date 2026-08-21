@@ -39,7 +39,7 @@ A wedding videographer is trained to react. Ceremonies and receptions do not sto
 
 Music video work has the opposite problem. The visual style is often striking, but the storytelling is built around a song, not a message. Drop that same energy into a testimonial and the customer's actual words get lost under the treatment.
 
-[Corporate video](/business) is quieter. Steadier. It respects the subject. The best corporate work almost disappears as craft, because you are supposed to notice the person on screen, not the videographer's style. If a reel looks like an ad for the videographer, that is the wrong reel for your project.
+[Corporate video](/business/) is quieter. Steadier. It respects the subject. The best corporate work almost disappears as craft, because you are supposed to notice the person on screen, not the videographer's style. If a reel looks like an ad for the videographer, that is the wrong reel for your project.
 
 None of this makes wedding or music shooters bad at their craft. It just means you should hire the person whose day job is the job you are hiring for.
 
@@ -115,4 +115,4 @@ Look at full pieces, not montages. Listen to the audio. Watch the subjects. Ask 
 
 That is how corporate video actually earns its budget back.
 
-**[Get in touch](/contact)** and tell us what you are trying to do. We will tell you honestly what it takes and what it costs.
+**[Get in touch](/contact/)** and tell us what you are trying to do. We will tell you honestly what it takes and what it costs.

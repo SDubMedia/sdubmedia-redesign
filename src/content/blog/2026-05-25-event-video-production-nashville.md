@@ -13,7 +13,7 @@ A company spent six months and a real budget planning its annual conference. Spe
 
 That's the most common way event video goes wrong in this city. Not a bad camera or a bad editor. Just booking it last, as an afterthought, when the event itself got all the planning.
 
-So here's a straight guide to **[event video production services in Nashville](/corporate-events)**: what to actually book, when to book it, what it costs, and how to make sure the footage keeps working long after the room clears out. If you're planning anything from a conference to a product launch to a company milestone, this is the part most people get wrong, and it's the easiest to get right.
+So here's a straight guide to **[event video production services in Nashville](/corporate-events/)**: what to actually book, when to book it, what it costs, and how to make sure the footage keeps working long after the room clears out. If you're planning anything from a conference to a product launch to a company milestone, this is the part most people get wrong, and it's the easiest to get right.
 
 ## What "Event Video" Really Covers
 
@@ -91,4 +91,4 @@ Get those four things straight and the rest of the process is smooth. Skip them 
 
 We cover corporate events across Nashville: conferences, launches, galas, company milestones, and the recurring content that keeps your business visible the rest of the year. We keep crews lean, plan the shoot around your run of show, and deliver footage you can actually use long after the room empties out.
 
-If you've got an event on the calendar, the best thing you can do is talk to us early, while there's still time to plan it right. **[Get in touch](/contact)** and tell us what you're putting on. We'll tell you straight what it takes to cover it well and what it costs.
+If you've got an event on the calendar, the best thing you can do is talk to us early, while there's still time to plan it right. **[Get in touch](/contact/)** and tell us what you're putting on. We'll tell you straight what it takes to cover it well and what it costs.

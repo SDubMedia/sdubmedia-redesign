@@ -89,4 +89,4 @@ When we shot a brand video for Tutoring Rocks in Nolensville, we needed a clean 
 
 We're a recurring content shop. We don't own a big rental stage, and we don't need one, because most of the work we do belongs in the real world: our clients' offices, their events, their hometowns, their podcast rooms. When a project genuinely calls for a stage or a studio, we book one, and we bring the crew, gear, and plan to make it work. When it doesn't, we save you the money and shoot somewhere your audience will actually recognize.
 
-If you're weighing whether your next Nashville video needs a studio or would be better served on location, [get in touch](/contact). We'll tell you honestly, even when the honest answer is that a studio you were considering is worth it and we're the wrong people to shoot it.
+If you're weighing whether your next Nashville video needs a studio or would be better served on location, [get in touch](/contact/). We'll tell you honestly, even when the honest answer is that a studio you were considering is worth it and we're the wrong people to shoot it.

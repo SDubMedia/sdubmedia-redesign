@@ -47,6 +47,6 @@ The phone has limits. In dim rooms it gets noisy, the ultra-wide distortion is h
 
 Here's the move most agents miss: once your photos are solid, the thing that actually makes you memorable is video. A short, well-shot walkthrough or a quick agent intro does more for your personal brand than another set of stills, and your phone can shoot the first draft of that too.
 
-If you're a Nashville agent ready to stand out with a real brand video, **[get in touch](/contact)** and we'll make you look like the professional you are.
+If you're a Nashville agent ready to stand out with a real brand video, **[get in touch](/contact/)** and we'll make you look like the professional you are.
 
-A phone will get you further than most agents expect. When a listing deserves better, [we shoot it properly](/real-estate-photography).
+A phone will get you further than most agents expect. When a listing deserves better, [we shoot it properly](/real-estate-photography/).

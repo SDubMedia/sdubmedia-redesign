@@ -81,6 +81,6 @@ Once the fundamentals are habit, these guides take each piece further:
 
 These tips will make your own photos dramatically better, and for a lot of listings that's all you need. But the homes where presentation really moves the price, the luxury listing, the one you want to win the seller for, are worth professional photos and a short walkthrough video. Video especially is what makes an agent memorable.
 
-If you're a Nashville agent who'd rather hand the camera off for the listings that matter, **[get in touch](/contact)** and we'll handle the photos and the video so you can focus on selling.
+If you're a Nashville agent who'd rather hand the camera off for the listings that matter, **[get in touch](/contact/)** and we'll handle the photos and the video so you can focus on selling.
 
-Every one of these is learnable. If you would rather spend the time selling houses, [we shoot listings](/real-estate-photography).
+Every one of these is learnable. If you would rather spend the time selling houses, [we shoot listings](/real-estate-photography/).

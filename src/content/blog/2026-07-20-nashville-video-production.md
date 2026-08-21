@@ -47,7 +47,7 @@ A simple, single-video project (one location, half a day of filming, one round o
 
 A brand film (the "who we are" video that anchors a homepage or a proposal) usually runs from about $4,000 to $12,000. The jump is almost entirely people and time: a second camera operator, a dedicated audio tech, controlled lighting, a longer edit, more revision rounds. If you want that video to still feel current in two years, most of the value is here.
 
-Event coverage varies a lot. A short recap of a single-day event might run $2,000 to $6,000. A [multi-day conference](/corporate-events) with speaker capture, breakout coverage, and daily highlight edits can be several times that. The cost driver is coverage hours and how many angles you need at once.
+Event coverage varies a lot. A short recap of a single-day event might run $2,000 to $6,000. A [multi-day conference](/corporate-events/) with speaker capture, breakout coverage, and daily highlight edits can be several times that. The cost driver is coverage hours and how many angles you need at once.
 
 Broadcast commercials and full campaigns start around $15,000 and climb quickly from there. At that level you're paying for a producer, a director, a full crew, talent, insurance, and often a strategy layer above the production itself.
 
@@ -123,4 +123,4 @@ Notice whether they ask about cadence. A company thinking long term will want to
 
 Nashville video production is a broad phrase covering everything from a solo shooter with one camera to a full commercial crew. The right kind of work for you depends on what the video is actually supposed to do (build credibility, earn trust, drive visibility, or document a moment) and most businesses need a mix. Real budgets in this city range from about $1,500 for a simple project to well past $15,000 for broadcast work, with recurring retainers usually landing somewhere in between on a per-month basis. The biggest cost drivers are crew size and edit time. The biggest value driver, for most businesses, is cadence, not polish.
 
-If you're a Nashville business trying to figure out what kind of video actually makes sense for you, [get in touch](/contact). We'll give you a straight answer, even if the honest answer is that a different kind of company is the better fit.
+If you're a Nashville business trying to figure out what kind of video actually makes sense for you, [get in touch](/contact/). We'll give you a straight answer, even if the honest answer is that a different kind of company is the better fit.

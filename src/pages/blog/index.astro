@@ -98,7 +98,7 @@ const rest = posts
             </div>
             <div class="blog-grid">
               {g.items.map(post => (
-                <a href={`/blog/${post.id}`} class="blog-card">
+                <a href={`/blog/${post.id}/`} class="blog-card">
                   {post.data.image && (
                     <div class="blog-card-image">
                       <img {...card(post.data.image)} alt={post.data.title} loading="lazy" />
@@ -120,7 +120,7 @@ const rest = posts
             <div class="topic-head"><h2>More</h2></div>
             <div class="blog-grid">
               {rest.map(post => (
-                <a href={`/blog/${post.id}`} class="blog-card">
+                <a href={`/blog/${post.id}/`} class="blog-card">
                   {post.data.image && (
                     <div class="blog-card-image">
                       <img {...card(post.data.image)} alt={post.data.title} loading="lazy" />

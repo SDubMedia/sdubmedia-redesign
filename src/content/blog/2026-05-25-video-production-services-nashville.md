@@ -19,7 +19,7 @@ We do this work, so we'll be specific. But the goal here is to make you a smarte
 
 Almost everything a Nashville production company offers is some combination of a handful of core services. Once you can name them, every quote starts making sense.
 
-Think of it less as a menu and more as a set of building blocks. A "brand campaign" is really a [brand film](/business) plus social cutdowns plus maybe a few testimonials. An "event package" is event coverage plus a highlight edit. Knowing the pieces lets you ask for exactly what you want instead of buying a bundle that's 30 percent stuff you'll never use.
+Think of it less as a menu and more as a set of building blocks. A "brand campaign" is really a [brand film](/business/) plus social cutdowns plus maybe a few testimonials. An "event package" is event coverage plus a highlight edit. Knowing the pieces lets you ask for exactly what you want instead of buying a bundle that's 30 percent stuff you'll never use.
 
 Let's go through the pieces one at a time.
 
@@ -87,4 +87,4 @@ And match the company to the work. A wedding filmmaker, a music video crew, and 
 
 Video production services in Nashville come down to a handful of building blocks: brand films, testimonials, event coverage, recurring content, headshots, podcasts, and the audio work that ties it together. Most businesses overbuy on one big film and underbuy on consistency. Figure out whether you need a single anchor piece or a steady drumbeat, match the service to the goal, and you'll spend smarter than most.
 
-If you're a Nashville business trying to figure out which of these you actually need, [get in touch](/contact). We'll give you a straight answer, even if the honest answer is that you need less than you thought.
+If you're a Nashville business trying to figure out which of these you actually need, [get in touch](/contact/). We'll give you a straight answer, even if the honest answer is that you need less than you thought.

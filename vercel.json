@@ -1,4 +1,5 @@
 {
+  "trailingSlash": true,
   "redirects": [
     {
       "source": "/:path*",
@@ -25,6 +26,10 @@
   "rewrites": [
     {
       "source": "/studio/:deck",
+      "destination": "/api/studio?deck=:deck"
+    },
+    {
+      "source": "/studio/:deck/",
       "destination": "/api/studio?deck=:deck"
     }
   ],

@@ -47,6 +47,6 @@ If you're not ready to buy a camera and lens at all, modern phones have a built-
 
 Buy a 16-24mm wide-angle, add a sturdy tripod, and you have 90% of what separates professional-looking listing photos from snapshots. Everything else is technique, which is free.
 
-If you'd rather skip the gear hunt entirely for your higher-end listings, **[get in touch](/contact)** and we'll bring the right glass and shoot it for you.
+If you'd rather skip the gear hunt entirely for your higher-end listings, **[get in touch](/contact/)** and we'll bring the right glass and shoot it for you.
 
-Or skip the glass entirely and let someone else carry it. Here is [how our listing photography works](/real-estate-photography).
+Or skip the glass entirely and let someone else carry it. Here is [how our listing photography works](/real-estate-photography/).

@@ -49,6 +49,6 @@ A modern phone's night mode can produce a surprisingly good twilight shot if you
 
 The twilight shot is the one exterior where the gap between DIY and professional is most visible, because the exposure blend and the precise timing take practice. For a flagship or luxury listing, it's often the photo worth paying a pro to nail.
 
-If you want the glowing hero shot done right for a Nashville listing, **[get in touch](/contact)** and we'll catch the blue hour for you.
+If you want the glowing hero shot done right for a Nashville listing, **[get in touch](/contact/)** and we'll catch the blue hour for you.
 
-Twilight is the shot most listings never get, because it means being on site for a specific twenty minutes. [We schedule around it](/real-estate-photography).
+Twilight is the shot most listings never get, because it means being on site for a specific twenty minutes. [We schedule around it](/real-estate-photography/).
