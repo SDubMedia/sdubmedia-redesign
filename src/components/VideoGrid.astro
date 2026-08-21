@@ -1,8 +1,10 @@
 ---
-// A lightweight, click-to-play grid of Vimeo videos. Used on Portfolio (6-up),
-// Business (3-up), and Weddings (3-up). Nothing loads from Vimeo until a
-// visitor clicks a card, so the page stays fast. Real thumbnails are pulled at
-// build time from Vimeo's public oEmbed (no API key); a "Coming soon" tile
+// A lightweight, click-to-play grid of videos. Used on Portfolio (6-up),
+// Business (3-up), and Weddings (3-up). Nothing loads until a visitor clicks
+// a card, so the page stays fast. Items whose id is in src/data/videos.json
+// play our self-hosted R2 copy in a native <video> (no Vimeo JS, our own
+// poster); the rest fall back to the Vimeo embed with a thumbnail pulled at
+// build time from Vimeo's public oEmbed (no API key). A "Coming soon" tile
 // shows for any item with an empty `vimeo`.
 //
 // (Step 3 makes these lists editable from the site login.)
@@ -10,8 +12,9 @@ export interface VideoItem {
   title?: string;
   client?: string;   // real client name, or omit
   category?: string; // e.g. 'Corporate', 'Wedding', 'Podcast'
-  vimeo: string;     // Vimeo id, or 'id/hash' for private, or '' for a placeholder
-  thumb?: string;    // local /images/... path; overrides the Vimeo-fetched thumbnail
+  vimeo?: string;    // Vimeo id, or 'id/hash' for private, or '' for a placeholder
+  video?: string;    // manifest key in src/data/videos.json for R2-only videos (no Vimeo id)
+  thumb?: string;    // local /images/... path; overrides the poster/Vimeo thumbnail
 }
 interface Props {
   items?: VideoItem[];
@@ -21,6 +24,7 @@ interface Props {
 }
 const { items = [], center = false } = Astro.props;
 import { vimeoVideoLd } from '../lib/vimeo-ld.mjs';
+import { selfHosted, selfHostedLd } from '../lib/video-manifest.mjs';
 
 async function vimeoThumb(spec: string): Promise<string> {
   const m = spec.match(/(\d+)(?:\/([0-9a-zA-Z]+))?/);
@@ -39,15 +43,19 @@ async function vimeoThumb(spec: string): Promise<string> {
 
 const cards = await Promise.all(items.map(async (item) => {
   const m = String(item.vimeo ?? '').match(/(\d+)(?:\/([0-9a-zA-Z]+))?/);
+  const hosted = (item.video || item.vimeo) ? selfHosted(item.video || item.vimeo) : null;
   return {
     title: item.title ?? '',
     client: item.client ?? '',
     category: item.category ?? '',
     id: m?.[1] ?? '',
     hash: m?.[2] ?? '',
-    thumb: item.thumb ?? (item.vimeo ? await vimeoThumb(item.vimeo) : ''),
+    src: hosted?.src ?? '',
+    thumb: item.thumb ?? hosted?.poster ?? (item.vimeo ? await vimeoThumb(item.vimeo) : ''),
     // Structured data per real video; placeholders get none.
-    ld: item.vimeo ? await vimeoVideoLd(item.vimeo, item.title ?? '') : null,
+    ld: hosted
+      ? selfHostedLd(hosted, item.title ?? '')
+      : item.vimeo ? await vimeoVideoLd(item.vimeo, item.title ?? '') : null,
   };
 }));
 const gridLd = cards.map(c => c.ld).filter(Boolean);
@@ -55,8 +63,8 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
 {gridLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(gridLd)} />}
 <div class:list={["pf-grid", center && "pf-grid--center"]}>
   {cards.map(card => (
-    card.id ? (
-      <button class="pf-card" data-vimeo={card.id} data-hash={card.hash} aria-label={`Play ${card.title}`}>
+    (card.id || card.src) ? (
+      <button class="pf-card" data-vimeo={card.id || null} data-hash={card.hash || null} data-src={card.src || null} aria-label={`Play ${card.title}`}>
         <span
           class:list={["pf-thumb", !card.thumb && "pf-thumb-empty"]}
           style={card.thumb ? `background-image: url(${card.thumb})` : ''}
@@ -168,7 +176,8 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
     color: var(--text);
   }
   .pf-inline { position: relative; aspect-ratio: 16 / 9; background: #000; }
-  .pf-inline iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .pf-inline iframe,
+  .pf-inline video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; }
   .pf-expand {
     position: absolute;
     top: 0.5rem;
@@ -214,7 +223,8 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
     border-radius: 12px;
     overflow: hidden;
   }
-  .pf-lb-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .pf-lb-frame iframe,
+  .pf-lb-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: contain; }
   .pf-lb-close {
     position: absolute;
     top: -2.75rem;
@@ -240,24 +250,36 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
 </style>
 
 <script>
-  // Click-to-play facade: nothing loads from Vimeo until a card is clicked.
-  // A click swaps the card's thumbnail for the player IN PLACE; the ⤢ button
-  // on the playing card opens the same video in a centered, size-capped
-  // overlay (not full screen; Vimeo's own fullscreen control covers that).
-  // Only one card plays at a time. Runtime-created nodes must use classes
-  // from the is:global style block, never the scoped one.
+  // Click-to-play facade: nothing loads until a card is clicked. A click
+  // swaps the card's thumbnail for the player IN PLACE; the ⤢ button on the
+  // playing card opens the same video in a centered, size-capped overlay
+  // (not full screen; the player's own fullscreen control covers that).
+  // Cards with data-src play our self-hosted file in a native <video>;
+  // the rest embed the Vimeo iframe. Only one card plays at a time.
+  // Runtime-created nodes must use classes from the is:global style block,
+  // never the scoped one.
   (() => {
+    type Spec = { src: string | null; id: string; hash: string | null; label: string };
     let overlay: HTMLDivElement | null = null;
     let frame: HTMLDivElement | null = null;
     let lastFocused: HTMLElement | null = null;
     let active: { original: HTMLElement; playing: HTMLElement } | null = null;
 
-    function makeIframe(id: string, hash: string | null, label: string) {
+    function makePlayer(spec: Spec) {
+      if (spec.src) {
+        const video = document.createElement('video');
+        video.src = spec.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.title = spec.label || 'Video';
+        return video;
+      }
       const iframe = document.createElement('iframe');
-      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? `&h=${hash}` : ''}`;
+      iframe.src = `https://player.vimeo.com/video/${spec.id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${spec.hash ? `&h=${spec.hash}` : ''}`;
       iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write';
       iframe.setAttribute('allowfullscreen', '');
-      iframe.title = label || 'Video';
+      iframe.title = spec.label || 'Video';
       return iframe;
     }
 
@@ -268,23 +290,23 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
       active = null;
     }
 
-    function playInline(card: HTMLElement, id: string, hash: string | null, label: string) {
+    function playInline(card: HTMLElement, spec: Spec) {
       restoreCard();
       const playing = document.createElement('div');
       playing.className = 'pf-card--playing';
 
       const box = document.createElement('div');
       box.className = 'pf-inline';
-      box.appendChild(makeIframe(id, hash, label));
+      box.appendChild(makePlayer(spec));
 
       const expand = document.createElement('button');
       expand.className = 'pf-expand';
       expand.type = 'button';
-      expand.setAttribute('aria-label', `Open ${label || 'video'} in a larger player`);
+      expand.setAttribute('aria-label', `Open ${spec.label || 'video'} in a larger player`);
       expand.textContent = '⤢';
       expand.addEventListener('click', () => {
         restoreCard();
-        openOverlay(id, hash, label);
+        openOverlay(spec);
       });
       box.appendChild(expand);
       playing.appendChild(box);
@@ -301,7 +323,7 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
     function closeOverlay() {
       if (!overlay) return;
       overlay.hidden = true;
-      if (frame) frame.querySelector('iframe')?.remove(); // stops playback
+      if (frame) frame.querySelector('iframe, video')?.remove(); // stops playback
       document.body.style.overflow = '';
       lastFocused?.focus();
     }
@@ -331,12 +353,12 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
       document.body.appendChild(overlay);
     }
 
-    function openOverlay(id: string, hash: string | null, label: string) {
+    function openOverlay(spec: Spec) {
       if (!overlay) buildOverlay();
       if (!overlay || !frame) return;
       lastFocused = document.activeElement as HTMLElement;
-      frame.querySelector('iframe')?.remove();
-      frame.appendChild(makeIframe(id, hash, label));
+      frame.querySelector('iframe, video')?.remove();
+      frame.appendChild(makePlayer(spec));
       overlay.hidden = false;
       document.body.style.overflow = 'hidden';
       frame.querySelector<HTMLButtonElement>('.pf-lb-close')?.focus();
@@ -349,11 +371,17 @@ const gridLd = cards.map(c => c.ld).filter(Boolean);
       }
     });
 
-    document.querySelectorAll<HTMLElement>('.pf-card[data-vimeo]').forEach(card => {
+    document.querySelectorAll<HTMLElement>('.pf-card[data-vimeo], .pf-card[data-src]').forEach(card => {
       card.addEventListener('click', () => {
         const id = card.getAttribute('data-vimeo');
-        if (!id) return;
-        playInline(card, id, card.getAttribute('data-hash'), card.getAttribute('aria-label') || '');
+        const src = card.getAttribute('data-src');
+        if (!id && !src) return;
+        playInline(card, {
+          src,
+          id: id || '',
+          hash: card.getAttribute('data-hash'),
+          label: card.getAttribute('aria-label') || '',
+        });
       });
     });
   })();

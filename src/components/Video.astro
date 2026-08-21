@@ -1,7 +1,9 @@
 ---
-// Reusable Vimeo player. Pass a Vimeo video id (the number in the URL) or a
-// full Vimeo link — both work. Clean, responsive 16:9, branding stripped,
-// lazy-loaded so it never slows the page for visitors.
+// Reusable video player. Pass a Vimeo video id (the number in the URL) or a
+// full Vimeo link — both work. Ids present in src/data/videos.json render the
+// native <video> player from our R2 copy (no third-party JS, file on our
+// domain); ids not uploaded yet fall back to the Vimeo embed, so the
+// migration never breaks a page. Clean, responsive 16:9 either way.
 //
 // Usage: <Video id="123456789" title="Coldwell Banker brand film" />
 const { id, title = "Video" } = Astro.props;
@@ -16,15 +18,27 @@ const src = vimeoId
   ? `https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0&dnt=1${hash}`
   : "";
 
+import { selfHosted, selfHostedLd } from '../lib/video-manifest.mjs';
+const hosted = vimeoId ? selfHosted(raw) : null;
+
 // VideoObject structured data so the work can surface as a video result.
-// Built at build time from the same public oEmbed VideoGrid uses; null (no
+// Self-hosted videos build it from the manifest (no network, our URLs);
+// Vimeo fallbacks use the same public oEmbed VideoGrid uses; null (no
 // block emitted) whenever Vimeo doesn't answer.
 import { vimeoVideoLd } from '../lib/vimeo-ld.mjs';
-const videoLd = vimeoId ? await vimeoVideoLd(raw, title) : null;
+const videoLd = hosted
+  ? selfHostedLd(hosted, title)
+  : vimeoId ? await vimeoVideoLd(raw, title) : null;
 ---
 {videoLd && <script type="application/ld+json" set:html={JSON.stringify(videoLd)} />}
 
-{vimeoId ? (
+{hosted ? (
+  <div class="video-embed">
+    <video controls playsinline preload="metadata" poster={hosted.poster} title={title}>
+      <source src={hosted.src} type="video/mp4" />
+    </video>
+  </div>
+) : vimeoId ? (
   <div class="video-embed">
     <iframe
       src={src}
@@ -49,13 +63,15 @@ const videoLd = vimeoId ? await vimeoVideoLd(raw, title) : null;
     background: var(--bg-elevated, #151d2e);
     border: 1px solid var(--border, #2a3547);
   }
-  .video-embed iframe {
+  .video-embed iframe,
+  .video-embed video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     border: 0;
   }
+  .video-embed video { object-fit: contain; background: #000; }
   .video-embed--empty {
     display: flex;
     align-items: center;
