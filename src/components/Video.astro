@@ -19,7 +19,15 @@ const src = vimeoId
   : "";
 
 import { selfHosted, selfHostedLd } from '../lib/video-manifest.mjs';
-const hosted = vimeoId ? selfHosted(raw) : null;
+// Lookup by the raw value, not just Vimeo ids: R2-only videos are keyed by a
+// plain slug in the manifest (e.g. <Video id="cbsr-baseball" ... />).
+const hosted = raw ? selfHosted(raw) : null;
+// Vertical (phone-format) videos render at their real shape, centered at
+// phone width, instead of pillarboxed inside a 16:9 frame.
+const portrait = hosted && hosted.height > hosted.width;
+const frameStyle = portrait
+  ? `aspect-ratio: ${hosted.width} / ${hosted.height}; max-width: min(100%, 400px); margin-inline: auto;`
+  : undefined;
 
 // VideoObject structured data so the work can surface as a video result.
 // Self-hosted videos build it from the manifest (no network, our URLs);
@@ -33,7 +41,7 @@ const videoLd = hosted
 {videoLd && <script type="application/ld+json" set:html={JSON.stringify(videoLd)} />}
 
 {hosted ? (
-  <div class="video-embed">
+  <div class="video-embed" style={frameStyle}>
     <video controls playsinline preload="metadata" poster={hosted.poster} title={title}>
       <source src={hosted.src} type="video/mp4" />
     </video>
