@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Standalone headshots page (Geoff, 2026-08-20): built as its own landing
+// page rather than an anchor on /business, so it can be handed to a prospect
+// as one clean link and rank for corporate headshot searches on its own.
+//
+// Photo reuse across PAGES is fine (the videos-twice rule is per page). The
+// portrait-day set also appears on /business; the sculpture-park frame is
+// unique to this page. Only REAL clients get named: CBSR's monthly headshot
+// days are an approved public claim (already stated on /business).
+//
+// NO PRICE on purpose for now: team headshot days are priced per headcount
+// like the /business retainer, and the copy says so plainly rather than
+// leaving a gap. If Geoff settles a per-person figure, publish it here.
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Corporate and Team Headshots',
+  description: 'On-location lifestyle headshots for teams in Nashville: consistent light and color across every person, shot in one day or on a recurring schedule.',
+  url: 'https://sdubmedia.com/headshots',
+  serviceType: 'Corporate Headshot Photography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+    { '@type': 'City', name: 'Murfreesboro' },
+  ],
+};
+---
+<Layout
+  title="Corporate Headshots Nashville | SDub Media"
+  description="Lifestyle headshots for teams in Nashville: one photo day, consistent light and color across every person, retouched files sized for web and print. Recurring headshot days available."
+  jsonLd={jsonLd}
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Headshots</span>
+    <h1 style="text-wrap: balance;">Headshots that match, from a team that shoots them constantly.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">Lifestyle headshots for teams, shot on location in Nashville. Everyone gets photographed in the same light with the same color, so your website finally looks like one company instead of forty phone cameras.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Book a headshot day</a>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 3.5rem;">
+    <img class="wedding-hero-img" fetchpriority="high" src="/images/corporate/team-group-riverfront.jpg"
+         alt="A team of nearly thirty in black and white outfits on riverfront steps, an arched bridge behind them"
+         width="1600" height="1066" />
+    <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">One portrait day: the full group photo, small groups, and an individual lifestyle headshot for every person.</p>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">The problem</span>
+      <h2>Team photos collected over years never match.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">Most company pages are a patchwork: some headshots from an old studio session, some self-taken, some cropped out of event photos. Different light, different color, different years. Visitors notice, even if they cannot say why.</p>
+    <p style="margin-top: 1.25rem;">The fix is not better editing. It is photographing everyone under the same conditions: one setup, one photographer, one color treatment, whether that happens in a single day or on a schedule as new people join.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Short sessions, real locations, finished files.</h2>
+    </div>
+    <ul class="facts">
+      <li><strong>On location, not a studio.</strong> Your office, a park, a rooftop, a walkway. Lifestyle backdrops read warmer than seamless paper</li>
+      <li><strong>A few minutes per person.</strong> The line keeps moving and nobody loses their morning</li>
+      <li><strong>Every image individually retouched</strong>, delivered in web and print sizes through a private gallery</li>
+      <li><strong>Group photos on the same day.</strong> The full team, departments, leadership, whatever the website needs</li>
+    </ul>
+  </div>
+  <div class="container" style="margin-top: 3rem;">
+    <div class="photo-strip-tall">
+      <img src="/images/corporate/headshot-stone-wall.jpg" alt="A lifestyle headshot of a woman in black beside a stone wall on a tree-lined walkway" loading="lazy" width="1066" height="1600" />
+      <img src="/images/corporate/headshot-sculpture-park.jpg" alt="A lifestyle headshot of a woman in front of a ribbon sculpture in a downtown park" loading="lazy" width="1066" height="1600" />
+      <img src="/images/corporate/headshot-trio-walkway.jpg" alt="Three teammates in black and white posed together on a shaded sidewalk" loading="lazy" width="1066" height="1600" />
+      <img src="/images/corporate/headshot-duo-walkway.jpg" alt="Two colleagues back to back on a sunny tree-lined walkway, her in black, him in a suit" loading="lazy" width="1066" height="1600" />
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">Lifestyle headshots from one team session. Same light, same color, consistent across everyone.</p>
+  </div>
+</section>
+
+<section style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">Keeping it current</span>
+      <h2>Recurring headshot days, so new hires match too.</h2>
+    </div>
+    <p style="font-size: 1.1rem;">A one-day shoot solves this year. People join, and the patchwork starts again. We run monthly headshot days for Coldwell Banker Southern Realty, rotating through their offices, so every agent gets an updated portrait without booking a studio and every new face matches the wall.</p>
+    <p style="margin-top: 1.25rem;">If your team changes often, that schedule is the difference between fixing the problem once and never having it again.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">What it costs</span>
+    <h2>Priced by headcount, quoted in one conversation.</h2>
+    <p style="font-size: 1.1rem; max-width: 560px; margin: 1.5rem auto 0;">Tell us how many people and where, and you get a real number, not a range. Photography can also ride along with a <a href="/business">video day</a>, which costs less than booking the two separately.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact" class="btn btn-primary">Get a number</a>
+    </div>
+  </div>
+</section>
+</Layout>
