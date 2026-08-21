@@ -12,6 +12,16 @@
       "permanent": true
     },
     {
+      "source": "/headshots",
+      "destination": "/business#photography",
+      "permanent": false
+    },
+    {
+      "source": "/headshots/",
+      "destination": "/business#photography",
+      "permanent": false
+    },
+    {
       "source": "/real-estate-drone-photography-video",
       "destination": "/real-estate-photography",
       "permanent": true
