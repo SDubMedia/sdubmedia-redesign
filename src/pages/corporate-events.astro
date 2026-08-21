@@ -15,6 +15,11 @@ import Video from '../components/Video.astro';
 // permanently: that is the client's asset and the speaker's material, not a
 // portfolio piece. Only the reel we produced is ours to show.
 //
+// mainstage-rig-ballroom.jpg (added 2026-08-20) is from a job SDub shot as a
+// SUBCONTRACTOR (hired by another producer). It must stay unattributable:
+// no event name, no client, no date, no duration, no attendance figures in
+// the caption or alt text, ever. Capability shot only.
+//
 // SCOPE HONESTY: single-room coverage only. Do not claim concurrent tracks or
 // breakout rooms. The offer is the main stage done properly.
 // ────────────────────────────────────────────────────────────────────
@@ -118,6 +123,12 @@ const jsonLd = {
       <li><strong>One on the room.</strong> Reactions, a full house, people leaning in. It is the difference between footage of a talk and footage of an event</li>
     </ul>
     <p style="margin-top: 1.5rem;">Audio comes off your board on all of it, so the speaker sounds the same on every angle.</p>
+    <div style="margin-top: 2.5rem;">
+      <img class="wedding-hero-img" src="/images/corporate-events/mainstage-rig-ballroom.jpg"
+           alt="A camera and monitor framing a speaker on a ballroom main stage, the audience seated beyond"
+           loading="lazy" width="1600" height="1200" />
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.75rem;">The tight angle at work on a Nashville main stage: its own monitor, audio off the board, the wide and the room camera rolling elsewhere.</p>
+    </div>
   </div>
 </section>
 
@@ -146,6 +157,22 @@ const jsonLd = {
       <img src="/images/corporate-events/materials-detail.jpg" alt="Printed event materials held at a table" loading="lazy" width="1600" height="1067" />
     </div>
     <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">Coldwell Banker Southern Realty and Coldwell Banker Global Luxury.</p>
+    {/* Second strip: not every corporate event is a conference. Same
+        venue/people/detail rhythm as the gala strip on /business. */}
+    <div class="wedding-strip" style="margin-top: 2.5rem;">
+      <img src="/images/corporate-events/outing-ballpark-wide.jpg" alt="A ballpark at golden hour seen from a private suite, a red umbrella overhead" loading="lazy" width="1600" height="1066" />
+      <img src="/images/corporate-events/outing-candid-laugh.jpg" alt="A guest in a Nashville jersey laughing during a company gathering at the ballpark" loading="lazy" width="1600" height="1066" />
+      <img src="/images/corporate-events/outing-spread-detail.jpg" alt="A guest plating hot chicken from baskets at a suite buffet" loading="lazy" width="1066" height="1600" />
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">Company outings count too. A brokerage's night at the ballpark, photographed the same evening we filmed the recap. Coldwell Banker Southern Realty at First Horizon Park.</p>
+    {/* Third strip: awards banquets. Same client family as the strips above
+        (several of the same faces as the team portrait day on /business). */}
+    <div class="wedding-strip" style="margin-top: 2.5rem;">
+      <img src="/images/corporate-events/awards-flower-wall.jpg" alt="A dozen colleagues posed in front of a blue and white flower wall at an awards event" loading="lazy" width="1600" height="1066" />
+      <img src="/images/corporate-events/awards-handshake.jpg" alt="A congratulatory handshake across a banquet table at an awards luncheon" loading="lazy" width="1600" height="1066" />
+      <img src="/images/corporate-events/awards-flowers.jpg" alt="A smiling honoree holding a bouquet of white flowers at an awards luncheon" loading="lazy" width="1600" height="1066" />
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; color: var(--muted);">And the awards lunch where the year gets celebrated: the backdrop, the congratulations, the flowers in hand.</p>
   </div>
 </section>
 
