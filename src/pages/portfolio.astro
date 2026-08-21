@@ -36,6 +36,10 @@ const items = [
   // the core offering. Credits CBSR, not the individual agent.
   { title: 'Coldwell Banker Southern Realty', category: 'Agent on camera', vimeo: '1214149996' },
   { title: 'Tutoring Rocks', category: 'Brand video', vimeo: '707958942' },
+  // CBSR appears twice on this page by Geoff's call (2026-08-20): the outing
+  // recap adds event coverage range the grid otherwise lacks. `video` keys
+  // are self-hosted R2 entries (src/data/videos.json), not Vimeo ids.
+  { title: 'Coldwell Banker Southern Realty', category: 'Company outing · 54 sec', video: 'cbsr-baseball' },
   { title: 'Webb School Summer Camp', category: 'Education', vimeo: '1214150712' },
   { title: 'Nolensville Dance Company', category: 'Studio promo', vimeo: '1192295930' },
   { title: 'Wedding sizzle reel', category: 'Wedding · 38 sec', vimeo: '1150766730' },
@@ -45,6 +49,7 @@ const items = [
   // the film's first frame, by Geoff's choice — keep it even though the
   // hash makes Vimeo's own thumbnail fetchable.
   { title: 'Color War', category: 'Event recap · 90 sec', vimeo: '1218335236/f814cbedc5', thumb: '/images/events/color-war.jpg' },
+  { title: 'Firefly Acres', category: 'Property film · 60 sec', video: 'firefly-acres' },
 ];
 ---
 <Layout title="Portfolio | SDub Media Nashville" description="Work from SDub Media: corporate video, recurring content, weddings, and events in Nashville.">
