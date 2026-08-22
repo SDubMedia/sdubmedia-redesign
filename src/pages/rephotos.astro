@@ -96,8 +96,12 @@ const photos = gallery.filter(g => g.file !== COVER);
   /* The grid: white ground, 4px gutters, order preserved left to right,
      no decoration on the tiles — the photos are the page. */
   .lb-grid-wrap { background: #fff; padding: 2.5rem 0.5rem 3rem; }
-  .lb-grid { columns: 3 300px; column-gap: 4px; max-width: 1400px; margin: 0 auto; }
-  .lb-item { display: block; width: 100%; padding: 0; margin: 0 0 4px; border: 0; background: none; cursor: zoom-in; break-inside: avoid; }
+  /* Row-major grid, NOT the lifestyle masonry columns: CSS columns flow
+     photos DOWN each column, which scrambles the reading order. A listing
+     set is a guided tour — front door to closet — so left-to-right order is
+     the point, and every frame here is the same 3:2, so rows sit flush. */
+  .lb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 4px; max-width: 1400px; margin: 0 auto; }
+  .lb-item { display: block; width: 100%; padding: 0; margin: 0; border: 0; background: none; cursor: zoom-in; }
   .lb-item img { display: block; width: 100%; height: auto; }
 
   .lb-close-cta { background: #fff; text-align: center; padding: 1rem 1.5rem 4.5rem; }
