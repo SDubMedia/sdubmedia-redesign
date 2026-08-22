@@ -215,3 +215,7 @@ served from the r2.dev public URL in `src/lib/video-manifest.mjs` (creds in
   MDN's reference mp4 stalls at readyState 0). Do not burn time "debugging"
   playback there: verify files with `ffmpeg -i <url> -f null -` and have Geoff
   tap the card in a real browser.
+- **Geoff edits thumbnails himself with `npm run posters`** (scripts/poster-picker.mjs,
+  http://localhost:4820): scrub to a frame → one button extracts, uploads a fresh
+  immutable poster key, updates videos.json, commits, pushes. Local-only on purpose —
+  it needs the R2 creds and the site keeps its no-admin-login rule.
