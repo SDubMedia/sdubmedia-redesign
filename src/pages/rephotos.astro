@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import gallery from '../data/rephotos-gallery.json';
+
+// HIDDEN pitch page (Geoff, 2026-08-22): send-the-link only. Not linked
+// from nav, footer, or any page; noindex + excluded from the sitemap +
+// X-Robots-Tag in vercel.json. Do NOT add links to it or remove noindex.
+//
+// Built to read like a Slate client gallery, same as /lifestyle and
+// /refilms: full-viewport cover with the Cormorant
+// title, one short intro paragraph, then every image from the collection in
+// a tight-gutter masonry on white, with a dark lightbox. Copy stays minimal
+// on purpose — this page is for LOOKING.
+//
+// Images: public/images/rephotos/ — the 5322 Bridgemore Blvd listing set
+// (56 frames pulled from the delivered Slate gallery, web-sized to 1800px).
+// Manifest src/data/rephotos-gallery.json (file, width, height, alt). The
+// cover image is excluded from the grid (no repeats on a page).
+
+const COVER = 'bridgemore-01.jpg';
+const photos = gallery.filter(g => g.file !== COVER);
+---
+<Layout
+  title="SDub Media Real Estate"
+  description="Real estate listing photography by SDub Media, Nashville."
+  noindex
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+<section class="lb-cover">
+  <img src={`/images/rephotos/${COVER}`} alt="Front exterior of a blue two-story home at 5322 Bridgemore Blvd" fetchpriority="high" />
+  <div class="lb-cover-overlay"></div>
+  <div class="lb-cover-text">
+    <h1>SDub Media</h1>
+    <p>Real estate photography · Nashville</p>
+  </div>
+</section>
+
+<section class="lb-intro">
+  <p>One full listing, exactly as it was delivered: 5322 Bridgemore Blvd in Murfreesboro, exterior to closet. Every room straight, bright, and true to color.</p>
+  <p class="lb-intro-line">One afternoon. Every face. Website and LinkedIn, covered for years.</p>
+</section>
+
+<section class="lb-grid-wrap">
+  <div class="lb-grid">
+    {photos.map((p, i) => (
+      <button class="lb-item" data-index={i} aria-label={`View photo ${i + 1}: ${p.alt}`}>
+        <img src={`/images/rephotos/${p.file}`} alt={p.alt} loading={i < 6 ? "eager" : "lazy"} width={p.width} height={p.height} />
+      </button>
+    ))}
+  </div>
+</section>
+
+<section class="lb-close-cta">
+  <p>Like what you see?</p>
+  <a href="/contact/" class="btn btn-primary">Start a conversation</a>
+</section>
+
+<style>
+  /* Cover: full viewport under the nav, centered serif title over a soft
+     top-to-bottom darkening, same as the Slate gallery "center" layout. */
+  .lb-cover { position: relative; height: calc(100svh - 72px); min-height: 420px; overflow: hidden; }
+  .lb-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .lb-cover-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%); }
+  /* Title sits in the lower third so it never covers faces in the group. */
+  .lb-cover-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; padding: 1rem 1rem 9svh; }
+  .lb-cover-text h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0,0,0,0.4);
+    max-width: 20ch;
+  }
+  .lb-cover-text p {
+    margin-top: 0.75rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+
+  .lb-intro { background: #fff; padding: 3.5rem 1.5rem 1rem; }
+  .lb-intro p { max-width: 620px; margin: 0 auto; text-align: center; color: #475569; font-size: 1.05rem; line-height: 1.7; }
+  .lb-intro-line {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.45rem !important;
+    color: #0f172a !important;
+    margin-top: 1.5rem !important;
+  }
+
+  /* The grid: white ground, 4px gutters, order preserved left to right,
+     no decoration on the tiles — the photos are the page. */
+  .lb-grid-wrap { background: #fff; padding: 2.5rem 0.5rem 3rem; }
+  .lb-grid { columns: 3 300px; column-gap: 4px; max-width: 1400px; margin: 0 auto; }
+  .lb-item { display: block; width: 100%; padding: 0; margin: 0 0 4px; border: 0; background: none; cursor: zoom-in; break-inside: avoid; }
+  .lb-item img { display: block; width: 100%; height: auto; }
+
+  .lb-close-cta { background: #fff; text-align: center; padding: 1rem 1.5rem 4.5rem; }
+  .lb-close-cta p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+  }
+</style>
+
+{/* Lightbox nodes are created at runtime; styles must be global (same
+    lesson as VideoGrid: scoped styles never match JS-created elements). */}
+<style is:global>
+  .lb-box { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; }
+  .lb-box[hidden] { display: none; }
+  .lb-box img { max-width: 100vw; max-height: 100vh; object-fit: contain; }
+  .lb-count { position: absolute; top: 1rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.8); font-size: 11px; letter-spacing: 0.1em; }
+  .lb-x { position: absolute; top: 0.5rem; right: 0.75rem; color: rgba(255,255,255,0.8); background: none; border: 0; font-size: 2rem; line-height: 1; padding: 0.5rem; cursor: pointer; }
+  .lb-x:hover { color: #fff; }
+  .lb-nav { position: absolute; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.6); background: none; border: 0; font-size: 2.5rem; padding: 1.5rem 1rem; cursor: pointer; }
+  .lb-nav:hover { color: #fff; }
+  .lb-prev { left: 0.5rem; }
+  .lb-next { right: 0.5rem; }
+</style>
+
+<script>
+  // Slate-gallery-style lightbox: click a tile to open, arrows/keys/swipe
+  // to move, Esc or × or backdrop to close.
+  (() => {
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.lb-item'));
+    const srcs = items.map(el => el.querySelector('img')?.getAttribute('src') || '');
+    let box: HTMLDivElement | null = null;
+    let img: HTMLImageElement | null = null;
+    let count: HTMLParagraphElement | null = null;
+    let prevBtn: HTMLButtonElement | null = null;
+    let nextBtn: HTMLButtonElement | null = null;
+    let current = 0;
+    let touchX: number | null = null;
+
+    function show(i: number) {
+      current = Math.max(0, Math.min(srcs.length - 1, i));
+      if (img) img.src = srcs[current];
+      if (count) count.textContent = `${current + 1} of ${srcs.length}`;
+      if (prevBtn) prevBtn.style.visibility = current > 0 ? 'visible' : 'hidden';
+      if (nextBtn) nextBtn.style.visibility = current < srcs.length - 1 ? 'visible' : 'hidden';
+    }
+
+    function close() {
+      if (!box) return;
+      box.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    function build() {
+      box = document.createElement('div');
+      box.className = 'lb-box';
+      box.hidden = true;
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-label', 'Photo viewer');
+
+      img = document.createElement('img');
+      img.alt = '';
+      box.appendChild(img);
+
+      count = document.createElement('p');
+      count.className = 'lb-count';
+      box.appendChild(count);
+
+      const x = document.createElement('button');
+      x.className = 'lb-x';
+      x.setAttribute('aria-label', 'Close');
+      x.innerHTML = '&times;';
+      x.addEventListener('click', close);
+      box.appendChild(x);
+
+      prevBtn = document.createElement('button');
+      prevBtn.className = 'lb-nav lb-prev';
+      prevBtn.setAttribute('aria-label', 'Previous');
+      prevBtn.textContent = '‹';
+      prevBtn.addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+      box.appendChild(prevBtn);
+
+      nextBtn = document.createElement('button');
+      nextBtn.className = 'lb-nav lb-next';
+      nextBtn.setAttribute('aria-label', 'Next');
+      nextBtn.textContent = '›';
+      nextBtn.addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+      box.appendChild(nextBtn);
+
+      box.addEventListener('click', e => { if (e.target === box || e.target === img) close(); });
+      box.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', e => {
+        if (touchX === null) return;
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 48) show(current + (dx < 0 ? 1 : -1));
+        touchX = null;
+      }, { passive: true });
+
+      document.body.appendChild(box);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (!box || box.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    items.forEach((el, i) => el.addEventListener('click', () => {
+      if (!box) build();
+      if (!box) return;
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+      show(i);
+    }));
+  })();
+</script>
+</Layout>
