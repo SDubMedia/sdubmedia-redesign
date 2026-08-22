@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Video from '../components/Video.astro';
+import { selfHosted } from '../lib/video-manifest.mjs';
+
+// HIDDEN pitch page, same rules as /lifestyle (Geoff, 2026-08-22): send-the-
+// link only. Not linked from nav, footer, or any page; noindex + excluded
+// from the sitemap (astro.config.mjs filter) + X-Robots-Tag in vercel.json.
+// Do NOT add links to it or remove noindex.
+//
+// Real-estate film samples, self-hosted on R2 via scripts/encode-upload.mjs
+// and the src/data/videos.json manifest — same pipeline as every other video
+// on the site. Copy stays minimal on purpose — this page is for WATCHING.
+
+const FILMS = [
+  { id: 'general-forrest-ct', title: '5332 General Forrest Ct · Nashville', line: 'Listing film' },
+  { id: 'firefly-acres', title: 'Firefly Acres', line: 'Property film' },
+];
+// Cover = the walkthrough's poster frame, straight from R2 (no local copy —
+// the repo is public and holds no client media).
+const cover = selfHosted('general-forrest-ct');
+---
+<Layout
+  title="SDub Media Real Estate Films"
+  description="Listing and property films by SDub Media, Nashville."
+  noindex
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+<section class="rf-cover">
+  {cover && <img src={cover.poster} alt="Exterior of a Nashville listing at dusk" fetchpriority="high" />}
+  <div class="rf-cover-overlay"></div>
+  <div class="rf-cover-text">
+    <h1>SDub Media</h1>
+    <p>Real estate films · Nashville</p>
+  </div>
+</section>
+
+<section class="rf-intro">
+  <p>Listing and property films, shot and edited in Nashville. Vertical, made for the places buyers actually scroll.</p>
+</section>
+
+<section class="rf-films">
+  {FILMS.map(f => (
+    <div class="rf-film">
+      <Video id={f.id} title={f.title} />
+      <p class="rf-film-caption">{f.title} <span>· {f.line}</span></p>
+    </div>
+  ))}
+</section>
+
+<section class="rf-close-cta">
+  <p>Like what you see?</p>
+  <a href="/contact/" class="btn btn-primary">Start a conversation</a>
+</section>
+
+<style>
+  /* Same Slate-gallery-style cover as /lifestyle. */
+  .rf-cover { position: relative; height: calc(100svh - 72px); min-height: 420px; overflow: hidden; background: #0f172a; }
+  .rf-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .rf-cover-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%); }
+  .rf-cover-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; padding: 1rem 1rem 9svh; }
+  .rf-cover-text h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    color: #fff;
+  }
+  .rf-cover-text p { color: rgba(255,255,255,0.85); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.8rem; margin-top: 0.75rem; }
+
+  .rf-intro { background: #fff; text-align: center; padding: 3.5rem 1.5rem 1rem; }
+  .rf-intro p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    color: #0f172a;
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  /* Portrait films center themselves at phone width (the Video component
+     handles the aspect + max-width); this just stacks and spaces them. */
+  .rf-films { background: #fff; padding: 2.5rem 1rem 1.5rem; display: flex; flex-direction: column; gap: 3rem; max-width: 60rem; margin: 0 auto; }
+  .rf-film-caption {
+    text-align: center;
+    margin-top: 0.9rem;
+    font-size: 0.95rem;
+    color: #0f172a;
+  }
+  .rf-film-caption span { color: #64748b; }
+
+  .rf-close-cta { background: #fff; text-align: center; padding: 2rem 1.5rem 4.5rem; }
+  .rf-close-cta p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6rem;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+  }
+</style>
+</Layout>
