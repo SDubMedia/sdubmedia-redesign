@@ -18,7 +18,9 @@ import { VIDEO_BASE } from '../lib/video-manifest.mjs';
 const FEATURE = { id: 'david-holloway', title: 'David Holloway', line: 'Agent-led home tour' };
 const FILMS = [
   { id: 'general-forrest-ct', title: '5332 General Forrest Ct · Nashville', line: 'Listing film' },
-  { id: 'general-forrest-ct-clip', title: '5332 General Forrest Ct', line: 'Social clip' },
+  // Social clip pulled for now (Geoff, 2026-08-22) — still on R2 and in the
+  // manifest; restore by re-adding:
+  // { id: 'general-forrest-ct-clip', title: '5332 General Forrest Ct', line: 'Social clip' },
   { id: 'firefly-acres', title: 'Firefly Acres', line: 'Property film' },
 ];
 // Cover = the walkthrough's exterior title-card frame, straight from R2 (no
@@ -99,7 +101,7 @@ const cover = { poster: `${VIDEO_BASE}/general-forrest-ct-p2.jpg` };
   .rf-films { background: #fff; padding: 2.5rem 1rem 1.5rem; max-width: 62rem; margin: 0 auto; }
   .rf-feature { max-width: 52rem; margin: 0 auto 3rem; }
   .rf-row { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
-  @media (min-width: 720px) { .rf-row { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; } }
+  @media (min-width: 720px) { .rf-row { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: start; max-width: 44rem; margin-inline: auto; } }
   .rf-row .rf-film { min-width: 0; }
   .rf-film-caption {
     text-align: center;
