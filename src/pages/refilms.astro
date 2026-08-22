@@ -12,10 +12,13 @@ import { selfHosted } from '../lib/video-manifest.mjs';
 // and the src/data/videos.json manifest — same pipeline as every other video
 // on the site. Copy stays minimal on purpose — this page is for WATCHING.
 
+// One wide film gets the feature slot; the vertical (phone-format) films sit
+// three-up beneath it so the page reads as two balanced rows instead of a
+// lopsided single column of mixed widths.
+const FEATURE = { id: 'david-holloway', title: 'David Holloway', line: 'Agent-led home tour' };
 const FILMS = [
   { id: 'general-forrest-ct', title: '5332 General Forrest Ct · Nashville', line: 'Listing film' },
   { id: 'general-forrest-ct-clip', title: '5332 General Forrest Ct', line: 'Social clip' },
-  { id: 'david-holloway', title: 'David Holloway', line: 'Brand film' },
   { id: 'firefly-acres', title: 'Firefly Acres', line: 'Property film' },
 ];
 // Cover = the walkthrough's poster frame, straight from R2 (no local copy —
@@ -32,7 +35,7 @@ const cover = selfHosted('general-forrest-ct');
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 
 <section class="rf-cover">
-  {cover && <img src={cover.poster} alt="Exterior of a Nashville listing at dusk" fetchpriority="high" />}
+  {cover && <img src={cover.poster} alt="Exterior of 5332 General Forrest Ct with its address title card" fetchpriority="high" />}
   <div class="rf-cover-overlay"></div>
   <div class="rf-cover-text">
     <h1>SDub Media</h1>
@@ -45,12 +48,18 @@ const cover = selfHosted('general-forrest-ct');
 </section>
 
 <section class="rf-films">
-  {FILMS.map(f => (
-    <div class="rf-film">
-      <Video id={f.id} title={f.title} />
-      <p class="rf-film-caption">{f.title} <span>· {f.line}</span></p>
-    </div>
-  ))}
+  <div class="rf-feature">
+    <Video id={FEATURE.id} title={FEATURE.title} />
+    <p class="rf-film-caption">{FEATURE.title} <span>· {FEATURE.line}</span></p>
+  </div>
+  <div class="rf-row">
+    {FILMS.map(f => (
+      <div class="rf-film">
+        <Video id={f.id} title={f.title} />
+        <p class="rf-film-caption">{f.title} <span>· {f.line}</span></p>
+      </div>
+    ))}
+  </div>
 </section>
 
 <section class="rf-close-cta">
@@ -83,9 +92,13 @@ const cover = selfHosted('general-forrest-ct');
     margin: 0 auto;
   }
 
-  /* Portrait films center themselves at phone width (the Video component
-     handles the aspect + max-width); this just stacks and spaces them. */
-  .rf-films { background: #fff; padding: 2.5rem 1rem 1.5rem; display: flex; flex-direction: column; gap: 3rem; max-width: 60rem; margin: 0 auto; }
+  /* One wide feature, then the vertical films three-up on desktop (stacked on
+     phones). The Video component centers each portrait player in its cell. */
+  .rf-films { background: #fff; padding: 2.5rem 1rem 1.5rem; max-width: 62rem; margin: 0 auto; }
+  .rf-feature { max-width: 52rem; margin: 0 auto 3rem; }
+  .rf-row { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+  @media (min-width: 720px) { .rf-row { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; } }
+  .rf-row .rf-film { min-width: 0; }
   .rf-film-caption {
     text-align: center;
     margin-top: 0.9rem;
