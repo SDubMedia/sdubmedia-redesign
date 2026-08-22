@@ -53,7 +53,7 @@
       ]
     },
     {
-      "source": "/real-estate-films(.*)",
+      "source": "/refilms(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",

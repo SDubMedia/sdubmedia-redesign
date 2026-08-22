@@ -25,5 +25,23 @@
     "uploadDate": "2026-08-22",
     "width": 608,
     "height": 1080
+  },
+  "david-holloway": {
+    "file": "david-holloway.mp4",
+    "poster": "david-holloway.jpg",
+    "title": "David Holloway",
+    "duration": 213,
+    "uploadDate": "2026-08-22",
+    "width": 1920,
+    "height": 1080
+  },
+  "general-forrest-ct-clip": {
+    "file": "general-forrest-ct-clip.mp4",
+    "poster": "general-forrest-ct-clip.jpg",
+    "title": "5332 General Forrest Ct — social clip",
+    "duration": 29,
+    "uploadDate": "2026-08-22",
+    "width": 608,
+    "height": 1080
   }
 }
