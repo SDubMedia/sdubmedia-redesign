@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "posters": "node scripts/poster-picker.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
