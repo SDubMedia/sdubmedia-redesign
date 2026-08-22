@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Video from '../components/Video.astro';
-import { selfHosted } from '../lib/video-manifest.mjs';
+import { VIDEO_BASE } from '../lib/video-manifest.mjs';
 
 // HIDDEN pitch page, same rules as /lifestyle (Geoff, 2026-08-22): send-the-
 // link only. Not linked from nav, footer, or any page; noindex + excluded
@@ -21,9 +21,11 @@ const FILMS = [
   { id: 'general-forrest-ct-clip', title: '5332 General Forrest Ct', line: 'Social clip' },
   { id: 'firefly-acres', title: 'Firefly Acres', line: 'Property film' },
 ];
-// Cover = the walkthrough's poster frame, straight from R2 (no local copy —
-// the repo is public and holds no client media).
-const cover = selfHosted('general-forrest-ct');
+// Cover = the walkthrough's exterior title-card frame, straight from R2 (no
+// local copy — the repo is public and holds no client media). Pinned to this
+// key on purpose: the video tiles use Geoff's chosen poster frames (p3), but
+// the sharp address-card exterior is the better full-viewport cover.
+const cover = { poster: `${VIDEO_BASE}/general-forrest-ct-p2.jpg` };
 ---
 <Layout
   title="SDub Media Real Estate Films"
