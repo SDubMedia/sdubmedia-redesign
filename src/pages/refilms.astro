@@ -23,11 +23,11 @@ const FILMS = [
   // { id: 'general-forrest-ct-clip', title: '5332 General Forrest Ct', line: 'Social clip' },
   { id: 'firefly-acres', title: 'Firefly Acres', line: 'Property film' },
 ];
-// Cover = the walkthrough's exterior title-card frame, straight from R2 (no
-// local copy — the repo is public and holds no client media). Pinned to this
-// key on purpose: the video tiles use Geoff's chosen poster frames (p3), but
-// the sharp address-card exterior is the better full-viewport cover.
-const cover = { poster: `${VIDEO_BASE}/general-forrest-ct-p2.jpg` };
+// Cover = a clean text-free exterior frame from the walkthrough, straight
+// from R2 (no local copy — the repo is public and holds no client media).
+// NOT the title-card frame: that one has the address burned into the
+// footage, and the page's own heading landed on top of it — text on text.
+const cover = { poster: `${VIDEO_BASE}/general-forrest-ct-cover.jpg` };
 ---
 <Layout
   title="SDub Media Real Estate Films"
@@ -39,7 +39,7 @@ const cover = { poster: `${VIDEO_BASE}/general-forrest-ct-p2.jpg` };
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
 
 <section class="rf-cover">
-  {cover && <img src={cover.poster} alt="Exterior of 5332 General Forrest Ct with its address title card" fetchpriority="high" />}
+  {cover && <img src={cover.poster} alt="Exterior of a Nashville home on a wooded hillside" fetchpriority="high" />}
   <div class="rf-cover-overlay"></div>
   <div class="rf-cover-text">
     <h1>SDub Media</h1>
