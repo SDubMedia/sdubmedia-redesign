@@ -53,10 +53,8 @@ const photos = gallery.filter(g => g.file !== COVER);
   </div>
 </section>
 
-<section class="lb-close-cta">
-  <p>Like what you see?</p>
-  <a href="/contact/" class="btn btn-primary">Start a conversation</a>
-</section>
+{/* No closing CTA on purpose (Geoff, 2026-08-22): this link goes to people
+    who already reached out — the work is the whole message. */}
 
 <style>
   /* Cover: full viewport under the nav, centered serif title over a soft
@@ -104,13 +102,8 @@ const photos = gallery.filter(g => g.file !== COVER);
   .lb-item { display: block; width: 100%; padding: 0; margin: 0; border: 0; background: none; cursor: zoom-in; }
   .lb-item img { display: block; width: 100%; height: auto; }
 
-  .lb-close-cta { background: #fff; text-align: center; padding: 1rem 1.5rem 4.5rem; }
-  .lb-close-cta p {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.6rem;
-    color: #0f172a;
-    margin-bottom: 1.5rem;
-  }
+  /* Grid needs bottom breathing room now that there's no closing section. */
+  .lb-grid-wrap { padding-bottom: 5rem; }
 </style>
 
 {/* Lightbox nodes are created at runtime; styles must be global (same
