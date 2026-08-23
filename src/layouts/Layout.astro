@@ -256,6 +256,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Five images total 1000px at 200px minimum, but the container only offers
        996px of content, so auto-fit wraps them 4+1. Force five even columns on
        desktop instead; below that, stack. Never leave an orphan on its own row. */
+    /* Portrait-friendly strip: taller cells + top-anchored crop so
+       full-length people shots keep their faces. */
+    .wedding-strip--tall img { height: 380px; object-position: top; }
     .wedding-strip--five { grid-template-columns: repeat(5, 1fr); }
     .wedding-strip--five img { height: 190px; }
     @media (max-width: 1023px) {
