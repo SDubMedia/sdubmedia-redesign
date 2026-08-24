@@ -32,13 +32,24 @@ Pages are Astro, in `src/pages/` (the root-level `*.html` files are dead pre-Ast
 - `contact.astro` — Contact (posts to `api/contact.js`, a Vercel function using Resend)
 - `blog/index.astro` + `blog/[slug].astro` — Blog index and post template
 
-## Mini sessions page (`/mini-sessions/`) reads its dates from Slate
+## Mini sessions page (`/mini/`) reads its dates from Slate
+
+**A hidden, send-the-link-only page**, same treatment as `/lifestyle`, `/refilms` and
+`/rephotos`: `noindex` prop, excluded from the sitemap filter in `astro.config.mjs`,
+`X-Robots-Tag` in `vercel.json`, and deliberately not linked from the nav or footer.
+All four must stay in sync. It carries no JSON-LD and no SEO copy on purpose, because
+structured data exists to be indexed and this page is not. Do not add schema back or
+"help" it by linking to it from the footer.
+
+robots.txt still allows crawling, and that is correct: a `Disallow` would stop Google
+from ever reading the noindex tag, which is exactly how hidden pages end up indexed as
+a bare URL.
 
 The session dates on that page are NOT in this repo. They are fetched in the browser
 from `slate.sdubmedia.com/api/mini-public?action=schedule&slug=sdub-media`, which is
 the only place Geoff actually publishes them. Hardcoding them here would mean a commit
 and a deploy every time a date sells out. Booking, agreements and payment all stay in
-Slate: this page is only the front door, so we keep the domain and the SEO.
+Slate: this page is only a short branded address to hand out.
 
 Three states, all real and all worth preserving: the list, a "no dates yet" prompt, and
 a fallback if Slate is unreachable. A visitor must never see an error on this page.

@@ -10,36 +10,31 @@ import Layout from '../layouts/Layout.astro';
 // out or a new date goes up, and would need a commit and a deploy to fix.
 //
 // The booking flow itself lives entirely in Slate: slot picking, the agreement,
-// the deposit and the per booking QR code. This page's only job is to be the
-// front door on our own domain, so we get the SEO and the branding while Slate
-// keeps owning the money and the schedule.
+// the deposit and the per booking QR code. This page's only job is to be a
+// short, branded address on our own domain that Geoff can hand out.
 //
 // If Slate is unreachable the list falls back to a contact prompt rather than
 // an error. A visitor should never see a broken page because an API was down.
+//
+// HIDDEN PAGE. Send-the-link-only, same treatment as /lifestyle, /refilms and
+// /rephotos: `noindex` below, excluded from the sitemap in astro.config.mjs,
+// X-Robots-Tag in vercel.json, and deliberately NOT linked from the nav or
+// footer. All four have to stay in sync or the page leaks into search.
+//
+// No JSON-LD and no SEO copy on purpose: structured data exists to be indexed,
+// and this page is not. Don't "improve" it by adding schema back.
+//
+// Note robots.txt still allows crawling, and that is correct. A Disallow rule
+// would stop Google reading the noindex tag at all, which is how hidden pages
+// end up indexed as a bare URL.
 
 const SCHEDULE_API = 'https://slate.sdubmedia.com/api/mini-public?action=schedule&slug=sdub-media';
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Photography Mini Sessions',
-  description: 'Short, pre scheduled portrait sessions on set dates. Pick a time, book online, and get an edited gallery.',
-  url: 'https://sdubmedia.com/mini-sessions/',
-  serviceType: 'Portrait Photography',
-  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
-  areaServed: [
-    { '@type': 'City', name: 'Nashville' },
-    { '@type': 'City', name: 'Nolensville' },
-    { '@type': 'City', name: 'Franklin' },
-    { '@type': 'City', name: 'Brentwood' },
-  ],
-};
 ---
 
 <Layout
   title="Mini sessions | SDub Media"
-  description="Short portrait sessions on set dates in the Nashville area. See the open times and book your spot online."
-  jsonLd={jsonLd}
+  description="Short portrait sessions on set dates. See the open times and book your spot."
+  noindex={true}
 >
 <section>
   <div class="container-narrow text-center">
