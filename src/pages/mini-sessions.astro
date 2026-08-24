@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// MINI SESSIONS
+//
+// The dates on this page are NOT written here. They are fetched at page load
+// from Slate (slate.sdubmedia.com), which is where Geoff actually creates and
+// publishes mini session events. That is deliberate: this site builds to static
+// HTML, so anything hardcoded here would go stale the moment a session sells
+// out or a new date goes up, and would need a commit and a deploy to fix.
+//
+// The booking flow itself lives entirely in Slate: slot picking, the agreement,
+// the deposit and the per booking QR code. This page's only job is to be the
+// front door on our own domain, so we get the SEO and the branding while Slate
+// keeps owning the money and the schedule.
+//
+// If Slate is unreachable the list falls back to a contact prompt rather than
+// an error. A visitor should never see a broken page because an API was down.
+
+const SCHEDULE_API = 'https://slate.sdubmedia.com/api/mini-public?action=schedule&slug=sdub-media';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Photography Mini Sessions',
+  description: 'Short, pre scheduled portrait sessions on set dates. Pick a time, book online, and get an edited gallery.',
+  url: 'https://sdubmedia.com/mini-sessions/',
+  serviceType: 'Portrait Photography',
+  provider: { '@type': 'LocalBusiness', '@id': 'https://sdubmedia.com/#business', name: 'SDub Media' },
+  areaServed: [
+    { '@type': 'City', name: 'Nashville' },
+    { '@type': 'City', name: 'Nolensville' },
+    { '@type': 'City', name: 'Franklin' },
+    { '@type': 'City', name: 'Brentwood' },
+  ],
+};
+---
+
+<Layout
+  title="Mini sessions | SDub Media"
+  description="Short portrait sessions on set dates in the Nashville area. See the open times and book your spot online."
+  jsonLd={jsonLd}
+>
+<section>
+  <div class="container-narrow text-center">
+    <span class="eyebrow">Mini Sessions</span>
+    <h1 style="text-wrap: balance;">A short session, a set date, and you are done in twenty minutes.</h1>
+    <p style="font-size: 1.1rem; margin-top: 1.5rem;">We block off one afternoon, set up in one spot, and photograph families back to back. You pick a time, we do the rest. It is the fastest way to get real photos of your people without planning a whole shoot around it.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="#dates" class="btn btn-primary">See open dates</a>
+    </div>
+  </div>
+</section>
+
+<section id="dates" style="background: var(--soft);">
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">Open dates</span>
+      <h2>Pick a date, then pick your time.</h2>
+    </div>
+
+    <div id="mini-list" aria-live="polite">
+      <p class="mini-status">Loading the current schedule...</p>
+    </div>
+
+    <p style="margin-top: 2rem; color: var(--muted); font-size: 0.9rem;">
+      Booking happens on Slate, our own scheduling system. You will pick your time, read the session terms and pay to hold the spot, all on one page.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container-narrow">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Twenty minutes, and the gallery lands a few days later.</h2>
+    </div>
+    <ul class="facts" style="margin-top: 2rem;">
+      <li><strong>Book a specific time</strong>, not a vague window. Sessions run back to back, so showing up on time matters more than it usually does</li>
+      <li><strong>Bring whoever is coming</strong>. Couples, a whole family, the kids on their own. It is the same session either way</li>
+      <li><strong>You get a private gallery</strong> with your edited images in it. Yours only, nobody else's session in there</li>
+      <li><strong>Extras are available</strong> if you want more than the included images, priced per photo so you are never buying a package to get one frame</li>
+    </ul>
+    <div style="margin-top: 2.5rem;">
+      <a href="/contact/" class="btn btn-primary">Ask about a date</a>
+    </div>
+  </div>
+</section>
+
+{/* is:global is required, not laziness: Astro scopes styles by stamping a
+    data attribute onto elements it renders, and these cards are built by the
+    script below at runtime, so they never receive it and scoped rules would
+    silently do nothing (they did, first try). Every selector is namespaced
+    under #mini-list so going global cannot touch anything else on the site. */}
+<style is:global>
+  #mini-list .mini-card {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 1rem;
+  }
+  #mini-list .mini-date {
+    flex: 0 0 auto;
+    width: 60px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+  #mini-list .mini-date .m { display: block; font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); }
+  #mini-list .mini-date .d { display: block; font-size: 1.5rem; font-weight: 700; line-height: 1.1; color: var(--text); }
+  #mini-list .mini-body { flex: 1 1 240px; min-width: 0; }
+  #mini-list .mini-body h3 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+  #mini-list .mini-meta { margin: 0; font-size: 0.9rem; color: var(--text-dim); }
+  #mini-list .mini-price { margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  #mini-list .mini-action { flex: 1 1 100%; }
+  #mini-list .mini-left { display: block; margin-top: 0.5rem; font-size: 0.8rem; color: var(--muted); }
+  #mini-list .mini-full {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  #mini-list .mini-status { color: var(--muted); }
+  @media (min-width: 600px) {
+    #mini-list .mini-action { flex: 0 0 auto; align-self: center; text-align: right; }
+  }
+</style>
+
+<script is:inline define:vars={{ SCHEDULE_API }}>
+  // Runs in the browser on purpose: the schedule has to be right at the moment
+  // somebody reads it, and this site is statically built. See the note at the
+  // top of this file.
+  (function () {
+    var list = document.getElementById('mini-list');
+    if (!list) return;
+
+    function money(cents) {
+      return '$' + (Math.round(cents) / 100).toFixed(2).replace(/\.00$/, '');
+    }
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function clockTime(hhmm) {
+      var parts = String(hhmm || '').split(':');
+      var h = parseInt(parts[0], 10);
+      if (isNaN(h)) return '';
+      var m = parts[1] || '00';
+      var suffix = h >= 12 ? 'PM' : 'AM';
+      var h12 = h % 12 === 0 ? 12 : h % 12;
+      return h12 + ':' + m + ' ' + suffix;
+    }
+
+    function todayLocal() {
+      var d = new Date();
+      return d.getFullYear() + '-' +
+        String(d.getMonth() + 1).padStart(2, '0') + '-' +
+        String(d.getDate()).padStart(2, '0');
+    }
+
+    function contactFallback(message) {
+      list.innerHTML =
+        '<p class="mini-status">' + esc(message) + '</p>' +
+        '<p style="margin-top:1rem;"><a href="/contact/" class="btn btn-primary">Get in touch</a></p>';
+    }
+
+    function render(data) {
+      var today = todayLocal();
+      var events = (data.events || []).filter(function (e) { return e.date >= today; });
+
+      if (events.length === 0) {
+        contactFallback('No dates are on the calendar right now. Tell us what you are after and we will let you know when the next ones go up.');
+        return;
+      }
+
+      list.innerHTML = events.map(function (ev) {
+        var d = new Date(ev.date + 'T00:00:00');
+        var month = d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+        var day = String(d.getDate());
+        var weekday = d.toLocaleDateString('en-US', { weekday: 'long' });
+        var bookable = ev.status === 'published' && ev.openCount > 0;
+
+        var price = money(ev.priceCents);
+        if (ev.paymentMode === 'deposit') {
+          price += ', ' + money(ev.dueNowCents) + ' to book';
+        }
+        if (ev.includedPhotos > 0) {
+          price += ' &middot; ' + ev.includedPhotos + ' edited image' + (ev.includedPhotos === 1 ? '' : 's') + ' included';
+        }
+
+        var action = bookable
+          ? '<a class="btn btn-primary" href="' + esc(ev.bookUrl) + '">Book a time</a>' +
+            '<span class="mini-left">' +
+              (ev.openCount <= 3
+                ? 'Only ' + ev.openCount + ' time' + (ev.openCount === 1 ? '' : 's') + ' left'
+                : ev.openCount + ' of ' + ev.totalSlots + ' times open') +
+            '</span>'
+          : '<span class="mini-full">' + (ev.status === 'closed' ? 'Booking closed' : 'Fully booked') + '</span>';
+
+        return '' +
+          '<div class="mini-card">' +
+            '<div class="mini-date"><span class="m">' + month + '</span><span class="d">' + day + '</span></div>' +
+            '<div class="mini-body">' +
+              '<h3>' + esc(ev.title) + '</h3>' +
+              '<p class="mini-meta">' + weekday + ' &middot; ' +
+                clockTime(ev.startTime) + ' to ' + clockTime(ev.endTime) + ' &middot; ' +
+                ev.slotMinutes + ' minute sessions' +
+                (ev.locationText ? ' &middot; ' + esc(ev.locationText) : '') +
+              '</p>' +
+              '<p class="mini-price">' + price + '</p>' +
+            '</div>' +
+            '<div class="mini-action">' + action + '</div>' +
+          '</div>';
+      }).join('');
+    }
+
+    fetch(SCHEDULE_API, { headers: { Accept: 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error('schedule unavailable');
+        return r.json();
+      })
+      .then(render)
+      .catch(function () {
+        // Never show a stack trace to somebody who just wants a photo session.
+        contactFallback('We could not load the schedule just now. Get in touch and we will send you the open times.');
+      });
+  })();
+</script>
+</Layout>

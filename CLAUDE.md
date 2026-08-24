@@ -32,6 +32,24 @@ Pages are Astro, in `src/pages/` (the root-level `*.html` files are dead pre-Ast
 - `contact.astro` — Contact (posts to `api/contact.js`, a Vercel function using Resend)
 - `blog/index.astro` + `blog/[slug].astro` — Blog index and post template
 
+## Mini sessions page (`/mini-sessions/`) reads its dates from Slate
+
+The session dates on that page are NOT in this repo. They are fetched in the browser
+from `slate.sdubmedia.com/api/mini-public?action=schedule&slug=sdub-media`, which is
+the only place Geoff actually publishes them. Hardcoding them here would mean a commit
+and a deploy every time a date sells out. Booking, agreements and payment all stay in
+Slate: this page is only the front door, so we keep the domain and the SEO.
+
+Three states, all real and all worth preserving: the list, a "no dates yet" prompt, and
+a fallback if Slate is unreachable. A visitor must never see an error on this page.
+
+**Astro scopes `<style>` by stamping a data attribute onto elements IT renders.** The
+cards here are built at runtime by the inline script, so they never get that attribute
+and scoped rules silently do nothing (this shipped broken on the first attempt: unstyled
+text, no card). Hence `is:global`, with every selector namespaced under `#mini-list` so
+it cannot reach the rest of the site. Any future runtime-rendered markup needs the same
+treatment.
+
 ## Password-gated client proposals (`/studio/:deck`)
 
 Private decks Geoff sends a client with a password. Added Aug 2026 for CBSR.
