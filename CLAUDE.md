@@ -1,5 +1,21 @@
 # SDub Media Website — Project Context
 
+## THE SITE IS LOCKED (2026-08-24)
+
+Geoff: "lock down the website because I like where it's at right now."
+
+**Do not change page copy, images, layout or structure unless he explicitly asks
+for that specific change.** Not a headline reword, not a swapped photo, not a
+reordered section, not a "while I'm here" tidy-up. He signed off on this state;
+an unrequested edit costs him the version he approved and he has to spot it to
+object.
+
+Still fine without asking: genuine bug fixes (broken link, horizontal overflow,
+a 404, a build failure) — those restore the intended state rather than change
+it. New blog posts are also fine; they're additive and never edit these pages.
+
+If a page really does look wrong, say so and wait rather than fixing it.
+
 ## What This Is
 Corporate marketing site for SDub Media (sdubmedia.com), a Nashville video production company.
 Also contains a Hermes-powered autonomous blog + SEO content engine.
