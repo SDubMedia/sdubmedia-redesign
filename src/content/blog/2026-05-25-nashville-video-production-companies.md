@@ -1,8 +1,8 @@
 ---
 title: 'Nashville Video Production Companies: An Honest Guide'
-description: 'An honest guide to Nashville video production companies: the types, what they cost, the questions to ask, and how to pick the right one for your business.'
+description: 'Comparing video production companies in Nashville? The honest breakdown of studio vs. freelancer vs. one-person shop, real cost ranges, and red flags to watch for.'
 pubDate: 2026-05-25
-updatedDate: 2026-08-17
+updatedDate: 2026-08-26
 keyword: 'nashville video production companies'
 image: '/images/corporate-events/session-room.jpg'
 cluster: 'video-production'

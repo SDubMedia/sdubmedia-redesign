@@ -1,8 +1,8 @@
 ---
 title: 'Nashville Corporate Video Production: What to Expect and What It Costs'
-description: 'A straight guide to Nashville corporate video production: what the process looks like, what it costs, and how to get video that actually works for your business.'
+description: 'The full picture of Nashville corporate video production: how a shoot day actually runs, realistic pricing, and what separates usable footage from wasted budget.'
 pubDate: 2026-05-24
-updatedDate: 2026-07-06
+updatedDate: 2026-08-26
 keyword: 'nashville corporate video production'
 image: '/images/corporate/bts-bar-shoot.jpg'
 cluster: 'corporate-video'

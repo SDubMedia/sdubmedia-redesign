@@ -1,7 +1,8 @@
 ---
 title: 'Nashville Music Video Production Companies: What They Actually Deliver'
-description: 'An honest look at Nashville music video production companies: what they do, what a video costs, how to pick the right one, and how to tell who fits your song.'
+description: 'Nashville music video production, demystified: what a video actually costs here, how it differs from a brand shoot, and how to find a director who fits your sound.'
 pubDate: 2026-06-15
+updatedDate: 2026-08-26
 keyword: 'nashville music video production companies'
 image: '/images/events/gala-room.jpg'
 cluster: 'video-production'

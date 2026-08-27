@@ -1,7 +1,8 @@
 ---
 title: 'Video Production Services in Nashville: The Complete Breakdown'
-description: 'A plain breakdown of video production services in Nashville: brand films, testimonials, events, headshots, podcasts, and recurring content, plus what each costs.'
+description: "Not sure what video production services even covers? A menu of what Nashville shops actually offer: brand films, testimonials, events, headshots, and what each runs."
 pubDate: 2026-05-25
+updatedDate: 2026-08-26
 keyword: 'video production services nashville'
 image: '/images/corporate/office-group.jpg'
 cluster: 'video-production'

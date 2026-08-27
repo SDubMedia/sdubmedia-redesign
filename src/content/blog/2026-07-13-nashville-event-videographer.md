@@ -1,8 +1,8 @@
 ---
 title: 'Nashville Event Videographer: What to Book and Why It Matters'
-description: 'What a Nashville event videographer actually does, what to book for galas, conferences and launches, what it costs, and how to get footage you can use long after the event.'
+description: 'Booking video for a Nashville conference, gala, or launch? What an event videographer covers, what it costs by event type, and why booking early matters.'
 pubDate: 2026-07-13
-updatedDate: 2026-07-30
+updatedDate: 2026-08-26
 keyword: 'nashville event videographer'
 image: '/images/weddings/wedding-party.jpg'
 cluster: 'videographer'

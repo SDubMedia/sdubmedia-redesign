@@ -1,8 +1,8 @@
 ---
 title: 'Nashville Videographer: How to Find and Hire the Right One'
-description: 'How to find and hire the right Nashville videographer: what they do, the types of work, what it costs, freelancer vs studio, and the questions to ask before you book.'
+description: 'Looking for a Nashville videographer for any kind of project? What different specialties actually cost, freelancer vs. studio, and the vetting questions to ask first.'
 pubDate: 2026-05-25
-updatedDate: 2026-07-13
+updatedDate: 2026-08-26
 keyword: 'videographer nashville'
 image: '/images/weddings/sunset-carry.jpg'
 cluster: 'videographer'
