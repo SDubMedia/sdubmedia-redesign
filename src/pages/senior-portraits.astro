@@ -18,7 +18,7 @@ import Layout from '../layouts/Layout.astro';
 // which is true, checks out against the photos, and does not fake a local
 // backdrop the way naming a Nashville park would.
 //
-// PRICING is real and confirmed by Geoff 2026-08-07: $750 per session, flat.
+// PRICING is real and confirmed by Geoff 2026-09-02: $700 per session, flat.
 // Published for the same reason the wedding prices are: a parent should be able
 // to rule us in or out without emailing first. Keep it accurate or remove it. A
 // stale price is worse than no price, and an invented one is worse than both.
@@ -44,14 +44,14 @@ const jsonLd = {
     '@type': 'OfferCatalog',
     name: 'Senior Portrait Photography',
     itemListElement: [
-      { '@type': 'Offer', name: 'Senior session', price: '750', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Senior session', price: '700', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
     ],
   },
 };
 ---
 <Layout
   title="Senior Portraits Nashville | SDub Media"
-  description="Senior portrait sessions in the Nashville area, $750 flat. Shot on location, not in a studio. Outfit changes, cap and gown, family frames, and the full-resolution gallery included."
+  description="Senior portrait sessions in the Nashville area, $700 flat. Shot on location, not in a studio. Outfit changes, cap and gown, family frames, and the full-resolution gallery included."
 
   jsonLd={jsonLd}
 >
@@ -125,7 +125,7 @@ const jsonLd = {
     <div style="margin-top: 2rem; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
       <div style="display: flex; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.25rem; background: rgba(255,255,255,0.03);">
         <span><strong>Senior session</strong><br><span style="font-size: 0.85rem; color: var(--muted);">Outfit changes, cap and gown, family frames, and the full-resolution gallery</span></span>
-        <span style="white-space: nowrap;"><strong>$750</strong></span>
+        <span style="white-space: nowrap;"><strong>$700</strong></span>
       </div>
     </div>
     <p style="margin-top: 1.5rem;">No package tiers, no per-file charges, no print minimum. Senior season fills up in a hurry, so the good dates go early.</p>
