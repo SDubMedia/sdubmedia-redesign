@@ -15,11 +15,14 @@ import gallery from '../data/family-gallery.json';
 // letter, never by client, EXIF stripped on save, no family named anywhere.
 //
 // Images: public/images/family/, manifest src/data/family-gallery.json
-// (file, width, height, alt). The cover is session-a-01 and is excluded
-// from the grid. Prices are the real published ones from /photography.
+// (file, width, height, alt, cover?, hidden?). The cover is excluded from
+// the grid. Prices are the real published ones from /photography.
 
-const COVER = 'session-a-01.jpg';
-const photos = gallery.filter(g => g.file !== COVER);
+// Order, cover and hidden flags are set by Geoff in the local organizer
+// (`npm run family`, scripts/gallery-order.mjs), which rewrites the manifest
+// and pushes. Don't hand-edit the order here.
+const COVER = gallery.find(g => g.cover)?.file ?? gallery[0].file;
+const photos = gallery.filter(g => g.file !== COVER && !g.hidden);
 ---
 <Layout
   title="SDub Media Family Portraits"
