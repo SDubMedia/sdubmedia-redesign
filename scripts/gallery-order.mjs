@@ -59,7 +59,11 @@ function page() {
     .tile img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
     .tile.cover { border-color: #fbbf24; }
     .tile.hidden img { opacity: .25; }
-    .tile.hidden::after { content: 'hidden'; position: absolute; inset: 0; display: grid; place-items: center; color: #f87171; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    /* The label sits over the whole tile; pointer-events off so the eye
+       underneath still gets the tap (it didn't, and a hidden photo couldn't
+       be unhidden — Geoff, 2026-09-09). */
+    .tile.hidden::after { content: 'hidden'; position: absolute; inset: 0; display: grid; place-items: center; color: #f87171; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; }
+    .tools { z-index: 2; }
     .tile.dragging { opacity: .4; }
     .tile.over { border-color: #0088ff; }
     .n { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,.7); color: #fbbf24; font-size: .75rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
