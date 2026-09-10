@@ -1,28 +1,34 @@
 [
  {
+  "file": "session-c-07.jpg",
+  "width": 1600,
+  "height": 1069,
+  "alt": "A family seated on a stone bench in the desert scrub"
+ },
+ {
   "file": "session-a-01.jpg",
   "width": 1600,
   "height": 1039,
-  "alt": "Four generations of one family lined up in a winter field at golden hour",
-  "cover": true
+  "alt": "Four generations of one family lined up in a winter field at golden hour"
  },
  {
-  "file": "session-a-02.jpg",
-  "width": 1256,
-  "height": 1600,
-  "alt": "Grandparents holding each other in a sunlit field"
- },
- {
-  "file": "session-a-03.jpg",
+  "file": "session-c-01.jpg",
   "width": 1069,
   "height": 1600,
-  "alt": "A dad tossing his toddler into the air above a field"
+  "alt": "A family of four on a wooden boardwalk among Joshua trees, dad carrying his son"
+ },
+ {
+  "file": "session-b-01.jpg",
+  "width": 1600,
+  "height": 1068,
+  "alt": "An extended family lined up along a country lane under yellow fall trees"
  },
  {
   "file": "session-a-04.jpg",
   "width": 1600,
   "height": 1071,
-  "alt": "A mom kissing her toddler's cheek in the evening light"
+  "alt": "A mom kissing her toddler's cheek in the evening light",
+  "cover": true
  },
  {
   "file": "session-a-05.jpg",
@@ -31,22 +37,28 @@
   "alt": "A young family of four on a park bench in a bare winter field"
  },
  {
-  "file": "session-a-06.jpg",
-  "width": 1068,
-  "height": 1600,
-  "alt": "A mom holding her toddler close, both looking at the camera"
- },
- {
-  "file": "session-a-07.jpg",
+  "file": "session-d-10.jpg",
   "width": 1600,
-  "height": 1068,
-  "alt": "Three generations of men, grandfather to grandson, in a field"
+  "height": 1069,
+  "alt": "A family of four in white shirts breaking into laughter"
  },
  {
   "file": "session-a-08.jpg",
   "width": 1600,
   "height": 1069,
   "alt": "A family of five with three little girls in dresses and a wide-brim hat"
+ },
+ {
+  "file": "session-d-04.jpg",
+  "width": 1600,
+  "height": 1068,
+  "alt": "A family of four on a boardwalk, dad holding his daughter"
+ },
+ {
+  "file": "session-a-07.jpg",
+  "width": 1600,
+  "height": 1068,
+  "alt": "Three generations of men, grandfather to grandson, in a field"
  },
  {
   "file": "session-a-09.jpg",
@@ -59,6 +71,12 @@
   "width": 1069,
   "height": 1600,
   "alt": "A couple laughing together, foreheads nearly touching"
+ },
+ {
+  "file": "session-b-06.jpg",
+  "width": 1600,
+  "height": 1068,
+  "alt": "Four men, three generations, on a fall lane"
  },
  {
   "file": "session-a-11.jpg",
@@ -85,12 +103,6 @@
   "alt": "Grandparents beside a lit Christmas tree at home"
  },
  {
-  "file": "session-b-01.jpg",
-  "width": 1600,
-  "height": 1068,
-  "alt": "An extended family lined up along a country lane under yellow fall trees"
- },
- {
   "file": "session-b-02.jpg",
   "width": 1600,
   "height": 1069,
@@ -109,16 +121,22 @@
   "alt": "A mom lifting her baby overhead against yellow leaves"
  },
  {
+  "file": "session-d-11.jpg",
+  "width": 1600,
+  "height": 1069,
+  "alt": "Two kids running down a desert boardwalk toward the camera"
+ },
+ {
   "file": "session-b-05.jpg",
   "width": 1068,
   "height": 1600,
   "alt": "Grandparents in red plaid and grey on an autumn road"
  },
  {
-  "file": "session-b-06.jpg",
-  "width": 1600,
-  "height": 1068,
-  "alt": "Four men, three generations, on a fall lane"
+  "file": "session-c-06.jpg",
+  "width": 1069,
+  "height": 1600,
+  "alt": "A family of four posed on the boardwalk, dad holding his son on his shoulder"
  },
  {
   "file": "session-b-07.jpg",
@@ -137,6 +155,12 @@
   "width": 1069,
   "height": 1600,
   "alt": "A couple nose to nose on a leaf-lined lane"
+ },
+ {
+  "file": "session-d-01.jpg",
+  "width": 1069,
+  "height": 1600,
+  "alt": "Grandparents with two grandkids on a desert boardwalk in white and denim"
  },
  {
   "file": "session-b-10.jpg",
@@ -169,10 +193,10 @@
   "alt": "A mom and her grown daughter holding hands in the trees"
  },
  {
-  "file": "session-c-01.jpg",
+  "file": "session-a-03.jpg",
   "width": 1069,
   "height": 1600,
-  "alt": "A family of four on a wooden boardwalk among Joshua trees, dad carrying his son"
+  "alt": "A dad tossing his toddler into the air above a field"
  },
  {
   "file": "session-c-02.jpg",
@@ -199,18 +223,6 @@
   "alt": "A family walking hand in hand away down a desert boardwalk"
  },
  {
-  "file": "session-c-06.jpg",
-  "width": 1069,
-  "height": 1600,
-  "alt": "A family of four posed on the boardwalk, dad holding his son on his shoulder"
- },
- {
-  "file": "session-c-07.jpg",
-  "width": 1600,
-  "height": 1069,
-  "alt": "A family seated on a stone bench in the desert scrub"
- },
- {
   "file": "session-c-08.jpg",
   "width": 1600,
   "height": 1069,
@@ -235,12 +247,6 @@
   "alt": "A couple on a desert path, the mom in a tulle dress"
  },
  {
-  "file": "session-d-01.jpg",
-  "width": 1069,
-  "height": 1600,
-  "alt": "Grandparents with two grandkids on a desert boardwalk in white and denim"
- },
- {
   "file": "session-d-02.jpg",
   "width": 1600,
   "height": 1069,
@@ -251,12 +257,6 @@
   "width": 1600,
   "height": 1069,
   "alt": "A grandmother and her daughter laughing in the desert"
- },
- {
-  "file": "session-d-04.jpg",
-  "width": 1600,
-  "height": 1068,
-  "alt": "A family of four on a boardwalk, dad holding his daughter"
  },
  {
   "file": "session-d-05.jpg",
@@ -289,15 +289,16 @@
   "alt": "A dad with his son on his lap, arms crossed and grinning"
  },
  {
-  "file": "session-d-10.jpg",
-  "width": 1600,
-  "height": 1069,
-  "alt": "A family of four in white shirts breaking into laughter"
+  "file": "session-a-02.jpg",
+  "width": 1256,
+  "height": 1600,
+  "alt": "Grandparents holding each other in a sunlit field"
  },
  {
-  "file": "session-d-11.jpg",
-  "width": 1600,
-  "height": 1069,
-  "alt": "Two kids running down a desert boardwalk toward the camera"
+  "file": "session-a-06.jpg",
+  "width": 1068,
+  "height": 1600,
+  "alt": "A mom holding her toddler close, both looking at the camera",
+  "hidden": true
  }
 ]
