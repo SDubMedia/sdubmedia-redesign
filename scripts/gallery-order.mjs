@@ -4,14 +4,17 @@
 // http://localhost:4821, drag the photos into the order you want, star one
 // as the cover, hide any you don't want on the page, press Save. The server
 // rewrites src/data/<gallery>-gallery.json in that order, commits and
-// pushes, which redeploys the site. Nothing is deleted: a hidden photo stays
-// in the manifest and the folder, it just isn't rendered.
+// pushes, which redeploys the site. Hide keeps a photo in the manifest and
+// the folder, it just isn't rendered. Delete (trash, then confirm on the
+// tile) removes it from the manifest AND deletes the file from
+// public/images/<gallery>/ on Save. The full-size originals live in
+// ~/sdubmedia-assets, so nothing is lost for good.
 //
 // Local-only on purpose, same as poster-picker: the site has no admin login
 // by design (decided 2026-07-28).
 
 import { createServer } from 'http';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'fs';
 import { execFileSync } from 'child_process';
 import { join, dirname, extname } from 'path';
 import { fileURLToPath } from 'url';
@@ -35,8 +38,10 @@ function page() {
         <button class="mv" data-dir="-1" title="Move earlier">&#8592;</button>
         <button class="star" title="Use as cover">&#9733;</button>
         <button class="eye" title="Show / hide on the page">&#128065;</button>
+        <button class="trash" title="Delete this photo">&#128465;</button>
         <button class="mv" data-dir="1" title="Move later">&#8594;</button>
       </div>
+      <div class="confirm"><span>Delete this photo?</span><button class="yes">Delete</button><button class="no">Keep</button></div>
     </li>`).join('');
 
   return `<!doctype html><html><head><meta charset="utf-8"><title>Order: ${gallery}</title>
@@ -62,6 +67,12 @@ function page() {
     .tools button { background: rgba(255,255,255,.15); color: #fff; border: 0; border-radius: 6px; width: 30px; height: 30px; cursor: pointer; font-size: .95rem; }
     .tools button:hover { background: rgba(255,255,255,.35); }
     .tile.cover .star { background: #fbbf24; color: #000; }
+    .confirm { display: none; position: absolute; inset: 0; background: rgba(15,23,42,.92); flex-direction: column; align-items: center; justify-content: center; gap: .6rem; font-size: .9rem; }
+    .tile.asking .confirm { display: flex; }
+    .confirm button { border: 0; border-radius: 6px; padding: .4rem .9rem; cursor: pointer; font-size: .85rem; }
+    .confirm .yes { background: #ef4444; color: #fff; }
+    .confirm .no { background: rgba(255,255,255,.2); color: #fff; }
+    .tile.deleted { display: none; }
   </style></head><body>
   <header>
     <h1>${gallery} page order &middot; ${items.length} photos</h1>
@@ -74,6 +85,7 @@ function page() {
     const grid = document.getElementById('grid');
     const status = document.getElementById('status');
     let dirty = false;
+    const deleted = [];
     const mark = () => { dirty = true; renumber(); status.textContent = 'Unsaved changes'; };
     function renumber() { [...grid.children].forEach((t, i) => t.querySelector('.n').textContent = i + 1); }
 
@@ -107,6 +119,13 @@ function page() {
       } else if (b.classList.contains('eye')) {
         if (t.classList.contains('cover')) return;
         t.classList.toggle('hidden');
+      } else if (b.classList.contains('trash')) {
+        if (t.classList.contains('cover')) { status.textContent = 'Pick a different cover first, then delete this one.'; return; }
+        t.classList.add('asking'); return;
+      } else if (b.classList.contains('no')) {
+        t.classList.remove('asking'); return;
+      } else if (b.classList.contains('yes')) {
+        t.classList.remove('asking'); t.classList.add('deleted'); deleted.push(t.dataset.file); t.remove();
       }
       mark();
     });
@@ -115,10 +134,12 @@ function page() {
       const btn = document.getElementById('save'); btn.disabled = true; status.textContent = 'Saving and publishing…';
       const order = [...grid.children].map(t => ({ file: t.dataset.file, cover: t.classList.contains('cover'), hidden: t.classList.contains('hidden') }));
       try {
-        const r = await fetch('/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ order }) });
+        const r = await fetch('/save', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ order, deleted }) });
         const j = await r.json();
         if (!r.ok) throw new Error(j.error || 'failed');
-        dirty = false; status.textContent = 'Saved and pushed. Live in about a minute.';
+        dirty = false; deleted.length = 0;
+        document.querySelector('h1').textContent = document.querySelector('h1').textContent.replace(/\d+ photos/, grid.children.length + ' photos');
+        status.textContent = 'Saved and pushed. Live in about a minute.';
       } catch (err) { status.textContent = 'Error: ' + err.message; }
       btn.disabled = false;
     };
@@ -126,13 +147,22 @@ function page() {
   </script></body></html>`;
 }
 
-function save(order) {
+function save(order, deleted = []) {
   const items = JSON.parse(readFileSync(MANIFEST, 'utf8'));
   const byFile = new Map(items.map(p => [p.file, p]));
+  // Deleted photos leave the manifest and the folder. Only names that are
+  // actually in the manifest, so a stray request can't reach other files.
+  const removed = [];
+  for (const f of deleted) {
+    if (!byFile.has(f)) continue;
+    byFile.delete(f);
+    const path = join(IMG_DIR, f);
+    if (existsSync(path)) { unlinkSync(path); removed.push(`public/images/${gallery}/${f}`); }
+  }
   const next = [];
   for (const o of order) {
     const p = byFile.get(o.file);
-    if (!p) throw new Error(`Unknown file ${o.file}`);
+    if (!p) { if (deleted.includes(o.file)) continue; throw new Error(`Unknown file ${o.file}`); }
     const out = { file: p.file, width: p.width, height: p.height, alt: p.alt };
     if (o.cover) out.cover = true;
     if (o.hidden && !o.cover) out.hidden = true;
@@ -141,11 +171,13 @@ function save(order) {
   }
   // Anything the page didn't know about (added since it loaded) keeps its place at the end.
   for (const p of byFile.values()) next.push(p);
+  if (next.length === 0) throw new Error('The page needs at least one photo');
   if (!next.some(p => p.cover)) next[0].cover = true;
   writeFileSync(MANIFEST, JSON.stringify(next, null, 1) + '\n');
   const rel = `src/data/${gallery}-gallery.json`;
-  execFileSync('git', ['add', rel], { cwd: root });
-  execFileSync('git', ['commit', '-q', '-m', `chore(${gallery}): photo order set (gallery organizer)`], { cwd: root });
+  execFileSync('git', ['add', '-A', rel, ...removed], { cwd: root });
+  const what = removed.length ? `photo order set, ${removed.length} deleted` : 'photo order set';
+  execFileSync('git', ['commit', '-q', '-m', `chore(${gallery}): ${what} (gallery organizer)`], { cwd: root });
   execFileSync('git', ['push', 'origin', 'main'], { cwd: root });
 }
 
@@ -168,7 +200,8 @@ createServer((req, res) => {
     req.on('data', c => { body += c; });
     req.on('end', () => {
       try {
-        save(JSON.parse(body || '{}').order || []);
+        const { order = [], deleted = [] } = JSON.parse(body || '{}');
+        save(order, deleted);
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ ok: true }));
       } catch (e) {
